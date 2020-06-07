@@ -1,8 +1,8 @@
-# https://github.com/erlang/rebar3/archive/3.13.1.zip
+# https://github.com/erlang/rebar3/archive/3.13.2.zip
 
 COMMENT = 	Erlang build tool
 
-V=		3.13.1
+V=		3.13.2
 PKGNAME=	rebar3-${V}
 DISTNAME= 	${V}
 CATEGORIES=	devel
