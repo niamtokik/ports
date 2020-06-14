@@ -13,19 +13,30 @@ MAINTAINER =		Mathieu Kerjouan <niamkik@protonmail.com>
 
 PERMIT_PACKAGE =	Yes
 
-BUILD_DEPENDS =		devel/bison lang/gcc/8
+BUILD_DEPENDS =		devel/bison
+
+FLAVORS=		minimal erlang
+FLAVORS?= 
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =
-CONFIGURE_ENV =		CC=egcc
-MAKE_ENV =		${CONFIGURE_ENV}
+CONFIGURE_ARGS =	--enable-sanitizers 
+CONFIGURE_ENV =		CC=cc CPP=cpp
+MAKE_ENV =		PARALLEL=-j2
 USE_GMAKE =		Yes
 YACC =			bison
 
 EXTRACT_SUFX =		.tar.gz
 WRKDIST =		${WRKDIR}/${DISTNAME}
 
-
 MASTER_SITES =		http://dl.mercurylang.org/release/
 
 .include <bsd.port.mk>
+
+.if ${FLAVOR:Mminimal}
+CONFIGURE_ARGS += 	--enable-minimal-install
+.endif
+
+.if ${FLAVOR:Merlang}
+CONFIGURE_ARGS += 	--enable-erlang-grade
+BUILD_DEPENDS +=	lang/erlang/21
+.endif
