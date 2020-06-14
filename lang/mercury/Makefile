@@ -32,11 +32,15 @@ MASTER_SITES =		http://dl.mercurylang.org/release/
 
 .include <bsd.port.mk>
 
+CONFLICT_MARKER =	mercury-*-erlang mercury-*-minimal
+
 .if ${FLAVOR:Mminimal}
 CONFIGURE_ARGS += 	--enable-minimal-install
+CONFLICT_MARKER =	mercury-* mercury-*-minimal
 .endif
 
 .if ${FLAVOR:Merlang}
 CONFIGURE_ARGS += 	--enable-erlang-grade
 BUILD_DEPENDS +=	lang/erlang/21
+CONFLICT_MARKER =	mercury-* mercury-*-minimal
 .endif
