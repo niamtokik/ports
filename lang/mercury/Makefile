@@ -30,9 +30,12 @@ WRKDIST =		${WRKDIR}/${DISTNAME}
 
 MASTER_SITES =		http://dl.mercurylang.org/release/
 
-.include <bsd.port.mk>
-
 CONFLICT_MARKER =	mercury-*-erlang mercury-*-minimal
+
+do-test:
+	cd ${WRKBUILD}/tests && mmake
+
+.include <bsd.port.mk>
 
 .if ${FLAVOR:Mminimal}
 CONFIGURE_ARGS += 	--enable-minimal-install
@@ -44,3 +47,4 @@ CONFIGURE_ARGS += 	--enable-erlang-grade
 BUILD_DEPENDS +=	lang/erlang/21
 CONFLICT_MARKER =	mercury-* mercury-*-minimal
 .endif
+
