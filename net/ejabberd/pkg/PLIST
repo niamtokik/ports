@@ -1,4 +1,7 @@
 @comment $OpenBSD: PLIST,v$
+etc/
+etc/ejabberd/
+etc/ejabberd/ejabberd.yml
 lib/ejabberd/
 lib/ejabberd/base64url-0.0.1/
 lib/ejabberd/base64url-0.0.1/LICENSE.txt

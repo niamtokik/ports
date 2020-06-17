@@ -53,11 +53,13 @@ CONFIGURE_ENV=	CPPFLAGS=$(_CPPFLAGS) \
 		CFLAGS=$(_CFLAGS) \
 		HOME=${WRKDIST}
 
+do-test:
+	make test
+
 post-install:
 	chmod +x ${PREFIX}/sbin/ejabberdctl
-	mkdir -p ${PREFIX}/etc/ejabberd/
-	touch ${PREFIX}/etc/ejabberd/ejabberd.yml
-	mkdir -p ${PREFIX}/lib/ejabberd
+	${INSTALL_DATA} ejabberd.yml.example ${PREFIX}/etc/ejabberd/
+	mkdir -p ${PREFIX}/var/ejabberd
 
 .include <bsd.port.mk>
 
