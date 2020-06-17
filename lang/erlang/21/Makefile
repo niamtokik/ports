@@ -5,7 +5,7 @@ BROKEN-alpha=	beam/erl_process.c:6692: internal compiler error: in final_scan_in
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		21.2
+V=		21.3
 MAJ_V=		21
 EPOCH=		0
 DISTNAME=	otp_src_$V
@@ -13,8 +13,8 @@ PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V
 PKGNAME-wx=	erlang-wx-$V
 
-REVISION-main=	3
-REVISION-wx=	3
+REVISION-main=	4
+REVISION-wx=	4
 
 VERSION_SPEC=	>=21v0,<22v0
 PKGSPEC-main=	erlang-${VERSION_SPEC}
@@ -49,46 +49,46 @@ AUTOCONF_VERSION =2.69
 # Use the target 'gen-versions' to update this list
 ERL_VERSIONS=	\
 ASN1_VSN        5.0.8 \
-COMMON_TEST_VSN 1.16.1 \
-COMPILER_VSN    7.3 \
-CRYPTO_VSN      4.4 \
+COMMON_TEST_VSN 1.17 \
+COMPILER_VSN    7.3.2 \
+CRYPTO_VSN      4.4.1 \
 DEBUGGER_VSN    4.2.6 \
-DIALYZER_VSN    3.3.1 \
-DIAMETER_VSN    2.1.6 \
-EDOC_VSN        0.9.4 \
-EI_VSN  3.10.4 \
+DIALYZER_VSN    3.3.2 \
+DIAMETER_VSN    2.2 \
+EDOC_VSN        0.10 \
+EI_VSN  3.11 \
 ELDAP_VSN       1.2.6 \
 EMACS_VSN       2.7.0 \
-ERL_DOCGEN_VSN  0.8.1 \
-ERL_INTERFACE_VSN       3.10.4 \
+ERL_DOCGEN_VSN  0.9 \
+ERL_INTERFACE_VSN 3.11 \
 ET_VSN  1.6.4 \
 EUNIT_VSN       2.3.7 \
-FTP_VSN 1.0.1 \
-HIPE_VSN        3.18.2 \
-INETS_VSN       7.0.3 \
+FTP_VSN 1.0.2 \
+HIPE_VSN        3.18.3 \
+INETS_VSN       7.0.6 \
 JINTERFACE_VSN  1.9.1 \
-KERNEL_VSN      6.2 \
+KERNEL_VSN      6.3 \
 MEGACO_VSN      3.18.4 \
-MNESIA_VSN      4.15.5 \
-OBSERVER_VSN    2.8.2 \
-ODBC_VSN        2.12.2 \
+MNESIA_VSN      4.15.6 \
+OBSERVER_VSN    2.9 \
+ODBC_VSN        2.12.3 \
 OS_MON_VSN      2.4.7 \
 OTP_MIBS_VSN    1.2.1 \
 PARSETOOLS_VSN  2.1.8 \
-PUBLIC_KEY_VSN  1.6.4 \
+PUBLIC_KEY_VSN  1.6.5 \
 RELTOOL_VSN     0.7.8 \
-RUNTIME_TOOLS_VSN       1.13.1 \
+RUNTIME_TOOLS_VSN       1.13.2 \
 SASL_VSN        3.3 \
 SNMP_VSN        5.2.12 \
-SSH_VSN 4.7.2 \
-SSL_VSN 9.1 \
-STDLIB_VSN      3.7 \
-SYNTAX_TOOLS_VSN        2.1.6 \
+SSH_VSN 4.7.4 \
+SSL_VSN 9.2 \
+STDLIB_VSN      3.8 \
+SYNTAX_TOOLS_VSN        2.1.7 \
 TFTP_VSN        1.0.1 \
-TOOLS_VSN       3.0.2 \
-WX_VSN  1.8.6 \
-XMERL_VSN       1.3.18 \
-ERTS_VSN        10.2
+TOOLS_VSN       3.1 \
+WX_VSN  1.8.7 \
+XMERL_VSN       1.3.19 \
+ERTS_VSN        10.3
 SYSTEM_VSN=	${V:R}
 
 .include <bsd.port.mk>
