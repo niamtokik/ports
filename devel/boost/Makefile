@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.95 2020/03/31 04:37:47 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.97 2020/06/08 18:43:24 kn Exp $
 
 ONLY_FOR_ARCHS-md = aarch64 amd64 arm i386 powerpc
 

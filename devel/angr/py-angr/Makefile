@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.8 2020/02/15 18:36:18 kn Exp $
+# $OpenBSD: Makefile,v 1.10 2020/06/15 08:49:02 kn Exp $
 
 COMMENT =	multi-architecture binary analysis toolkit
 
@@ -13,7 +13,7 @@ COMPILER =	base-clang ports-gcc
 
 # XXX: py-unicorn ships unicorn.so, but angr links against .1 - why?!
 # Missing lib: libunicorn.so.1 (/usr/local/lib/python3.7/site-packages/angr/lib/angr_native.so) (NOT REACHABLE)
-LIB_DEPENDS =	devel/py-unicorn${MODPY_FLAVOR}
+LIB_DEPENDS =	devel/py-unicorn${MODPY_FLAVOR}>=1.0.2rc2
 
 BUILD_DEPENDS =	devel/angr/py-pyvex>=${MODPY_EGG_VERSION} \
 		devel/py-bitstring${MODPY_FLAVOR} \
@@ -37,13 +37,13 @@ RUN_DEPENDS =	devel/angr/py-ailment>=${MODPY_EGG_VERSION} \
 		devel/py-progressbar${MODPY_FLAVOR} \
 		devel/py-protobuf${MODPY_FLAVOR}>=3.9.1 \
 		devel/py-sortedcontainers${MODPY_FLAVOR} \
-		math/py-networkx \
+		math/py-networkx${MODPY_FLAVOR} \
 		net/py-dpkt${MODPY_FLAVOR} \
 		sysutils/py-psutil${MODPY_FLAVOR}
 
 USE_GMAKE =	Yes
 
-MAKE_ENV +=	C++C=${CXX}
+MAKE_ENV =	CXX=${CXX}
 
 CFLAGS +=	-I${LOCALBASE}/include/angr-vex/
 

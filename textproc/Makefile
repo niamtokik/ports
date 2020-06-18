@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.634 2020/05/31 20:35:52 juanfra Exp $
+# $OpenBSD: Makefile,v 1.637 2020/06/12 10:04:13 landry Exp $
 
      SUBDIR =
      SUBDIR += TclXML
@@ -26,6 +26,7 @@
      SUBDIR += cloc
      SUBDIR += clucene
      SUBDIR += cmark
+     SUBDIR += codesearch
      SUBDIR += codespell
      SUBDIR += crossfire
      SUBDIR += dblatex
@@ -483,6 +484,7 @@
      SUBDIR += py-webencodings
      SUBDIR += py-webencodings,python3
      SUBDIR += py-xlrd,python3
+     SUBDIR += py-xlwt,python3
      SUBDIR += py-xml
      SUBDIR += py-xmldiff
      SUBDIR += py-xmltodict
@@ -490,7 +492,6 @@
      SUBDIR += py-yaml
      SUBDIR += py-yaml,python3
      SUBDIR += raptor
-     SUBDIR += rarian
      SUBDIR += rasqal
      SUBDIR += redland
      SUBDIR += redland-bindings

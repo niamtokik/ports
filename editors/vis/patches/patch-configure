@@ -1,4 +1,6 @@
-$OpenBSD: patch-configure,v 1.2 2018/03/31 11:06:39 kn Exp $
+$OpenBSD: patch-configure,v 1.4 2020/06/11 16:56:34 kn Exp $
+
+Removed hardcoded optimizations.
 
 Index: configure
 --- configure.orig
@@ -7,7 +9,7 @@ Index: configure
  tryflag CFLAGS -pipe
  
  # Try flags to optimize binary size
--tryflag CFLAGS -Os
+-tryflag CFLAGS -O2
  tryflag CFLAGS -ffunction-sections
  tryflag CFLAGS -fdata-sections
  tryldflag LDFLAGS_AUTO -Wl,--gc-sections

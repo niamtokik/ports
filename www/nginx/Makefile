@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.142 2020/02/12 14:34:05 sthen Exp $
+# $OpenBSD: Makefile,v 1.144 2020/06/09 07:14:46 jasper Exp $
 
 BROKEN-hppa=	src/core/ngx_rwlock.c:116:2: error: \#error ngx_atomic_cmp_set() is not defined!
 
@@ -16,12 +16,10 @@ COMMENT-perl=		nginx perl scripting module
 COMMENT-passenger=	nginx passenger (ruby/python/nodejs) integration module
 COMMENT-rtmp=		nginx module for RTMP streaming
 
-VERSION=	1.16.1
+VERSION=	1.18.0
 DISTNAME=	nginx-${VERSION}
 CATEGORIES=	www
 
-REVISION=	1
-REVISION-rtmp=	2
 VERSION-rtmp=	1.2.1
 
 PKGNAME-main=		${DISTNAME}
@@ -37,6 +35,7 @@ PKGNAME-headers_more=	nginx-headers-more-${VERSION}
 PKGNAME-perl=		nginx-perl-${VERSION}
 PKGNAME-passenger=	nginx-passenger-${VERSION}
 PKGNAME-rtmp=		nginx-rtmp-${VERSION}
+REVISION-xslt=		0
 
 ONLY_FOR_ARCHS-passenger= aarch64 amd64 arm i386
 
@@ -50,7 +49,7 @@ _GH_MODS=	\
 	openresty	headers-more-nginx-module	v0.33 \
 	openresty	lua-nginx-module		v0.10.11 \
 	nbs-system	naxsi				0.55.3 \
-	kvspb		nginx-auth-ldap			42d195d7a7575ebab1c369ad3fc5d78dc2c2669c \
+	kvspb		nginx-auth-ldap			83c059b73566c2ee9cbda920d91b66657cf120b7 \
 	arut		nginx-rtmp-module		v${VERSION-rtmp} \
 	simpl		ngx_devel_kit			v0.3.0 \
 	leev		ngx_http_geoip2_module		3.3

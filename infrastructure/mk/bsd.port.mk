@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1538 2020/06/01 08:41:36 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1541 2020/06/16 13:41:42 kn Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -91,6 +91,8 @@ FAKEOBJDIR ?=
 UPDATE_PLIST_ARGS ?=
 UPDATE_PLIST_OPTS ?=
 
+REGISTER_PLIST_OPTS ?=
+
 BULK_TARGETS ?=
 BULK_DO ?=
 CHECK_LIB_DEPENDS ?= No
@@ -166,6 +168,7 @@ _PLIST_DB = ${PLIST_REPOSITORY}/${MACHINE_ARCH}
 PACKAGE_REPOSITORY ?= ${PORTSDIR}/packages
 
 FIX_EXTRACT_PERMISSIONS ?= No
+FIX_CLEANUP_PERMISSIONS ?= No
 
 .if !exists(${X11BASE}/man/mandoc.db)
 .  if exists(${X11BASE}/man/whatis.db)
@@ -1881,7 +1884,7 @@ _list_port_libs = \
 .if empty(_PLIST_DB)
 _register_plist =:
 .else
-_register_plist = ${_PBUILD} install -d ${PLISTDIR_MODE} ${_PLIST_DB} && ${_PBUILD} ${_PERLSCRIPT}/register-plist ${_PLIST_DB}
+_register_plist = ${_PBUILD} install -d ${PLISTDIR_MODE} ${_PLIST_DB} && ${_PBUILD} ${_PERLSCRIPT}/register-plist ${REGISTER_PLIST_OPTS} ${_PLIST_DB}
 .endif
 .if ${CHECK_LIB_DEPENDS:L} == "yes"
 _check_lib_depends = ${_CHECK_LIB_DEPENDS}
@@ -2755,6 +2758,7 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 	@${_MAKE} _internal-distpatch
 .  endif
 	@if cd ${PATCHDIR} 2>/dev/null || [ x"${PATCH_LIST:M/*}" != x"" ]; then \
+		failed_patches=''; \
 		error=false; \
 		for i in ${PATCH_LIST}; do \
 			case $$i in \
@@ -2770,6 +2774,7 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 						if [ -s $$i ]; then \
 							${_PBUILD} ${PATCH} ${PATCH_ARGS} < $$i || \
 								{ echo "***>   $$i did not apply cleanly"; \
+								failed_patches="$$failed_patches\n    $$i"; \
 								error=true; }; \
 						else \
 							${ECHO_MSG} "===>   Ignoring empty patchfile $$i"; \
@@ -2783,7 +2788,12 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 					;; \
 			esac; \
 		done;\
-		if $$error; then exit 1; fi; \
+		if $$error; then \
+			if [ -n "$$failed_patches" ]; then \
+				echo "===>   Failed patches: $$failed_patches\n"; \
+			fi; \
+			exit 1; \
+		fi; \
 	fi
 # End of PATCH.
 .endif
@@ -3222,6 +3232,9 @@ _internal-clean:
 .  for l in ${_WRKDIRS}
 .    if "$l" != ""
 	@if [ -L $l ]; then ${_PBUILD} rm -rf `readlink $l`; fi
+.      if ${FIX_CLEANUP_PERMISSIONS:L} == "yes"
+		@if [ -e $l ]; then ${_PBUILD} chmod -R +rwX $l; fi
+.      endif
 	@if [ -e $l ]; then ${_PBUILD} rm -rf $l; fi
 .    endif
 .  endfor

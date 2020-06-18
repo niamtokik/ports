@@ -1,13 +1,14 @@
-# $OpenBSD: Makefile,v 1.180 2020/02/01 20:35:31 bluhm Exp $
+# $OpenBSD: Makefile,v 1.182 2020/06/10 22:54:58 ajacoutot Exp $
 
 COMMENT-main=		XML parsing library
 COMMENT-python=		Python bindings for libxml
 
 VERSION=		2.9.10
-REVISION=		0
+REVISION-main=		1
+REVISION-python=	2
 DISTNAME=		libxml2-${VERSION}
 PKGNAME-main=		libxml-${VERSION}
-PKGNAME-python=		py-libxml-${VERSION}
+PKGNAME-python=		py3-libxml-${VERSION}
 SHARED_LIBS +=	xml2                 16.1     # 11.9
 CATEGORIES=		textproc
 MASTER_SITES=		ftp://xmlsoft.org/libxml/
@@ -45,6 +46,7 @@ RUN_DEPENDS-main=
 
 .if ${BUILD_PACKAGES:M-python}
 MODULES+=		lang/python
+MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 LIB_DEPENDS-python=	textproc/libxml,-main=${VERSION} \
 			${MODPY_LIB_DEPENDS} \
 			converters/libiconv

@@ -1,15 +1,15 @@
-# $OpenBSD: Makefile,v 1.17 2019/07/31 13:14:27 kmos Exp $
+# $OpenBSD: Makefile,v 1.19 2020/06/12 20:48:02 naddy Exp $
 
 COMMENT =		passive checker of Python programs
 
 MODPY_EGG_VERSION =	2.1.1
 DISTNAME =		pyflakes-${MODPY_EGG_VERSION}
+REVISION =		0
 
 CATEGORIES =		devel
 
 HOMEPAGE =		https://github.com/PyCQA/pyflakes
 
-MAINTAINER =		frantisek holop <minusf@obiit.org>
 
 # MIT
 PERMIT_PACKAGE =	Yes

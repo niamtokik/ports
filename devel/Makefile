@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1981 2020/05/31 19:29:32 sthen Exp $
+# $OpenBSD: Makefile,v 1.1990 2020/06/15 15:39:39 martin Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -37,7 +37,7 @@
      SUBDIR += autoconf-archive
      SUBDIR += autogen
      SUBDIR += automake
-     SUBDIR += automoc
+     #SUBDIR += automoc
      SUBDIR += avr
      SUBDIR += avr32
      SUBDIR += avrdude
@@ -148,7 +148,6 @@
      SUBDIR += frama-c
      SUBDIR += fribidi
      SUBDIR += gas
-     SUBDIR += gconf-editor
      SUBDIR += gconf2
      SUBDIR += gdb
      SUBDIR += geany
@@ -191,7 +190,6 @@
      SUBDIR += gsl
      SUBDIR += gsoap
      SUBDIR += gtest
-     SUBDIR += gtkparasite
      SUBDIR += guilib
      SUBDIR += gwenhywfar
      SUBDIR += gyp
@@ -479,6 +477,7 @@
      SUBDIR += monotone
      SUBDIR += mowgli
      SUBDIR += mpfr
+     SUBDIR += msbuild
      SUBDIR += msgpack
      SUBDIR += msp430
      SUBDIR += mspdebug
@@ -1545,6 +1544,8 @@
      SUBDIR += py-more-itertools
      SUBDIR += py-more-itertools,python3
      SUBDIR += py-mox
+     SUBDIR += py-mox3
+     SUBDIR += py-mox3,python3
      SUBDIR += py-mulpyplexer
      SUBDIR += py-mulpyplexer,python3
      SUBDIR += py-munch
@@ -1720,7 +1721,6 @@
      SUBDIR += py-tzlocal,python3
      SUBDIR += py-uncompyle6
      SUBDIR += py-uncompyle6,python3
-     SUBDIR += py-unicorn
      SUBDIR += py-unicorn,python3
      SUBDIR += py-unittest2
      SUBDIR += py-urwid
@@ -1733,6 +1733,7 @@
      SUBDIR += py-virtualenv,python3
      SUBDIR += py-voluptuous
      SUBDIR += py-voluptuous,python3
+     SUBDIR += py-vulture,python3
      SUBDIR += py-wbem
      SUBDIR += py-wbem,python3
      SUBDIR += py-wcwidth,python3
@@ -1769,7 +1770,6 @@
      SUBDIR += pylint
      SUBDIR += pylint,python3
      SUBDIR += pyrex
-     SUBDIR += pysvn
      SUBDIR += pyusb
      SUBDIR += qbs
      SUBDIR += qgit
@@ -1798,7 +1798,6 @@
      SUBDIR += ruby-bundler
      SUBDIR += ruby-cicphash
      SUBDIR += ruby-colorator
-     SUBDIR += ruby-colored
      SUBDIR += ruby-colored2
      SUBDIR += ruby-colorize
      SUBDIR += ruby-commander

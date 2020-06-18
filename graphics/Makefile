@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.507 2020/05/19 15:34:55 jeremy Exp $
+# $OpenBSD: Makefile,v 1.509 2020/06/13 16:22:52 rsadowski Exp $
 
      SUBDIR =
      SUBDIR += DevIL
@@ -7,7 +7,6 @@
      SUBDIR += aalib
      SUBDIR += agg
      SUBDIR += allegropng
-     SUBDIR += amide
      SUBDIR += animorph
      SUBDIR += ansilove
      SUBDIR += aspect-crop
@@ -234,7 +233,7 @@
      SUBDIR += potrace
      SUBDIR += povray
      SUBDIR += pqiv
-     SUBDIR += prison
+     #SUBDIR += prison
      SUBDIR += pstoedit
      SUBDIR += py-Pillow
      SUBDIR += py-Pillow,python3
@@ -258,7 +257,7 @@
      SUBDIR += py-sane,python3
      SUBDIR += py-seaborn
      SUBDIR += pycha
-     SUBDIR += qimageblitz
+     #SUBDIR += qimageblitz
      SUBDIR += qiv
      SUBDIR += quesoglc
      SUBDIR += quirc
@@ -311,7 +310,6 @@
      SUBDIR += xbmbrowser
      SUBDIR += xdot
      SUBDIR += xfig
-     SUBDIR += xmedcon
      SUBDIR += xoris
      SUBDIR += xpaint
      SUBDIR += xsane

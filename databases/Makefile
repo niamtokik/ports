@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.397 2020/06/01 20:54:46 sthen Exp $
+# $OpenBSD: Makefile,v 1.402 2020/06/13 16:22:52 rsadowski Exp $
 
      SUBDIR =
      SUBDIR += architect
@@ -9,7 +9,6 @@
      SUBDIR += freetds
      SUBDIR += gdbm
      SUBDIR += gnats
-     SUBDIR += gq
      SUBDIR += influxdb
      SUBDIR += iodbc
      SUBDIR += jxplorer
@@ -118,6 +117,7 @@
      SUBDIR += p5-SQL-Statement
      SUBDIR += p5-SQL-Translator
      SUBDIR += p5-Sort-SQL
+     SUBDIR += p5-TAP-Parser-SourceHandler-pgTAP
      SUBDIR += p5-Tangram
      SUBDIR += p5-Tie-DBI
      SUBDIR += p5-ldap
@@ -138,6 +138,7 @@
      SUBDIR += pgloader
      SUBDIR += pgmodeler
      SUBDIR += pgpool
+     SUBDIR += pgtap
      SUBDIR += pgtcl
      SUBDIR += pkglocatedb
      SUBDIR += ports-readmes
@@ -159,6 +160,7 @@
      SUBDIR += py-influxdb,python3
      SUBDIR += py-ldap
      SUBDIR += py-ldap,python3
+     SUBDIR += py-ldap0,python3
      SUBDIR += py-ldap3
      SUBDIR += py-ldap3,python3
      SUBDIR += py-minidb,python3
@@ -228,7 +230,7 @@
      SUBDIR += ruby-tiny_tds,ruby27
      SUBDIR += sharedance
      SUBDIR += skytools
-     SUBDIR += soprano
+     #SUBDIR += soprano
      SUBDIR += sqlbox
      SUBDIR += sqlite
      SUBDIR += sqlite3
@@ -237,7 +239,7 @@
      SUBDIR += sqlitebrowser
      SUBDIR += sqlports
      SUBDIR += sqsh
-     SUBDIR += strigi
+     #SUBDIR += strigi
      SUBDIR += tdb
      SUBDIR += tdbc
      SUBDIR += tdbc-mysql
@@ -246,6 +248,7 @@
      SUBDIR += tinycdb
      SUBDIR += tokyocabinet
      SUBDIR += virtuoso
+     SUBDIR += web2ldap
      SUBDIR += xapian-bindings
      SUBDIR += xapian-core
 
