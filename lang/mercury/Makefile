@@ -13,7 +13,8 @@ MAINTAINER =		Mathieu Kerjouan <niamkik@protonmail.com>
 
 PERMIT_PACKAGE =	Yes
 
-BUILD_DEPENDS =		devel/bison
+BUILD_DEPENDS =		devel/bison \
+			${MODGNU_AUTOCONF_DEPENDS}
 
 FLAVORS=		minimal erlang
 FLAVORS?= 
@@ -24,6 +25,7 @@ CONFIGURE_ENV =		CC=cc CPP=cpp
 MAKE_ENV =		PARALLEL=-j2
 USE_GMAKE =		Yes
 YACC =			bison
+AUTOCONF_VERSION = 	2.69
 
 EXTRACT_SUFX =		.tar.gz
 WRKDIST =		${WRKDIR}/${DISTNAME}
