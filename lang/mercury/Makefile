@@ -1,11 +1,25 @@
 # $OpenBSD$
 
-COMMENT =		Mercury is a pure logic programming language
+COMMENT-main =		Mercury is a pure logic programming language
+COMMENT-minimal =	Mercury is a pure logic programming language
 
+
+CATEGORIES =		lang
 V =			20.01.2
 DISTNAME =		mercury-srcdist-$V
 PKGNAME =		mercury-$V
-CATEGORIES =		lang
+PKGNAME-main =		mercury-$V
+PKGNAME-minimal =	mercury-$V
+# PKGNAME-erlang =	mercury-$V
+
+REVISION-main =		0
+REVISION-minimal =	0
+# REVISION-erlang =	0
+
+MULTI_PACKAGES =	-main -minimal
+FLAVOR ?=		
+
+BUILD_DEPENDS =		devel/bison ${MODGNU_AUTOCONF_DEPENDS}
 
 HOMEPAGE =		https://mercurylang.org
 
@@ -13,14 +27,8 @@ MAINTAINER =		Mathieu Kerjouan <niamkik@protonmail.com>
 
 PERMIT_PACKAGE =	Yes
 
-BUILD_DEPENDS =		devel/bison \
-			${MODGNU_AUTOCONF_DEPENDS}
-
-FLAVORS=		minimal erlang
-FLAVORS?= 
-
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =	--enable-sanitizers 
+CONFIGURE_ARGS =	--enable-sanitizers --enable-erlang-grade
 CONFIGURE_ENV =		CC=cc CPP=cpp
 MAKE_ENV =		PARALLEL=-j2
 USE_GMAKE =		Yes
@@ -38,15 +46,3 @@ do-test:
 	cd ${WRKBUILD}/tests && mmake
 
 .include <bsd.port.mk>
-
-.if ${FLAVOR:Mminimal}
-CONFIGURE_ARGS += 	--enable-minimal-install
-CONFLICT_MARKER =	mercury-* mercury-*-minimal
-.endif
-
-.if ${FLAVOR:Merlang}
-CONFIGURE_ARGS += 	--enable-erlang-grade
-BUILD_DEPENDS +=	lang/erlang/21
-CONFLICT_MARKER =	mercury-* mercury-*-minimal
-.endif
-
