@@ -4,18 +4,16 @@ COMMENT-main =		Mercury is a pure logic programming language
 COMMENT-minimal =	Mercury is a pure logic programming language
 
 CATEGORIES =		lang
-V =			20.01.2
+V =			20.06
 DISTNAME =		mercury-srcdist-$V
 PKGNAME =		mercury-$V
 PKGNAME-main =		mercury-$V
 PKGNAME-minimal =	mercury-$V-minimal
-PKGNAME-erlang =	mercury-$V-erlang
 
 REVISION-main =		0
 REVISION-minimal =	0
-REVISION-erlang =	0
 
-MULTI_PACKAGES =	-main -minimal -erlang
+MULTI_PACKAGES =	-main -minimal
 
 BUILD_DEPENDS =		devel/bison ${MODGNU_AUTOCONF_DEPENDS}
 
@@ -38,7 +36,7 @@ WRKDIST =		${WRKDIR}/${DISTNAME}
 
 MASTER_SITES =		http://dl.mercurylang.org/release/
 
-CONFLICT_MARKER =	mercury-*-erlang mercury-*-minimal
+CONFLICT_MARKER =	mercury-*-minimal
 
 do-test:
 	cd ${WRKBUILD}/tests && mmake
