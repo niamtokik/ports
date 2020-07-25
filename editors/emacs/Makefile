@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.93 2019/11/10 21:50:23 jca Exp $
+# $OpenBSD: Makefile,v 1.95 2020/07/03 17:05:14 jca Exp $
 
 COMMENT=		GNU editor: extensible, customizable, self-documenting
 
 VERSION=		26.3
-REVISION=		1
+REVISION=		2
 DISTNAME=		emacs-${VERSION}
 
 CATEGORIES=		editors
@@ -40,7 +40,7 @@ CFLAGS+=		-fno-pie
 .include <bsd.port.arch.mk>
 .if ${PROPERTIES:Mlld}
 # ld -Z not supported
-.elif ${MACHINE_ARCH} == "sparc64" || ${MACHINE_ARCH} == "i386"
+.elif ${MACHINE_ARCH} == "sparc64"
 # No need for ld -Z
 .else
 CONFIGURE_ENV+=		EMACS_LD_SWITCH_SYSTEM="-Z"

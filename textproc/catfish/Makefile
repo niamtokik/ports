@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.35 2020/01/21 09:35:58 landry Exp $
+# $OpenBSD: Makefile,v 1.37 2020/07/17 08:35:30 landry Exp $
 
 COMMENT =	versatile file searching tool
 
@@ -6,6 +6,7 @@ XFCE_GOODIE =	catfish
 XFCE_VERSION =	1.4.13
 MODPY_EGG_VERSION =	${XFCE_VERSION}
 CATEGORIES =	textproc
+REVISION =		1
 
 MAINTAINER =	Landry Breuil <landry@openbsd.org>
 
@@ -25,6 +26,7 @@ RUN_DEPENDS =	devel/py-gobject3${MODPY_FLAVOR} \
 		devel/desktop-file-utils \
 		devel/xdg-utils \
 		devel/py-pexpect${MODPY_FLAVOR} \
+		x11/dbus-python${MODPY_FLAVOR} \
 		x11/gtk+3,-guic
 
 BUILD_DEPENDS +=	${_MODPY_BUILD_DEPENDS} \

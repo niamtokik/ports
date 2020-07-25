@@ -1,22 +1,24 @@
-# $OpenBSD: Makefile,v 1.178 2020/03/07 06:50:42 bket Exp $
+# $OpenBSD: Makefile,v 1.186 2020/07/16 05:46:38 daniel Exp $
 
      SUBDIR =
+     SUBDIR += 4ti2
      SUBDIR += R
      SUBDIR += aamath
      SUBDIR += abs
      SUBDIR += armadillo
      SUBDIR += arpack
+     SUBDIR += bc-gh
      SUBDIR += bcal
      SUBDIR += blas
      SUBDIR += calc
      SUBDIR += calcoo
      SUBDIR += cblas
+     SUBDIR += cddlib
      SUBDIR += cfitsio
      SUBDIR += cgal
      SUBDIR += coq
      SUBDIR += dieharder
      SUBDIR += double-conversion
-     SUBDIR += ebc
      SUBDIR += ecm
      SUBDIR += eigen3
      SUBDIR += ensmallen
@@ -115,10 +117,15 @@
      SUBDIR += prover9
      SUBDIR += pspp
      SUBDIR += py-Numeric
+     SUBDIR += py-PyWavelets,python3
      SUBDIR += py-affine
      SUBDIR += py-affine,python3
      SUBDIR += py-bottleneck,python3
      SUBDIR += py-cftime
+     SUBDIR += py-cvxopt,python3
+     SUBDIR += py-cvxpy,python3
+     SUBDIR += py-ecos
+     SUBDIR += py-ecos,python3
      SUBDIR += py-graphviz
      SUBDIR += py-graphviz,python3
      SUBDIR += py-h5py,python3
@@ -130,12 +137,17 @@
      SUBDIR += py-numexpr,python3
      SUBDIR += py-numpy
      SUBDIR += py-numpy,python3
+     SUBDIR += py-osqp
+     SUBDIR += py-osqp,python3
      SUBDIR += py-pandas,python3
      SUBDIR += py-patsy
      SUBDIR += py-patsy,python3
-     SUBDIR += py-scikit-learn
+     SUBDIR += py-scikit-image,python3
+     SUBDIR += py-scikit-learn,python3
      SUBDIR += py-scipy
      SUBDIR += py-scipy,python3
+     SUBDIR += py-scs
+     SUBDIR += py-scs,python3
      SUBDIR += py-pysmt
      SUBDIR += py-pysmt,python3
      SUBDIR += py-snuggs
@@ -145,6 +157,7 @@
      SUBDIR += py-tables
      SUBDIR += qhull
      SUBDIR += qrupdate
+     SUBDIR += rstudio
      SUBDIR += sc
      SUBDIR += spread-sheet-widget
      SUBDIR += suitesparse

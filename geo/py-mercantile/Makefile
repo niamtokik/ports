@@ -1,10 +1,11 @@
-# $OpenBSD: Makefile,v 1.2 2020/05/16 11:24:38 martin Exp $
+# $OpenBSD: Makefile,v 1.4 2020/07/03 21:12:54 sthen Exp $
 
 COMMENT =	spherical mercator coordinate and tile utilities
 
-MODPY_EGG_VERSION =	1.1.4
+MODPY_EGG_VERSION =	1.1.5
 DISTNAME =	mercantile-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
+REVISION =	0
 
 CATEGORIES =	geo
 MAINTAINER =	Martin Reindl <martin@catai.org>

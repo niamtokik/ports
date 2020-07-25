@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.5 2020/04/09 14:28:51 jca Exp $
+# $OpenBSD: Makefile,v 1.7 2020/07/03 21:12:38 sthen Exp $
 
 # XXX
 # This port is more or less a copy from devel/llvm and it tries to
@@ -8,14 +8,15 @@
 # Please keep patches in sync with devel/llvm and just remove the lld and lldb
 # patches: rm patches/patch-*lld*
 
-ONLY_FOR_ARCHS = ${LLVM_ARCHS}
+ONLY_FOR_ARCHS =	${LLVM_ARCHS}
+BROKEN-powerpc =	no consumers on powerpc, save 25 build hours in bulks
 
 COMMENT=	Clang extra tools
 
 LLVM_V =	8.0.1
 DISTNAME =	llvm-${LLVM_V}.src
 PKGNAME=	clang-tools-extra-${LLVM_V}
-REVISION=	2
+REVISION=	3
 
 CATEGORIES =	devel
 

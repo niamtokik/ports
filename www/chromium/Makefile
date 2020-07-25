@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.517 2020/06/16 19:21:53 robert Exp $
+# $OpenBSD: Makefile,v 1.522 2020/07/17 20:23:07 robert Exp $
 
 .include <bsd.port.arch.mk>
 
@@ -12,7 +12,7 @@ DPB_PROPERTIES=		lonesome
 
 COMMENT=		Chromium browser
 
-V=			83.0.4103.106
+V=			84.0.4147.89
 
 DISTNAME=		chromium-${V}
 
@@ -72,6 +72,7 @@ WANTLIB += harfbuzz harfbuzz-subset
 WANTLIB += ffi png
 WANTLIB += iconv lzma
 WANTLIB += fido2 cbor usbhid crypto
+WANTLIB += gbm xcb-dri3
 
 RUN_DEPENDS=	devel/xdg-utils \
 		devel/desktop-file-utils \
@@ -90,6 +91,7 @@ BUILD_DEPENDS=	archivers/bzip2 \
 		x11/gnome/libgnome-keyring \
 		devel/ninja \
 		x11/gtk+3 \
+		x11/py-xcbgen \
 		${MODGCC4_CPPDEP}
 LIB_DEPENDS=	devel/harfbuzz \
 		devel/libexecinfo \

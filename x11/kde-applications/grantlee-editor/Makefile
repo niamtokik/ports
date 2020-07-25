@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.2 2020/06/17 04:28:22 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.5 2020/06/24 20:03:13 rsadowski Exp $
 
 COMMENT =	utilities and tools to manage themes in KDE PIM applications
 DISTNAME =	grantlee-editor-${VERSION}
 CATEGORIES =	devel
+REVISION =	2
 
 SHARED_LIBS +=  grantleethemeeditor       0.0 # 5.13.2
 
@@ -27,6 +28,10 @@ MODKF5_L10N_CONFLICT = yes
 MODKF5_I18N_CONFLICT = yes
 
 MODULES +=	x11/kde-applications
+
+BUILD_DEPENDS =	devel/boost \
+		devel/kf5/ktexteditor \
+		devel/libinotify
 
 RUN_DEPENDS =	x11/kde-applications/kdepim-runtime
 

@@ -1,12 +1,13 @@
-# $OpenBSD: Makefile,v 1.208 2020/06/01 18:27:57 kn Exp $
+# $OpenBSD: Makefile,v 1.210 2020/07/03 21:13:21 sthen Exp $
 
 COMMENT =	CLI program to download videos from YouTube and other sites
 
-VERSION =	2020.05.29
+VERSION =	2020.06.16.1
 MODPY_EGG_VERSION =	${VERSION:S/.0/./g}
 
 DISTNAME =	youtube-dl-${VERSION}
 CATEGORIES =	www
+REVISION =	0
 
 HOMEPAGE =	https://ytdl-org.github.io/youtube-dl/
 

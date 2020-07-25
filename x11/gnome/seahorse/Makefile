@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.120 2020/05/14 15:58:56 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.122 2020/06/27 18:14:22 kmos Exp $
 
 COMMENT=		GNOME encryption interface
 
 GNOME_PROJECT=		seahorse
-GNOME_VERSION=		3.36
+GNOME_VERSION=		3.36.2
 
 CATEGORIES=		security
 
@@ -20,6 +20,11 @@ MODULES=		devel/dconf \
 			x11/gnome
 
 MODGNOME_TOOLS= 	desktop-file-utils gtk-update-icon-cache vala yelp
+
+.include <bsd.port.arch.mk>
+.if !${PROPERTIES:Mclang}
+CFLAGS +=		-std=gnu99
+.endif
 
 LIB_DEPENDS=		databases/openldap \
 			devel/libsoup \

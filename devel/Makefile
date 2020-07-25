@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1990 2020/06/15 15:39:39 martin Exp $
+# $OpenBSD: Makefile,v 1.2004 2020/07/24 16:43:41 millert Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -37,10 +37,10 @@
      SUBDIR += autoconf-archive
      SUBDIR += autogen
      SUBDIR += automake
-     #SUBDIR += automoc
      SUBDIR += avr
      SUBDIR += avr32
      SUBDIR += avrdude
+     SUBDIR += bamf
      SUBDIR += bashunit
      SUBDIR += bison
      SUBDIR += blame
@@ -502,6 +502,7 @@
      SUBDIR += ocaml-yojson
      SUBDIR += ode
      SUBDIR += ois
+     SUBDIR += olm
      SUBDIR += open-ath9k-htc-firmware
      SUBDIR += openmpi
      SUBDIR += openocd
@@ -524,6 +525,7 @@
      SUBDIR += p5-App-CLI
      SUBDIR += p5-App-Cmd
      SUBDIR += p5-App-Info
+     SUBDIR += p5-App-Packager
      SUBDIR += p5-AppConfig
      SUBDIR += p5-AppConfig-Std
      SUBDIR += p5-Array-Compare
@@ -770,6 +772,7 @@
      SUBDIR += p5-File-FnMatch
      SUBDIR += p5-File-HomeDir
      SUBDIR += p5-File-Listing
+     SUBDIR += p5-File-LoadLines
      SUBDIR += p5-File-MimeInfo
      SUBDIR += p5-File-Modified
      SUBDIR += p5-File-NCopy
@@ -1058,6 +1061,8 @@
      SUBDIR += p5-String-CRC32
      SUBDIR += p5-String-Format
      SUBDIR += p5-String-Formatter
+     SUBDIR += p5-String-Interpolate
+     SUBDIR += p5-String-Interpolate-Named
      SUBDIR += p5-String-Scanf
      SUBDIR += p5-String-Truncate
      SUBDIR += p5-Sub-Attribute
@@ -1322,7 +1327,6 @@
      SUBDIR += py-asn1,python3
      SUBDIR += py-asn1-modules
      SUBDIR += py-asn1-modules,python3
-     SUBDIR += py-astroid
      SUBDIR += py-astroid,python3
      SUBDIR += py-async-timeout
      SUBDIR += py-atomicwrites
@@ -1380,13 +1384,11 @@
      SUBDIR += py-click-threading,python3
      SUBDIR += py-clint
      SUBDIR += py-clint,python3
-     SUBDIR += py-cloudpickle
      SUBDIR += py-cloudpickle,python3
      SUBDIR += py-codestyle
      SUBDIR += py-codestyle,python3
      SUBDIR += py-colorama
      SUBDIR += py-colorama,python3
-     SUBDIR += py-configargparse
      SUBDIR += py-configargparse,python3
      SUBDIR += py-configobj
      SUBDIR += py-configobj,python3
@@ -1417,6 +1419,7 @@
      SUBDIR += py-decorator,python3
      SUBDIR += py-decoratortools
      SUBDIR += py-deprecation,python3
+     SUBDIR += py-dill,python3
      SUBDIR += py-dispatcher
      SUBDIR += py-dispatcher,python3
      SUBDIR += py-distutils-extra
@@ -1548,6 +1551,7 @@
      SUBDIR += py-mox3,python3
      SUBDIR += py-mulpyplexer
      SUBDIR += py-mulpyplexer,python3
+     SUBDIR += py-multiprocess,python3
      SUBDIR += py-munch
      SUBDIR += py-munch,python3
      SUBDIR += py-mxDateTime
@@ -1706,6 +1710,7 @@
      SUBDIR += py-texscythe
      SUBDIR += py-tox
      SUBDIR += py-tox,python3
+     SUBDIR += py-tqdm,python3
      SUBDIR += py-traceback2
      SUBDIR += py-traitlets,python3
      SUBDIR += py-trollius
@@ -1734,7 +1739,6 @@
      SUBDIR += py-voluptuous
      SUBDIR += py-voluptuous,python3
      SUBDIR += py-vulture,python3
-     SUBDIR += py-wbem
      SUBDIR += py-wbem,python3
      SUBDIR += py-wcwidth,python3
      SUBDIR += py-wheel
@@ -1767,7 +1771,6 @@
      SUBDIR += pyflakes,python3
      SUBDIR += pygame
      SUBDIR += pygame,python3
-     SUBDIR += pylint
      SUBDIR += pylint,python3
      SUBDIR += pyrex
      SUBDIR += pyusb
@@ -1915,7 +1918,6 @@
      SUBDIR += sparsehash
      SUBDIR += spe
      SUBDIR += spice-protocol
-     SUBDIR += spidermonkey60
      SUBDIR += spidermonkey68
      SUBDIR += splint
      SUBDIR += spyder
@@ -1969,6 +1971,8 @@
      SUBDIR += xtensa-lx106-elf
      SUBDIR += yaml-cpp
      SUBDIR += yasm
+     SUBDIR += z80ex
      SUBDIR += zeal
+     SUBDIR += zmac
 
 .include <bsd.port.subdir.mk>

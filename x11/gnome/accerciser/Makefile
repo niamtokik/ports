@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.9 2020/05/14 15:12:51 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.11 2020/07/04 21:20:57 ajacoutot Exp $
 
 COMMENT=	interactive accessibility explorer
 
 GNOME_PROJECT=	accerciser
-GNOME_VERSION=	3.36.1
+GNOME_VERSION=	3.36.2
 
 # BSD 3-clause
 PERMIT_PACKAGE=	Yes

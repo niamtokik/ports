@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.229 2020/06/09 07:14:44 jasper Exp $
+# $OpenBSD: Makefile,v 1.233 2020/07/05 13:15:15 robert Exp $
 
 USE_WXNEEDED=	Yes
 
@@ -26,7 +26,7 @@ SHARED_LIBS +=  wpg-0.3-lo                3.3 # 3.3
 SHARED_LIBS +=  wps-0.4-lo                4.10 # 4.10
 
 BV=		6.4
-VERSION=	${BV}.4.2
+VERSION=	${BV}.5.2
 DISTNAME=	libreoffice-${VERSION}
 WRKDIST=	${WRKDIR}/libreoffice-${VERSION}
 PKGNAME=	libreoffice-${VERSION}
@@ -35,9 +35,12 @@ PKGNAME-kde=	libreoffice-kde-${VERSION}
 PKGNAME-java=	libreoffice-java-${VERSION}
 CATEGORIES=	editors productivity
 DPB_PROPERTIES=	parallel
-REVISION-main=	0
+
+REVISION-main=	1
 
 EPOCH=		0
+
+REVISION=	0
 
 MAINTAINER=	Robert Nagy <robert@openbsd.org>
 
@@ -240,7 +243,7 @@ WANTLIB-main+=	lzma cairo-gobject gmodule-2.0 dconf gdk-3 gtk-3
 WANTLIB-main+=	bz2 graphite2 epoxy mariadb png boost_locale-mt
 WANTLIB-main+=	boost_filesystem boost_filesystem-mt boost_iostreams-mt
 WANTLIB-main+=	boost_system boost_system-mt boost_date_time-mt
-WANTLIB-main+=	lber ldap python${MODPY_VERSION}m
+WANTLIB-main+=	lber ldap ${MODPY_WANTLIB}
 
 RUN_DEPENDS-main=	devel/desktop-file-utils \
 			devel/libexecinfo \

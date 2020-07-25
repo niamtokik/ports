@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.282 2020/05/14 15:25:53 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.284 2020/07/14 06:32:03 ajacoutot Exp $
 
 COMMENT=		GNOME display manager
 
 GNOME_PROJECT=		gdm
-GNOME_VERSION=		3.36.2
+GNOME_VERSION=		3.36.3
 
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX} puflogh1000X248.gif:0
 EXTRACT_ONLY=		${DISTNAME}${EXTRACT_SUFX}
@@ -105,10 +105,6 @@ post-install:
 		${PREFIX}/share/glib-2.0/schemas/10_org.gnome.login-screen.gschema.override
 	mv ${WRKINST}/etc/gdm ${PREFIX}/share/examples/gdm/etc
 	mv ${WRKINST}/etc/dbus-1 ${PREFIX}/share/examples/gdm/etc
-	mv ${WRKINST}/var/db/gdm ${PREFIX}/share/examples/gdm/var/db
-	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/gdm/var/db/gdm/.pulse
-	${INSTALL_DATA} ${FILESDIR}/client.conf \
-		${PREFIX}/share/examples/gdm/var/db/gdm/.pulse
 	${INSTALL_DATA} ${FILESDIR}/locale.conf \
 		${PREFIX}/share/examples/gdm/etc/gdm/locale.conf
 	${SUBST_CMD} -m 0555 -c -o ${BINOWN} -g ${BINGRP} \

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2 2020/05/19 07:22:55 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.9 2020/06/30 10:21:32 ajacoutot Exp $
 
 # see patch-js_src_old-configure_in
 USE_WXNEEDED =		Yes
@@ -16,11 +16,12 @@ COMMENT =		C/C++ Mozilla's JavaScript engine implementation #'
 MOZILLA_VERSION =	68
 SUBST_VARS =		MOZILLA_VERSION
 
-V =			${MOZILLA_VERSION}.8.0
+V =			${MOZILLA_VERSION}.10.0
 DISTNAME =		firefox-${V}esr.source
 EXTRACT_SUFX =		.tar.bz2
 PKGNAME =		spidermonkey${MOZILLA_VERSION}-${V}
-REVISION =		0
+# cargocult when 78 is released to ease upgrade path
+EPOCH =		1
 
 SHARED_LIBS =		mozjs-68 0.0
 
@@ -41,6 +42,7 @@ WANTLIB += ${COMPILER_LIBCXX}
 MODULES =		lang/python
 
 MODPY_RUNDEP =		No
+BUILD_DEPENDS +=	lang/python/${MODPY_DEFAULT_VERSION_3}
 
 # C++11
 # sync with SHARED_LIBS consumers: x11/gnome/gjs
@@ -54,9 +56,7 @@ LIB_DEPENDS =		devel/nspr \
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 
 AUTOCONF_VERSION=	2.13
-BUILD_DEPENDS +=	devel/autoconf/${AUTOCONF_VERSION} \
-			devel/llvm \
-			lang/rust
+BUILD_DEPENDS +=	devel/autoconf/${AUTOCONF_VERSION}
 
 SEPARATE_BUILD =	Yes
 WRKDIST =		${WRKDIR}/firefox-${V}
@@ -77,9 +77,7 @@ CONFIGURE_ARGS = 	--disable-debug \
 			--with-system-zlib \
 			--with-system-icu \
 			--with-system-nspr \
-			--enable-unaligned-private-values \
-			--with-libclang-path=${LOCALBASE}/lib \
-			--with-clang-path=${LOCALBASE}/bin/clang
+			--enable-unaligned-private-values
 
 # Build failure on mips64(,el}. Related bug on Debian:
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=908486

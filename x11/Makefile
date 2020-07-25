@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.659 2020/06/13 16:22:53 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.665 2020/07/24 17:23:37 bcallah Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -22,6 +22,7 @@
      SUBDIR += bbpager
      SUBDIR += bclock
      SUBDIR += belt
+     SUBDIR += bemenu
      SUBDIR += bgs
      SUBDIR += blackbox
      SUBDIR += blast
@@ -56,6 +57,7 @@
      SUBDIR += e17
      SUBDIR += echinus
      SUBDIR += ede
+     SUBDIR += elementary
      SUBDIR += emelfm2
      SUBDIR += enlightenment
      SUBDIR += eterm
@@ -88,7 +90,6 @@
      SUBDIR += gob2
      SUBDIR += goggles
      SUBDIR += golem
-     #SUBDIR += grantlee
      SUBDIR += grantlee-qt5
      SUBDIR += greybird
      SUBDIR += gtk+2
@@ -143,7 +144,6 @@
      SUBDIR += kde
      SUBDIR += kde-applications
      SUBDIR += kde-shared-data
-     #SUBDIR += kde4
      SUBDIR += keybinder
      SUBDIR += keybinder3
      SUBDIR += keynav
@@ -160,7 +160,6 @@
      SUBDIR += libfm
      SUBDIR += libgdiplus
      SUBDIR += libhandy
-     #SUBDIR += libkscreen
      SUBDIR += libqaccessibilityclient
      SUBDIR += libxdg-basedir
      SUBDIR += lsw
@@ -224,7 +223,6 @@
      SUBDIR += pidgin-libnotify
      SUBDIR += piewm
      SUBDIR += podbrowser
-     #SUBDIR += polkit-qt
      SUBDIR += polkit-qt5
      SUBDIR += polybar
      SUBDIR += pwm
@@ -273,7 +271,6 @@
      SUBDIR += sawfish
      SUBDIR += sclock
      SUBDIR += sct
-     SUBDIR += sisctrl
      SUBDIR += skippy
      SUBDIR += slim
      SUBDIR += slim-themes
@@ -367,6 +364,7 @@
      SUBDIR += xclip
      SUBDIR += xco
      SUBDIR += xcoloredit
+     SUBDIR += xcolor
      SUBDIR += xcolors
      SUBDIR += xcursor-dmz
      SUBDIR += xcursor-neutral

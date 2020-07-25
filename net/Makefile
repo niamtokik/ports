@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1209 2020/06/13 16:22:52 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.1216 2020/07/11 06:49:49 paco Exp $
 
      SUBDIR =
      SUBDIR += adns
@@ -41,7 +41,6 @@
      SUBDIR += btpd
      SUBDIR += bwm-ng
      SUBDIR += cadaver
-     #SUBDIR += cagibi
      SUBDIR += castget
      SUBDIR += cftp
      SUBDIR += cgo
@@ -200,7 +199,6 @@
      SUBDIR += libgadu
      SUBDIR += libircclient
      SUBDIR += libktorrent
-     #SUBDIR += libkvkontakte
      SUBDIR += libmaxminddb
      SUBDIR += libmesode
      SUBDIR += libmygpo-qt
@@ -382,7 +380,6 @@
      SUBDIR += p5-Net-Frame-Dump
      SUBDIR += p5-Net-Frame-Layer-ICMPv6
      SUBDIR += p5-Net-Frame-Layer-IPv6
-     SUBDIR += p5-Net-GPSD
      SUBDIR += p5-Net-Google
      SUBDIR += p5-Net-HTTP
      SUBDIR += p5-Net-ICQ2000
@@ -548,7 +545,6 @@
      SUBDIR += py-IOSXR,python3
      SUBDIR += py-IP
      SUBDIR += py-IP,python3
-     SUBDIR += py-aiodns
      SUBDIR += py-aiodns,python3
      SUBDIR += py-ripe.atlas.cousteau
      SUBDIR += py-ripe.atlas.cousteau,python3
@@ -617,7 +613,7 @@
      SUBDIR += py-simplesoap
      SUBDIR += py-simplesoap,python3
      SUBDIR += py-siphon,python3
-     SUBDIR += py-slixmpp
+     SUBDIR += py-slixmpp,python3
      SUBDIR += py-smbc,python3
      SUBDIR += py-snmp
      SUBDIR += py-socketio-client
@@ -756,6 +752,7 @@
      SUBDIR += unifi
      SUBDIR += unison
      SUBDIR += unworkable
+     SUBDIR += usockets
      SUBDIR += utox
      SUBDIR += uucp
      SUBDIR += uucpd
@@ -777,8 +774,6 @@
      SUBDIR += wifind
      SUBDIR += wireguard-go
      SUBDIR += wireguard-tools
-     SUBDIR += wireless
-     SUBDIR += wiresep
      SUBDIR += wireshark
      SUBDIR += wmnetload
      SUBDIR += wol

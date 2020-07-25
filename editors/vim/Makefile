@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.200 2020/06/16 16:45:14 chrisz Exp $
+# $OpenBSD: Makefile,v 1.202 2020/07/11 22:54:35 sthen Exp $
 
 COMMENT-main=	vi clone, many additional features
 COMMENT-lang=	vi clone, NLS subpackage
@@ -7,6 +7,7 @@ V=		8.2.0986
 GH_ACCOUNT=	vim
 GH_PROJECT=	vim
 GH_TAGNAME=	v$V
+REVISION=	1
 
 T=		${V:C/\.0+/./}
 PKGNAME-main=	vim-$T
@@ -18,7 +19,7 @@ CATEGORIES=	editors
 
 HOMEPAGE=	https://www.vim.org/
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # donation-ware
 PERMIT_PACKAGE=	Yes

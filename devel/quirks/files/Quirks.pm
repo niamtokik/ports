@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.995 2020/06/17 06:46:32 rsadowski Exp $
+# $OpenBSD: Quirks.pm,v 1.1013 2020/07/17 17:48:12 jasper Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -435,6 +435,17 @@ my $stem_extensions = {
 	'kdegraphics-thumbnailers' => 'kdegraphics-thumbnailers-kf5',
 	'svgpart' => 'svgpart-kf5',
 	'kdenetwork-filesharing' => 'kdenetwork-filesharing-kf5',
+	'spidermonkey60' => 'spidermonkey68',
+	'py-cloudpickle' => 'py3-cloudpickle',
+	'py-podcastparser' => 'py3-podcastparser',
+	'py-configargparse' => 'py3-configargparse',
+	'py-aiodns' => 'py3-aiodns',
+	'ebc' => 'bc-gh',
+	'py-cares' => 'py3-cares',
+	'py-astroid' => 'py3-astroid',
+	'pylint' => 'pylint3',
+	'pylint-gui' => 'pylint3-gui',
+	'py-M2Crypto' => 'py3-M2Crypto',
 };
 
 my $obsolete_reason = {
@@ -1444,7 +1455,6 @@ my $obsolete_reason = {
 	'py3-typing' => 5,
 	'p5-Net-IRC' => 3,
 	'pangox-compat' => 0,
-	'qtserialport' => 5,
 	'tmake' => 5,
 	'qt3-sqlite3' => 5,
 	'eigen' => 5,
@@ -1613,7 +1623,6 @@ my $obsolete_reason = {
 	'libkvkontakte' => 3,
 	'libkfbapi' => 3,
 	'libkgapi' => 3,
-	'akonadi' => 3,
 	'attica' => 3,
 	'kwebkitpart' => 3,
 	'grantlee' => 3,
@@ -1748,6 +1757,12 @@ my $obsolete_reason = {
 	'smokeqt' => 3,
 	'superkaramba' => 3,
 	'gbirthday' => 24,
+	'wireguard-go' => 4,
+	'wiresep' => 4,
+	'wireless' => 4,
+	'sisctrl' => 6,
+	'vteplugin' => 0,
+	'p5-Net-GPSD' => 5,
 };
 
 # reasons for obsolete packages
@@ -1876,6 +1891,7 @@ my $cve = {
 	'databases/postgresql,-main' => 'postgresql-client-<10.6',
 	'databases/postgresql,-server' => 'postgresql-server-<10.6',
 	'databases/sqlite3' => 'sqlite3-<3.25.3',
+	'devel/apache-ant' => 'apache-ant-<1.10.8',
 	'devel/git,-main' => 'git-<2.26.2',
 	'devel/git,-svn' => 'git-svn-<2.26.2',
 	'devel/git,-x11' => 'git-x11-<2.26.2',

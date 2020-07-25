@@ -1,22 +1,23 @@
-# $OpenBSD: Makefile,v 1.200 2020/06/09 13:20:39 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.204 2020/07/06 07:14:55 ajacoutot Exp $
 
 COMMENT=	audio/video converter and streamer
 
-V=		4.2.3
+V=		4.3
 DISTNAME=	ffmpeg-${V}
-EPOCH=		0
+REVISION=	2
+EPOCH=		1
 CATEGORIES=	graphics multimedia
 MASTER_SITES=	https://ffmpeg.org/releases/
 EXTRACT_SUFX=	.tar.xz
 
-SHARED_LIBS=	avcodec		23.0 \
-		avdevice	11.0 \
-		avfilter	8.0 \
-		avformat	20.0 \
+SHARED_LIBS=	avcodec		24.0 \
+		avdevice	12.0 \
+		avfilter	9.0 \
+		avformat	21.0 \
 		avresample	2.0 \
-		avutil		13.0 \
-		postproc	17.0 \
-		swresample	2.0 \
+		avutil		14.0 \
+		postproc	18.0 \
+		swresample	3.0 \
 		swscale		7.0
 
 HOMEPAGE=	https://ffmpeg.org/
@@ -35,7 +36,8 @@ WANTLIB+=	xcb-xfixes xml2 xvidcore z
 COMPILER=	base-clang ports-gcc
 COMPILER_LANGS=	c
 
-BUILD_DEPENDS=	textproc/texi2html \
+BUILD_DEPENDS=	audio/ladspa \
+		textproc/texi2html \
 		multimedia/frei0r-plugins
 .if ${MACHINE_ARCH} == "amd64" || ${MACHINE_ARCH} == "i386"
 BUILD_DEPENDS+=	devel/nasm
@@ -102,6 +104,7 @@ CONFIGURE_ARGS+=--enable-shared \
 		--enable-fontconfig \
 		--enable-frei0r \
 		--enable-gpl \
+		--enable-ladspa \
 		--enable-libaom \
 		--enable-libass \
 		--enable-libdav1d \

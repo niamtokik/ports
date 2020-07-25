@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.965 2020/06/13 16:22:53 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.970 2020/07/20 17:11:46 sthen Exp $
 
      SUBDIR =
      SUBDIR += ajaxterm
@@ -35,6 +35,7 @@
      SUBDIR += drush
      SUBDIR += e2guardian
      SUBDIR += edbrowse
+     SUBDIR += ephemetoot
      SUBDIR += epiphany
      SUBDIR += fcgi
      SUBDIR += fcgi-cgi
@@ -78,7 +79,6 @@
      SUBDIR += kore,curl
      SUBDIR += kore,pgsql
      SUBDIR += kore,python
-     #SUBDIR += kwebkitpart
      SUBDIR += larbin
      SUBDIR += libcroco
      SUBDIR += libmicrohttpd
@@ -584,6 +584,7 @@
      SUBDIR += spawn-fcgi
      SUBDIR += sqtop
      SUBDIR += squid
+     SUBDIR += squid,krb5
      SUBDIR += squidclamav
      SUBDIR += squidguard
      SUBDIR += squidguard,ldap
@@ -608,11 +609,11 @@
      SUBDIR += uget
      SUBDIR += uriparser
      SUBDIR += urlwatch
+     SUBDIR += uwebsockets
      SUBDIR += varnish
      SUBDIR += vimb
      SUBDIR += visitors
      SUBDIR += vnu
-     SUBDIR += vteplugin
      SUBDIR += w3m
      SUBDIR += w3m,image
      SUBDIR += w3mir
