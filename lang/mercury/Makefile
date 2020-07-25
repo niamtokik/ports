@@ -24,7 +24,9 @@ MAINTAINER =		Mathieu Kerjouan <niamkik@protonmail.com>
 PERMIT_PACKAGE =	Yes
 
 CONFIGURE_STYLE =	gnu
-CONFIGURE_ARGS =	--enable-sanitizers --enable-erlang-grade
+CONFIGURE_ARGS =       --enable-sanitizers --enable-erlang-grade --disable-csharp-grade
+CONFIGURE_ARGS +=      --enable-dmm-grades --enable-mm-grades
+CONFIGURE_ARGS +=      --enable-hlc-prof-grades --enable-hlc-low-level-debug-grades
 CONFIGURE_ENV =		CC=cc CPP=cpp
 MAKE_ENV =		PARALLEL=-j2
 USE_GMAKE =		Yes
@@ -37,6 +39,8 @@ WRKDIST =		${WRKDIR}/${DISTNAME}
 MASTER_SITES =		http://dl.mercurylang.org/release/
 
 CONFLICT_MARKER =	mercury-*-minimal
+
+SUBST_VARS =		V
 
 do-test:
 	cd ${WRKBUILD}/tests && mmake

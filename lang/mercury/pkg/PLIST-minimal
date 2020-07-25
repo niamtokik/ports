@@ -2247,15 +2247,15 @@ lib/mercury/reconf/scripts/vpath_find
 @man man/man1/mprof.1
 @man man/man1/mprof_merge_runs.1
 @man man/man1/mtags.1
-share/doc/mercury-20.01.2/
-share/doc/mercury-20.01.2/faq.dvi
-share/doc/mercury-20.01.2/library.dvi
-share/doc/mercury-20.01.2/mercury.html
-share/doc/mercury-20.01.2/mercury_faq.html
-share/doc/mercury-20.01.2/mercury_library.html
-share/doc/mercury-20.01.2/mercury_ref.html
-share/doc/mercury-20.01.2/mercury_trans_guide.html
-share/doc/mercury-20.01.2/mercury_user_guide.html
-share/doc/mercury-20.01.2/reference_manual.dvi
-share/doc/mercury-20.01.2/transition_guide.dvi
-share/doc/mercury-20.01.2/user_guide.dvi
+share/doc/mercury-${V}/
+share/doc/mercury-${V}/faq.dvi
+share/doc/mercury-${V}/library.dvi
+share/doc/mercury-${V}/mercury.html
+share/doc/mercury-${V}/mercury_faq.html
+share/doc/mercury-${V}/mercury_library.html
+share/doc/mercury-${V}/mercury_ref.html
+share/doc/mercury-${V}/mercury_trans_guide.html
+share/doc/mercury-${V}/mercury_user_guide.html
+share/doc/mercury-${V}/reference_manual.dvi
+share/doc/mercury-${V}/transition_guide.dvi
+share/doc/mercury-${V}/user_guide.dvi
