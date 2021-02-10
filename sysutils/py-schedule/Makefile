@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/02/17 09:35:41 martin Exp $
+# $OpenBSD: Makefile,v 1.3 2021/01/31 07:38:58 martin Exp $
 
 COMMENT =		job scheduling for humans
 
-MODPY_EGG_VERSION = 	0.6.0
+MODPY_EGG_VERSION = 	1.0.0
 DISTNAME =		schedule-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 

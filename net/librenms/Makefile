@@ -1,38 +1,41 @@
-# $OpenBSD: Makefile,v 1.107 2020/06/06 19:02:24 sthen Exp $
+# $OpenBSD: Makefile,v 1.119 2021/02/06 20:33:27 sthen Exp $
 
-COMMENT =	auto-discovering network management/monitoring system
+COMMENT=	auto-discovering network management/monitoring system
 
-GH_ACCOUNT =	librenms
-GH_PROJECT =	librenms
-GH_TAGNAME =	1.64.1
-DISTFILES =	librenms-${GH_TAGNAME}.tar.gz librenms-vendor-${GH_TAGNAME}.tar.xz:0
-EPOCH =		0
+# changelogs at https://github.com/librenms/librenms/releases
+GH_ACCOUNT=	librenms
+GH_PROJECT=	librenms
+GH_TAGNAME=	21.1.0
+DISTFILES=	librenms-${GH_TAGNAME}.tar.gz librenms-vendor-${GH_TAGNAME}.tar.xz:0
+EPOCH=		0
 
-CATEGORIES =	net www
+MODPHP_VERSION=	7.4
+REVISION=	0
 
-HOMEPAGE =	https://www.librenms.org/
+CATEGORIES=	net www
 
-MAINTAINER =	Stuart Henderson <sthen@openbsd.org>
+HOMEPAGE=	https://www.librenms.org/
+
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # GPLv3+
-PERMIT_PACKAGE =	Yes
+PERMIT_PACKAGE=	Yes
 
-MASTER_SITES0 =	https://spacehopper.org/mirrors/
+MASTER_SITES0=	https://spacehopper.org/mirrors/
 
-MODULES =	lang/php \
+MODULES=	lang/php \
 		lang/python
-MODPY_BUILDDEP = No
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
+MODPY_BUILDDEP= No
+MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 
-# librenms-service.py (currently in beta) will want py3 and the following:
-#		databases/py-redis${MODPY_FLAVOR}	# optional
-#		sysutils/py-dotenv${MODPY_FLAVOR}	# not ported yet
-RUN_DEPENDS =	databases/py-pymysql${MODPY_FLAVOR} \
-		lang/php/${MODPHP_VERSION},-curl \
+RUN_DEPENDS=	lang/php/${MODPHP_VERSION},-curl \
 		lang/php/${MODPHP_VERSION},-gd \
 		lang/php/${MODPHP_VERSION},-mysqli \
 		lang/php/${MODPHP_VERSION},-pdo_mysql \
 		lang/php/${MODPHP_VERSION},-snmp \
+		databases/py-pymysql${MODPY_FLAVOR} \
+		databases/py-redis${MODPY_FLAVOR} \
+		sysutils/py-dotenv${MODPY_FLAVOR} \
 		net/fping \
 		net/mtr \
 		net/net-snmp \
@@ -41,12 +44,12 @@ RUN_DEPENDS =	databases/py-pymysql${MODPY_FLAVOR} \
 		shells/bash \
 		sysutils/ipmitool
 
-NO_BUILD =	Yes
-NO_TEST =	Yes
+NO_BUILD=	Yes
+NO_TEST=	Yes
 
-PREFIX =	/var/www
-INSTDIR =	${PREFIX}/librenms
-SUBST_VARS =	INSTDIR MODPHP_BIN
+PREFIX=		/var/www
+INSTDIR=	${PREFIX}/librenms
+SUBST_VARS=	INSTDIR MODPHP_BIN
 UPDATE_PLIST_ARGS += -i MODPHP_VERSION
 
 R =	s,^\#!( )?(/usr/bin/env |/bin/)bash,\#!${LOCALBASE}/bin/bash,;
@@ -90,7 +93,7 @@ dist: /usr/ports/distfiles/librenms-${GH_TAGNAME}.tar.gz
 	sed -i 's,whereis -b ,whereis ,' LibreNMS/Config.php; \
 	[ -r .env ] || cp .env.example .env; \
 	composer install --no-dev; \
-	tar cf - vendor | xz -T 0 > $$f; \
+	echo tarring; tar cf - vendor | xz -T 0 > $$f; \
 	scp $$f naiad:mirrors/; \
 	cd -; rm -rf $$t
 

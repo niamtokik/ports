@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.173 2020/06/05 14:52:36 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.179 2021/01/29 12:14:37 ajacoutot Exp $
 
 COMMENT=		SAX-based render library for SVG files
 
 GNOME_PROJECT=		librsvg
-STABLE_VERSION=		2.48.7
+STABLE_VERSION=		2.50.3
 OLD_VERSION=		2.40.21
 DISTFILES=		librsvg-${STABLE_VERSION}${EXTRACT_SUFX}:0 \
 			librsvg-${OLD_VERSION}${EXTRACT_SUFX}:1
@@ -17,16 +17,17 @@ DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 ### stable
 .if ${PROPERTIES:Mrust}
-SHARED_LIBS +=  rsvg-2               39.2     # 49.0
+SHARED_LIBS +=  rsvg-2               39.3     # 49.0
 GNOME_VERSION=		${STABLE_VERSION}
 BUILD_DEPENDS=		lang/rust
 PKG_ARGS=		-Dold=0 -Dstable=1
 MAKE_ENV+=		CARGO_BUILD_JOBS=${MAKE_JOBS} \
 			CARGO_HOME=${WRKBUILD}/cargo-home
 COMPILER=		base-clang ports-gcc
-WANTLIB += cairo-gobject
+WANTLIB += ${COMPILER_LIBCXX} cairo-gobject
 .else
 ### old
+REVISION=		0
 SHARED_LIBS +=  rsvg-2               38.2     # 42.20
 GNOME_VERSION=		${OLD_VERSION}
 PATCH_LIST=		old-patch-*
@@ -57,8 +58,11 @@ LIB_DEPENDS +=		devel/pango \
 CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS=		--disable-tools
 
+.include <bsd.port.arch.mk>
+.if !${PROPERTIES:Mlld}
 # error: -Bsymbolic-functions requested but not supported by ld
 CONFIGURE_ARGS +=	--disable-Bsymbolic
+.endif
 
 post-install:
 	rm ${PREFIX}/lib/gdk-pixbuf-2.0/2.10.0/loaders/*.{a,la}

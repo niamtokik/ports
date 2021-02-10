@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.125 2020/06/11 19:55:15 espie Exp $
+# $OpenBSD: Makefile,v 1.129 2021/01/29 10:28:30 espie Exp $
 
 CATEGORIES =		databases
-V =			7.31
+V =			7.33
 DISTNAME =		sqlports-$V
 DISTFILES =
 COMMENT =		sqlite database of ports
@@ -30,11 +30,13 @@ STRICT =
 STRICT =-s
 .endif
 
+# for debugging the ports tree purposes, start at this dir
+# STARTDIR = -S x11/xglobe
 SCRIPTS = print-ports-index show-reverse-deps rebuild-sqlports-cache
-MANS = show-reverse-deps.1
+MANS = show-reverse-deps.1 sqlports.5
 
 do-build:
-	@PORTSDIR=${PORTSDIR} ${MAKE_ENV} perl ${FILESDIR}/mksqlitedb -v -V $V -p ${WRKBUILD}/ouch ${STRICT} -C ${WRKBUILD}/${SQLCACHE} -w ${WRKBUILD}/${SQLVIEWS} ${WRKBUILD}/${DBNAME}
+	@PORTSDIR=${PORTSDIR} ${MAKE_ENV} perl ${FILESDIR}/mksqlitedb -v -V $V -p ${WRKBUILD}/ouch ${STRICT} -C ${WRKBUILD}/${SQLCACHE} -w ${WRKBUILD}/${SQLVIEWS} ${STARTDIR} ${WRKBUILD}/${DBNAME}
 	@if test -s ${WRKBUILD}/ouch; then \
 		cat ${WRKBUILD}/ouch; \
 		exit 1; \

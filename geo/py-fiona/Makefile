@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.19 2020/03/23 09:42:25 landry Exp $
+# $OpenBSD: Makefile,v 1.22 2021/01/18 09:03:39 landry Exp $
 
 COMMENT =	high-level API and CLI on top of OGR
 
-MODPY_EGG_VERSION =	1.8.13
+MODPY_EGG_VERSION =	1.8.18
 DISTNAME =	Fiona-${MODPY_EGG_VERSION:S/post/pl/}
 PKGNAME =	${MODPY_PY_PREFIX}${DISTNAME:L}
 

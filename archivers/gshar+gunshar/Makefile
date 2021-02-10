@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.36 2019/07/12 20:43:28 sthen Exp $
+# $OpenBSD: Makefile,v 1.38 2021/02/01 17:17:28 naddy Exp $
 
 COMMENT=	packing and unpacking of shell archives
 
 DISTNAME=	sharutils-4.15.2
-REVISION=	2
+REVISION=	4
 
 CATEGORIES=	archivers
 
@@ -14,17 +14,20 @@ MASTER_SITES=	${MASTER_SITE_GNU:=sharutils/}
 # GPLv3
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c intl
+WANTLIB += c iconv intl
 
 LIB_DEPENDS=	devel/gettext,-runtime
 
 CONFIGURE_STYLE= gnu
 CONFIGURE_ARGS+= --program-prefix="g" \
-		 --disable-nls \
 		 --disable-uucode
-CONFIGURE_ENV += LDFLAGS="-L${LOCALBASE}/lib"
 
 # Regression tests pass without --disable-uuencode
 NO_TEST=Yes
+
+# Fix up forward declarations from headers to fix build with "-fno-common"
+# as each respective .c file has the declares and defines it in one place.
+pre-patch:
+	sed -i '/program_name;/s/^/extern /' ${WRKSRC}/src/*.h
 
 .include <bsd.port.mk>

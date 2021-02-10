@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.2 2019/06/22 16:51:06 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.4 2020/12/27 15:58:42 thfr Exp $
 
 COMMENT =	SPIRV-Headers
 
-V =		1.4.1
-PKGNAME =	spirv-headers-${V}
+V =		1.5.4.raytracing.fixed
+PKGNAME =	spirv-headers-1.5.4pl1
 GH_TAGNAME =	${V}
 GH_ACCOUNT =	KhronosGroup
 GH_PROJECT =	SPIRV-Headers
@@ -15,6 +15,9 @@ MAINTAINER =	Thomas Frohwein <thfr@openbsd.org>
 
 # BSD-style
 PERMIT_PACKAGE =	Yes
+
+# C++
+COMPILER =	base-clang ports-gcc base-gcc
 
 MODULES =	devel/cmake
 

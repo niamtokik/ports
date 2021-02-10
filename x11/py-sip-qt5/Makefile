@@ -1,13 +1,14 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/03/10 09:32:46 landry Exp $
+# $OpenBSD: Makefile,v 1.4 2021/01/23 20:09:16 sthen Exp $
 
 COMMENT =	sip extension for qt5
 
 # XXX  keep in sync with py-sip and carefully test with py-qt5 consumers
 
-MODPY_EGG_VERSION =	4.19.19
-DISTNAME =	sip-${MODPY_EGG_VERSION}
-PKGNAME =	py-sip-qt5-${MODPY_EGG_VERSION}
-CATEGORIES =	x11
+MODPY_EGG_VERSION =	5.5.0
+REVISION =		0
+DISTNAME =		sip-${MODPY_EGG_VERSION}
+PKGNAME =		py-sip-qt5-${MODPY_EGG_VERSION}
+CATEGORIES =		x11
 
 HOMEPAGE =	https://www.riverbankcomputing.com/software/sip/intro
 
@@ -18,22 +19,12 @@ WANTLIB =	m ${COMPILER_LIBCXX}
 
 COMPILER =	base-clang ports-gcc base-gcc
 
-MASTER_SITES =	https://www.riverbankcomputing.com/static/Downloads/sip/${MODPY_EGG_VERSION}/
-
 MODULES =	lang/python
 
 FLAVORS =	python3
-FLAVOR ?=
+FLAVOR =	python3
 
-CONFIGURE_STYLE =	simple
-CONFIGURE_SCRIPT =	${MODPY_BIN} configure.py
-CONFIGURE_ARGS =	--sip-module PyQt5.sip --no-tools
-
-MAKE_FLAGS =	CC="${CC}" CXX="${CXX}"
-
-NO_TEST =	Yes
-
-pre-configure:
-	${SUBST_CMD} ${WRKSRC}/configure.py
+MODPY_PI =	Yes
+MODPY_SETUPTOOLS =	Yes
 
 .include <bsd.port.mk>

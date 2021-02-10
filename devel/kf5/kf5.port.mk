@@ -1,12 +1,12 @@
-# $OpenBSD: kf5.port.mk,v 1.13 2020/06/05 05:28:13 rsadowski Exp $
+# $OpenBSD: kf5.port.mk,v 1.19 2021/01/28 19:53:11 rsadowski Exp $
 
-MODKF5_VERSION =	5.68.0
+MODKF5_VERSION =	5.78.0
 
 MAINTAINER ?=		Rafael Sadowski <rsadowski@openbsd.org>
 
 EXTRACT_SUFX ?=		.tar.xz
 
-.if ${DISTNAME:Nextra-cmake-modules-*}
+.if ${PKGPATH:Ndevel/kf5/extra-cmake-modules}
 BUILD_DEPENDS +=	devel/kf5/extra-cmake-modules>=${MODKF5_VERSION}
 .endif
 

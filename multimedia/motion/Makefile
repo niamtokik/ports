@@ -1,18 +1,17 @@
-# $OpenBSD: Makefile,v 1.28 2020/04/27 14:43:54 sthen Exp $
+# $OpenBSD: Makefile,v 1.30 2020/11/20 14:56:54 sthen Exp $
 
-V=		4.3.1
+V=		4.3.2
 COMMENT=	motion detection software for video
 
 GH_ACCOUNT=	Motion-Project
 GH_PROJECT=	motion
 GH_TAGNAME=	release-$V
-REVISION=	0
 
 CATEGORIES=	multimedia
 
 HOMEPAGE=	https://motion-project.github.io/
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # GPL (according to source files, v2 only. website says v2+).
 PERMIT_PACKAGE=	Yes

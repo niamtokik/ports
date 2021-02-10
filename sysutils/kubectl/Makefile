@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/05 13:35:10 kn Exp $
+# $OpenBSD: Makefile,v 1.5 2021/02/05 19:54:49 paco Exp $
 
 COMMENT =		command line tool for controlling Kubernetes clusters
 
 GH_ACCOUNT =		kubernetes
 GH_PROJECT =		kubernetes
-VERSION =		1.18.3
+VERSION =		1.20.2
 GH_TAGNAME =		v${VERSION}
 PKGNAME =		kubectl-${VERSION}
 

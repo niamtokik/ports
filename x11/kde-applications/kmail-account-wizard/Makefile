@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/14 04:59:23 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.8 2021/01/23 18:10:22 rsadowski Exp $
 
 COMMENT =	KMail account wizard
 DISTNAME =	kmail-account-wizard-${VERSION}
 CATEGORIES =	net www
 
-SHARED_LIBS +=  kmailprivate       0.0 # 5.13.2
+SHARED_LIBS +=  kmailprivate       1.0 # 5.13.2
 
 WANTLIB += ${COMPILER_LIBCXX} GL KF5AkonadiCore KF5AkonadiMime
 WANTLIB += KF5AkonadiWidgets KF5Attica KF5Auth KF5AuthCore KF5Codecs
@@ -19,11 +19,15 @@ WANTLIB += Qt5Script Qt5Widgets Qt5Xml c gpgmepp m qgpgme
 
 MODKDE5_TRANSLATIONS = yes
 MODKF5_L10N_CONFLICT = yes
+MODKDE5_DESKTOP_FILE = yes
+MODKDE5_ICON_CACHE = yes
 
-MODULES +=	x11/kde-applications
+BUILD_DEPENDS =	devel/boost \
+		devel/kf5/knotifyconfig \
+		devel/kf5/ktexteditor
 
-BUILD_DEPENDS =	devel/kf5/knotifyconfig
-RUN_DEPENDS =	devel/kf5/knotifyconfig
+RUN_DEPENDS =	devel/kf5/knotifyconfig \
+		misc/shared-mime-info
 
 LIB_DEPENDS =	devel/kf5/attica \
 		devel/kf5/kauth \

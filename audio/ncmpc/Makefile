@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.51 2020/05/15 11:40:51 bket Exp $
+# $OpenBSD: Makefile,v 1.53 2020/10/21 09:24:05 edd Exp $
 
 COMMENT=		curses based frontend for mpd
 
-VER=			0.38
+VER=			0.41
 DISTNAME=		ncmpc-${VER}
 EPOCH=			0
 CATEGORIES=		audio
@@ -13,7 +13,7 @@ HOMEPAGE=		https://www.musicpd.org/clients/ncmpc/
 PERMIT_PACKAGE=	Yes
 
 # make sure to regen WANTLIB on ld.lld arches (-Wl,--as-needed)
-WANTLIB=		c intl mpdclient>=1 ${COMPILER_LIBCXX} curses pcre
+WANTLIB=		c intl m mpdclient>=1 ${COMPILER_LIBCXX} curses pcre
 
 MASTER_SITES=		https://www.musicpd.org/download/ncmpc/${VER:R}/
 

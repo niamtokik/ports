@@ -1,8 +1,10 @@
-# $OpenBSD: Makefile,v 1.28 2020/06/12 08:35:01 landry Exp $
+# $OpenBSD: Makefile,v 1.35 2021/01/25 09:39:22 landry Exp $
+
+BROKEN-i386 =	clang 10.0.1 ICE compiling get_edges_9_columns in edges_input.c
 
 COMMENT =	geospatial routing extension for PostgreSQL
 
-V =		3.0.0
+V =		3.1.3
 DISTNAME =	pgrouting-${V}
 MASTER_SITES =	https://github.com/pgRouting/pgrouting/releases/download/v${V}/
 
@@ -31,6 +33,6 @@ SUBST_VARS =	V
 MODPOSTGRESQL_TEST_DBNAME =	___pgr___test___
 MODPOSTGRESQL_TEST_CMD = \
 	cd ${WRKSRC}; \
-	sh ./tools/testers/pg_prove_tests.sh postgres
+	sh ./tools/testers/pg_prove_tests.sh postgres 5432
 
 .include <bsd.port.mk>

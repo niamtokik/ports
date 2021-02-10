@@ -1,14 +1,13 @@
-# $OpenBSD: Makefile,v 1.21 2020/03/25 21:22:59 awolk Exp $
+# $OpenBSD: Makefile,v 1.23 2021/01/07 22:20:25 thfr Exp $
 
 ONLY_FOR_ARCHS=	i386 amd64 sparc64
 
 COMMENT=	Yamagi Quake II
 N=		yquake2
-V=		7.43
+V=		7.45
 PKGNAME=	${N}-${V}
 DISTNAME=	quake2-${V}
 CATEGORIES=	games
-REVISION=	0
 
 HOMEPAGE=	https://www.yamagi.org/quake2/
 MAINTAINER=	Adam Wolk <awolk@openbsd.org>

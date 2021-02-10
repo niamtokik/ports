@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.49 2020/06/01 06:04:50 chrisz Exp $
+# $OpenBSD: Makefile,v 1.53 2020/11/26 05:30:03 daniel Exp $
 
 COMMENT=		proof assistant based on a typed lambda calculus
 
-V=			8.11.1
+V=			8.12.1
 GH_ACCOUNT =		coq
 GH_PROJECT =		coq
 GH_TAGNAME =		V${V}
@@ -44,6 +44,7 @@ CONFIGURE_ARGS=	-prefix ${PREFIX} \
 ALL_TARGET=		world
 INSTALL_TARGET=		install
 .else
+RUN_DEPENDS +=		math/ocaml-num 
 # Order is important!
 ALL_TARGET=		byte coq documentation \
 			bin/coqide coqide-files theories/Init/Prelude.vo

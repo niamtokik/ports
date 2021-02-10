@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.5 2020/06/15 05:49:32 landry Exp $
+# $OpenBSD: Makefile,v 1.7 2021/01/21 00:37:10 daniel Exp $
 
 COMMENT =		OGC API server implementation
 
-MODPY_EGG_VERSION =	0.8.0
+MODPY_EGG_VERSION =	0.9.0
 DISTNAME =		pygeoapi-${MODPY_EGG_VERSION}
 
 CATEGORIES =		geo devel
@@ -23,7 +23,10 @@ NO_TEST =	Yes
 #TEST_DEPENDS =	${RUN_DEPENDS} \
 #		databases/py-mongo${MODPY_FLAVOR}
 RUN_DEPENDS =	devel/py-click${MODPY_FLAVOR} \
+		devel/py-dateutil${MODPY_FLAVOR} \
 		devel/py-tz${MODPY_FLAVOR} \
+		geo/py-proj${MODPY_FLAVOR} \
+		geo/py-rasterio${MODPY_FLAVOR}>=1.1.8p1 \
 		textproc/py-yaml${MODPY_FLAVOR} \
 		textproc/py-unicodecsv${MODPY_FLAVOR} \
 		www/py-flask${MODPY_FLAVOR} \

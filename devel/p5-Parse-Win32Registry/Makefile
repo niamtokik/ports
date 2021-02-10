@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.3 2019/07/12 20:45:04 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/11/01 09:46:45 benoit Exp $
 
 COMMENT=	accessing the Windows registry
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME =	Parse-Win32Registry-1.0
+DISTNAME =	Parse-Win32Registry-1.1
 CATEGORIES=	devel
 
 # perl

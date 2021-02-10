@@ -1,13 +1,13 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/13 17:06:23 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.4 2020/11/03 16:12:31 rsadowski Exp $
 
 COMMENT =	libraries and daemons to implement searching in Akonadi
 DISTNAME =	akonadi-search-${VERSION}
 CATEGORIES =	devel
 
-SHARED_LIBS +=  KF5AkonadiSearchCore           0.0 # 5.13.2
-SHARED_LIBS +=  KF5AkonadiSearchDebug          0.0 # 5.13.2
-SHARED_LIBS +=  KF5AkonadiSearchPIM            0.0 # 5.13.2
-SHARED_LIBS +=  KF5AkonadiSearchXapian         0.0 # 5.13.2
+SHARED_LIBS +=  KF5AkonadiSearchCore           1.0 # 5.13.2
+SHARED_LIBS +=  KF5AkonadiSearchDebug          1.0 # 5.13.2
+SHARED_LIBS +=  KF5AkonadiSearchPIM            1.0 # 5.13.2
+SHARED_LIBS +=  KF5AkonadiSearchXapian         1.0 # 5.13.2
 
 WANTLIB += ${COMPILER_LIBCXX} KF5AkonadiAgentBase KF5AkonadiCore
 WANTLIB += KF5AkonadiMime KF5Auth KF5AuthCore KF5CalendarCore
@@ -19,7 +19,7 @@ WANTLIB += Qt5Gui Qt5Widgets Qt5Xml c m xapian
 
 MODKDE5_TRANSLATIONS = yes
 
-MODULES +=	x11/kde-applications
+BUILD_DEPENDS =	devel/boost
 
 LIB_DEPENDS =	databases/xapian-core \
 		devel/kf5/kauth \

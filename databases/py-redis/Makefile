@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.36 2020/02/16 13:02:19 sthen Exp $
+# $OpenBSD: Makefile,v 1.38 2020/10/06 20:29:16 rpointel Exp $
 
 COMMENT =		Python interface to Redis
 
-MODPY_EGG_VERSION =	3.4.1
+MODPY_EGG_VERSION =	3.5.3
 
 GH_ACCOUNT =		andymccurdy
 GH_PROJECT =		redis-py

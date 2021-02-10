@@ -1,27 +1,26 @@
-# $OpenBSD $
+# $OpenBSD: Makefile,v 1.16 2021/01/23 18:10:18 rsadowski Exp $
 
-#Qt5Webkit
+# Qt5WebEngine
 USE_WXNEEDED =	Yes
 
 COMMENT =	non-linear video editor for KDE
 DISTNAME =	kdenlive-${VERSION}
 CATEGORIES =	multimedia
-REVISION =	0
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5Attica KF5Auth KF5AuthCore
 WANTLIB += KF5Bookmarks KF5Codecs KF5Completion KF5ConfigCore
 WANTLIB += KF5ConfigGui KF5ConfigWidgets KF5CoreAddons KF5Crash
 WANTLIB += KF5DBusAddons KF5Declarative KF5FileMetaData KF5GuiAddons
 WANTLIB += KF5I18n KF5IconThemes KF5ItemViews KF5JobWidgets KF5KIOCore
-WANTLIB += KF5KIOFileWidgets KF5KIOWidgets KF5NewStuff KF5NewStuffCore
-WANTLIB += KF5Notifications KF5NotifyConfig KF5Package KF5Purpose
-WANTLIB += KF5PurposeWidgets KF5Service KF5Solid KF5SonnetUi KF5TextWidgets
-WANTLIB += KF5WidgetsAddons KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus
-WANTLIB += Qt5Gui Qt5Multimedia Qt5Network Qt5Qml Qt5Quick Qt5QuickWidgets
-WANTLIB += Qt5Svg Qt5WebKit Qt5WebKitWidgets Qt5Widgets Qt5Xml
+WANTLIB += KF5KIOFileWidgets KF5KIOGui KF5KIOWidgets KF5NewStuff
+WANTLIB += KF5NewStuffCore KF5Notifications KF5NotifyConfig KF5Package
+WANTLIB += KF5Purpose KF5PurposeWidgets KF5Service KF5Solid KF5SonnetUi
+WANTLIB += KF5TextWidgets KF5WidgetsAddons KF5WindowSystem KF5XmlGui
+WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Multimedia
+WANTLIB += Qt5Network Qt5Positioning Qt5PrintSupport Qt5Qml Qt5QmlModels
+WANTLIB += Qt5Quick Qt5QuickControls2 Qt5QuickWidgets Qt5Svg Qt5WebChannel
+WANTLIB += Qt5WebEngineCore Qt5WebEngineWidgets Qt5Widgets Qt5Xml
 WANTLIB += c m mlt mlt++ rttr_core
-
-MODULES +=	x11/kde-applications
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes
@@ -71,8 +70,9 @@ LIB_DEPENDS =	devel/kf5/attica \
 		multimedia/mlt,-main \
 		x11/qt5/qtdeclarative \
 		x11/qt5/qtmultimedia \
+		x11/qt5/qtquickcontrols2 \
 		x11/qt5/qtsvg \
-		x11/qt5/qtwebkit
+		x11/qt5/qtwebengine
 
 CONFIGURE_ARGS =	-DCMAKE_DISABLE_FIND_PACKAGE_LibV4L2=Yes
 

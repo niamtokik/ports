@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.25 2019/07/12 20:49:48 sthen Exp $
+# $OpenBSD: Makefile,v 1.27 2020/11/18 20:31:55 benoit Exp $
 
 COMMENT =	quota manipulation module
 
 MODULES =	cpan
-DISTNAME =	Quota-1.7.2
+DISTNAME =	Quota-1.8.1
 CATEGORIES =	sysutils
 
 # perl

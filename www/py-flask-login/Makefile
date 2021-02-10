@@ -1,17 +1,15 @@
-# $OpenBSD: Makefile,v 1.7 2019/07/12 20:51:01 sthen Exp $
+# $OpenBSD: Makefile,v 1.9 2021/01/16 17:26:16 abieber Exp $
 
 COMMENT =		user session management for flask
 
 MODPY_EGG_VERSION =	0.4.1
 DISTNAME =		Flask-Login-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME:L}
-REVISION =		0
+REVISION =		2
 
 CATEGORIES =		www
 
 HOMEPAGE =		https://github.com/maxcountryman/flask-login
-
-MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 
 # MIT
 PERMIT_PACKAGE =	Yes

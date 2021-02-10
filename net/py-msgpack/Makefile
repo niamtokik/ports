@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.23 2020/03/13 12:31:46 bket Exp $
+# $OpenBSD: Makefile,v 1.25 2021/01/04 14:06:36 sthen Exp $
 
 COMMENT =		messagepack (de)serializer
 
@@ -6,6 +6,7 @@ MODPY_EGG_VERSION =	0.6.2
 EPOCH =			0
 DISTNAME =		msgpack-${MODPY_EGG_VERSION}
 PKGNAME =		py-msgpack-${MODPY_EGG_VERSION}
+REVISION =		1
 
 CATEGORIES =		net textproc
 

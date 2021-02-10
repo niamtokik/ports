@@ -1,19 +1,28 @@
-@comment $OpenBSD: PLIST-idle,v 1.2 2020/02/11 11:45:31 sthen Exp $
+@comment $OpenBSD: PLIST-idle,v 1.6 2020/12/29 23:59:06 daniel Exp $
 @option no-default-conflict
 @option is-branch
 @conflict python-idle-${VERSION_SPEC}
-@comment bin/idle3
+@conflict python-idle->=3.2,<3.8
+@conflict python->=3.6,<3.6.8p0
+@pkgpath lang/python/3.2,-idle
+@pkgpath lang/python/3.3,-idle
+@pkgpath lang/python/3.4,-idle
+@pkgpath lang/python/3.5,-idle
+@pkgpath lang/python/3.6,-idle
+@pkgpath lang/python/3.7,-idle
+bin/idle3
 bin/idle3.8
 lib/python3.8/idlelib/
 lib/python3.8/idlelib/CREDITS.txt
 lib/python3.8/idlelib/ChangeLog
 lib/python3.8/idlelib/HISTORY.txt
 lib/python3.8/idlelib/Icons/
+lib/python3.8/idlelib/Icons/README.txt
 lib/python3.8/idlelib/Icons/folder.gif
-lib/python3.8/idlelib/Icons/idle.icns
 lib/python3.8/idlelib/Icons/idle.ico
 lib/python3.8/idlelib/Icons/idle_16.gif
 lib/python3.8/idlelib/Icons/idle_16.png
+lib/python3.8/idlelib/Icons/idle_256.png
 lib/python3.8/idlelib/Icons/idle_32.gif
 lib/python3.8/idlelib/Icons/idle_32.png
 lib/python3.8/idlelib/Icons/idle_48.gif

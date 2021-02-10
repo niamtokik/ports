@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.29 2019/07/12 20:49:48 sthen Exp $
+# $OpenBSD: Makefile,v 1.31 2020/11/21 16:23:27 benoit Exp $
 
 COMMENT=	interface to the system's process table#'
 
-DISTNAME =	Proc-ProcessTable-0.53
+DISTNAME =	Proc-ProcessTable-0.59
 CATEGORIES=	sysutils
-REVISION =	2
 
 # Artistic License
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c kvm perl
+WANTLIB +=	c kvm perl
 
 MODULES=	cpan
 

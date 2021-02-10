@@ -11,10 +11,7 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-// TODO: remove once the missing guard in fido.h is fixed upstream.
-extern "C" {
 #include <fido.h>
-}
 
 #include <set>
 #include <string>
@@ -27,6 +24,7 @@ extern "C" {
 #include "base/location.h"
 #include "base/logging.h"
 #include "base/posix/eintr_wrapper.h"
+#include "base/task/thread_pool.h"
 #include "base/single_thread_task_runner.h"
 #include "base/stl_util.h"
 #include "base/strings/pattern.h"
@@ -49,8 +47,8 @@ struct ConnectParams {
                 HidService::ConnectCallback callback)
       : device_info(std::move(device_info)), callback(std::move(callback)),
         task_runner(base::ThreadTaskRunnerHandle::Get()),
-        blocking_task_runner(
-            base::CreateSequencedTaskRunner(HidService::kBlockingTaskTraits)) {}
+        blocking_task_runner(base::ThreadPool::CreateSequencedTaskRunner(
+            HidService::kBlockingTaskTraits)) {}
   ~ConnectParams() {}
 
   scoped_refptr<HidDeviceInfo> device_info;
@@ -74,55 +72,6 @@ void FinishOpen(std::unique_ptr<ConnectParams> params) {
                         base::Bind(&CreateConnection, base::Passed(&params)));
 }
 
-bool terrible_ping_kludge(int fd, const std::string &path) {
-  u_char data[256];
-  int i, n;
-  struct pollfd pfd;
-
-  for (i = 0; i < 4; i++) {
-    memset(data, 0, sizeof(data));
-    /* broadcast channel ID */
-    data[1] = 0xff;
-    data[2] = 0xff;
-    data[3] = 0xff;
-    data[4] = 0xff;
-    /* Ping command */
-    data[5] = 0x81;
-    /* One byte ping only, Vasili */
-    data[6] = 0;
-    data[7] = 1;
-    HID_LOG(EVENT) << "send ping " << i << " " << path;
-    if (write(fd, data, 64) == -1) {
-      HID_PLOG(ERROR) << "write " << path;
-      return false;
-    }
-    HID_LOG(EVENT) << "wait reply " << path;
-    memset(&pfd, 0, sizeof(pfd));
-    pfd.fd = fd;
-    pfd.events = POLLIN;
-    if ((n = poll(&pfd, 1, 100)) == -1) {
-      HID_PLOG(EVENT) << "poll " << path;
-      return false;
-    } else if (n == 0) {
-      HID_LOG(EVENT) << "timed out " << path;
-      continue;
-    }
-    if (read(fd, data, 64) == -1) {
-      HID_PLOG(ERROR) << "read " << path;
-      return false;
-    }
-    /*
-     * Ping isn't always supported on the broadcast channel,
-     * so we might get an error, but we don't care - we're
-     * synched now.
-     */
-    HID_LOG(EVENT) << "got reply " << path;
-    return true;
-  }
-  HID_LOG(ERROR) << "no response " << path;
-  return false;
-}
-
 void OpenOnBlockingThread(std::unique_ptr<ConnectParams> params) {
   base::ScopedBlockingCall scoped_blocking_call(FROM_HERE,
                                                 base::BlockingType::MAY_BLOCK);
@@ -136,11 +85,6 @@ void OpenOnBlockingThread(std::unique_ptr<ConnectParams> params) {
   if (!device_file.IsValid()) {
     HID_LOG(EVENT) << "Failed to open '" << device_node << "': "
                    << base::File::ErrorToString(device_file.error_details());
-    task_runner->PostTask(FROM_HERE, base::BindOnce(std::move(params->callback), nullptr));
-    return;
-  }
-  if (!terrible_ping_kludge(device_file.GetPlatformFile(), device_node)) {
-    HID_LOG(EVENT) << "Failed to ping " << device_node;
     task_runner->PostTask(FROM_HERE, base::BindOnce(std::move(params->callback), nullptr));
     return;
   }
@@ -281,7 +225,7 @@ private:
 HidServiceFido::HidServiceFido()
     : task_runner_(base::ThreadTaskRunnerHandle::Get()),
       blocking_task_runner_(
-          base::CreateSequencedTaskRunner(kBlockingTaskTraits)),
+          base::ThreadPool::CreateSequencedTaskRunner(kBlockingTaskTraits)),
       weak_factory_(this), helper_(std::make_unique<BlockingTaskHelper>(
                                weak_factory_.GetWeakPtr())) {
   blocking_task_runner_->PostTask(

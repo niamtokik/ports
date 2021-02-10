@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.6 2020/06/03 05:13:35 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.9 2020/11/03 16:12:31 rsadowski Exp $
 
 COMMENT =	Kio slave for accessing audio CDs
 DISTNAME =	audiocd-kio-${VERSION}
 PKGNAME =	audiocd-kio-kf5-${VERSION}
 CATEGORIES =	devel audio
-REVISION =	0
 
-SHARED_LIBS +=  audiocdplugins            1.0 # 5.0
+SHARED_LIBS +=  audiocdplugins            2.0 # 5.0
 
 WANTLIB += ${COMPILER_LIBCXX} FLAC KF5Auth KF5AuthCore KF5Cddb
 WANTLIB += KF5Codecs KF5CompactDisc KF5ConfigCore KF5ConfigGui
@@ -19,8 +18,6 @@ WANTLIB += vorbisenc vorbisfile
 MODKDE5_TRANSLATIONS = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	audio/cdparanoia \
 		audio/flac \
@@ -36,6 +33,7 @@ LIB_DEPENDS =	audio/cdparanoia \
 		devel/kf5/kservice \
 		devel/kf5/solid \
 		x11/kde-applications/libkcddb \
-		x11/kde-applications/libkcompactdisc
+		x11/kde-applications/libkcompactdisc \
+		multimedia/phonon
 
 .include <bsd.port.mk>

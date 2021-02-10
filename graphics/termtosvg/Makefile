@@ -1,16 +1,14 @@
-# $OpenBSD: Makefile,v 1.10 2020/02/10 20:24:24 kmos Exp $
+# $OpenBSD: Makefile,v 1.12 2021/01/09 18:14:11 fcambus Exp $
 
 COMMENT =	record terminal sessions as SVG animations
 
 MODPY_EGG_VERSION = 1.1.0
 DISTNAME =	termtosvg-${MODPY_EGG_VERSION}
-REVISION =	0
+REVISION =	2
 
 CATEGORIES =	graphics
 
 HOMEPAGE =	https://nbedos.github.io/termtosvg/
-
-MAINTAINER =	Frederic Cambus <fcambus@openbsd.org>
 
 # BSD
 PERMIT_PACKAGE = Yes

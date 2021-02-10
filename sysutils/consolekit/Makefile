@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.75 2019/07/12 20:49:40 sthen Exp $
+# $OpenBSD: Makefile,v 1.82 2020/12/20 09:20:22 ajacoutot Exp $
 
 COMMENT=		framework for defining and tracking users, sessions & seats
 
 PKGNAME=		${DISTNAME:L}
-REVISION=		8
 
-GH_TAGNAME=		1.2.1
+GH_TAGNAME=		1.2.2
 GH_ACCOUNT=		ConsoleKit2
 GH_PROJECT=		ConsoleKit2
 
@@ -36,6 +35,8 @@ RUN_DEPENDS +=		x11/dbus,-suid
 CONFIGURE_STYLE=	gnu
 CONFIGURE_ARGS=		--disable-pam-module \
 			--with-pam-module-dir=${LOCALBASE}/lib/security
+
+DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 FAKE_FLAGS=		DBUS_SYS_DIR=${TRUEPREFIX}/share/examples/consolekit/dbus-1 \
 			sysconfdir=${TRUEPREFIX}/share/examples/consolekit

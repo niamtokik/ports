@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.30 2020/02/29 14:29:28 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.33 2021/01/06 05:13:28 daniel Exp $
 
 # as error: ``operation combines symbols in different segments''
 # (known toolchain problem) - if fixing, re-enable in devel/cmake/Makefile
@@ -9,7 +9,8 @@ COMMENT =		small build system with a focus on speed
 
 GH_ACCOUNT =		ninja-build
 GH_PROJECT =		ninja
-GH_TAGNAME =		v1.10.0
+GH_TAGNAME =		v1.10.2
+REVISION =		0
 
 CATEGORIES =		devel
 
@@ -30,6 +31,7 @@ MODPY_ADJ_FILES =	bootstrap.py \
 			configure.py \
 			misc/ninja_syntax.py \
 			src/browse.py
+MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 # Not strictly required, but will be used if available.  Included as a build
 # dependency to ensure consistent builds.

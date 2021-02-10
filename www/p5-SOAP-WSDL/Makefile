@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.5 2019/07/12 20:50:57 sthen Exp $
+# $OpenBSD: Makefile,v 1.7 2020/11/02 21:30:35 benoit Exp $
 
 COMMENT=		SOAP with WSDL support
 
-DISTNAME =		SOAP-WSDL-3.003
+DISTNAME =		SOAP-WSDL-3.004
 CATEGORIES=		www
 
 # perl
@@ -15,6 +15,7 @@ MODCPAN_EXAMPLES_DIST=	example
 
 BUILD_DEPENDS=		${RUN_DEPENDS}
 RUN_DEPENDS=		devel/p5-Class-Std-Fast \
+			devel/p5-Class-Load \
 			textproc/p5-Template \
 			textproc/p5-XML-Parser \
 			www/p5-libwww \

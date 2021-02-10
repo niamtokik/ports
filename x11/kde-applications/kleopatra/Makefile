@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.1.1.2 2020/06/14 04:39:36 rsadowski Exp 
+# $OpenBSD: Makefile,v 1.13 2021/01/23 18:10:21 rsadowski Exp $
 
 COMMENT =	certificate manager and a universal crypto GUI
 DISTNAME =	kleopatra-${VERSION}
 CATEGORIES =	security x11
-REVISION =	1
 
-SHARED_LIBS +=  kleopatraclientcore     0.0 # 1.3.0
-SHARED_LIBS +=  kleopatraclientgui      0.0 # 1.3.0
+SHARED_LIBS +=  kleopatraclientcore     1.0 # 1.3.0
+SHARED_LIBS +=  kleopatraclientgui      1.0 # 1.3.0
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Auth KF5AuthCore KF5Codecs KF5ConfigCore
 WANTLIB += KF5ConfigGui KF5ConfigWidgets KF5CoreAddons KF5Crash
@@ -14,18 +13,18 @@ WANTLIB += KF5DBusAddons KF5I18n KF5IconThemes KF5ItemModels KF5KCMUtils
 WANTLIB += KF5Libkleo KF5Mime KF5Notifications KF5Service KF5SonnetUi
 WANTLIB += KF5TextWidgets KF5WidgetsAddons KF5WindowSystem KF5XmlGui
 WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport Qt5Widgets
-WANTLIB += Qt5Xml assuan c gpg-error gpgmepp m qgpgme
+WANTLIB += Qt5Xml assuan c gpg-error gpgme gpgmepp m qgpgme
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
-MODKF5_I18N_CONFLICT = yes
-MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
 
-MODULES +=	x11/kde-applications
+MODKF5_I18N_CONFLICT = yes
+MODKF5_L10N_CONFLICT = yes
 
-RUN_DEPENDS =	security/gnupg2
+RUN_DEPENDS =	security/gnupg>=2.2.23p1
+BUILD_DEPENDS =	devel/boost
 
 LIB_DEPENDS =	devel/kf5/kauth \
 		devel/kf5/kcmutils \
@@ -49,7 +48,5 @@ LIB_DEPENDS =	devel/kf5/kauth \
 		security/libgpg-error \
 		x11/kde-applications/kmime \
 		x11/kde-applications/libkleo
-
-
 
 .include <bsd.port.mk>

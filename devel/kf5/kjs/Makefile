@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.12 2020/03/23 18:01:09 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.14 2020/11/03 16:12:07 rsadowski Exp $
 
 COMMENT =		JavaScript/ECMAScript engine for KDE
 DISTNAME =		kjs-${VERSION}

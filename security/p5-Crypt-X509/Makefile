@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.6 2019/11/12 08:30:27 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2020/11/04 10:50:55 benoit Exp $
 
 COMMENT =	parse an X.509 certificate
 
-DISTNAME =	Crypt-X509-0.52
+DISTNAME =	Crypt-X509-0.53
 CATEGORIES =	security
 
 # perl

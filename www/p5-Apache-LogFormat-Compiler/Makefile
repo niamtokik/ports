@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.5 2019/07/12 20:50:49 sthen Exp $
+# $OpenBSD: Makefile,v 1.7 2020/11/22 09:01:00 benoit Exp $
 
 COMMENT =		compile a log format string to perl-code
 
 MODULES =		cpan
 PKG_ARCH =		*
-DISTNAME =		Apache-LogFormat-Compiler-0.35
+DISTNAME =		Apache-LogFormat-Compiler-0.36
 CATEGORIES =		www
 
 # Perl

@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.14 2019/07/12 20:45:08 sthen Exp $
+# $OpenBSD: Makefile,v 1.16 2020/11/07 06:59:11 benoit Exp $
 # Original from: Neil Watkiss <nwatkiss@ttul.org>
 
 COMMENT =	simple command-line shell framework
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	Term-Shell-0.11
+DISTNAME =	Term-Shell-0.12
 CATEGORIES =	devel
 
 # Perl

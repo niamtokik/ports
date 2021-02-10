@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.10 2020/04/08 12:46:54 sthen Exp $
+# $OpenBSD: Makefile,v 1.14 2021/02/06 21:07:31 sthen Exp $
 
 COMMENT =	modern GPS tracking platform
-V =		4.8
+V =		4.12
 PKGNAME =	traccar-${V}
 DISTNAME =	traccar-other-${V}
 EXTRACT_SUFX =	.zip

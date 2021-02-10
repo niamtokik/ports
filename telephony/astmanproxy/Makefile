@@ -1,19 +1,20 @@
-# $OpenBSD: Makefile,v 1.9 2020/03/20 10:51:21 sthen Exp $
+# $OpenBSD: Makefile,v 1.11 2021/01/31 19:06:09 sthen Exp $
 
 COMMENT =	proxy for Asterisk Manager Interface
 
-# there is a slightly more active fork in davies147/astmanproxy, but it needs
-# fixing to not use gnu extensions
+# there is an active fork in davies147/astmanproxy, but it uses various
+# linuxisms (pthread_timedjoin_np, prctl)
 GH_ACCOUNT =	davetroy
 GH_PROJECT =	astmanproxy
 GH_COMMIT =	f4b952a717b7e982b585bf0daa86398add394a88
 DISTNAME =	astmanproxy-1.22pre20081208
+REVISION =	1
 
 CATEGORIES =	telephony
 
 HOMEPAGE =	http://www.voip-info.org/tiki-index.php?page=AstManProxy
 
-MAINTAINER =	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER =	Stuart Henderson <stu.ports@spacehopper.org>
 
 # GPLv2
 PERMIT_PACKAGE =	Yes

@@ -1,12 +1,12 @@
-# $OpenBSD: Makefile,v 1.10 2019/11/18 03:25:45 kmos Exp $
+# $OpenBSD: Makefile,v 1.13 2021/01/04 14:06:31 sthen Exp $
 
 COMMENT =		Python module for decorators, wrappers and monkey patching
 
-MODPY_EGG_VERSION =	1.10.10
+MODPY_EGG_VERSION =	1.11.2
 DISTNAME =		wrapt-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 CATEGORIES =		devel
-REVISION =		1
+REVISION =		0
 
 GH_ACCOUNT =		GrahamDumpleton
 GH_PROJECT =		wrapt

@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.4 2020/06/05 05:40:30 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.6 2020/11/03 16:12:42 rsadowski Exp $
 
 COMMENT =	KDE tool for sweeping unwanted traces from system
 DISTNAME =	sweeper-${VERSION}
 CATEGORIES =	devel
-REVISION =	1
 
 WANTLIB += ${COMPILER_LIBCXX} KF5ActivitiesStats KF5Auth KF5AuthCore
 WANTLIB += KF5Bookmarks KF5Codecs KF5ConfigCore KF5ConfigGui KF5ConfigWidgets
@@ -17,8 +16,6 @@ MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	devel/kf5/kactivities-stats \
 		devel/kf5/kauth \

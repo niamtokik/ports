@@ -1,25 +1,23 @@
-# $OpenBSD: Makefile,v 1.14 2019/07/12 20:44:07 sthen Exp $
+# $OpenBSD: Makefile,v 1.17 2021/01/15 12:09:07 sthen Exp $
 
 COMMENT=		migrate repositories from CVS to Subversion/GIT/BZR
 
-# Beware! Upgrades need a new directory in MASTER_SITES,
-# otherwise you probably get the old files, not 404.
+# py3: https://github.com/mhagger/cvs2svn/issues/9
 MODPY_EGG_VERSION=	2.4.0
-REVISION=		0
+REVISION=		2
 DISTNAME=		cvs2svn-${MODPY_EGG_VERSION}
-MASTER_SITES=		${HOMEPAGE}files/documents/1462/49237/
+MASTER_SITES=		https://spacehopper.org/mirrors/
 
 CATEGORIES=		devel
 
-HOMEPAGE=		http://cvs2svn.tigris.org/
+HOMEPAGE=		https://github.com/mhagger/cvs2svn
 
 # BSD-like
 PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
 
-RUN_DEPENDS=	devel/subversion,-python \
-		${MODPY_RUN_DEPENDS},-bsddb
+RUN_DEPENDS=	${MODPY_RUN_DEPENDS},-bsddb
 
 TEST_FLAGS=	PYTHON=${MODPY_BIN}
 

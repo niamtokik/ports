@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.4 2019/07/12 20:43:59 sthen Exp $
+# $OpenBSD: Makefile,v 1.6 2021/01/04 14:06:27 sthen Exp $
 
 COMMENT=		Python bindings for Oracle Berkeley DB
 
 MODPY_EGG_VERSION=	6.0.1
 DISTNAME=		bsddb3-${MODPY_EGG_VERSION}
 PKGNAME=		py-${DISTNAME}
-REVISION=		1
+REVISION=		3
 
 CATEGORIES=		databases devel
 

@@ -1,14 +1,16 @@
-# $OpenBSD: Makefile,v 1.29 2019/07/12 20:44:56 sthen Exp $
+# $OpenBSD: Makefile,v 1.35 2021/01/01 10:32:49 benoit Exp $
 
-COMMENT =	graph data structures in perl
+COMMENT =	graph data structures and algorithms
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	Graph-0.9704
+DISTNAME =	Graph-0.9716
 CATEGORIES =	devel
-FIX_EXTRACT_PERMISSIONS=Yes
 
-# perl
+# Perl
 PERMIT_PACKAGE =	Yes
+
+RUN_DEPENDS =	devel/p5-Heap>=0.80 \
+		devel/p5-Set-Object
 
 .include <bsd.port.mk>

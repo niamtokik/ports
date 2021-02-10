@@ -1,28 +1,28 @@
-# $OpenBSD: Makefile,v 1.62 2020/06/04 06:19:35 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.71 2021/01/20 07:59:49 phessler Exp $
 
 #Qt5Webkit
 USE_WXNEEDED =		Yes
 
 COMMENT =		cross-platform IDE for use with Qt
-V =			4.12.2
+V =			4.14.0
 DISTNAME =		qt-creator-opensource-src-${V}
 PKGNAME =		qt-creator-${V}
 
 SHARED_LIBS +=	Aggregation               0.0 # 0.0
-SHARED_LIBS +=	CPlusPlus                 2.0 # 0.0
+SHARED_LIBS +=	CPlusPlus                 3.0 # 0.0
 SHARED_LIBS +=	ExtensionSystem           4.0 # 0.0
 SHARED_LIBS +=	GLSL                      0.0 # 0.0
 SHARED_LIBS +=	LanguageUtils             0.0 # 0.0
 SHARED_LIBS +=	QmlDebug                  4.0 # 0.0
 SHARED_LIBS +=	QmlEditorWidgets          0.0 # 0.0
-SHARED_LIBS +=	QmlJS                     5.0 # 0.0
-SHARED_LIBS +=	QtcSsh                    0.0 # 0.0
-SHARED_LIBS +=	Utils                     5.0 # 0.0
-SHARED_LIBS +=	Sqlite                    4.0 # 1.0
+SHARED_LIBS +=	QmlJS                     6.0 # 0.0
+SHARED_LIBS +=	QtcSsh                    1.0 # 0.0
+SHARED_LIBS +=	Utils                     6.0 # 0.0
+SHARED_LIBS +=	Sqlite                    5.0 # 1.0
 SHARED_LIBS +=	Modeling                  4.0 # 1.0
 SHARED_LIBS +=	Clangsupport              1.0 # 4.5
-SHARED_LIBS +=	Tracing                   0.0 # 4.7
-SHARED_LIBS +=  LanguageServerProtocol    0.0 # 4.8
+SHARED_LIBS +=	Tracing                   1.0 # 4.7
+SHARED_LIBS +=  LanguageServerProtocol    1.0 # 4.8
 SHARED_LIBS +=  AdvancedDockingSystem     0.0 # 4.12
 
 MAKE_FLAGS =	BUILD_TESTS=1
@@ -41,12 +41,13 @@ PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} GL KF5SyntaxHighlighting Qt5Concurrent
 WANTLIB += Qt5Core Qt5Designer Qt5DesignerComponents Qt5Gui Qt5Help
-WANTLIB += Qt5Network Qt5Positioning Qt5PrintSupport Qt5Qml Qt5Quick
-WANTLIB += Qt5QuickWidgets Qt5Script Qt5SerialPort Qt5Sql Qt5Svg
+WANTLIB += Qt5Network Qt5Positioning Qt5PrintSupport Qt5Qml Qt5QmlModels
+WANTLIB += Qt5Quick Qt5QuickWidgets Qt5SerialPort Qt5Sql Qt5Svg
 WANTLIB += Qt5WebChannel Qt5WebEngineCore Qt5WebEngineWidgets
 WANTLIB += Qt5Widgets Qt5Xml c clang m yaml-cpp
 
-MASTER_SITES =	https://download.qt.io/official_releases/qtcreator/${V:R}/${V}/
+MASTER_SITES =	https://download.qt.io/official_releases/qtcreator/${V:R}/${V}/ \
+		https://mirrors.ocf.berkeley.edu/qt/official_releases/qtcreator/${V:R}/${V}/
 
 MODULES =	x11/qt5 \
 		lang/python \
@@ -77,7 +78,6 @@ LIB_DEPENDS =	devel/llvm \
 		devel/kf5/syntax-highlighting \
 		devel/yaml-cpp \
 		x11/qt5/qtdeclarative \
-		x11/qt5/qtscript \
 		x11/qt5/qtserialport \
 		x11/qt5/qtsvg \
 		x11/qt5/qttools \

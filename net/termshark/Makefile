@@ -1,8 +1,13 @@
-# $OpenBSD: Makefile,v 1.2 2020/06/08 19:37:35 kn Exp $
+# $OpenBSD: Makefile,v 1.4 2021/01/17 21:10:32 sthen Exp $
+
+# 1.0.0 fails on aarch64, golang.org/x/sys@v0.0.0-20190416152802-12500544f89f
+# too old
+ONLY_FOR_ARCHS = amd64 arm i386
 
 COMMENT =	terminal UI for tshark, inspired by Wireshark
 
-# portgen go doesn't cope with github.com/gcla/termshark/v2 yet
+# there is also github.com/gcla/termshark, but it uses
+# github.com/pkg/term/termios which is broken on OpenBSD
 MODGO_MODNAME =	github.com/gcla/termshark
 MODGO_VERSION =	v1.0.0
 

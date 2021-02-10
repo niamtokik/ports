@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.7 2019/07/12 20:45:09 sthen Exp $
+# $OpenBSD: Makefile,v 1.9 2020/11/15 09:16:01 benoit Exp $
 
 COMMENT =	incredibly simple helpers for testing code with exceptions
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	Test-Fatal-0.014
+DISTNAME =	Test-Fatal-0.016
 CATEGORIES =	devel
 
 # Perl

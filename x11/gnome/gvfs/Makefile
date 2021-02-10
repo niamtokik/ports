@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.194 2020/05/14 15:29:06 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.198 2021/01/09 11:08:13 ajacoutot Exp $
 
 COMMENT-main=		GNOME Virtual File System
 COMMENT-smb=		GVFS mount module for samba
@@ -7,7 +7,7 @@ COMMENT-nfs=		GVFS mount module for NFS
 COMMENT-google=		GVFS mount module for Google Drive
 
 GNOME_PROJECT=		gvfs
-GNOME_VERSION=		1.44.1
+GNOME_VERSION=		1.46.2
 
 PKGNAME-main=		${DISTNAME}
 PKGNAME-smb=		${GNOME_PROJECT}-smb-${GNOME_VERSION}
@@ -117,7 +117,11 @@ CONFIGURE_ARGS +=	-Dgoogle=false
 .endif
 
 # test_polkitd.py, gvfs-test
-TEST_DEPENDS=		devel/py-gobject3
+MODULES +=		lang/python
+MODPY_BUILDDEP=		No
+MODPY_RUNDEP=		No
+MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
+TEST_DEPENDS=		devel/py-gobject3${MODPY_FLAVOR}
 
 # -Dadmin=false
 post-install:

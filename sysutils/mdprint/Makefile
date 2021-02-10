@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.3 2020/05/14 19:12:08 kn Exp $
+# $OpenBSD: Makefile,v 1.6 2021/01/10 22:33:22 kn Exp $
 
 COMMENT =		print sun4v machine descriptions
 
@@ -6,7 +6,7 @@ COMMENT =		print sun4v machine descriptions
 DISTNAME =		ldomsmanager-3.5.0.0-30.2411.1
 # own version, documented in source code
 PKGNAME =		mdprint-1.3
-REVISION =		0
+REVISION =		2
 
 CATEGORIES =		sysutils devel
 
@@ -17,9 +17,6 @@ PERMIT_PACKAGE =	Yes
 
 MASTER_SITES =		https://yum.oracle.com/repo/OracleLinux/OL6/latest/source/getPackageSource/
 EXTRACT_SUFX =		.el6.src.rpm
-EXTRACT_ONLY =		# empty
-
-BUILD_DEPENDS =		converters/rpm2cpio
 
 MODULES =		lang/python
 MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
@@ -31,12 +28,10 @@ NO_TEST =		Yes
 
 # the SRC RPM contains a SPEC file and the actual uncompressed source tarball
 post-extract:
-	cd ${WRKDIR} && rpm2cpio ${FULLDISTDIR}/${DISTFILES} | \
-		cpio -i ${DISTNAME}.tar
-	${TAR} -C${WRKDIR} -xf${WRKDIR}/${DISTNAME}.tar ${DISTNAME}/${MDPRINT}
+	cd ${WRKDIR} && ${TAR} -xf./${DISTNAME}.tar
 
 do-build:
-	2to3 --no-diffs -w ${WRKSRC}/${MDPRINT}
+	2to3-${MODPY_VERSION} --no-diffs -W ${WRKSRC}/${MDPRINT}
 
 do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/${MDPRINT} ${PREFIX}/bin/mdprint

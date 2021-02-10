@@ -1,16 +1,11 @@
-# $OpenBSD: Makefile,v 1.24 2020/02/29 08:17:58 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.27 2021/01/19 06:26:49 rsadowski Exp $
 
-COMMENT-main =		Python binding for the Scintilla source code editor
-COMMENT-common =	common files for py-qscintilla
+COMMENT =		Python binding for the Scintilla source code editor
 
-VERSION =		2.11.4
-REVISION =		1
+VERSION =		2.11.6
 MODPY_EGG_VERSION =	${VERSION}
 DISTNAME =		QScintilla-${VERSION}
-
-PKGNAME-main =		py-qscintilla-${VERSION}
-FULLPKGNAME-common =	py-qscintilla-common-${VERSION}
-FULLPKGPATH-common =	editors/py-qscintilla,-common
+PKGNAME =		py-qscintilla-${VERSION}
 
 CATEGORIES =		editors x11 devel
 
@@ -21,12 +16,8 @@ PERMIT_PACKAGE =	Yes
 
 MASTER_SITES =		https://www.riverbankcomputing.com/static/Downloads/QScintilla/${VERSION}/
 
-WANTLIB-main += ${COMPILER_LIBCXX} GL m Qt5Core Qt5Gui Qt5PrintSupport
-WANTLIB-main += Qt5Widgets qscintilla2_qt5
-
-WANTLIB-common +=
-
-MULTI_PACKAGES =	-main -common
+WANTLIB += ${COMPILER_LIBCXX} GL m Qt5Core Qt5Gui Qt5PrintSupport
+WANTLIB += Qt5Widgets qscintilla2_qt5
 
 MODULES =		lang/python \
 			x11/qt5
@@ -35,23 +26,13 @@ PYQTVER =		PyQt5
 SIPDIR =		share/sip/PyQt5${MODPY_BIN_SUFFIX}
 
 FLAVORS =		python3
-FLAVOR ?=
-
-.if ${FLAVOR:Mpython3}
-FULLPKGNAME-main =	${PKGNAME-main:S/^py-/py3-/}
-FULLPKGPATH-main =	editors/py-qscintilla,-main${MODPY_FLAVOR}
-.endif
+FLAVOR =		python3
 
 BUILD_DEPENDS =		${RUN_DEPENDS}
 RUN_DEPENDS =		devel/py-sip${MODPY_FLAVOR} \
 			x11/dbus-python${MODPY_FLAVOR} \
 			x11/py-qt5${MODPY_FLAVOR}
-RUN_DEPENDS-main =	${RUN_DEPENDS} \
-			editors/py-qscintilla,-common
-LIB_DEPENDS-main =	editors/qscintilla=${VERSION}
-
-RUN_DEPENDS-common =
-LIB_DEPENDS-common =
+LIB_DEPENDS =		editors/qscintilla=${VERSION}
 
 COMPILER =		base-clang ports-gcc base-gcc
 
@@ -68,6 +49,6 @@ CONFIGURE_ARGS +=	--pyqt=${PYQTVER} -w \
 			--qmake=${MODQT5_QMAKE} \
 			--sip=${LOCALBASE}/bin/sip${MODPY_BIN_SUFFIX}
 MAKE_ENV =		INSTALL_ROOT="${WRKINST}"
-SUBST_VARS +=		QTVER PYQTVER SIPDIR
+SUBST_VARS +=		QTVER PYQTVER SIPDIR MODPY_FLAVOR
 
 .include <bsd.port.mk>

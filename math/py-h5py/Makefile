@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.2 2020/03/09 18:39:09 martin Exp $
+# $OpenBSD: Makefile,v 1.5 2021/01/04 14:06:34 sthen Exp $
 
 COMMENT =	pythonic interface to the HDF5 binary data format
 
-MODPY_EGG_VERSION =	2.10.0
+MODPY_EGG_VERSION =	3.1.0
 DISTNAME =		h5py-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 CATEGORIES =		math
@@ -27,10 +27,11 @@ FLAVOR =	python3
 
 WANTLIB =	pthread ${MODPY_WANTLIB} hdf5 hdf5_hl
 
+MAKE_ENV =	HDF5_DIR=${PREFIX}
+
 BUILD_DEPENDS = lang/cython${MODPY_FLAVOR} \
                 math/py-numpy${MODPY_FLAVOR} \
-		devel/py-pkgconfig${MODPY_FLAVOR} \
-		devel/py-six${MODPY_FLAVOR}
+		devel/py-pkgconfig${MODPY_FLAVOR}
 
 LIB_DEPENDS =	math/hdf5
 

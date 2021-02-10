@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.30 2020/06/16 10:06:01 pvk Exp $
+# $OpenBSD: Makefile,v 1.42 2021/02/08 21:36:11 pvk Exp $
 
 COMMENT =	open source Slack-alternative
 
-V =		5.23.1
+V =		5.31.1
 GH_ACCOUNT =	mattermost
 GH_PROJECT =	mattermost-server
 GH_TAGNAME =	v${V}

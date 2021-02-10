@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.4 2019/10/03 17:38:16 kn Exp $
+# $OpenBSD: Makefile,v 1.7 2020/10/18 08:40:57 benoit Exp $
 
 COMMENT =		guess C++ compiler and flags
 
-DISTNAME =		ExtUtils-CppGuess-0.20
+DISTNAME =		ExtUtils-CppGuess-0.21
 
 CATEGORIES =		devel
 
-MAINTAINER =		Klemens Nanni <kn@openbsd.org>
 
 # Perl
 PERMIT_PACKAGE =	Yes

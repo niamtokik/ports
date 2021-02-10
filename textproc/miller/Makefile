@@ -1,24 +1,24 @@
-# $OpenBSD: Makefile,v 1.7 2020/03/17 14:55:49 fcambus Exp $
+# $OpenBSD: Makefile,v 1.12 2021/01/14 21:55:22 fcambus Exp $
 
 COMMENT =	name-indexed data processing tool
 
-V =		5.7.0
-DISTNAME =	mlr-$V
-PKGNAME =	miller-$V
+GH_ACCOUNT =	johnkerl
+GH_PROJECT =	miller
+GH_TAGNAME =	v5.10.0
+REVISION =	0
 
 CATEGORIES =	textproc
 
 HOMEPAGE =	https://johnkerl.org/miller/doc/
-
-MAINTAINER =	Frederic Cambus <fcambus@openbsd.org>
 
 # BSD
 PERMIT_PACKAGE =	Yes
 
 WANTLIB +=	c m
 
-MASTER_SITES =	https://github.com/johnkerl/miller/releases/download/v$V/
-
 CONFIGURE_STYLE = gnu
+
+post-install:
+	${INSTALL_DATA} ${WRKSRC}/docs/mlr.1 ${PREFIX}/man/man1
 
 .include <bsd.port.mk>

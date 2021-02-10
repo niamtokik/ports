@@ -1,29 +1,33 @@
-# $OpenBSD: Makefile,v 1.4 2019/07/12 20:47:18 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2021/01/11 20:08:37 sthen Exp $
 
 COMMENT=	COBOL compiler, formerly known as OpenCOBOL
 
-DISTNAME =	gnucobol-2.2
-REVISION =	1
+DISTNAME =	gnucobol-3.1.2
+REVISION =	0
 
-SHARED_LIBS +=	cob	4.0	# 4.0
+SHARED_LIBS +=	cob	5.0	# 5.0
 
 CATEGORIES =	lang
 
-HOMEPAGE =	http://www.opencobol.org/
-
-MAINTAINER =	Frederic Cambus <fcambus@openbsd.org>
+HOMEPAGE =	https://gnucobol.sourceforge.io/
 
 # compiler: GPLv3+
 # run-time library: LGPLv3+
 PERMIT_PACKAGE =	Yes
 
-WANTLIB += c curses db gmp iconv intl m
+WANTLIB += c curses db gmp iconv intl json-c lzma m pthread xml2
+WANTLIB += z
 
 MASTER_SITES =	${MASTER_SITE_GNU:=gnucobol/}
 
+# base makeinfo chokes on gnucobol texinfo files
+BUILD_DEPENDS =	print/texinfo
+
 LIB_DEPENDS =	databases/db/v4 \
 		devel/gettext,-runtime \
-		devel/gmp
+		devel/gmp \
+		devel/json-c \
+		textproc/libxml
 
 CONFIGURE_STYLE = gnu
 

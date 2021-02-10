@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.49 2020/05/14 12:33:20 jca Exp $
+# $OpenBSD: Makefile,v 1.53 2021/01/20 22:41:35 jca Exp $
 
 COMMENT =		authoritative DNS server
 
-DISTNAME =		knot-2.9.4
+DISTNAME =		knot-3.0.3
 
-SHARED_LIBS +=	dnssec               2.0      # .7.0
-SHARED_LIBS +=	knot                 6.0      # .9.0
+SHARED_LIBS +=	dnssec               3.0      # .8.0
+SHARED_LIBS +=	knot                 7.1      # .11.0
 SHARED_LIBS +=	zscanner             1.1      # .3.0
 
 CATEGORIES =		net
@@ -17,8 +17,8 @@ MAINTAINER =		Jeremie Courreges-Anglas <jca@wxcvbn.org>
 # GPLv3+
 PERMIT_PACKAGE =	Yes
 
-WANTLIB += c curses edit ffi gmp gnutls hogweed iconv idn2 intl
-WANTLIB += lmdb m nettle p11-kit pthread tasn1 unistring urcu
+WANTLIB += c curses edit gmp gnutls hogweed iconv idn2 intl
+WANTLIB += lmdb m nettle nghttp2 p11-kit pthread tasn1 unistring urcu
 WANTLIB += urcu-common
 
 MASTER_SITES =		https://secure.nic.cz/files/knot-dns/
@@ -35,7 +35,8 @@ LIB_DEPENDS =		devel/gettext,-runtime \
 			devel/libidn2 \
 			devel/liburcu \
 			security/gnutls \
-			databases/lmdb
+			databases/lmdb \
+			www/nghttp2
 
 CONFIGURE_STYLE =	gnu
 CONFIGURE_ARGS +=	--with-storage=${LOCALSTATEDIR}/db/knot \
@@ -47,10 +48,6 @@ CONFIGURE_ENV =		ac_cv_path_PDFLATEX="false" \
 			ac_cv_path_SPHINXBUILD="false" \
 			CPPFLAGS="-I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib ${LDFLAGS}"
-
-.if ${MACHINE_ARCH} == "i386"
-CFLAGS += -march=i586
-.endif
 
 post-install:
 	mv ${WRKINST}/etc/knot/ ${PREFIX}/share/examples/knot/

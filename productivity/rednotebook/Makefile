@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.36 2020/02/13 16:51:05 solene Exp $
+# $OpenBSD: Makefile,v 1.38 2020/10/03 15:39:59 ajacoutot Exp $
 
 COMMENT=		diary and journal application
 
@@ -6,7 +6,7 @@ MODPY_EGG_VERSION=	2.15
 GH_TAGNAME=		v${MODPY_EGG_VERSION}
 GH_ACCOUNT=		jendrikseipp
 GH_PROJECT=		rednotebook
-REVISION=		0
+REVISION=		2
 
 CATEGORIES=		productivity
 

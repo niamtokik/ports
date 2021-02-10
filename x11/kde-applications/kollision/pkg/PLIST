@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.4 2020/06/03 05:13:42 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.7 2021/01/23 18:10:23 rsadowski Exp $
 @pkgpath x11/kde4/kollision
 @bin bin/kollision
 share/applications/org.kde.kollision.desktop
@@ -21,6 +21,10 @@ share/doc/HTML/et/kollision/index.docbook
 share/doc/HTML/fr/kollision/
 share/doc/HTML/fr/kollision/index.cache.bz2
 share/doc/HTML/fr/kollision/index.docbook
+share/doc/HTML/id/
+share/doc/HTML/id/kollision/
+share/doc/HTML/id/kollision/index.cache.bz2
+share/doc/HTML/id/kollision/index.docbook
 share/doc/HTML/it/kollision/
 share/doc/HTML/it/kollision/index.cache.bz2
 share/doc/HTML/it/kollision/index.docbook
@@ -99,6 +103,7 @@ share/locale/ga/LC_MESSAGES/kollision.mo
 share/locale/gl/LC_MESSAGES/kollision.mo
 share/locale/hr/LC_MESSAGES/kollision.mo
 share/locale/hu/LC_MESSAGES/kollision.mo
+share/locale/id/LC_MESSAGES/kollision.mo
 share/locale/is/LC_MESSAGES/kollision.mo
 share/locale/it/LC_MESSAGES/kollision.mo
 share/locale/ja/LC_MESSAGES/kollision.mo
@@ -107,6 +112,7 @@ share/locale/km/LC_MESSAGES/kollision.mo
 share/locale/ko/LC_MESSAGES/kollision.mo
 share/locale/lt/LC_MESSAGES/kollision.mo
 share/locale/lv/LC_MESSAGES/kollision.mo
+share/locale/ml/LC_MESSAGES/kollision.mo
 share/locale/mr/LC_MESSAGES/kollision.mo
 share/locale/nb/LC_MESSAGES/kollision.mo
 share/locale/nds/LC_MESSAGES/kollision.mo

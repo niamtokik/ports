@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.5 2020/06/03 05:13:37 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.8 2021/01/23 18:10:17 rsadowski Exp $
 @pkgpath x11/kde4/katomic
 @bin bin/katomic
 share/applications/org.kde.katomic.desktop
@@ -43,10 +43,6 @@ share/doc/HTML/uk/katomic/
 share/doc/HTML/uk/katomic/index.cache.bz2
 share/doc/HTML/uk/katomic/index.docbook
 share/doc/HTML/uk/katomic/mainscreen.png
-share/examples/katomic/
-share/examples/katomic/xdg/
-share/examples/katomic/xdg/katomic.knsrc
-@sample ${SYSCONFDIR}/xdg/katomic.knsrc
 share/icons/hicolor/128x128/apps/katomic.png
 share/icons/hicolor/16x16/apps/katomic.png
 share/icons/hicolor/22x22/apps/katomic.png
@@ -60,6 +56,8 @@ share/katomic/pics/
 share/katomic/pics/default_theme.svgz
 share/kconf_update/katomic-levelset-upd.pl
 share/kconf_update/katomic-levelset.upd
+share/knsrcfiles/
+share/knsrcfiles/katomic.knsrc
 share/kxmlgui5/
 share/kxmlgui5/katomic/
 share/kxmlgui5/katomic/katomicui.rc
@@ -95,6 +93,7 @@ share/locale/km/LC_MESSAGES/katomic.mo
 share/locale/ko/LC_MESSAGES/katomic.mo
 share/locale/lt/LC_MESSAGES/katomic.mo
 share/locale/lv/LC_MESSAGES/katomic.mo
+share/locale/ml/LC_MESSAGES/katomic.mo
 share/locale/mr/LC_MESSAGES/katomic.mo
 share/locale/nb/LC_MESSAGES/katomic.mo
 share/locale/nds/LC_MESSAGES/katomic.mo
@@ -119,3 +118,4 @@ share/metainfo/
 share/metainfo/org.kde.katomic.appdata.xml
 @tag update-desktop-database
 @tag gtk-update-icon-cache %D/share/icons/hicolor
+share/qlogging-categories5/katomic.categories

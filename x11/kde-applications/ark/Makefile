@@ -1,28 +1,26 @@
-# $OpenBSD: Makefile,v 1.7 2020/06/03 05:13:34 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.12 2021/01/23 18:10:13 rsadowski Exp $
 
 COMMENT =	archiving Tool
 DISTNAME =	ark-${VERSION}
 CATEGORIES =	archivers
-REVISION =	0
 
-SHARED_LIBS +=  kerfuffle                 2.0 # 17.08
+SHARED_LIBS +=  kerfuffle                 4.0 # 17.08
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5Auth KF5AuthCore KF5Bookmarks
 WANTLIB += KF5Codecs KF5Completion KF5ConfigCore KF5ConfigGui
 WANTLIB += KF5ConfigWidgets KF5CoreAddons KF5Crash KF5DBusAddons
-WANTLIB += KF5I18n KF5IconThemes KF5ItemModels KF5ItemViews KF5JobWidgets
-WANTLIB += KF5KIOCore KF5KIOFileWidgets KF5KIOWidgets KF5Parts
+WANTLIB += KF5I18n KF5ItemModels KF5ItemViews KF5JobWidgets KF5KIOCore
+WANTLIB += KF5KIOFileWidgets KF5KIOGui KF5KIOWidgets KF5Parts
 WANTLIB += KF5Pty KF5Service KF5Solid KF5SonnetUi KF5TextWidgets
-WANTLIB += KF5WidgetsAddons KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus
-WANTLIB += Qt5Gui Qt5Network Qt5Widgets Qt5Xml archive c m z zip
+WANTLIB += KF5WidgetsAddons KF5WindowSystem KF5XmlGui Qt5Concurrent
+WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5Widgets Qt5Xml
+WANTLIB += archive c m z zip
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	archivers/bzip2 \
 		archivers/lzo2 \
@@ -52,7 +50,6 @@ LIB_DEPENDS =	archivers/libarchive \
 		devel/kf5/kcrash \
 		devel/kf5/kdbusaddons \
 		devel/kf5/ki18n \
-		devel/kf5/kiconthemes \
 		devel/kf5/kio \
 		devel/kf5/kitemmodels \
 		devel/kf5/kitemviews \

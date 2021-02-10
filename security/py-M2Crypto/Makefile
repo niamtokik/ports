@@ -1,10 +1,11 @@
-# $OpenBSD: Makefile,v 1.26 2019/09/01 12:34:07 jasper Exp $
+# $OpenBSD: Makefile,v 1.30 2021/01/04 14:06:37 sthen Exp $
 
 COMMENT =		crypto and ssl toolkit for python
 
-MODPY_EGG_VERSION =	0.35.2
+MODPY_EGG_VERSION =	0.36.0
 DISTNAME =		M2Crypto-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
+REVISION =		0
 
 CATEGORIES =		security
 
@@ -23,14 +24,10 @@ MODULES =		lang/python
 MODPY_SETUPTOOLS =	Yes
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 MAKE_ENV =		SWIG_FEATURES=-I/usr/include
 
 BUILD_DEPENDS =		devel/swig
-
-.if !${FLAVOR:Mpython3}
-RUN_DEPENDS +=		devel/py-typing
-.endif
 
 .include <bsd.port.mk>

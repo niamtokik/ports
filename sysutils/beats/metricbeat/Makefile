@@ -1,18 +1,16 @@
-# $OpenBSD: Makefile,v 1.23 2020/05/14 21:53:06 pvk Exp $
+# $OpenBSD: Makefile,v 1.28 2021/01/30 10:03:41 pvk Exp $
 
 COMMENT =	lightweight shipper for system metrics
 
 BEAT =		metricbeat
-VERSION =	7.7.0
 
-GH_ACCOUNT =	elastic
-GH_PROJECT =	beats
-GH_TAGNAME =	v${VERSION}
+BEATS_MODULES =	yes
+KIBANA_DASHBOARDS = yes
 
-CONFIGS =	metricbeat.{reference.yml,yml} modules.d
-
-BEATS_MODULES =	Yes
-
-WANTLIB += c pthread
+pre-build:
+	cd ${WRKSRC}/${BEAT}/cmd && ${MODGO_CMD} get ${MODGO_FLAGS} -d -v ./...
+	chmod u+w \
+		${MODGO_WORKSPACE}/pkg/mod/github.com/elastic/gosigar@v0.10.6-0.20200715000138-f115143bb233/sigar_openbsd.go
+	cp ${FILESDIR}/sigar_openbsd.go ${MODGO_WORKSPACE}/pkg/mod/github.com/elastic/gosigar@v0.10.6-0.20200715000138-f115143bb233/
 
 .include <bsd.port.mk>

@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.40 2020/05/14 12:35:07 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.48 2021/01/02 09:59:09 ajacoutot Exp $
 
 COMMENT-main=		high dynamic range image format
 COMMENT-tools=		image viewing tools for OpenEXR
 COMMENT-doc=		developer documentation for OpenEXR
 
-V=			2.5.1
+V=			2.5.4
 GH_ACCOUNT=		AcademySoftwareFoundation
 GH_PROJECT=		openexr
 GH_TAGNAME=		v${V}
@@ -16,7 +16,7 @@ PKGNAME-doc=		OpenEXR-doc-${V}
 MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 
 # /!\ see symlinks creation in post-install (LIBHalf-2_5_VERSION is used)
-.for solib in in Half Iex IexMath IlmImf IlmImfUtil IlmThread Imath PyIex_Python3_7 PyImath_Python3_7
+.for solib in in Half Iex IexMath IlmImf IlmImfUtil IlmThread Imath PyIex_Python3_8 PyImath_Python3_8
 SHARED_LIBS +=  ${solib} 0.0 # 24.0
 SHARED_LIBS +=  ${solib}-2_5 0.0 # 24.0
 .endfor
@@ -46,12 +46,12 @@ CXXFLAGS +=		-mxgot
 CONFIGURE_ARGS=		-DCMAKE_EXE_LINKER_FLAGS="-L${LOCALBASE}/lib"
 
 WANTLIB-main += ${COMPILER_LIBCXX} ${MODPY_WANTLIB}
-WANTLIB-main += boost_python3-mt intl m util z
+WANTLIB-main += boost_python${MODPY_VERSION:C/\.//g}-mt intl m util z
 
 BUILD_DEPENDS=		math/py-numpy${MODPY_FLAVOR}
 
 LIB_DEPENDS-main +=	${MODPY_LIB_DEPENDS} \
-			devel/boost
+			devel/boost>=1.67.0
 
 WANTLIB-tools += ${COMPILER_LIBCXX} Half-2_5 Iex-2_5 IexMath-2_5 IlmImf-2_5
 WANTLIB-tools += IlmThread-2_5 Imath-2_5 c m z
@@ -59,6 +59,9 @@ WANTLIB-tools += IlmThread-2_5 Imath-2_5 c m z
 LIB_DEPENDS-tools=	${BASE_PKGPATH}
 
 PKG_ARCH-doc=		*
+RUN_DEPENDS-doc=	# empty
+
+CONFIGURE_ARGS +=	-DCMAKE_DISABLE_FIND_PACKAGE_Python2=ON
 
 post-install:
 # fix links target; symlinks are required for FindIlmbase.cmake etc. to find the

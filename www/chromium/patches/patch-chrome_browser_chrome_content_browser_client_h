@@ -1,14 +1,14 @@
-$OpenBSD: patch-chrome_browser_chrome_content_browser_client_h,v 1.50 2020/05/29 20:03:22 robert Exp $
+$OpenBSD: patch-chrome_browser_chrome_content_browser_client_h,v 1.56 2021/01/20 07:28:08 robert Exp $
 
 Index: chrome/browser/chrome_content_browser_client.h
 --- chrome/browser/chrome_content_browser_client.h.orig
 +++ chrome/browser/chrome_content_browser_client.h
-@@ -369,7 +369,7 @@ class ChromeContentBrowserClient : public content::Con
+@@ -394,7 +394,7 @@ class ChromeContentBrowserClient : public content::Con
    void OverridePageVisibilityState(
        content::RenderFrameHost* render_frame_host,
        content::PageVisibilityState* visibility_state) override;
--#if defined(OS_POSIX) && !defined(OS_MACOSX)
-+#if defined(OS_POSIX) && !defined(OS_MACOSX) && !defined(OS_BSD)
+-#if defined(OS_POSIX) && !defined(OS_MAC)
++#if defined(OS_POSIX) && !defined(OS_MAC) && !defined(OS_BSD)
    void GetAdditionalMappedFilesForChildProcess(
        const base::CommandLine& command_line,
        int child_process_id,

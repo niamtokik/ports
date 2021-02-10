@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.14 2020/05/15 10:23:59 sthen Exp $
+# $OpenBSD: Makefile,v 1.19 2021/01/10 20:06:47 sthen Exp $
 
 COMMENT =		Python interface to MySQL
 
-MODPY_EGG_VERSION =	1.4.6
-REVISION =		0
+MODPY_EGG_VERSION =	2.0.3
 DISTNAME =		mysqlclient-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 
@@ -19,17 +18,19 @@ WANTLIB += ${MODPY_WANTLIB} mariadb pthread
 
 MASTER_SITES =		${MASTER_SITE_PYPI:=m/mysqlclient/}
 
+COMPILER =		base-clang ports-gcc
+COMPILER_LANGS =	c
+
 MODULES =		lang/python
 MODPY_SETUPTOOLS =	Yes
 MODPY_PYTEST =		Yes
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 LIB_DEPENDS =		databases/mariadb
 
-# You must setup a default.cnf file config and
-# a MySQL server
+# You must setup a default.cnf file config and a MySQL server
 TEST_IS_INTERACTIVE =	Yes
 TEST_DEPENDS =		databases/mariadb \
 			devel/py-mock${MODPY_FLAVOR}

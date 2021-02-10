@@ -1,8 +1,7 @@
-@comment $OpenBSD: PLIST,v 1.21 2020/05/20 16:08:29 juanfra Exp $
+@comment $OpenBSD: PLIST,v 1.23 2020/11/14 21:37:09 juanfra Exp $
 @conflict racket-<6.2
 @pkgpath lang/racket
 %%bc%%
-%%cs%%
 @bin bin/racket
 bin/racket-user-bin-paths
 bin/raco
@@ -11,6 +10,7 @@ lib/racket/
 @bin lib/racket/gracket
 lib/racket/launchers.rktd
 lib/racket/mans.rktd
+%%cs%%
 @bin lib/racket/starter
 lib/racket/starter-sh
 lib/racket/system.rktd
@@ -1214,8 +1214,12 @@ share/racket/collects/racket/private/compiled/immediate-default_rkt.dep
 share/racket/collects/racket/private/compiled/immediate-default_rkt.zo
 share/racket/collects/racket/private/compiled/increader_rkt.dep
 share/racket/collects/racket/private/compiled/increader_rkt.zo
+share/racket/collects/racket/private/compiled/intdef-util_rkt.dep
+share/racket/collects/racket/private/compiled/intdef-util_rkt.zo
 share/racket/collects/racket/private/compiled/kernstruct_rkt.dep
 share/racket/collects/racket/private/compiled/kernstruct_rkt.zo
+share/racket/collects/racket/private/compiled/keyword-apply-dict_rkt.dep
+share/racket/collects/racket/private/compiled/keyword-apply-dict_rkt.zo
 share/racket/collects/racket/private/compiled/kw-file_rkt.dep
 share/racket/collects/racket/private/compiled/kw-file_rkt.zo
 share/racket/collects/racket/private/compiled/kw-prop-key_rkt.dep
@@ -1320,6 +1324,8 @@ share/racket/collects/racket/private/compiled/string_rkt.dep
 share/racket/collects/racket/private/compiled/string_rkt.zo
 share/racket/collects/racket/private/compiled/struct-info_rkt.dep
 share/racket/collects/racket/private/compiled/struct-info_rkt.zo
+share/racket/collects/racket/private/compiled/struct-util_rkt.dep
+share/racket/collects/racket/private/compiled/struct-util_rkt.zo
 share/racket/collects/racket/private/compiled/struct_rkt.dep
 share/racket/collects/racket/private/compiled/struct_rkt.zo
 share/racket/collects/racket/private/compiled/stx_rkt.dep
@@ -1387,7 +1393,9 @@ share/racket/collects/racket/private/generic.rkt
 share/racket/collects/racket/private/hash.rkt
 share/racket/collects/racket/private/immediate-default.rkt
 share/racket/collects/racket/private/increader.rkt
+share/racket/collects/racket/private/intdef-util.rkt
 share/racket/collects/racket/private/kernstruct.rkt
+share/racket/collects/racket/private/keyword-apply-dict.rkt
 share/racket/collects/racket/private/kw-file.rkt
 share/racket/collects/racket/private/kw-prop-key.rkt
 share/racket/collects/racket/private/kw-syntax-binding.rkt
@@ -1440,6 +1448,7 @@ share/racket/collects/racket/private/stream-cons.rkt
 share/racket/collects/racket/private/streams.rkt
 share/racket/collects/racket/private/string.rkt
 share/racket/collects/racket/private/struct-info.rkt
+share/racket/collects/racket/private/struct-util.rkt
 share/racket/collects/racket/private/struct.rkt
 share/racket/collects/racket/private/stx.rkt
 share/racket/collects/racket/private/stxcase-scheme.rkt

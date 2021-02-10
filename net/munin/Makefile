@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.95 2020/06/08 12:11:40 kirby Exp $
+# $OpenBSD: Makefile,v 1.100 2021/01/10 19:51:38 kirby Exp $
 
 PORTROACH = 	limitw:1,even
 
 COMMENT-main =	flexible network host monitoring, client
 COMMENT-server =flexible network host monitoring, server
 
-V =		2.0.63
+V =		2.0.66
 DISTNAME =	munin-$V
 PKGNAME-main =	munin-node-$V
 PKGNAME-server =munin-server-$V
@@ -43,7 +43,7 @@ RUN_DEPENDS-server +=	converters/p5-DateManip \
 			devel/p5-File-Copy-Recursive \
 			net/p5-IO-Socket-INET6 \
 			net/rrdtool \
-			security/p5-Net_SSLeay \
+			security/p5-Net-SSLeay \
 			www/fcgi \
 			www/p5-HTML-Template \
 			www/p5-URI \

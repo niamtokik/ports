@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.23 2019/07/12 20:50:51 sthen Exp $
+# $OpenBSD: Makefile,v 1.25 2020/10/09 03:31:39 afresh1 Exp $
 
 COMMENT=	catalyst plugin to Config::Any
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME=	Catalyst-Plugin-ConfigLoader-0.30
+DISTNAME=	Catalyst-Plugin-ConfigLoader-0.35
 CATEGORIES=	www
-REVISION=	0
 
 # Perl
 PERMIT_PACKAGE=	Yes

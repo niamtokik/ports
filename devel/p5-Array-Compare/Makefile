@@ -1,10 +1,11 @@
-# $OpenBSD: Makefile,v 1.20 2019/07/12 20:44:44 sthen Exp $
+# $OpenBSD: Makefile,v 1.24 2020/12/21 15:40:32 benoit Exp $
 
 COMMENT=	Perl module for comparing arrays
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME=	Array-Compare-2.12
+DISTNAME=	Array-Compare-v3.0.8
+PKGNAME=	${DISTNAME:S/v//g}
 CATEGORIES=	devel
 
 # Artistic
@@ -12,8 +13,6 @@ PERMIT_PACKAGE=	Yes
 
 CPAN_AUTHOR=	DAVECROSS
 
-BUILD_DEPENDS=	${RUN_DEPENDS} \
-		devel/p5-Test-NoWarnings
 RUN_DEPENDS=	devel/p5-Moo \
 		devel/p5-Type-Tiny
 

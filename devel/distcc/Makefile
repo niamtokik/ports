@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.11 2020/06/12 14:19:11 sthen Exp $
+# $OpenBSD: Makefile,v 1.15 2021/01/31 20:47:25 sthen Exp $
 
 COMMENT-main =		distributed builds for C, C++ and Objective C
 COMMENT-gtk =		GTK+ monitor for distcc
@@ -6,7 +6,7 @@ COMMENT-server =	distcc server
 
 GH_PROJECT =		distcc
 GH_ACCOUNT =		distcc
-VERSION =		3.3.3
+VERSION =		3.3.5
 DISTNAME =		distcc-${VERSION}
 PKGNAME-main =		${DISTNAME}
 PKGNAME-gtk =		distcc-gtk-${VERSION}
@@ -32,10 +32,11 @@ MODPY_RUNDEP =		No
 
 WANTLIB +=		c popt pthread
 LIB_DEPENDS =		devel/popt
+TEST_DEPENDS =		devel/gdb
 
 LIB_DEPENDS-main =	${LIB_DEPENDS}
 RUN_DEPENDS-main +=	${MODPY_RUN_DEPENDS}
-WANTLIB-main =		${WANTLIB} ${MODPY_WANTLIB}
+WANTLIB-main =		${WANTLIB}
 
 WANTLIB-server =	${WANTLIB}
 LIB_DEPENDS-server =	${LIB_DEPENDS}
@@ -68,5 +69,8 @@ pre-configure:
 
 post-install:
 	rm -r ${PREFIX}/share/examples/default
+
+pre-test:
+	ln -s ${LOCALBASE}/bin/egdb ${WRKDIR}/bin/gdb
 
 .include <bsd.port.mk>

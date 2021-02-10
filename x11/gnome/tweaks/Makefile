@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.11 2019/11/01 11:36:11 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.15 2020/12/11 07:54:07 ajacoutot Exp $
 
 COMMENT=		customize advanced GNOME 3 options
 
 GNOME_PROJECT=		gnome-tweaks
-GNOME_VERSION=		3.34.0
+GNOME_VERSION=		3.34.1
 
 CATEGORIES=		sysutils
 
@@ -25,7 +25,8 @@ BUILD_DEPENDS=		devel/gsettings-desktop-schemas \
 RUN_DEPENDS=		devel/gsettings-desktop-schemas \
 			devel/py-gobject3${MODPY_FLAVOR} \
 			x11/gnome/settings-daemon \
-			x11/gnome/shell
+			x11/gnome/shell \
+			x11/libhandy
 
 # pygobject GTK3 introspection (not provided by indirect dependencies)
 RUN_DEPENDS +=		x11/gtk+3

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.394 2020/05/18 00:16:15 afresh1 Exp $
+# $OpenBSD: Makefile,v 1.398 2021/01/17 21:27:56 sthen Exp $
 
      SUBDIR =
      SUBDIR += abook
@@ -29,6 +29,7 @@
      SUBDIR += cucipop
      SUBDIR += cue
      SUBDIR += cyrus-imapd
+     SUBDIR += dcc
      SUBDIR += dkimproxy
      SUBDIR += dma
      SUBDIR += dovecot
@@ -100,9 +101,13 @@
      SUBDIR += mutt,gpgme,sasl
      SUBDIR += mutt,sasl
      SUBDIR += mutt,sasl,slang
+     SUBDIR += mutt-wizard
      SUBDIR += neomutt
      SUBDIR += neomutt,gpgme
+     SUBDIR += neomutt,gpgme,notmuch
      SUBDIR += neomutt,gpgme,sasl
+     SUBDIR += neomutt,gpgme,sasl,notmuch
+     SUBDIR += neomutt,notmuch
      SUBDIR += neomutt,sasl
      SUBDIR += nmh
      SUBDIR += nmh,sasl
@@ -115,6 +120,7 @@
      SUBDIR += opensmtpd-filters
      SUBDIR += osbf-lua
      SUBDIR += p5-Catalyst-Plugin-Email
+     SUBDIR += p5-Catalyst-View-Email
      SUBDIR += p5-Email-Abstract
      SUBDIR += p5-Email-Address
      SUBDIR += p5-Email-Address-List

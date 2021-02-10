@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.2 2020/06/13 09:24:29 jasper Exp $
+@comment $OpenBSD: PLIST,v 1.5 2021/01/18 20:11:41 jasper Exp $
 bin/pwn
 lib/python${MODPY_VERSION}/site-packages/CHANGELOG.md
 lib/python${MODPY_VERSION}/site-packages/CONTRIBUTING.md
@@ -83,6 +83,7 @@ lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/${MODPY_PYCACHE}shel
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/${MODPY_PYCACHE}template.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/${MODPY_PYCACHE}unhex.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/${MODPY_PYCACHE}update.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/${MODPY_PYCACHE}version.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/asm.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/checksec.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/common.py
@@ -103,6 +104,7 @@ lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/shellcraft.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/template.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/unhex.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/update.py
+lib/python${MODPY_VERSION}/site-packages/pwnlib/commandline/version.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/config.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/constants/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/constants/__init__.py
@@ -221,10 +223,18 @@ lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/__init__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/fmtstr/
+lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/fmtstr/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/fmtstr/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/fmtstr/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/relro/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/relro/__init__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/relro/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/relro/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/ret2dlresolve/
+lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/ret2dlresolve/__init__.py
+${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/ret2dlresolve/${MODPY_PYCACHE}/
+lib/python${MODPY_VERSION}/site-packages/pwnlib/data/elf/ret2dlresolve/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/includes/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/includes/android/
 lib/python${MODPY_VERSION}/site-packages/pwnlib/data/includes/android/aarch64.h
@@ -394,10 +404,12 @@ ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCA
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCACHE}call.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCACHE}gadgets.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCACHE}ret2dlresolve.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCACHE}rop.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/${MODPY_PYCACHE}srop.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/call.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/gadgets.py
+lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/ret2dlresolve.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/rop.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/rop/srop.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/runner.py
@@ -6935,6 +6947,8 @@ lib/python${MODPY_VERSION}/site-packages/pwnlib/term/${MODPY_PYCACHE}spinners.${
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/${MODPY_PYCACHE}term.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/${MODPY_PYCACHE}termcap.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/${MODPY_PYCACHE}text.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/pwnlib/term/${MODPY_PYCACHE}unix_termcap.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/pwnlib/term/${MODPY_PYCACHE}windows_termcap.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/completer.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/key.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/keyconsts.py
@@ -6944,6 +6958,8 @@ lib/python${MODPY_VERSION}/site-packages/pwnlib/term/spinners.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/term.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/termcap.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/term/text.py
+lib/python${MODPY_VERSION}/site-packages/pwnlib/term/unix_termcap.py
+lib/python${MODPY_VERSION}/site-packages/pwnlib/term/windows_termcap.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/testexample.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/timeout.py
 lib/python${MODPY_VERSION}/site-packages/pwnlib/tubes/

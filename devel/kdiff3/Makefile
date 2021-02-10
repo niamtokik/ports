@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.19 2020/03/30 04:21:40 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.22 2021/01/23 18:10:37 rsadowski Exp $
 
 COMMENT =	compares and merges multiple files or directories
 
-DISTNAME =	kdiff3-1.8.2
+DISTNAME =	kdiff3-1.8.5
 
 CATEGORIES =	devel
 

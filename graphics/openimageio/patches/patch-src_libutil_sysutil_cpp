@@ -1,13 +1,25 @@
-$OpenBSD: patch-src_libutil_sysutil_cpp,v 1.6 2017/12/26 19:19:04 rsadowski Exp $
+$OpenBSD: patch-src_libutil_sysutil_cpp,v 1.8 2021/01/05 20:53:18 jca Exp $
+
 Index: src/libutil/sysutil.cpp
---- src/libutil/sysutil.cpp.orig
-+++ src/libutil/sysutil.cpp
-@@ -135,7 +135,7 @@ Sysutil::memory_used (bool resident)
-         return counters.PagefileUsage;
-     else return 0;
+--- src/libutil/sysutil.cpp.orig	Tue Dec  1 12:39:14 2020
++++ src/libutil/sysutil.cpp	Thu Dec  3 16:36:05 2020
+@@ -31,6 +31,10 @@
+ #    include <unistd.h>
+ #endif
+ 
++#if defined (__OpenBSD__)
++# include <unistd.h>
++#endif
++
+ #ifdef __APPLE__
+ #    include <mach-o/dyld.h>
+ #    include <mach/mach_init.h>
+@@ -129,7 +133,7 @@ Sysutil::memory_used(bool resident)
+     else
+         return 0;
  
 -#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
 +#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__OpenBSD__)
      // FIXME -- does somebody know a good method for figuring this out for
      // FreeBSD?
-     return 0;   // Punt
+     return 0;  // Punt

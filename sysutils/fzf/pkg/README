@@ -1,4 +1,4 @@
-$OpenBSD: README,v 1.2 2020/04/07 08:32:50 paco Exp $
+$OpenBSD: README,v 1.4 2021/02/06 17:31:27 solene Exp $
 
 +-------------------------------------------------------------------------------
 | Running ${PKGSTEM} on OpenBSD
@@ -41,7 +41,7 @@ the shell config, so we have to source it anyway. Put the following in
 ~/.config/fish/config.fish:
 
 ```
-source ${FISH_SITE}/functions/fzf-key-bindings.fish
+source ${FISH_SITE}/fzf-key-bindings.fish
 fzf_key_bindings
 ```
 
@@ -55,4 +55,4 @@ ${VIMFILES}.  That is part of `runtimepath` by default
 and will be loaded automatically.
 
 It should be noted that https://github.com/junegunn/fzf.vim are not the
-same files, but is built on top of the files installed by this port.
+same files, but is built on top of the files installed by this package.

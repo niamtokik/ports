@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.76 2019/07/12 20:47:58 sthen Exp $
+# $OpenBSD: Makefile,v 1.78 2021/02/02 21:11:14 naddy Exp $
 
 COMMENT=	video stream processing tools
 
 DISTNAME=	transcode-1.1.7
-REVISION=	16
+REVISION=	18
 CATEGORIES=	multimedia
 
 HOMEPAGE=	https://bitbucket.org/achurch_/transcode/
@@ -111,7 +111,7 @@ PKG_ARGS+=	-Dmjpegtools=0
 .endif
 
 .if ${FLAVOR:Maltivec}
-ONLY_FOR_ARCHS=	powerpc
+ONLY_FOR_ARCHS=	powerpc powerpc64
 CONFIGURE_ARGS+=--enable-altivec
 .else
 CONFIGURE_ARGS+=--disable-altivec

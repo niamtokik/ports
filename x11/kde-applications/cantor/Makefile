@@ -1,30 +1,29 @@
-# $OpenBSD: Makefile,v 1.13 2020/06/03 05:13:35 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.20 2021/01/23 18:10:14 rsadowski Exp $
 
 COMMENT =	KDE mathematical applications
 DISTNAME =	cantor-${VERSION}
 CATEGORIES =	education math
-REVISION =	0
 
-SHARED_LIBS +=  cantorlibs                52.0 # 17.08
+SHARED_LIBS +=  cantorlibs                54.0 # 17.08
 
 WANTLIB += ${COMPILER_LIBCXX} Analitza AnalitzaGui KF5Archive
 WANTLIB += KF5Attica KF5Auth KF5AuthCore KF5Bookmarks KF5Codecs
 WANTLIB += KF5Completion KF5ConfigCore KF5ConfigGui KF5ConfigWidgets
 WANTLIB += KF5CoreAddons KF5Crash KF5I18n KF5IconThemes KF5ItemViews
-WANTLIB += KF5JobWidgets KF5KIOCore KF5KIOFileWidgets KF5KIOWidgets
-WANTLIB += KF5NewStuff KF5NewStuffCore KF5Parts KF5Pty KF5Service
-WANTLIB += KF5Solid KF5SonnetUi KF5SyntaxHighlighting KF5TextEditor
-WANTLIB += KF5TextWidgets KF5WidgetsAddons KF5XmlGui Qt5Concurrent
-WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport Qt5Svg
-WANTLIB += Qt5Widgets Qt5Xml Qt5XmlPatterns c cln luajit-5.1 m
-WANTLIB += poppler poppler-qt5 qalculate ${MODPY_WANTLIB}
+WANTLIB += KF5JobWidgets KF5KIOCore KF5KIOFileWidgets KF5KIOGui
+WANTLIB += KF5KIOWidgets KF5NewStuff KF5NewStuffCore KF5Parts
+WANTLIB += KF5Pty KF5Service KF5Solid KF5SonnetUi KF5SyntaxHighlighting
+WANTLIB += KF5TextEditor KF5TextWidgets KF5WidgetsAddons KF5WindowSystem
+WANTLIB += KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network
+WANTLIB += Qt5PrintSupport Qt5Svg Qt5Widgets Qt5Xml Qt5XmlPatterns
 WANTLIB += lib/R/lib/R lib/R/lib/Rblas lib/R/lib/Rlapack
-WANTLIB += luajit-${MODLUA_DEFAULT_VERSION} spectre
+WANTLIB += c intl luajit-${MODLUA_DEFAULT_VERSION} m poppler poppler-qt5
+WANTLIB += qalculate spectre util ${MODPY_WANTLIB}
+
 
 MODULES +=	fortran \
 		lang/lua \
-		lang/python \
-		x11/kde-applications
+		lang/python
 
 MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
@@ -54,7 +53,6 @@ LIB_DEPENDS =	devel/kf5/kconfig \
 		math/libqalculate \
 		print/libspectre \
 		print/poppler,-qt5 \
-		textproc/discount \
 		x11/kde-applications/analitza \
 		x11/qt5/qtsvg \
 		x11/qt5/qtxmlpatterns

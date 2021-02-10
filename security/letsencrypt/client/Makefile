@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.28 2020/05/14 11:48:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.30 2020/10/07 13:32:49 sthen Exp $
 
 COMMENT=	client for certificate authorities using ACME protocols
 

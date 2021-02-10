@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.18 2019/07/12 20:44:59 sthen Exp $
+# $OpenBSD: Makefile,v 1.20 2020/12/05 18:13:42 afresh1 Exp $
 
 COMMENT =		build and install Perl modules
 
-DISTNAME =		Module-Build-0.4224
+DISTNAME =		Module-Build-0.4231
 CATEGORIES =		devel
 
 # Perl

@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.12 2020/02/12 14:33:34 benoit Exp $
+# $OpenBSD: Makefile,v 1.14 2020/11/05 08:36:23 benoit Exp $
 
 COMMENT=        generate Perl class hierarchies
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME =	Class-Generate-1.17
+DISTNAME =	Class-Generate-1.18
 CATEGORIES=     devel
 
 # Perl

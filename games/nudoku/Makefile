@@ -1,27 +1,29 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2019/11/15 15:25:27 fcambus Exp $
+# $OpenBSD: Makefile,v 1.3 2021/01/14 21:55:22 fcambus Exp $
 
 COMMENT =	ncurses based sudoku game
 
-V =		2.0.0
-DISTNAME =	nudoku-${V}
+GH_ACCOUNT =	jubalh
+GH_PROJECT =	nudoku
+GH_TAGNAME =	2.1.0
+REVISION =	0
 
 CATEGORIES =	games
 
 HOMEPAGE =	https://jubalh.github.io/nudoku/
-
-MAINTAINER =	Frederic Cambus <fcambus@openbsd.org>
 
 # GPLv3+
 PERMIT_PACKAGE =	Yes
 
 WANTLIB +=	c curses iconv intl
 
-MASTER_SITES =	https://github.com/jubalh/nudoku/releases/download/${V}/
+BUILD_DEPENDS =	devel/gettext,-tools
 
 LIB_DEPENDS =	converters/libiconv \
 		devel/gettext,-runtime
 
-CONFIGURE_STYLE = gnu
+CONFIGURE_STYLE = autoreconf
+AUTOCONF_VERSION = 2.69
+AUTOMAKE_VERSION = 1.16
 
 post-configure:
 	@sed -i 's|"gettext.h"|<libintl.h>|' ${WRKSRC}/src/main.c \

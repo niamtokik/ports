@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.11 2019/11/08 22:59:10 kmos Exp $
+# $OpenBSD: Makefile,v 1.13 2020/10/07 02:00:07 daniel Exp $
 
 COMMENT =		Sphinx extension to support docstrings in Numpy format
 
@@ -7,7 +7,7 @@ DISTNAME =		numpydoc-${MODPY_EGG_VERSION}
 PKGNAME =		py-numpydoc-${MODPY_EGG_VERSION}
 CATEGORIES =		textproc devel
 HOMEPAGE =		https://github.com/numpy/numpydoc
-REVISION =		1
+REVISION =		3
 
 # BSD
 PERMIT_PACKAGE =	Yes
@@ -17,7 +17,7 @@ MODULES =		lang/python
 MODPY_PI =		Yes
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 MODPY_PYTEST =		Yes
 MODPY_PYTEST_ARGS =	numpydoc

@@ -1,26 +1,27 @@
-# $OpenBSD: Makefile,v 1.17 2020/05/14 18:12:36 paco Exp $
+# $OpenBSD: Makefile,v 1.20 2021/01/18 07:13:57 daniel Exp $
 
 COMMENT=	HTTP library for Python
 
-MODPY_EGG_VERSION=1.25.9
+MODPY_EGG_VERSION=1.26.0
 DISTNAME=	urllib3-${MODPY_EGG_VERSION}
 PKGNAME=	py-urllib3-${MODPY_EGG_VERSION}
 
 CATEGORIES=	www
 
 
-MAINTAINER=	Sebastian Reitenbach <sebastia@openbsd.org>
-
 # MIT
 PERMIT_PACKAGE=	Yes
 
-MODPY_PI =	Yes
-
 MODULES=	lang/python
 
-MODPY_SETUPTOOLS=	Yes
-MODPY_PYTEST=		Yes
+FLAVORS =		python3
+FLAVOR ?=
 
+MODPY_PI =		Yes
+MODPY_SETUPTOOLS =	Yes
+MODPY_PYTEST =		Yes
+
+.if ${FLAVOR:Mpython3}
 TEST_DEPENDS =		devel/py-mock${MODPY_FLAVOR} \
 			net/py-socks${MODPY_FLAVOR} \
 			sysutils/py-psutil${MODPY_FLAVOR} \
@@ -28,8 +29,8 @@ TEST_DEPENDS =		devel/py-mock${MODPY_FLAVOR} \
 			www/py-tornado${MODPY_FLAVOR}
 
 TEST_ENV +=		PYTHONPATH=${WRKSRC}/src
-
-FLAVORS =		python3
-FLAVOR ?=
+.else
+NO_TEST =		Yes
+.endif
 
 .include <bsd.port.mk>

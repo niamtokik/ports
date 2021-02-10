@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.12 2020/01/22 10:21:47 sthen Exp $
+@comment $OpenBSD: PLIST,v 1.16 2021/02/03 00:33:47 sthen Exp $
 @conflict suricata-update-*
 @pkgpath security/suricata-update
 @newgroup _suricata:800
@@ -28,6 +28,7 @@ include/htp/htp_version.h
 include/htp/lzma/
 include/htp/lzma/7zTypes.h
 include/htp/lzma/LzmaDec.h
+include/suricata-plugin.h
 @static-lib lib/libhtp.a
 lib/libhtp.la
 @lib lib/libhtp.so.${LIBhtp_VERSION}
@@ -74,8 +75,11 @@ lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}extract
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}loghandler.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}main.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}maps.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}matchers.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}net.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}notes.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}osinfo.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}parsers.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}rule.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}sources.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/${MODPY_PYCACHE}util.${MODPY_PYC_MAGIC_TAG}pyc
@@ -88,7 +92,6 @@ lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACH
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}checkversions.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}disablesource.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}enablesource.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}listenabledsources.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}listsources.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}removesource.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/${MODPY_PYCACHE}updatesources.${MODPY_PYC_MAGIC_TAG}pyc
@@ -96,7 +99,6 @@ lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/addsource.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/checkversions.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/disablesource.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/enablesource.py
-lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/listenabledsources.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/listsources.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/removesource.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/commands/updatesources.py
@@ -137,8 +139,11 @@ lib/python${MODPY_VERSION}/site-packages/suricata/update/extract.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/loghandler.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/main.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/maps.py
+lib/python${MODPY_VERSION}/site-packages/suricata/update/matchers.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/net.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/notes.py
+lib/python${MODPY_VERSION}/site-packages/suricata/update/osinfo.py
+lib/python${MODPY_VERSION}/site-packages/suricata/update/parsers.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/rule.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/sources.py
 lib/python${MODPY_VERSION}/site-packages/suricata/update/util.py
@@ -150,67 +155,53 @@ ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/suricatasc/${MODPY_PYCA
 lib/python${MODPY_VERSION}/site-packages/suricatasc/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
 @man man/man1/suricata.1
 share/doc/pkg-readmes/${PKGSTEM}
-@sample ${SYSCONFDIR}/suricata/
-@sample ${SYSCONFDIR}/suricata/rules/
 share/examples/suricata/
-share/examples/suricata/rules/
-share/examples/suricata/rules/app-layer-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/app-layer-events.rules
-share/examples/suricata/rules/decoder-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/decoder-events.rules
-share/examples/suricata/rules/dhcp-events.rules
-share/examples/suricata/rules/dnp3-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/dnp3-events.rules
-share/examples/suricata/rules/dns-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/dns-events.rules
-share/examples/suricata/rules/files.rules
-@sample ${SYSCONFDIR}/suricata/rules/files.rules
-share/examples/suricata/rules/http-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/http-events.rules
-share/examples/suricata/rules/ipsec-events.rules
-share/examples/suricata/rules/kerberos-events.rules
-share/examples/suricata/rules/modbus-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/modbus-events.rules
-share/examples/suricata/rules/nfs-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/nfs-events.rules
-share/examples/suricata/rules/ntp-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/ntp-events.rules
-share/examples/suricata/rules/smb-events.rules
-share/examples/suricata/rules/smtp-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/smtp-events.rules
-share/examples/suricata/rules/stream-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/stream-events.rules
-share/examples/suricata/rules/tls-events.rules
-@sample ${SYSCONFDIR}/suricata/rules/tls-events.rules
+@sample ${SYSCONFDIR}/suricata/
 share/examples/suricata/suricata.yaml
 @sample ${SYSCONFDIR}/suricata/suricata.yaml
 share/examples/suricata/threshold.config
 @sample ${SYSCONFDIR}/suricata/threshold.config
+share/suricata/
+share/suricata/classification.config
+@sample ${SYSCONFDIR}/suricata/classification.config
+share/suricata/reference.config
+@sample ${SYSCONFDIR}/suricata/reference.config
+share/suricata/rules/
+@sample ${SYSCONFDIR}/suricata/rules/
+share/suricata/rules/app-layer-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/app-layer-events.rules
+share/suricata/rules/decoder-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/decoder-events.rules
+share/suricata/rules/dhcp-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/dhcp-events.rules
+share/suricata/rules/dnp3-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/dnp3-events.rules
+share/suricata/rules/dns-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/dns-events.rules
+share/suricata/rules/files.rules
+@sample ${SYSCONFDIR}/suricata/rules/files.rules
+share/suricata/rules/http-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/http-events.rules
+share/suricata/rules/ipsec-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/ipsec-events.rules
+share/suricata/rules/kerberos-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/kerberos-events.rules
+share/suricata/rules/modbus-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/modbus-events.rules
+share/suricata/rules/nfs-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/nfs-events.rules
+share/suricata/rules/ntp-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/ntp-events.rules
+share/suricata/rules/smb-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/smb-events.rules
+share/suricata/rules/smtp-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/smtp-events.rules
+share/suricata/rules/stream-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/stream-events.rules
+share/suricata/rules/tls-events.rules
+@sample ${SYSCONFDIR}/suricata/rules/tls-events.rules
 @owner _suricata
 @group _suricata
 @sample ${VARBASE}/suricata/
-@sample ${VARBASE}/suricata/log/
-@sample ${VARBASE}/suricata/run/
 @sample ${VARBASE}/log/suricata/
-@owner
-@group
-share/suricata/
-share/suricata/classification.config
-share/suricata/reference.config
-share/suricata/rules/
-share/suricata/rules/app-layer-events.rules
-share/suricata/rules/decoder-events.rules
-share/suricata/rules/dhcp-events.rules
-share/suricata/rules/dnp3-events.rules
-share/suricata/rules/dns-events.rules
-share/suricata/rules/files.rules
-share/suricata/rules/http-events.rules
-share/suricata/rules/ipsec-events.rules
-share/suricata/rules/kerberos-events.rules
-share/suricata/rules/modbus-events.rules
-share/suricata/rules/nfs-events.rules
-share/suricata/rules/ntp-events.rules
-share/suricata/rules/smb-events.rules
-share/suricata/rules/smtp-events.rules
-share/suricata/rules/stream-events.rules
-share/suricata/rules/tls-events.rules
+@sample ${VARBASE}/run/suricata/

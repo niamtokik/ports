@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.10 2019/07/12 20:47:57 sthen Exp $
+# $OpenBSD: Makefile,v 1.12 2020/11/21 09:40:09 benoit Exp $
 
-MODPY_EGG_VERSION =	0.5.4
+MODPY_EGG_VERSION =	0.5.5
 COMMENT =	download YouTube content and retrieve metadata
 DISTNAME =	pafy-${MODPY_EGG_VERSION}
 PKGNAME =	py-pafy-${MODPY_EGG_VERSION}
 CATEGORIES =	multimedia
-REVISION =	0
 
 # LGPLv3+
 PERMIT_PACKAGE =	Yes

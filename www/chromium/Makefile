@@ -1,4 +1,7 @@
-# $OpenBSD: Makefile,v 1.517 2020/06/16 19:21:53 robert Exp $
+# $OpenBSD: Makefile,v 1.546 2021/02/06 07:33:27 robert Exp $
+
+# /usr/local/bin/chrome[60]: /usr/local/chrome/chrome: Cannot allocate memory
+BROKEN-i386=   runtime fails, cannot execve the built binary, immediate ENOMEM even with high limits
 
 .include <bsd.port.arch.mk>
 
@@ -12,7 +15,7 @@ DPB_PROPERTIES=		lonesome
 
 COMMENT=		Chromium browser
 
-V=			83.0.4103.106
+V=			88.0.4324.150
 
 DISTNAME=		chromium-${V}
 
@@ -46,7 +49,7 @@ MODPY_SETUPTOOLS=	Yes
 PATCHORIG=	.orig.port
 
 # uses pledge()
-WANTLIB += X11 Xext Xfixes Xrender Xss c cups dbus-1 event
+WANTLIB += X11 Xext Xfixes Xrender c cups dbus-1 event
 WANTLIB += execinfo Xft
 WANTLIB += gdk_pixbuf-2.0 glib-2.0 gobject-2.0
 WANTLIB += m
@@ -72,12 +75,12 @@ WANTLIB += harfbuzz harfbuzz-subset
 WANTLIB += ffi png
 WANTLIB += iconv lzma
 WANTLIB += fido2 cbor usbhid crypto
+WANTLIB += gbm xkbcommon
 
 RUN_DEPENDS=	devel/xdg-utils \
 		devel/desktop-file-utils \
 		fonts/noto/fonts \
 		graphics/libexif \
-		x11/gnome/libgnome-keyring \
 		x11/gtk+3,-guic \
 		x11/gtk+3,-cups
 BUILD_DEPENDS=	archivers/bzip2 \
@@ -87,15 +90,16 @@ BUILD_DEPENDS=	archivers/bzip2 \
 		shells/bash \
 		sysutils/flock \
 		sysutils/pciutils \
-		x11/gnome/libgnome-keyring \
 		devel/ninja \
 		x11/gtk+3 \
+		x11/py-xcbgen \
 		${MODGCC4_CPPDEP}
 LIB_DEPENDS=	devel/harfbuzz \
 		devel/libexecinfo \
 		security/nss \
 		textproc/libxslt \
 		x11/gtk+3 \
+		x11/xkbcommon \
 		print/cups,-libs \
 		${MODGCC4_CPPLIBDEP}
 
@@ -125,7 +129,7 @@ GN_ARGS=	enable_nacl=false \
 		is_debug=false \
 		is_cfi=false \
 		optimize_webui=false \
-		closure_compile=false \
+		enable_js_type_check=false \
 		enable_one_click_signin=true \
 		enable_remoting=false \
 		use_kerberos=false \
@@ -135,6 +139,7 @@ GN_ARGS=	enable_nacl=false \
 		use_bundled_fontconfig=false \
 		use_system_harfbuzz=true \
 		use_system_freetype=false \
+		use_gnome_keyring=false \
 		is_clang=true \
 		use_sysroot=false \
 		treat_warnings_as_errors=false \
@@ -142,6 +147,9 @@ GN_ARGS=	enable_nacl=false \
 		use_allocator=\"none\" \
 		fieldtrial_testing_like_official_build=true \
 		extra_cppflags=\"-idirafter ${LOCALBASE}/include -idirafter ${X11BASE}/include\"
+
+# notyet
+GN_ARGS+=	use_vaapi=false
 
 .if ${MACHINE_ARCH} == "i386"
 GN_ARGS+=	extra_ldflags=\"-L${LOCALBASE}/lib -L${X11BASE}/lib -Wl,--no-keep-memory\"
@@ -167,10 +175,10 @@ GN_ARGS+=	google_api_key=\"AIzaSyA015yecfJyWi8UQpneQVrNzIKlxjv4MhI\" \
 DWZ = :
 
 .if ${FLAVOR:Mdebug}
-DEBUGFLAG=	-g2
+GN_ARGS+=	symbol_level=2
 DEBUG_PACKAGES=	${BUILD_PACKAGES}
 .else
-DEBUGFLAG=	-g0
+GN_ARGS+=	symbol_level=0
 .endif
 
 .if ${FLAVOR:Mcomponent}
@@ -195,7 +203,9 @@ pre-configure:
 	@ln -sf ${TRUEPREFIX}/bin/node ${WRKSRC}/third_party/node/openbsd/node-openbsd/bin/node
 	${SUBST_CMD} ${WRKSRC}/build/gn_run_binary.py ${WRKSRC}/v8/tools/run.py \
 		${WRKSRC}/tools/protoc_wrapper/protoc_wrapper.py \
-		${WRKSRC}/build/config/compiler/BUILD.gn
+		${WRKSRC}/build/config/compiler/BUILD.gn \
+		${WRKSRC}/build/util/python2_action.py \
+		${WRKSRC}/third_party/blink/renderer/build/scripts/run_with_pythonpath.py
 
 # Configuration consists of three steps:
 # 1. replace the specified bundled libraries with hooks to use the system libs
@@ -263,8 +273,9 @@ do-install:
 		${PREFIX}/share/applications/chromium-browser.desktop
 
 	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/chromium
-.for f in pledge.main pledge.utility_audio pledge.utility_network unveil.gpu unveil.main \
-    unveil.plugin unveil.renderer unveil.utility unveil.utility_audio unveil.utility_network
+.for f in pledge.main pledge.utility_audio pledge.utility_network pledge.utility_video \
+    unveil.gpu unveil.main unveil.plugin unveil.renderer unveil.utility unveil.utility_audio \
+    unveil.utility_network unveil.utility_video
 	${INSTALL_DATA} ${FILESDIR}/${f} ${PREFIX}/share/examples/chromium
 .endfor
 

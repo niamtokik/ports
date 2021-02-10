@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.23 2019/07/12 20:48:39 sthen Exp $
+# $OpenBSD: Makefile,v 1.26 2021/01/02 16:40:03 benoit Exp $
 
 COMMENT =	support for the SSH 2 protocol via libssh2
 
-DISTNAME =	Net-SSH2-0.70
+DISTNAME =	Net-SSH2-0.72
 CATEGORIES =	net
 MODULES =	cpan
 

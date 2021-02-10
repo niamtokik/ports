@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.6 2020/06/05 05:40:29 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.9 2021/01/23 18:10:27 rsadowski Exp $
 
 COMMENT =	certificate manager for KDE
 DISTNAME =	libkleo-${VERSION}
 CATEGORIES =	security devel
-REVISION =	1
 
-SHARED_LIBS +=  KF5Libkleo                0.0 # 5.10
+SHARED_LIBS +=  KF5Libkleo                2.0 # 5.10
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Codecs KF5Completion KF5ConfigCore
 WANTLIB += KF5CoreAddons KF5I18n KF5ItemModels KF5PimTextEdit
@@ -15,8 +14,6 @@ WANTLIB += m qgpgme
 MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	devel/boost
 

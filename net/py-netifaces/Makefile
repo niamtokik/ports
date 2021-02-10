@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.8 2019/07/12 20:48:46 sthen Exp $
+# $OpenBSD: Makefile,v 1.10 2021/01/04 14:06:36 sthen Exp $
 
 COMMENT =	portable network interface information
 
@@ -7,7 +7,7 @@ CATEGORIES =	net
 MODPY_EGG_VERSION = 0.10.9
 DISTNAME =	netifaces-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
-REVISION =	0
+REVISION =	2
 
 # MIT
 PERMIT_PACKAGE =	Yes

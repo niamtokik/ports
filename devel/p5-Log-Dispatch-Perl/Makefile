@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.2 2019/07/12 20:44:59 sthen Exp $
+# $OpenBSD: Makefile,v 1.4 2020/11/08 20:43:54 benoit Exp $
 
 COMMENT =	use core Perl functions for logging
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	Log-Dispatch-Perl-0.04
+DISTNAME =	Log-Dispatch-Perl-0.05
 CATEGORIES =	devel
 
 # perl

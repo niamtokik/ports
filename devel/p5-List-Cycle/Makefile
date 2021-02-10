@@ -1,10 +1,9 @@
-# $OpenBSD: Makefile,v 1.9 2019/07/12 20:44:58 sthen Exp $
+# $OpenBSD: Makefile,v 1.11 2021/01/01 10:37:48 benoit Exp $
 
 COMMENT=	objects for cycling through a list of values
 
-DISTNAME =	List-Cycle-1.02
+DISTNAME =	List-Cycle-1.04
 CATEGORIES=	devel
-REVISION =	0
 
 # Perl
 PERMIT_PACKAGE=	Yes

@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.12 2019/07/12 20:50:59 sthen Exp $
+# $OpenBSD: Makefile,v 1.14 2020/11/03 10:30:31 benoit Exp $
 
 COMMENT =	no-fuss generation of Atom syndication feeds
 
 MODULES =	cpan
 PKG_ARCH =	*
 
-DISTNAME =	XML-Atom-SimpleFeed-0.902
+DISTNAME =	XML-Atom-SimpleFeed-0.904
 
 CATEGORIES =	www textproc
 

@@ -1,16 +1,16 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/13 19:14:29 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.6 2021/01/23 18:10:13 rsadowski Exp $
 
 COMMENT =	PIM Akonadi import wizard
 DISTNAME =	akonadi-import-wizard-${VERSION}
 CATEGORIES =	devel
 
-SHARED_LIBS +=  KPimImportWizard       0.0 # 5.13.2
+SHARED_LIBS +=  KPimImportWizard       1.0 # 5.13.2
 
 WANTLIB += ${COMPILER_LIBCXX} KF5AkonadiContact KF5AkonadiCore
 WANTLIB += KF5AkonadiMime KF5AkonadiWidgets KF5Archive KF5Auth
 WANTLIB += KF5AuthCore KF5Codecs KF5Completion KF5ConfigCore KF5ConfigGui
 WANTLIB += KF5ConfigWidgets KF5Contacts KF5CoreAddons KF5Crash
-WANTLIB += KF5DBusAddons KF5I18n KF5IMAP KF5IdentityManagement
+WANTLIB += KF5DBusAddons KF5GrantleeTheme KF5I18n KF5IMAP KF5IdentityManagement
 WANTLIB += KF5ItemModels KF5KIOCore KF5Libkdepim KF5Libkleo KF5MailCommon
 WANTLIB += KF5MailImporter KF5MailImporterAkonadi KF5MailTransport
 WANTLIB += KF5MessageComposer KF5MessageCore KF5MessageViewer
@@ -26,7 +26,8 @@ MODKDE5_DESKTOP_FILE = yes
 MODKF5_L10N_CONFLICT = yes
 MODKF5_I18N_CONFLICT = yes
 
-MODULES +=	x11/kde-applications
+BUILD_DEPENDS =	devel/boost \
+		devel/libinotify
 
 LIB_DEPENDS =	devel/kf5/karchive \
 		devel/kf5/kauth \

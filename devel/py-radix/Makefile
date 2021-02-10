@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.17 2019/11/08 16:59:53 kmos Exp $
+# $OpenBSD: Makefile,v 1.19 2021/01/04 14:06:30 sthen Exp $
 
 COMMENT =		Radix tree implementation for Python
 
 MODPY_EGG_VERSION = 	0.10.0
 DISTNAME =		py-radix-${MODPY_EGG_VERSION}
 CATEGORIES=		devel net
-REVISION =		0
+REVISION =		2
 
 HOMEPAGE =		https://github.com/mjschultz/py-radix/
 

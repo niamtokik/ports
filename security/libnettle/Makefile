@@ -1,12 +1,12 @@
-# $OpenBSD: Makefile,v 1.26 2020/05/14 12:20:18 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.28 2021/01/10 18:00:22 jasper Exp $
 
 COMMENT=		cryptographic library
 
-DISTNAME=		nettle-3.6
+DISTNAME=		nettle-3.7
 PKGNAME=		lib${DISTNAME}
 
 SHARED_LIBS +=  hogweed                   3.0 # unknown
-SHARED_LIBS +=  nettle                    6.0 # unknown
+SHARED_LIBS +=  nettle                    7.0 # unknown
 
 CATEGORIES=		security devel
 
@@ -32,6 +32,13 @@ CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 # fix relocation errors
 .if ${MACHINE_ARCH} == "sparc64"
 CONFIGURE_ENV +=	CCPIC=-fPIC
+.endif
+
+# aes-encrypt-internal-2.s:326:1: error: unexpected token at start of statement
+# .0:
+# ^
+.if ${MACHINE_ARCH} == "powerpc64"
+CONFIGURE_ARGS +=	--disable-assembler
 .endif
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}

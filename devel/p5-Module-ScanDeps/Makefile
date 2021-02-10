@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.24 2020/02/10 01:41:19 bluhm Exp $
+# $OpenBSD: Makefile,v 1.26 2020/11/18 19:57:53 benoit Exp $
 
 COMMENT =	recursively scan Perl code for dependencies
 
-DISTNAME =	Module-ScanDeps-1.27
+DISTNAME =	Module-ScanDeps-1.29
 
 CATEGORIES =	devel
 

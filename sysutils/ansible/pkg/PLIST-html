@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST-html,v 1.16 2020/02/17 18:17:42 pvk Exp $
+@comment $OpenBSD: PLIST-html,v 1.18 2020/12/18 22:47:41 pvk Exp $
 share/doc/ansible/html/
 share/doc/ansible/html/404.html
 share/doc/ansible/html/_downloads/
@@ -32,6 +32,7 @@ share/doc/ansible/html/_static/fonts/fontawesome-webfont.woff
 share/doc/ansible/html/_static/fonts/fontawesome-webfont.woff2
 share/doc/ansible/html/_static/images/
 share/doc/ansible/html/_static/images/logo_invert.png
+share/doc/ansible/html/_static/jquery-3.1.0.js
 share/doc/ansible/html/_static/jquery.js
 share/doc/ansible/html/_static/js/
 share/doc/ansible/html/_static/js/modernizr.min.js
@@ -3928,6 +3929,7 @@ share/doc/ansible/html/network/user_guide/platform_enos.html
 share/doc/ansible/html/network/user_guide/platform_eos.html
 share/doc/ansible/html/network/user_guide/platform_eric_eccli.html
 share/doc/ansible/html/network/user_guide/platform_exos.html
+share/doc/ansible/html/network/user_guide/platform_frr.html
 share/doc/ansible/html/network/user_guide/platform_icx.html
 share/doc/ansible/html/network/user_guide/platform_index.html
 share/doc/ansible/html/network/user_guide/platform_ios.html

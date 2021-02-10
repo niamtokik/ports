@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/14 03:52:06 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.5 2020/11/08 20:12:53 rsadowski Exp $
 
 COMMENT =	download manager for KDE
 DISTNAME =	kget-${VERSION}
@@ -6,20 +6,19 @@ CATEGORIES =	net www
 
 HOMEPAGE =	https://www.kde.org/applications/internet/kget/
 
-SHARED_LIBS +=  kgetcore                  0.0 # 5.0
+SHARED_LIBS +=  kgetcore                  1.0 # 5.0
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5Auth KF5AuthCore KF5Bookmarks
 WANTLIB += KF5Codecs KF5Completion KF5ConfigCore KF5ConfigGui
 WANTLIB += KF5ConfigWidgets KF5CoreAddons KF5Crash KF5DBusAddons
-WANTLIB += KF5Emoticons KF5GuiAddons KF5I18n KF5IconThemes KF5ItemModels
-WANTLIB += KF5ItemViews KF5JobWidgets KF5KCMUtils KF5KDELibs4Support
-WANTLIB += KF5KIOCore KF5KIOFileWidgets KF5KIOWidgets KF5Notifications
-WANTLIB += KF5NotifyConfig KF5Parts KF5Service KF5Solid KF5SonnetUi
-WANTLIB += KF5TextWidgets KF5Torrent KF5UnitConversion KF5Wallet
-WANTLIB += KF5WidgetsAddons KF5WindowSystem KF5XmlGui Qt5Concurrent
-WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport Qt5Sql
-WANTLIB += Qt5Widgets Qt5Xml c gcrypt gmp gpgmepp m mms qca-qt5
-WANTLIB += qgpgme
+WANTLIB += KF5GuiAddons KF5I18n KF5IconThemes KF5ItemViews KF5JobWidgets
+WANTLIB += KF5KCMUtils KF5KDELibs4Support KF5KIOCore KF5KIOFileWidgets
+WANTLIB += KF5KIOGui KF5KIOWidgets KF5Notifications KF5NotifyConfig
+WANTLIB += KF5Parts KF5Service KF5Solid KF5SonnetUi KF5TextWidgets
+WANTLIB += KF5Torrent KF5UnitConversion KF5Wallet KF5WidgetsAddons
+WANTLIB += KF5WindowSystem KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus
+WANTLIB += Qt5Gui Qt5Network Qt5PrintSupport Qt5Sql Qt5Widgets
+WANTLIB += Qt5Xml c gcrypt gmp gpgmepp m mms qca-qt5 qgpgme
 
 MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
@@ -29,13 +28,13 @@ MODKDE5_DOCS = yes
 MODKF5_L10N_CONFLICT = yes
 MODKF5_I18N_CONFLICT = yes
 
-MODULES +=	x11/kde-applications
-
 BUILD_DEPENDS +=	databases/sqlite3 \
 			devel/boost \
+			devel/kf5/kitemmodels \
 			x11/qt5/qtquickcontrols
 
 RUN_DEPENDS +=	databases/sqlite3 \
+		devel/kf5/kitemmodels \
 		x11/kde-applications/kio-extras \
 		x11/qt5/qtquickcontrols
 
@@ -51,12 +50,10 @@ LIB_DEPENDS +=	devel/kf5/karchive \
 		devel/kf5/kcrash \
 		devel/kf5/kdbusaddons \
 		devel/kf5/kdelibs4support \
-		devel/kf5/kemoticons \
 		devel/kf5/kguiaddons \
 		devel/kf5/ki18n \
 		devel/kf5/kiconthemes \
 		devel/kf5/kio \
-		devel/kf5/kitemmodels \
 		devel/kf5/kitemviews \
 		devel/kf5/kjobwidgets \
 		devel/kf5/knotifications \

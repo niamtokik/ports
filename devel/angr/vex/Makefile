@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.3 2020/02/15 18:36:18 kn Exp $
+# $OpenBSD: Makefile,v 1.5 2021/01/17 19:49:27 jasper Exp $
 
 COMMENT =	modified version of Valgrind VEX for PyVEX
 
-GH_COMMIT =	f4f4e8a69b015861c42dcfeb6458204957e986a2
+GH_COMMIT =	939f423dbb6282cf14bc5d90ff8b37c2c5992e65
 GH_ACCOUNT =	angr
 GH_PROJECT =	vex
-DISTNAME =	angr-vex-0.1
-REVISION =	0
+DISTNAME =	angr-vex-9.0
 
 USE_GMAKE =	Yes
 MAKE_FILE =	Makefile-gcc

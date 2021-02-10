@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.4 2019/08/27 15:35:55 landry Exp $
+# $OpenBSD: Makefile,v 1.6 2020/12/09 07:39:16 landry Exp $
 
 COMMENT =	console view web interface plugin for buildbot
 

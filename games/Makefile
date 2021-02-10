@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.419 2020/05/25 16:09:09 solene Exp $
+# $OpenBSD: Makefile,v 1.434 2021/02/08 20:33:31 kmos Exp $
 
      SUBDIR =
      SUBDIR += 0ad
@@ -101,10 +101,13 @@
      SUBDIR += fire
      SUBDIR += flare
      SUBDIR += flightgear
+     SUBDIR += fna
      SUBDIR += fnaify
+     SUBDIR += fnaify-extralibs
      SUBDIR += foobillard
      SUBDIR += forcedattack
      SUBDIR += fotaq
+     SUBDIR += freebee
      SUBDIR += freeblocks
      SUBDIR += freeciv
      SUBDIR += freecol
@@ -147,14 +150,13 @@
      SUBDIR += gtkballs
      SUBDIR += gzdoom
      SUBDIR += hackdata
-     SUBDIR += hedgewars
      SUBDIR += heroes
      SUBDIR += hex-a-hop
      SUBDIR += hypatia
      SUBDIR += hyperrogue
      SUBDIR += icebreaker
+     SUBDIR += inform6
      SUBDIR += instead
-     SUBDIR += instead-launcher
      SUBDIR += ioquake3
      SUBDIR += irrlamb
      SUBDIR += ja2-stracciatella
@@ -178,6 +180,7 @@
      SUBDIR += love
      SUBDIR += lugaru
      SUBDIR += lwjgl
+     SUBDIR += lwjgl3
      SUBDIR += maelstrom
      SUBDIR += manaplus
      SUBDIR += mars
@@ -192,6 +195,7 @@
      SUBDIR += moonlander
      SUBDIR += moonlander,no_sound
      SUBDIR += moria
+     SUBDIR += multimc
      SUBDIR += mvdsv
      SUBDIR += mysticmine
      SUBDIR += naev
@@ -203,6 +207,7 @@
      SUBDIR += nsnake
      SUBDIR += nudoku
      SUBDIR += numptyphysics
+     SUBDIR += odamex
      SUBDIR += oilwar
      SUBDIR += omega
      SUBDIR += oolite
@@ -233,6 +238,7 @@
      SUBDIR += prboom-plus
      SUBDIR += pushover
      SUBDIR += puzzles
+     SUBDIR += py-chess,python3
      SUBDIR += py-minecraft-launcher-lib,python3
      SUBDIR += pygame_sdl2
      SUBDIR += pyganim
@@ -258,6 +264,8 @@
      SUBDIR += sdlpop
      SUBDIR += sdlroids
      SUBDIR += sdlzombies
+     SUBDIR += shapezio
+     SUBDIR += shockolate
      SUBDIR += singularity
      SUBDIR += ski
      SUBDIR += sl
@@ -267,7 +275,6 @@
      SUBDIR += slash-em,no_x11
      SUBDIR += snipe2d
      SUBDIR += solarus
-     SUBDIR += spacehulk
      SUBDIR += spaceinvaders
      SUBDIR += spacetrader
      SUBDIR += spacezero
@@ -288,7 +295,6 @@
      SUBDIR += supertux
      SUBDIR += supertuxkart
      SUBDIR += taisei
-     SUBDIR += taxipilot
      SUBDIR += tbftss
      SUBDIR += teeworlds
      SUBDIR += tetrinetx

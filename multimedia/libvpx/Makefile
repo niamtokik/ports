@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.42 2020/04/04 08:36:55 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.44 2020/10/03 13:19:36 sthen Exp $
 
 COMMENT=	Google VP8/VP9 video codec
 
-VER=		1.8.2
+VER=		1.9.0
 CATEGORIES=	multimedia
 EPOCH=		0
 GH_ACCOUNT=	webmproject
@@ -35,6 +35,7 @@ CONFIGURE_STYLE= simple
 CONFIGURE_ARGS+=--enable-shared \
 		--enable-multi-res-encoding \
 		--enable-runtime-cpu-detect \
+		--enable-vp9-highbitdepth \
 		--prefix=${PREFIX} \
 		--disable-optimizations \
 		--disable-unit-tests

@@ -1,36 +1,38 @@
-# $OpenBSD: Makefile,v 1.96 2020/05/14 12:35:31 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.101 2021/01/27 20:15:25 rsadowski Exp $
 
-ONLY_FOR_ARCHS = amd64 i386
+ONLY_FOR_ARCHS = amd64
 
 COMMENT =	3D creation software
 
-DISTNAME =	blender-2.79
-REVISION =	9
+DISTNAME =	blender-2.91.2
 
 CATEGORIES =	graphics
 
 HOMEPAGE =	https://www.blender.org/
 
-MAINTAINER =	Pascal Stumpf <pascal@stumpf.co>
+MAINTAINER =	Dimitri Karamazov <deserter666@danwin1210.me>
 
 # GPLv2+
 PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${MODPY_WANTLIB}
-WANTLIB += ${COMPILER_LIBCXX} GL GLEW GLU Half-2_5 Iex-2_5 IlmImf-2_5
-WANTLIB += IlmThread-2_5 Imath-2_5 OpenColorIO OpenImageIO X11
-WANTLIB += Xi Xrender Xxf86vm avcodec avdevice avformat avutil
-WANTLIB += boost_atomic-mt boost_chrono-mt boost_date_time-mt
-WANTLIB += boost_filesystem-mt boost_regex-mt boost_system-mt
-WANTLIB += boost_thread-mt c freetype jpeg m openal openjpeg png
-WANTLIB += swscale tiff tinyxml util yaml-cpp z
+WANTLIB += ${COMPILER_LIBCXX} Alembic GL GLEW Half-2_5 Iex-2_5
+WANTLIB += IlmImf-2_5 IlmThread-2_5 Imath-2_5 OpenColorIO OpenImageIO
+WANTLIB += SDL2 X11 Xfixes Xi Xrender Xxf86vm avcodec avdevice
+WANTLIB += avformat avutil blosc boost_atomic-mt boost_chrono-mt
+WANTLIB += boost_date_time-mt boost_filesystem-mt boost_iostreams-mt
+WANTLIB += boost_regex-mt boost_system-mt boost_thread-mt c fftw3
+WANTLIB += freetype gmp gmpxx jpeg m openal openjp2 openvdb osdCPU
+WANTLIB += osdGPU png potrace sndfile swscale tbb tiff tinyxml
+WANTLIB += util yaml-cpp z
 
 MASTER_SITES =	https://download.blender.org/source/ \
 		http://mirror.cs.umn.edu/blender.org/source/
 
-MODULES =	devel/cmake \
-		lang/python \
+EXTRACT_SUFX = .tar.xz
 
+MODULES =	devel/cmake \
+		lang/python
 
 COMPILER =	base-clang ports-gcc
 
@@ -38,36 +40,62 @@ MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
 CONFIGURE_ARGS =	-DPYTHON_INCLUDE_DIR="${MODPY_INCDIR}" \
 			-DPYTHON_VERSION=${MODPY_VERSION} \
-			-DWITH_CODEC_FFMPEG=ON \
 			-DWITH_INTERNATIONAL=OFF \
-			-DWITH_RAYOPTIMIZATION=OFF \
-			-DWITH_OPENCOLORIO=ON \
-			-DWITH_SYSTEM_OPENJPEG=ON \
-			-DWITH_CPU_SSE=OFF
+			-DWITH_OPENMP=OFF \
+			-DWITH_SYSTEM_GLEW=ON \
+			-DWITH_CYCLES_EMBREE=OFF \
+			-DWITH_JACK=OFF
 
-BUILD_DEPENDS =	devel/gflags
-LIB_DEPENDS =	graphics/png \
-		graphics/jpeg \
-		graphics/glew \
-		graphics/openexr \
-		graphics/tiff \
-		devel/boost \
+BUILD_DEPENDS = math/py-numpy${MODPY_FLAVOR}
+LIB_DEPENDS =	audio/libsndfile \
 		audio/openal \
-		graphics/openjpeg \
+		devel/boost \
+		devel/gmp,-cxx \
+		devel/sdl2 \
+		devel/tbb \
+		graphics/alembic \
 		graphics/ffmpeg \
+		graphics/glew \
+		graphics/jpeg \
+		graphics/opencolorio \
+		graphics/openexr \
 		graphics/openimageio \
+		graphics/openjp2 \
+		graphics/opensubdiv \
+		graphics/openvdb \
+		graphics/png \
+		graphics/potrace \
+		graphics/tiff \
+		math/fftw3 \
 		${MODPY_LIB_DEPENDS}
 RUN_DEPENDS =	devel/desktop-file-utils \
+		math/py-numpy${MODPY_FLAVOR} \
 		x11/gnome/librsvg
 
 NO_TEST =	Yes
 
-CXXFLAGS +=	-I${LOCALBASE}/include -I${X11BASE}/include -pthread \
-		-std=c++11
+CXXFLAGS +=	-I${LOCALBASE}/include -I${X11BASE}/include
 CFLAGS +=	-I${LOCALBASE}/include
 
 MODPY_ADJ_FILES =	release/bin/blender-thumbnailer.py \
-			release/scripts/modules/blend_render_info.py
+			release/scripts/modules/bl_i18n_utils/merge_po.py \
+			release/scripts/modules/bl_i18n_utils/utils_rtl.py \
+			release/scripts/modules/blend_render_info.py \
+			release/scripts/addons/io_curve_svg/svg_util_test.py \
+			release/scripts/addons/io_scene_fbx/fbx2json.py \
+			release/scripts/addons/io_scene_fbx/json2fbx.py \
+			release/scripts/addons/sun_position/geo.py \
+			release/datafiles/alert_icons_update.py \
+			release/datafiles/blender_icons_geom_update.py \
+			release/datafiles/blender_icons_update.py \
+			release/datafiles/ctodata.py \
+			release/datafiles/prvicons_update.py
+
+post-build:
+	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py \
+		${WRKSRC}/release/scripts \
+		${WRKSRC}/release/datafiles \
+		${WRKSRC}/intern/cycles/blender/addon
 
 do-install:
 	${INSTALL_SCRIPT} ${FILESDIR}/blender ${PREFIX}/bin
@@ -85,7 +113,7 @@ do-install:
 	cd ${WRKSRC}/release/datafiles && pax -rw . \
 		${PREFIX}/share/blender/datafiles
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/blender
-	${INSTALL_DATA} ${WRKSRC}/release/text/*license* \
+	${INSTALL_DATA} ${WRKSRC}/release/license/* \
 		${PREFIX}/share/doc/blender
 	${INSTALL_DATA} ${WRKSRC}/release/text/copy* \
 		${PREFIX}/share/doc/blender

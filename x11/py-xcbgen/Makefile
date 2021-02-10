@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.6 2020/05/16 08:49:54 matthieu Exp $
+# $OpenBSD: Makefile,v 1.8 2020/12/20 15:37:02 matthieu Exp $
 
 COMMENT =	X C Binding - protocol binding generator
 
 # please keep in sync with the version in proto/xcb-proto in Xenocara
-VERSION=	1.14
+VERSION=	1.14.1
 DISTNAME =	xcb-proto-${VERSION}
 PKGNAME =	py-xcbgen-${VERSION}
 

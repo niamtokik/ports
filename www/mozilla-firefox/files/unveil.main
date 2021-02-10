@@ -1,12 +1,18 @@
-# $OpenBSD: unveil.main,v 1.4 2020/06/02 15:27:27 landry Exp $
+# $OpenBSD: unveil.main,v 1.7 2021/01/15 11:00:50 sthen Exp $
 # for uuid generation?
 /dev/urandom r
 /dev/video rw
 /dev/video0 rw
 /dev/fido rw
+# for webgl info in about:support
+/dev/drm0 rw
+/usr/lib r
 
 /etc/fonts r
 /etc/machine-id r
+
+# normally "pledge dns" exempts this from unveil, but pledge might be disabled
+/etc/resolv.conf r
 
 /usr/local/lib r
 /usr/local/lib/firefox rx
@@ -21,8 +27,6 @@
 # printing
 /usr/bin/lpr rx
 
-# for launching registered 3rd party applications like pdf readers
-/usr/local/bin/gio-launch-desktop rx
 /etc/mailcap r
 ~/.mailcap r
 ~/.mime.types r

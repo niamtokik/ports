@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.12 2020/03/22 16:36:29 bket Exp $
+# $OpenBSD: Makefile,v 1.18 2021/01/04 14:06:34 sthen Exp $
 
 COMMENT =		data analysis and manipulation library
 
-MODPY_EGG_VERSION =	1.0.3
+MODPY_EGG_VERSION =	1.1.4
+REVISION =		0
 DISTNAME =		pandas-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 
@@ -26,13 +27,13 @@ WANTLIB +=		${COMPILER_LIBCXX} m ${MODPY_WANTLIB}
 
 COMPILER =		base-clang ports-gcc base-gcc
 
-BUILD_DEPENDS +=	lang/cython${MODPY_FLAVOR} \
-			math/py-numpy${MODPY_FLAVOR}>=1.13.3
+BUILD_DEPENDS +=	lang/cython${MODPY_FLAVOR}>=0.29.21 \
+			math/py-numpy${MODPY_FLAVOR}>=1.15.4
 
-RUN_DEPENDS +=		devel/py-dateutil${MODPY_FLAVOR}>=2.6.1 \
+RUN_DEPENDS +=		devel/py-dateutil${MODPY_FLAVOR}>=2.7.3 \
 			devel/py-tz${MODPY_FLAVOR}>=2017.2 \
-			lang/cython${MODPY_FLAVOR} \
-			math/py-numpy${MODPY_FLAVOR}>=1.13.3
+			lang/cython${MODPY_FLAVOR}>=0.29.21 \
+			math/py-numpy${MODPY_FLAVOR}>=1.15.4
 
 TEST_DEPENDS +=		databases/py-mysqlclient${MODPY_FLAVOR} \
 			databases/py-psycopg2${MODPY_FLAVOR} \

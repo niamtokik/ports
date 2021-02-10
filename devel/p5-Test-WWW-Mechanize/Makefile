@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.19 2019/07/12 20:45:12 sthen Exp $
+# $OpenBSD: Makefile,v 1.21 2020/12/10 09:47:43 benoit Exp $
 
 COMMENT=	test suite using WWW::Mechanize
 
 MODULES=	cpan
 PKG_ARCH=	*
 
-DISTNAME=	Test-WWW-Mechanize-1.52
+DISTNAME =	Test-WWW-Mechanize-1.54
 CATEGORIES=	www devel
 
 # Artistic 2.0

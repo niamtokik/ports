@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.3 2020/05/30 17:20:43 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/12/22 21:05:04 sthen Exp $
 
 COMMENT=	lightweight C ACMEv2 client, uses external authenticators
 
-V=		1.4
+V=		1.6
 GH_ACCOUNT=	ndilieto
 GH_PROJECT=	uacme
 GH_TAGNAME=	upstream/$V
@@ -11,7 +11,7 @@ WRKDIST=	${WRKDIR}/uacme-upstream-$V
 
 CATEGORIES=	security www
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # GPLv3+
 PERMIT_PACKAGE=	Yes

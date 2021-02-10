@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.70 2020/06/09 03:42:44 bentley Exp $
+# $OpenBSD: Makefile,v 1.72 2020/11/21 20:15:05 chrisz Exp $
 
      SUBDIR =
      SUBDIR += abyssinica
@@ -58,6 +58,7 @@
      SUBDIR += liberation-fonts
      SUBDIR += linuxlibertine-fonts-otf
      SUBDIR += linuxlibertine-fonts-ttf
+     SUBDIR += literata
      SUBDIR += lohit-fonts
      SUBDIR += luciole
      SUBDIR += mada
@@ -93,6 +94,12 @@
      SUBDIR += terminus-font,symquotes
      SUBDIR += terminus-font,symquotes,centered_tilde
      SUBDIR += terminus-font,centered_tilde
+     SUBDIR += ttyp0-font
+     SUBDIR += ttyp0-font,ct
+     SUBDIR += ttyp0-font,nbd
+     SUBDIR += ttyp0-font,nbs
+     SUBDIR += ttyp0-font,sq
+     SUBDIR += ttyp0-font,sz
      SUBDIR += ubuntu-fonts
      SUBDIR += un-fonts
      SUBDIR += unifont

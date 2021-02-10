@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.19 2020/05/16 10:41:32 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.22 2021/01/04 14:06:37 sthen Exp $
 
 COMMENT =		library to generate, and check strengh of passwords
 
-V =			1.4.2
+V =			1.4.4
 SUBST_VARS =		V
 GH_PROJECT =		libpwquality
 GH_ACCOUNT =		libpwquality
@@ -20,7 +20,6 @@ MAINTAINER =		Jasper Lievisse Adriaanse <jasper@openbsd.org>, \
 # GPLv2+
 PERMIT_PACKAGE =	Yes
 
-WANTLIB += ${MODPY_WANTLIB}
 WANTLIB += c crack iconv intl pthread z
 
 MODULES =		lang/python
