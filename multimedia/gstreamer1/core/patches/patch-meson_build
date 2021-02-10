@@ -1,12 +1,12 @@
-$OpenBSD: patch-meson_build,v 1.2 2019/09/25 22:48:02 ajacoutot Exp $
+$OpenBSD: patch-meson_build,v 1.4 2020/10/28 15:42:14 ajacoutot Exp $
 
-don't pick up the annoying useless port
+don't pick up this annoying useless port
 
 Index: meson.build
 --- meson.build.orig
 +++ meson.build
-@@ -367,18 +367,6 @@ else
-   message('NO backtraces support.')
+@@ -417,18 +417,6 @@ if not backtrace_source_info
+   endif
  endif
  
 -if cc.has_header('execinfo.h')

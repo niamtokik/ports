@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.21 2019/07/12 20:48:46 sthen Exp $
+# $OpenBSD: Makefile,v 1.23 2021/01/04 14:06:36 sthen Exp $
 
 COMMENT =		libpcap module for Python
 
@@ -7,7 +7,7 @@ GH_ACCOUNT =		CoreSecurity
 GH_PROJECT =		pcapy
 GH_TAGNAME =		${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
-REVISION =		3
+REVISION =		5
 
 CATEGORIES =		net devel
 

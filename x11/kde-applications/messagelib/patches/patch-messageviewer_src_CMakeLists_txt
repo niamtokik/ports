@@ -1,0 +1,36 @@
+$OpenBSD: patch-messageviewer_src_CMakeLists_txt,v 1.3 2021/01/23 18:10:28 rsadowski Exp $
+
+Index: messageviewer/src/CMakeLists.txt
+--- messageviewer/src/CMakeLists.txt.orig
++++ messageviewer/src/CMakeLists.txt
+@@ -34,9 +34,6 @@ set_package_properties(Qca-qt5 PROPERTIES DESCRIPTION 
+ 
+ configure_file(config-messageviewer.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-messageviewer.h)
+ 
+-# target_include_directories does not handle empty include paths
+-include_directories(${GPGME_INCLUDES})
+-
+ if(BUILD_TESTING)
+     add_subdirectory(header/autotests)
+     add_subdirectory(scamdetection/autotests)
+@@ -301,6 +298,11 @@ ki18n_wrap_ui(libmessageviewer_SRCS
+ 
+ 
+ add_library(KF5MessageViewer ${libmessageviewer_SRCS})
++target_include_directories(KF5MessageViewer PUBLIC "${CMAKE_INSTALL_PREFIX}/include"
++                    "${CMAKE_INSTALL_PREFIX}/include/inotify"
++                    "${CMAKE_INSTALL_PREFIX}/include/gpgme++"
++                    "${CMAKE_INSTALL_PREFIX}/include/qgpgme")
++
+ generate_export_header(KF5MessageViewer BASE_NAME messageviewer)
+ add_library(KF5::MessageViewer ALIAS KF5MessageViewer)
+ 
+@@ -342,7 +344,7 @@ target_link_libraries(KF5MessageViewer
+     KF5::AkonadiContact
+     Grantlee5::Templates
+     Qt5::PrintSupport
+-    QGpgme
++    qgpgme
+     ${Inotify_LIBRARIES}
+     ${OPTIONAL_PRIVATE}
+     )

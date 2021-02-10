@@ -1,12 +1,12 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/05/25 16:08:41 solene Exp $
+# $OpenBSD: Makefile,v 1.3 2020/06/09 16:14:49 solene Exp $
 
 COMMENT =		client of wrath-darkplaces engine
 
-DISTNAME =		wrath-0.0.0.20200228
+DISTNAME =		wrath-0.0.0.20200530
 
 GH_ACCOUNT =		KillPixelGames
 GH_PROJECT =		wrath-darkplaces
-GH_COMMIT =		ae8a4c06f2b2b088a537bb75c439817f4a009d6a
+GH_COMMIT =		7fa67fed66335554160a7c6d8b599c69b316e027
 
 CATEGORIES =		games
 
@@ -23,6 +23,10 @@ LIB_DEPENDS =		devel/sdl2 \
 MAKE_FLAGS =		CC="${CC}" \
 			CFLAGS_LIBJPEG="-I${LOCALBASE}/include -DLINK_TO_LIBJPEG" \
 			CPUOPTIMIZATIONS="${CFLAGS}"
+
+.if !(${MACHINE_ARCH} == amd64 || ${MACHINE_ARCH} == i386)
+MAKE_FLAGS +=		CFLAGS_SSE= CFLAGS_SSE2=
+.endif
 
 USE_GMAKE =		Yes
 

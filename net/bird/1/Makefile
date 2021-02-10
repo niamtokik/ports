@@ -1,10 +1,12 @@
-# $OpenBSD: Makefile,v 1.7 2019/09/12 16:34:30 sthen Exp $
+# $OpenBSD: Makefile,v 1.9 2021/02/01 20:15:46 sthen Exp $
 
 COMMENT-main=	${COMMENT}
 COMMENT-doc=	${COMMENT} (documentation)
 
 PORTROACH=	limit:^1\.
 DISTNAME=	bird-1.6.8
+REVISION=	0
+REVISION-main=	1
 
 WANTLIB-main=	c curses pthread readline
 

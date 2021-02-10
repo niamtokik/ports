@@ -1,32 +1,33 @@
-# $OpenBSD: Makefile,v 1.38 2019/08/15 06:41:02 landry Exp $
+# $OpenBSD: Makefile,v 1.41 2020/12/29 14:47:09 landry Exp $
 
 COMMENT=	D-Bus thumbnailing service
 
-XFCE_VERSION=	0.2.7
-XFCE_GOODIE=	tumbler
+XFCE_PROJECT=	tumbler
 
 SHARED_LIBS+=	tumbler-1 0.0
 
 # GPLv2
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += X11 Xext Xrender avcodec avformat avutil bz2 c cairo
+WANTLIB += X11 Xext Xrender aom avcodec avformat avutil bz2 c cairo
 WANTLIB += crypto curl dav1d expat ffi ffmpegthumbnailer
 WANTLIB += fontconfig freetype gdk_pixbuf-2.0 gio-2.0 glib-2.0
 WANTLIB += gmodule-2.0 gobject-2.0 gsf-1 gthread-2.0 jpeg
 WANTLIB += lcms2 lzma m nghttp2 ogg openjp2 pcre pixman-1 png poppler
-WANTLIB += poppler-glib pthread ssl swscale tiff
+WANTLIB += poppler-glib pthread ssl swscale tiff harfbuzz
 WANTLIB += vorbis xcb xcb-render xcb-shm xml2 z iconv intl
 WANTLIB += ${COMPILER_LIBCXX} ass avfilter avresample fribidi
 WANTLIB += gsm mp3lame opus postproc speex swresample vorbisenc
-WANTLIB += vpx x264 x265 xvidcore theoradec theoraenc
+WANTLIB += vpx x264 x265 xvidcore theoradec theoraenc zstd
 
 COMPILER =		base-clang ports-gcc base-gcc
 
 MODULES=	x11/xfce4
 MODXFCE_PURGE_LA =	lib/tumbler-1/plugins lib/tumbler-1/plugins/cache
+MODXFCE_ICON_CACHE =	Yes
 
 CONFIGURE_ARGS =	--disable-raw-thumbnailer \
+			--disable-gepub-thumbnailer \
 			--disable-gstreamer-thumbnailer
 
 # correctly find bindtextdomain

@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.8 2019/11/04 09:17:19 fcambus Exp $
+# $OpenBSD: Makefile,v 1.10 2021/01/14 21:55:22 fcambus Exp $
 
 COMMENT =	JSON output from a shell
 
-V =		1.3
+V =		1.4
 DISTNAME =	jo-$V
+REVISION =	0
 
 CATEGORIES =	textproc
 
 HOMEPAGE =	https://jpmens.net/2016/03/05/a-shell-command-to-create-json-jo/
-
-MAINTAINER =	Frederic Cambus <fcambus@openbsd.org>
 
 # GPLv2+
 PERMIT_PACKAGE =	Yes
@@ -20,6 +19,8 @@ WANTLIB =	c m
 MASTER_SITES =	https://github.com/jpmens/jo/releases/download/$V/
 
 CONFIGURE_STYLE = gnu
+
+CONFIGURE_ARGS = bashcompdir=${PREFIX}/share/bash-completion/completions
 
 pre-configure:
 	# Remove hardcoded optimization (-O2) flag

@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.165 2019/11/01 22:10:11 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.169 2020/12/24 14:59:44 solene Exp $
 
 COMMENT=		official media player for GNOME
 
 GNOME_PROJECT=		totem
-GNOME_VERSION=		3.34.1
+GNOME_VERSION=		3.38.0
+REVISION=		0
 
 SHARED_LIBS += totem                     0.0 # 0.0.0
 
@@ -40,6 +41,9 @@ RUN_DEPENDS=		devel/gsettings-desktop-schemas \
 # calls grl_registry_load...plugin
 RUN_DEPENDS +=		x11/gnome/grilo-plugins
 
+# org.freedesktop.Tracker3.Miner.Files
+RUN_DEPENDS +=		x11/gnome/tracker3-miners
+
 LIB_DEPENDS=		x11/gnome/totem-pl-parser \
 			devel/gobject-introspection \
 			devel/libpeas \
@@ -57,6 +61,8 @@ MODGNOME_TOOLS += desktop-file-utils gobject-introspection gtk-update-icon-cache
 MODGNOME_TOOLS += yelp
 
 CONFIGURE_ARGS=		-Denable-easy-codec-installation=no
+
+DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 post-install:
 	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py ${PREFIX}

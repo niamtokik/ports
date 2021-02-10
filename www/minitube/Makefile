@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.65 2020/05/01 02:56:11 kn Exp $
+# $OpenBSD: Makefile,v 1.68 2020/10/09 13:53:36 sthen Exp $
 
 COMMENT =	standalone YouTube.com video browser/player
 
-V =		3.3
+V =		3.6.2
 DISTNAME =	minitube-$V
 EXTRACT_SUFX =	.tar.bz2
-REVISION =	1
 
 CATEGORIES =	www multimedia
 
@@ -14,19 +13,15 @@ HOMEPAGE =	https://flavio.tordini.org/minitube
 # GPLv3
 PERMIT_PACKAGE =		Yes
 
+WANTLIB += ${COMPILER_LIBCXX} GL Qt5Core Qt5DBus Qt5Gui Qt5Network
+WANTLIB += Qt5Qml Qt5Sql Qt5Widgets Qt5X11Extras c m mpv
+
 MASTER_SITES =	https://github.com/flaviotordini/minitube/releases/download/$V/
 
-# minitube-3.1.tar.bz2 is actually gzipped.
-# i would just use GH_* rather than EXTRACT_CASES, but the git tree uses
-# submodules (build fails with missing media.h) so this is easier.
-EXTRACT_CASES += minitube*.tar.bz2) ${GZIP_CMD} -d <${FULLDISTDIR}/$$archive | ${TAR} xf -;;
-
-WANTLIB +=	GL Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5Qml Qt5Sql
-WANTLIB +=	Qt5Widgets Qt5X11Extras c m mpv ${COMPILER_LIBCXX}
-
-MODULES =	devel/qmake x11/qt5 multimedia/phonon
+MODULES =	devel/qmake x11/qt5
 
 LIB_DEPENDS +=	multimedia/mpv \
+		x11/qt5/qtdeclarative \
 		x11/qt5/qtx11extras
 
 RUN_DEPENDS +=	devel/desktop-file-utils \

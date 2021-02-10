@@ -1,16 +1,17 @@
-# $OpenBSD: Makefile,v 1.13 2020/03/31 04:40:24 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.16 2021/01/23 18:09:53 rsadowski Exp $
 
 COMMENT =	QtQuick based components set
 DISTNAME =	kirigami2-${VERSION}
 PKGNAME =	kf5-${DISTNAME}
-REVISION =	0
 
 HOMEPAGE =	https://api.kde.org/frameworks/kirigami/html/index.html
 
-SHARED_LIBS +=  KF5Kirigami2              2.0 # 5.41
+SHARED_LIBS +=  KF5Kirigami2              3.1 # 5.41
 
-WANTLIB += ${COMPILER_LIBCXX} Qt5Core Qt5DBus Qt5Gui Qt5Network
-WANTLIB += Qt5Qml Qt5Quick Qt5QuickControls2 m
+WANTLIB += ${COMPILER_LIBCXX} Qt5Concurrent Qt5Core Qt5DBus Qt5Gui
+WANTLIB += Qt5Network Qt5Qml Qt5QmlModels Qt5Quick Qt5QuickControls2
+WANTLIB += m
+
 
 BUILD_DEPENDS =	devel/gettext,-tools \
 		x11/qt5/qtgraphicaleffects \

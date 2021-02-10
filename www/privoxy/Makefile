@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.37 2020/02/23 18:39:51 sthen Exp $
+# $OpenBSD: Makefile,v 1.40 2021/02/04 19:23:58 bket Exp $
 
 COMMENT=	web proxy with advanced filtering capabilities
 
-V=		3.0.28
+V=		3.0.31
 DISTNAME=	privoxy-${V}-stable
 PKGNAME=	privoxy-${V}
 CATEGORIES=	www
@@ -12,11 +12,14 @@ HOMEPAGE=	https://www.privoxy.org/
 # GPLv2+
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c pcre pcreposix pthread z
+WANTLIB += c crypto pcre pcreposix pthread ssl z
 
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=ijbswa/}
 EXTRACT_SUFX=	-src.tar.gz
+FIX_EXTRACT_PERMISSIONS=	Yes
 
+# there are tests which can be run with tools/privoxy-regression-test.pl
+# they require privoxy to be running, and http_proxy=http://127.0.0.1:8118/
 NO_TEST=	Yes
 
 USE_GMAKE=	Yes
@@ -26,9 +29,15 @@ LIB_DEPENDS=	devel/pcre
 
 CONFIGURE_STYLE= autoconf
 AUTOCONF_VERSION= 2.69
-CONFIGURE_ARGS=	--with-docbook=no
+CONFIGURE_ARGS=	--with-docbook=no \
+		--with-openssl
 CONFIGURE_ENV=	CPPFLAGS="-Dunix -I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"
+
+.include <bsd.port.arch.mk>
+.if !${PROPERTIES:Mclang}
+CFLAGS +=	-std=gnu99
+.endif
 
 pre-configure:
 	@cd ${WRKDIST} && AUTOCONF_VERSION=${AUTOCONF_VERSION} autoheader

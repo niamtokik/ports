@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.27 2020/03/21 16:14:56 robert Exp $
+# $OpenBSD: Makefile,v 1.29 2020/12/03 19:29:06 robert Exp $
 
 USE_WXNEEDED=		Yes
 
@@ -6,6 +6,7 @@ COMMENT=		powerful text editor for the MATE desktop
 
 CATEGORIES=		textproc
 
+MATE_VERSION=		1.24.1
 MATE_PROJECT=		pluma
 
 # GPLv2
@@ -25,6 +26,8 @@ COMPILER =		base-clang ports-gcc base-gcc
 MODULES=		devel/dconf \
 			lang/python \
 			x11/gnome
+
+USE_LIBTOOL=		gnu
 
 MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 

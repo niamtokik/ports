@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.7 2020/03/17 13:45:31 landry Exp $
+# $OpenBSD: Makefile,v 1.9 2020/12/09 07:39:16 landry Exp $
 
 COMMENT =	web interface for buildbot
 

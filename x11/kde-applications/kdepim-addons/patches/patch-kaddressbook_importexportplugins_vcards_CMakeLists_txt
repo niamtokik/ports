@@ -1,0 +1,19 @@
+$OpenBSD: patch-kaddressbook_importexportplugins_vcards_CMakeLists_txt,v 1.2 2021/01/23 18:10:19 rsadowski Exp $
+
+Index: kaddressbook/importexportplugins/vcards/CMakeLists.txt
+--- kaddressbook/importexportplugins/vcards/CMakeLists.txt.orig
++++ kaddressbook/importexportplugins/vcards/CMakeLists.txt
+@@ -17,7 +17,11 @@ target_link_libraries(kaddressbook_importexportvcardpl
+     KF5::Contacts
+     KF5::JobWidgets
+     KF5::AkonadiContact
+-    Gpgmepp
+-    QGpgme
++    gpgmepp
++    qgpgme
+     )
+ 
++target_include_directories(kaddressbook_importexportvcardplugin PUBLIC "${CMAKE_INSTALL_PREFIX}/include"
++    "${CMAKE_INSTALL_PREFIX}/include/inotify"
++    "${CMAKE_INSTALL_PREFIX}/include/gpgme++"
++    "${CMAKE_INSTALL_PREFIX}/include/qgpgme")

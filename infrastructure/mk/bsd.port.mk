@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1538 2020/06/01 08:41:36 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1546 2021/02/06 15:24:48 sthen Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -91,6 +91,8 @@ FAKEOBJDIR ?=
 UPDATE_PLIST_ARGS ?=
 UPDATE_PLIST_OPTS ?=
 
+REGISTER_PLIST_OPTS ?=
+
 BULK_TARGETS ?=
 BULK_DO ?=
 CHECK_LIB_DEPENDS ?= No
@@ -166,6 +168,7 @@ _PLIST_DB = ${PLIST_REPOSITORY}/${MACHINE_ARCH}
 PACKAGE_REPOSITORY ?= ${PORTSDIR}/packages
 
 FIX_EXTRACT_PERMISSIONS ?= No
+FIX_CLEANUP_PERMISSIONS ?= No
 
 .if !exists(${X11BASE}/man/mandoc.db)
 .  if exists(${X11BASE}/man/whatis.db)
@@ -442,8 +445,10 @@ CCACHE_ENV ?=
 CCACHE_DIR ?= ${WRKOBJDIR_${PKGPATH}}/.ccache
 MAKE_ENV += CCACHE_DIR=${CCACHE_DIR} ${CCACHE_ENV}
 CONFIGURE_ENV += CCACHE_DIR=${CCACHE_DIR}
-BUILD_DEPENDS += devel/ccache
-COMPILER_WRAPPER = ccache
+COMPILER_WRAPPER += ccache
+.  if !exists(${LOCALBASE}/bin/ccache)
+ERRORS += "Fatal: USE_CCACHE is set, but ccache is not installed."
+.  endif
 .endif
 
 # by default, installation (fake) does not need -jN.
@@ -679,6 +684,7 @@ _GEN_COOKIE =			${WRKDIR}/.gen_done
 _BULK_COOKIE =			${BULK_COOKIES_DIR}/${FULLPKGNAME}
 _FAKE_COOKIE =			${WRKINST}/.fake_done
 _INSTALL_PRE_COOKIE =	${WRKINST}/.install_started
+_PKGLOCATE_COOKIE =		${WRKINST}/.pkglocate_cookie
 _UPDATE_COOKIES =
 _FUPDATE_COOKIES =
 _INSTALL_COOKIES =
@@ -712,7 +718,7 @@ _ALL_COOKIES = ${_EXTRACT_COOKIE} ${_PATCH_COOKIE} ${_GEN_COOKIE} \
 	${_INSTALL_PRE_COOKIE} ${_BUILD_COOKIE} ${_TEST_COOKIE} \
 	${_PACKAGE_COOKIES} ${_CACHE_PACKAGE_COOKIES} \
 	${_DISTPATCH_COOKIE} ${_PREPATCH_COOKIE} ${_FAKE_COOKIE} \
-	${_TS_COOKIE} \
+	${_PKGLOCATE_COOKIE} ${_TS_COOKIE} \
 	${_WRKDIR_COOKIE} ${_DEPBUILD_COOKIES} \
 	${_DEPRUN_COOKIES} ${_DEPTEST_COOKIES} ${_UPDATE_COOKIES} \
 	${_DEPBUILDLIB_COOKIES} ${_DEPRUNLIB_COOKIES} \
@@ -1197,7 +1203,7 @@ _pkg_cookie${_S} = ${_PACKAGE_COOKIE${_S}}
 .  if ${DEBUG_PACKAGES:M${_S}}
 _DBG_PKG_ARGS${_S} := ${PKG_ARGS${_S}}
 _DBG_PKG_ARGS${_S} += -P${FULLPKGPATH${_S}}:${FULLPKGNAME${_S}}:${FULLPKGNAME${_S}}
-_DBG_PKG_ARGS${_S} += -DCOMMENT="debug info for ${FULLPKGNAME${_S}}"
+_DBG_PKG_ARGS${_S} += -DCOMMENT="debug info for ${PKGSTEM${_S}}"
 _DBG_PKG_ARGS${_S} += -d"-debug info for ${FULLPKGNAME${_S}}"
 # XXX revisit that fullpkgpath later ?
 _DBG_PKG_ARGS${_S} += -DFULLPKGPATH=debug/${FULLPKGPATH${_S}}
@@ -1381,6 +1387,11 @@ PATCH_CASES += *.bz2) \
 	${BZIP2} -d <$$patchfile | ${PATCH} ${PATCH_DIST_ARGS};;
 .endif
 
+.if !empty(_LIST_EXTRACTED:M*.rpm)
+BUILD_DEPENDS += converters/rpm2cpio
+EXTRACT_CASES += *.rpm) \
+	cd ${WRKDIR} && rpm2cpio ${FULLDISTDIR}/$$archive | cpio -id -- ${EXTRACT_FILES};;
+.endif
 
 _PERL_FIX_SHAR ?= perl -ne 'print if $$s || ($$s = m:^\#(\!\s*/bin/sh\s*| This is a shell archive):)'
 
@@ -1881,7 +1892,7 @@ _list_port_libs = \
 .if empty(_PLIST_DB)
 _register_plist =:
 .else
-_register_plist = ${_PBUILD} install -d ${PLISTDIR_MODE} ${_PLIST_DB} && ${_PBUILD} ${_PERLSCRIPT}/register-plist ${_PLIST_DB}
+_register_plist = ${_PBUILD} install -d ${PLISTDIR_MODE} ${_PLIST_DB} && ${_PBUILD} ${_PERLSCRIPT}/register-plist ${REGISTER_PLIST_OPTS} ${_PLIST_DB}
 .endif
 .if ${CHECK_LIB_DEPENDS:L} == "yes"
 _check_lib_depends = ${_CHECK_LIB_DEPENDS}
@@ -1966,12 +1977,14 @@ _FAKE_TREE_LIST = \
 _update_plist = ${_cache_fragment}; \
 	PORTSDIR=${PORTSDIR} \
 	${_UPDATE_PLIST_SETUP} ${_PERLSCRIPT}/update-plist \
+	-D FAKE_COOKIE=${_FAKE_COOKIE} -D PKGLOCATE_COOKIE=${_PKGLOCATE_COOKIE} \
 	-w ${PATCHORIG} -w ${DISTORIG} -w .beforesubst \
 	-i ARCH -i BASE_PKGPATH -i FULLPKGNAME -i PKGSTEM -i FULLPKGPATH \
 	-i LOCALSTATEDIR -i MACHINE_ARCH \
 	-s BASE_PKGPATH -s LOCALBASE -s LOCALSTATEDIR -s PREFIX \
 	-s RCDIR -s SYSCONFDIR -s X11BASE \
-	-X ${_FAKE_COOKIE} -X ${_INSTALL_PRE_COOKIE} -X ${WRKINST}/.saved_libs
+	-X ${_FAKE_COOKIE} -X ${_INSTALL_PRE_COOKIE} -X ${_PKGLOCATE_COOKIE} \
+	-X ${WRKINST}/.saved_libs
 	
 
 .for _d in ${_FAKE_TREE_LIST} ${_EXCLUDE_DEBUG_PLISTS}
@@ -2644,7 +2657,7 @@ ${_WRKDIR_COOKIE}:
 .if empty(_BUILD_DEP:Mdevel/gettext,-tools) && \
 		empty(_BUILD_DEP:Mtextproc/intltool)
 	@printf '#!/bin/sh\n\
-		echo "*** $$0 was called without gettext-tools dependency ***" >&2\n\
+		echo "*** $$0 was called without devel/gettext,-tools dependency ***" >&2\n\
 		exit 1\n' ${_PREDIR} ${WRKDIR}/bin/msgfmt
 	@${_PBUILD} chmod 555 ${WRKDIR}/bin/msgfmt
 .  for name in msgcat msginit autopoint xgettext gettextize
@@ -2755,6 +2768,7 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 	@${_MAKE} _internal-distpatch
 .  endif
 	@if cd ${PATCHDIR} 2>/dev/null || [ x"${PATCH_LIST:M/*}" != x"" ]; then \
+		failed_patches=''; \
 		error=false; \
 		for i in ${PATCH_LIST}; do \
 			case $$i in \
@@ -2770,6 +2784,7 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 						if [ -s $$i ]; then \
 							${_PBUILD} ${PATCH} ${PATCH_ARGS} < $$i || \
 								{ echo "***>   $$i did not apply cleanly"; \
+								failed_patches="$$failed_patches\n    $$i"; \
 								error=true; }; \
 						else \
 							${ECHO_MSG} "===>   Ignoring empty patchfile $$i"; \
@@ -2783,7 +2798,12 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 					;; \
 			esac; \
 		done;\
-		if $$error; then exit 1; fi; \
+		if $$error; then \
+			if [ -n "$$failed_patches" ]; then \
+				echo "===>   Failed patches: $$failed_patches\n"; \
+			fi; \
+			exit 1; \
+		fi; \
 	fi
 # End of PATCH.
 .endif
@@ -2984,6 +3004,7 @@ ${_FAKE_COOKIE}: ${_BUILD_COOKIE}
 	@${_SUDOMAKESYS} pre-fake ${FAKE_SETUP}
 .endif
 	@${_PBUILD} ${_MAKE_COOKIE} ${_INSTALL_PRE_COOKIE}
+	@${_PBUILD} rm -f ${_PKGLOCATE_COOKIE}
 .if target(pre-install)
 	@${_SUDOMAKESYS} pre-install ${FAKE_SETUP}
 .endif
@@ -3222,6 +3243,9 @@ _internal-clean:
 .  for l in ${_WRKDIRS}
 .    if "$l" != ""
 	@if [ -L $l ]; then ${_PBUILD} rm -rf `readlink $l`; fi
+.      if ${FIX_CLEANUP_PERMISSIONS:L} == "yes"
+		@if [ -e $l ]; then ${_PBUILD} chmod -R +rwX $l; fi
+.      endif
 	@if [ -e $l ]; then ${_PBUILD} rm -rf $l; fi
 .    endif
 .  endfor

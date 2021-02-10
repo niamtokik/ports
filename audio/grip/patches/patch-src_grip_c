@@ -1,17 +1,9 @@
-$OpenBSD: patch-src_grip_c,v 1.8 2017/12/01 14:45:48 jca Exp $
+$OpenBSD: patch-src_grip_c,v 1.11 2021/01/24 18:24:27 ajacoutot Exp $
 
 Index: src/grip.c
 --- src/grip.c.orig
 +++ src/grip.c
-@@ -26,6 +26,7 @@
- #include <stdio.h>
- #include <unistd.h>
- #include <sys/param.h>
-+#include <sys/wait.h>
- #include <gdk/gdkx.h>
- #include <X11/Xlib.h>
- #include <time.h>
-@@ -773,7 +774,7 @@ static void DoLoadConfig(GripInfo *ginfo)
+@@ -637,7 +637,7 @@ static void DoLoadConfig(GripInfo *ginfo)
  
    *ginfo->version='\0';
  

@@ -1,13 +1,11 @@
-# $OpenBSD: Makefile,v 1.5 2019/10/26 15:46:38 kn Exp $
+# $OpenBSD: Makefile,v 1.9 2020/12/11 19:17:41 kn Exp $
 
 COMMENT =		vi-like editor with sam-style structural regex support
 
-V =			0.5
-DISTNAME =		vis-v${V}
-PKGNAME =		vis-${V}
-REVISION =		1
+V =			0.7
+DISTNAME =		vis-${V}
 
-TEST_V =		0.3
+TEST_V =		0.5
 SUPDISTNAME =		vis-test-${TEST_V}
 
 CATEGORIES =		editors
@@ -38,12 +36,11 @@ RUN_DEPENDS =		devel/lpeg,${MODLUA_FLAVOR}>=0.12
 
 TEST_DEPENDS =		editors/vim
 
-# libtermkey dumps core when TERM is unset
-TEST_ENV =		TERM=${TERM}
-
 CONFIGURE_STYLE =	simple
 CONFIGURE_ARGS =	--prefix=${PREFIX} \
 			--mandir=${PREFIX}/man
+
+DEBUG_PACKAGES =	${BUILD_PACKAGES}
 
 # for test/core/Makefile
 USE_GMAKE =		Yes

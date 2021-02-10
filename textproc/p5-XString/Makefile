@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/02/09 23:44:00 bluhm Exp $
+# $OpenBSD: Makefile,v 1.3 2020/11/03 16:07:36 benoit Exp $
 
 COMMENT =	isolated String helpers from B
 
 CPAN_AUTHOR =	ATOOMIC
-DISTNAME =	XString-0.002
+DISTNAME =	XString-0.005
 
 CATEGORIES =	textproc
 
@@ -13,9 +13,5 @@ PERMIT_PACKAGE =	Yes
 WANTLIB =		c perl
 
 MODULES =		cpan
-
-TEST_DEPENDS =		devel/p5-Test2-Plugin-NoWarnings \
-			devel/p5-Test2-Suite \
-			devel/p5-Test2-Tools-Explain
 
 .include <bsd.port.mk>

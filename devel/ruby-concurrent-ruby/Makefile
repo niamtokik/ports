@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.4 2020/03/09 08:19:20 sebastia Exp $
+# $OpenBSD: Makefile,v 1.6 2021/02/03 19:01:31 sebastia Exp $
 
 COMMENT=	concurrency tools and patterns for Ruby
 
-DISTNAME=	concurrent-ruby-1.1.6
+DISTNAME=	concurrent-ruby-1.1.8
 CATEGORIES=	devel
 HOMEPAGE=	http://www.concurrent-ruby.com/
 MAINTAINER=	Sebastian Reitenbach <sebastia@openbsd.org>

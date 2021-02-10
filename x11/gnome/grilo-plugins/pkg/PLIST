@@ -1,4 +1,5 @@
-@comment $OpenBSD: PLIST,v 1.30 2020/02/15 10:43:24 jasper Exp $
+@comment $OpenBSD: PLIST,v 1.32 2020/11/08 13:29:20 ajacoutot Exp $
+lib/grilo-${API}/
 @so lib/grilo-${API}/libgrlchromaprint.so
 @so lib/grilo-${API}/libgrldleyna.so
 @so lib/grilo-${API}/libgrlfilesystem.so
@@ -16,7 +17,7 @@
 @so lib/grilo-${API}/libgrlraitv.so
 @so lib/grilo-${API}/libgrlshoutcast.so
 @so lib/grilo-${API}/libgrltmdb.so
-@so lib/grilo-${API}/libgrltracker.so
+@so lib/grilo-${API}/libgrltracker3.so
 @so lib/grilo-${API}/libgrlvimeo.so
 @so lib/grilo-${API}/libgrlyoutube.so
 lib/pkgconfig/grilo-plugins-${API}.pc
@@ -35,7 +36,6 @@ share/grilo-plugins/grl-lua-factory/grl-lastfm-cover.lua
 share/grilo-plugins/grl-lua-factory/grl-musicbrainz-coverart.lua
 share/grilo-plugins/grl-lua-factory/grl-radiofrance.gresource
 share/grilo-plugins/grl-lua-factory/grl-radiofrance.lua
-share/grilo-plugins/grl-lua-factory/grl-spotify-cover.lua
 share/grilo-plugins/grl-lua-factory/grl-steam-store.lua
 share/grilo-plugins/grl-lua-factory/grl-theaudiodb-cover.lua
 share/grilo-plugins/grl-lua-factory/grl-thegamesdb.lua
@@ -53,6 +53,12 @@ share/help/cs/examples/example-tmdb.c
 share/help/cs/grilo-plugins/
 share/help/cs/grilo-plugins/grilo-plugins.xml
 share/help/cs/grilo-plugins/legal.xml
+share/help/da/
+share/help/da/examples/
+share/help/da/examples/example-tmdb.c
+share/help/da/grilo-plugins/
+share/help/da/grilo-plugins/grilo-plugins.xml
+share/help/da/grilo-plugins/legal.xml
 share/help/de/
 share/help/de/examples/
 share/help/de/examples/example-tmdb.c
@@ -83,6 +89,12 @@ share/help/sv/examples/example-tmdb.c
 share/help/sv/grilo-plugins/
 share/help/sv/grilo-plugins/grilo-plugins.xml
 share/help/sv/grilo-plugins/legal.xml
+share/help/uk/
+share/help/uk/examples/
+share/help/uk/examples/example-tmdb.c
+share/help/uk/grilo-plugins/
+share/help/uk/grilo-plugins/grilo-plugins.xml
+share/help/uk/grilo-plugins/legal.xml
 share/locale/as/LC_MESSAGES/grilo-plugins.mo
 share/locale/bg/LC_MESSAGES/grilo-plugins.mo
 share/locale/bs/LC_MESSAGES/grilo-plugins.mo

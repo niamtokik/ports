@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.29 2019/11/19 14:49:11 sthen Exp $
+# $OpenBSD: Makefile,v 1.32 2021/02/01 20:04:53 sthen Exp $
 
 COMMENT =	cross-platform interactive fiction player
 
@@ -6,12 +6,11 @@ GH_ACCOUNT =	garglk
 GH_PROJECT =	garglk
 GH_TAGNAME =	2019.1.1
 EPOCH =		0
+REVISION =	1
 
 CATEGORIES =	games x11
 
 HOMEPAGE =	http://ccxvii.net/gargoyle/
-
-MAINTAINER =	Stuart Henderson <sthen@openbsd.org>
 
 # Various. Gargoyle is a frontend for various other included
 # programs under differing licenses; many GPL but some others.
@@ -47,7 +46,7 @@ DESTDIRNAME =		DESTPREFIX
 #	@cd ${WRKSRC} && perl -i -pe 's/\r$$//' [...]
 
 pre-configure:
-	${SUBST_CMD} ${WRKSRC}/garglk/launchgtk.c
+	sed -i 's,/usr/local,${TRUEPREFIX},' ${WRKSRC}/garglk/launchgtk.c
 
 do-build:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} jam -j${MAKE_JOBS} ${JAMDEBUG}

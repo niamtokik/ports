@@ -1,8 +1,9 @@
-$OpenBSD: patch-configure_ac,v 1.12 2019/12/29 07:28:22 bket Exp $
+$OpenBSD: patch-configure_ac,v 1.14 2020/10/04 14:36:12 bket Exp $
+
 Index: configure.ac
 --- configure.ac.orig
 +++ configure.ac
-@@ -199,7 +199,7 @@ if test "$test_for_geoip" = yes && test "$have_maxmind
+@@ -222,7 +222,7 @@ if test "$test_for_geoip" = yes && test "$have_maxmind
  fi
  
  have_readline=no

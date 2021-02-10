@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.14 2019/12/02 15:31:36 kmos Exp $
+# $OpenBSD: Makefile,v 1.16 2021/01/04 14:06:38 sthen Exp $
 
 COMMENT =		library to retrieve system information and utilisation
 
@@ -9,7 +9,7 @@ GH_TAGNAME =		release-${MODPY_EGG_VERSION}
 DISTNAME =		psutil-${MODPY_EGG_VERSION}
 PKGNAME =		py-psutil-${MODPY_EGG_VERSION}
 CATEGORIES =		sysutils
-REVISION =		2
+REVISION =		4
 
 HOMEPAGE =		https://github.com/giampaolo/psutil
 

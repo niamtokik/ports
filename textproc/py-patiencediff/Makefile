@@ -1,10 +1,11 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/05/31 20:33:32 juanfra Exp $
+# $OpenBSD: Makefile,v 1.3 2021/01/04 14:06:39 sthen Exp $
 
 COMMENT =		Python implementation of the patiencediff algorithm
 
 MODPY_EGG_VERSION =	0.1.0
 DISTNAME =		patiencediff-${MODPY_EGG_VERSION}
 PKGNAME =		py-patiencediff-${MODPY_EGG_VERSION}
+REVISION =		1
 
 CATEGORIES =		textproc
 

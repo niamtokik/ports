@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.2 2019/11/23 19:55:42 kmos Exp $
+# $OpenBSD: Makefile,v 1.4 2021/01/17 19:34:50 jasper Exp $
 
 COMMENT =	module that multiplexes interactions with lists of objects
 
-MODPY_EGG_VERSION =	0.08
+MODPY_EGG_VERSION =	0.09
 DISTNAME =	mulpyplexer-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
 
@@ -18,7 +18,7 @@ MODULES =	lang/python
 MODPY_PI =	Yes
 
 FLAVORS =	python3
-FLAVOR ?=
+FLAVOR ?=	python3
 
 # No tests - no upstream?
 

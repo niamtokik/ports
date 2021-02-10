@@ -1,17 +1,15 @@
-# $OpenBSD: Makefile,v 1.8 2019/12/01 00:56:09 kmos Exp $
+# $OpenBSD: Makefile,v 1.10 2021/01/16 17:26:16 abieber Exp $
 
 COMMENT =		network address representation and manipulation library
 
 MODPY_EGG_VERSION =	0.7.19
 DISTNAME =		netaddr-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
-REVISION =		0
+REVISION =		2
 
 CATEGORIES =		net
 
 HOMEPAGE =		http://github.com/drkjam/netaddr/
-
-MAINTAINER =		Aaron Bieber <abieber@openbsd.org>
 
 # MIT
 PERMIT_PACKAGE =	Yes

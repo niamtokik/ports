@@ -1,23 +1,23 @@
-$OpenBSD: patch-ui_base_resource_resource_bundle_cc,v 1.37 2020/05/29 20:03:24 robert Exp $
+$OpenBSD: patch-ui_base_resource_resource_bundle_cc,v 1.40 2021/01/20 07:28:12 robert Exp $
 
 Index: ui/base/resource/resource_bundle.cc
 --- ui/base/resource/resource_bundle.cc.orig
 +++ ui/base/resource/resource_bundle.cc
-@@ -830,7 +830,7 @@ void ResourceBundle::ReloadFonts() {
+@@ -851,7 +851,7 @@ void ResourceBundle::ReloadFonts() {
  }
  
  ScaleFactor ResourceBundle::GetMaxScaleFactor() const {
--#if defined(OS_WIN) || defined(OS_LINUX)
-+#if defined(OS_WIN) || defined(OS_LINUX) || defined(OS_BSD)
+-#if defined(OS_WIN) || defined(OS_LINUX) || defined(OS_CHROMEOS)
++#if defined(OS_WIN) || defined(OS_LINUX) || defined(OS_CHROMEOS) || defined(OS_BSD)
    return max_scale_factor_;
  #else
    return GetSupportedScaleFactors().back();
-@@ -883,7 +883,7 @@ void ResourceBundle::InitSharedInstance(Delegate* dele
-   // On platforms other than iOS, 100P is always a supported scale factor.
+@@ -905,7 +905,7 @@ void ResourceBundle::InitSharedInstance(Delegate* dele
    // For Windows we have a separate case in this function.
    supported_scale_factors.push_back(SCALE_FACTOR_100P);
--#if defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_WIN)
-+#if defined(OS_MACOSX) || defined(OS_LINUX) || defined(OS_WIN) || defined(OS_BSD)
+ #if defined(OS_APPLE) || defined(OS_LINUX) || defined(OS_CHROMEOS) || \
+-    defined(OS_WIN)
++    defined(OS_WIN) || defined(OS_BSD)
    supported_scale_factors.push_back(SCALE_FACTOR_200P);
  #endif
  #endif

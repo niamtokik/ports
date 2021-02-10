@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.85 2020/04/19 11:14:13 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.88 2020/10/30 13:11:30 ajacoutot Exp $
 
 BROKEN-hppa=		libpt.so.7.0: undefined reference to __sync_fetch_and_or_4
 
 COMMENT=		H.323 gatekeeper
 
-V=			5.4
+V=			5.6
 GH_ACCOUNT=		willamowius
 GH_PROJECT=		gnugk
 GH_TAGNAME=		v${V:S/./_/}
 PKGNAME=		gnugk-${V}
-REVISION=		0
 
 CATEGORIES=		net telephony
 
@@ -22,7 +21,7 @@ PERMIT_PACKAGE=	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} SDL c crypto curl expat h323 kvm
 WANTLIB += lber ldap ldap_r lua5.2 m maxminddb netsnmp netsnmpagent
-WANTLIB += netsnmpmibs nghttp2 pt rabbitmq sasl2 ssh ssl z
+WANTLIB += netsnmpmibs pt rabbitmq sasl2 ssh ssl z
 
 COMPILER=		base-clang ports-gcc base-gcc
 
@@ -56,6 +55,7 @@ CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 CONFIGURE_ARGS=		--disable-sqlite \
 			--disable-unixodbc \
 			--disable-mqtt \
+			--disable-redis \
 			--with-pgsql-include-dir=${LOCALBASE}/include/postgresql \
 			--with-lua-include-dir=${MODLUA_INCL_DIR} \
 			--with-lua-lib-dir=${LOCALBASE}/lib
@@ -67,7 +67,8 @@ CONFIGURE_ARGS +=	--disable-h46018
 CONFIGURE_ARGS +=	--disable-h46023
 
 MAKE_ENV=		VERBOSE=1
-MAKE_FLAGS=		PTLIB_LIBDIR=$$(pkg-config --variable libdir ptlib) \
+MAKE_FLAGS=		PT_LIBDIR=$$(pkg-config --variable libdir ptlib) \
+			PTLIB_LIBDIR=$$(pkg-config --variable libdir ptlib) \
 			OH323_LIBDIR=${LOCALBASE}/lib \
 			OBJDIR=.
 

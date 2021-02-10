@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.172 2020/05/14 11:49:51 sthen Exp $
+# $OpenBSD: Makefile,v 1.184 2021/01/19 17:54:47 sthen Exp $
 
 DPB_PROPERTIES =	parallel
 
 COMMENT-main =		open-source LDAP software (client)
 COMMENT-server =	open-source LDAP software (server)
 
-DISTNAME =		openldap-2.4.50
+DISTNAME =		openldap-2.4.57
 PKGNAME-main =		${DISTNAME:S/-/-client-/}
 PKGNAME-server =	${DISTNAME:S/-/-server-/}
 
@@ -13,19 +13,19 @@ PKGNAME-server =	${DISTNAME:S/-/-server-/}
 FULLPKGNAME-main =	${DISTNAME:S/-/-client-/}${FLAVOR_EXT:S/-aci//}
 FULLPKGPATH-main =	databases/openldap,-main${FLAVOR_EXT:S/-aci//:S/-/,/g}
 
-SHARED_LIBS +=	lber                 12.0     # 12.6
+SHARED_LIBS +=	lber                 12.0     # 12.14
 SHARED_LIBS +=	lber-2.4             12.0
 
-SHARED_LIBS +=	ldap                 13.1     # 12.6
-SHARED_LIBS +=	ldap-2.4             13.1
-SHARED_LIBS +=	ldap_r               13.1
-SHARED_LIBS +=	ldap_r-2.4           13.1
+SHARED_LIBS +=	ldap                 13.2     # 12.14
+SHARED_LIBS +=	ldap-2.4             13.2
+SHARED_LIBS +=	ldap_r               13.2
+SHARED_LIBS +=	ldap_r-2.4           13.2
 
 CATEGORIES =	databases net
 
 HOMEPAGE =	https://www.openldap.org/
 
-MAINTAINER =	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER =	Stuart Henderson <stu.ports@spacehopper.org>
 
 # OpenLDAP Public License
 PERMIT_PACKAGE =	Yes
@@ -49,7 +49,8 @@ DEBUG_PACKAGES =	${BUILD_PACKAGES}
 FLAVOR ?=
 FLAVORS =		aci gssapi
 
-CONFIGURE_ARGS +=	--enable-ipv6 \
+CONFIGURE_ARGS +=	--enable-dynamic \
+			--enable-ipv6 \
 			--with-tls=openssl
 
 # slapd options
@@ -102,30 +103,21 @@ WANTLIB +=		pthread sasl2
 CPPFLAGS +=		-I${LOCALBASE}/include/sasl
 
 LIB_DEPENDS-server =	${LIB_DEPENDS-main} \
-			sysutils/e2fsprogs \
-			textproc/icu4c \
-			databases/db/v4,no_java,no_tcl
+			databases/db/v4,no_java,no_tcl \
+			databases/openldap,-main
 
 CONFIGURE_ENV +=	CPPFLAGS="-I${LOCALBASE}/include/sasl -I${LOCALBASE}/include/db4 -I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib/db4 -L${LOCALBASE}/lib"
 
-RUN_DEPENDS-server =	databases/openldap,-main
-WANTLIB-server +=	${WANTLIB} perl m icudata icuuc uuid
-WANTLIB-server +=	${COMPILER_LIBCXX} lib/db4/db>=4
+WANTLIB-server +=	${WANTLIB} lber ldap_r lib/db4/db>=4 m perl
+
+FAKE_FLAGS =		sysconfdir=${PREFIX}/share/examples/openldap
 
 pre-build:
 	@cd ${WRKBUILD}; ${MAKE_PROGRAM} depend
 
 post-install:
-	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/openldap
-	${INSTALL_DATA} ${DESTDIR}${SYSCONFDIR}/openldap/*.conf \
-		${PREFIX}/share/examples/openldap
-	${INSTALL_DATA_DIR} ${PREFIX}/share/examples/openldap/schema
-	${INSTALL_DATA} ${DESTDIR}${SYSCONFDIR}/openldap/schema/*.schema \
-		 ${PREFIX}/share/examples/openldap/schema
-	${INSTALL_DATA} ${WRKSRC}/servers/slapd/DB_CONFIG \
-		${PREFIX}/share/examples/openldap
-	@rm -rf ${DESTDIR}${SYSCONFDIR}/openldap
+	rm ${PREFIX}/share/examples/openldap/{slapd.conf,slapd.ldif,ldap.conf}.default
 .for i in lber ldap ldap_r
 	ln -s lib$i.so.${LIB$i_VERSION} ${PREFIX}/lib/lib$i-2.4.so.${LIB$i_VERSION}
 .endfor

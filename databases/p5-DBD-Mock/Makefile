@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.12 2020/02/20 08:41:26 benoit Exp $
+# $OpenBSD: Makefile,v 1.15 2020/11/06 08:12:13 benoit Exp $
 
 COMMENT =	mock database driver for testing
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	DBD-Mock-1.55
+DISTNAME =	DBD-Mock-1.58
 CATEGORIES =	databases devel
 
 # Perl

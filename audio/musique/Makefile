@@ -1,33 +1,38 @@
-# $OpenBSD: Makefile,v 1.21 2019/07/12 20:43:37 sthen Exp $
+# $OpenBSD: Makefile,v 1.27 2020/12/02 06:17:34 rsadowski Exp $
 
 COMMENT =	graphical music player focused on a clean ui
-DISTNAME =	musique-1.4
+V =		1.10.1
+DISTNAME =	musique-${V}
 CATEGORIES =	audio
-REVISION =	7
 
 HOMEPAGE =	http://flavio.tordini.org/musique/
+
+MAINTAINER =	Rafael Sadowski <rsadowski@openbsd.org>
 
 # GPLv3
 PERMIT_PACKAGE =	Yes
 
-MASTER_SITES =	http://flavio.tordini.org/files/musique/
+WANTLIB += ${COMPILER_LIBCXX} GL Qt5Core Qt5DBus Qt5Gui Qt5Network
+WANTLIB += Qt5Qml Qt5Sql Qt5Widgets c m mpv tag
 
-WANTLIB += ICE QtDBus QtGui QtNetwork QtSql QtXml SM
-WANTLIB += X11 Xext Xi Xinerama Xrender c fontconfig
-WANTLIB += freetype m phonon pthread ${COMPILER_LIBCXX} tag
+MASTER_SITES =	https://github.com/flaviotordini/musique/releases/download/$V/
+EXTRACT_SUFX =	.tar.bz2
 
-COMPILER =		base-clang ports-gcc base-gcc
+MODULES =	devel/qmake \
+		x11/qt5
 
-MODULES =	devel/qmake x11/qt4
+LIB_DEPENDS =	audio/taglib \
+		multimedia/mpv \
+		x11/qt5/qtdeclarative
 
-LIB_DEPENDS =	audio/taglib
+BUILD_DEPENDS =	multimedia/qtav
 
 RUN_DEPENDS =	devel/desktop-file-utils \
-		multimedia/gstreamer-0.10/plugins-good \
 		multimedia/gstreamer-0.10/plugins-ffmpeg \
+		multimedia/gstreamer-0.10/plugins-good \
+		multimedia/qtav \
 		x11/gtk+3,-guic
 
-WRKDIST =	${WRKDIR}/musique
 NO_TEST =	Yes
 
 pre-configure:

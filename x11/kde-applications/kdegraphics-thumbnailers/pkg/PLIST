@@ -1,10 +1,9 @@
-@comment $OpenBSD: PLIST,v 1.2 2020/03/30 17:36:27 rsadowski Exp $
-lib/qt5/
-lib/qt5/plugins/
+@comment $OpenBSD: PLIST,v 1.4 2020/09/07 14:49:17 rsadowski Exp $
+@conflict kdegraphics-thumbnailers-<=19.12.3
+@pkgpath x11/kde4/graphics-thumbnailers
 @so lib/qt5/plugins/blenderthumbnail.so
 @so lib/qt5/plugins/gsthumbnail.so
 @so lib/qt5/plugins/rawthumbnail.so
-share/kservices5/
 share/kservices5/blenderthumbnail.desktop
 share/kservices5/gsthumbnail.desktop
 share/kservices5/rawthumbnail.desktop

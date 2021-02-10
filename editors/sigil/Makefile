@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.3 2020/03/09 21:13:41 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/10/09 19:12:01 rsadowski Exp $
 
 COMMENT =	EPUB ebook editor
 
 PKGNAME =	sigil-${GH_TAGNAME}
+REVISION =	1
 
 # newer versions require qtwebengine
 GH_ACCOUNT =	Sigil-Ebook
@@ -19,7 +20,7 @@ PERMIT_PACKAGE =	Yes
 WANTLIB += ${COMPILER_LIBCXX} ${MODPY_WANTLIB}
 WANTLIB += Qt5Concurrent Qt5Core Qt5Gui Qt5Network Qt5PrintSupport
 WANTLIB += Qt5Svg Qt5WebKit Qt5WebKitWidgets Qt5Widgets Qt5Xml
-WANTLIB += Qt5XmlPatterns c hunspell-1.6 m pcre16 z
+WANTLIB += Qt5XmlPatterns c hunspell-1.7 m pcre16 z
 
 COMPILER =		base-clang ports-gcc
 MODULES =		devel/cmake \

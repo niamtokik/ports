@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.43 2020/03/29 21:02:20 robert Exp $
+# $OpenBSD: Makefile,v 1.46 2021/02/06 05:03:09 gnezdo Exp $
 
 COMMENT=		GTK+3 remote desktop client
 
@@ -8,6 +8,7 @@ COMMENT=		GTK+3 remote desktop client
 GH_TAGNAME=		v1.3.6
 GH_PROJECT=		Remmina
 GH_ACCOUNT=		FreeRDP
+REVISION=		0
 PKGNAME=		remmina-${GH_TAGNAME:S/v//}
 
 CATEGORIES=		x11 net
@@ -26,6 +27,9 @@ WANTLIB += spice-client-glib-2.0 spice-client-gtk-3.0 ssh ssl
 WANTLIB += vncclient vte-2.91 winpr2 xkbfile sodium
 
 MODULES=		devel/cmake
+
+COMPILER=		base-clang ports-gcc ports-clang
+COMPILER_LANGS=		c
 
 BUILD_DEPENDS=		devel/gettext,-tools \
 			devel/spice-protocol
@@ -54,7 +58,8 @@ CONFIGURE_ARGS +=	-DWITH_APPINDICATOR=OFF \
 CONFIGURE_ARGS +=	-DWITH_TELEPATHY=OFF
 
 # disable KF5Wallet support
-CONFIGURE_ARGS +=	-DWITH_KF5WALLET=OFF
+CONFIGURE_ARGS +=	-DWITH_KF5WALLET=OFF \
+			-DWITH_WWW=OFF
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 

@@ -1,28 +1,21 @@
-# $OpenBSD: Makefile,v 1.9 2019/09/01 18:56:40 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.13 2021/02/09 05:28:35 rsadowski Exp $
 
 COMMENT =	VLC-based Phonon backend
-VERSION =	0.10.3
+VERSION =	0.11.2
 DISTNAME =	phonon-backend-vlc-${VERSION}
 
-MASTER_SITES =		https://download.kde.org/stable/phonon/phonon-backend-vlc/${VERSION}/
+MASTER_SITES =	${MASTER_SITE_KDE:=stable/phonon/phonon-backend-vlc/${VERSION}/}
+EXTRACT_SUFX = .tar.xz
 
-WANTLIB += ${COMPILER_LIBCXX} m vlc vlccore
+WANTLIB += ${COMPILER_LIBCXX} Qt5Core Qt5Gui Qt5Widgets m phonon4qt5
+WANTLIB += phonon4qt5experimental vlc vlccore
+
+MODULES =		devel/kf5
 
 BUILD_DEPENDS =		devel/gettext,-tools
 
-LIB_DEPENDS =		x11/vlc>=2
-
-FLAVORS =	qt5
-FLAVOR ?=
-
-.if ${FLAVOR:Mqt5}
-WANTLIB += Qt5Core Qt5Gui Qt5Widgets
-.else
-WANTLIB += QtGui
-.endif
+LIB_DEPENDS =		x11/vlc
 
 NO_TEST =		Yes
-
-WRKDIST =		${WRKDIR}/phonon-vlc-${VERSION}
 
 .include <bsd.port.mk>

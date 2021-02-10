@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.282 2020/05/14 15:19:44 jasper Exp $
+# $OpenBSD: Makefile,v 1.291 2020/11/14 11:05:43 ajacoutot Exp $
 
      SUBDIR =
      SUBDIR += accerciser
@@ -17,9 +17,9 @@
      SUBDIR += calendar
      SUBDIR += caribou
      SUBDIR += characters
-     SUBDIR += chrome-gnome-shell 
+     SUBDIR += chrome-gnome-shell
      SUBDIR += clocks
-     SUBDIR += color-manager
+     SUBDIR += connections
      SUBDIR += contacts
      SUBDIR += control-center
      SUBDIR += dconf-editor
@@ -27,7 +27,6 @@
      SUBDIR += devel-docs
      SUBDIR += devhelp
      SUBDIR += dictionary
-     SUBDIR += doc-utils
      SUBDIR += documents
      SUBDIR += eog
      SUBDIR += eog-plugins
@@ -39,7 +38,6 @@
      SUBDIR += gdm
      SUBDIR += gedit
      SUBDIR += gedit-plugins
-     SUBDIR += getting-started-docs
      SUBDIR += gfbgraph
      SUBDIR += ghex
      SUBDIR += gjs
@@ -69,6 +67,7 @@
      SUBDIR += libsecret
      SUBDIR += libxklavier
      SUBDIR += libzapojit
+     SUBDIR += mahjongg
      SUBDIR += maps
      SUBDIR += menus
      SUBDIR += mime-data
@@ -76,7 +75,6 @@
      SUBDIR += music
      SUBDIR += mutter
      SUBDIR += nautilus
-     SUBDIR += ocrfeeder
      SUBDIR += online-accounts
      SUBDIR += online-miners
      SUBDIR += orca
@@ -100,13 +98,15 @@
      SUBDIR += todo
      SUBDIR += totem
      SUBDIR += totem-pl-parser
+     SUBDIR += tour
      SUBDIR += tracker
+     SUBDIR += tracker3
      SUBDIR += tracker-miners
+     SUBDIR += tracker3-miners
      SUBDIR += tweaks
      SUBDIR += usage
      SUBDIR += user-docs
      SUBDIR += vfs2
-     SUBDIR += vinagre
      SUBDIR += vino
      SUBDIR += weather
      SUBDIR += yelp

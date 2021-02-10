@@ -1,0 +1,14 @@
+$OpenBSD: patch-test_lib_c_Makefile,v 1.4 2021/01/29 16:08:27 sthen Exp $
+
+Index: test/lib/c/Makefile
+--- test/lib/c/Makefile.orig
++++ test/lib/c/Makefile
+@@ -1,7 +1,7 @@
+ .PHONY: all clean reallyclean
+ 
+ CFLAGS=-I../../../include -Werror
+-LIBS=../../../lib/libmosquitto.so.1
++LIBS=${WRKLIB}
+ 
+ SRC = \
+ 	01-con-discon-success.c \

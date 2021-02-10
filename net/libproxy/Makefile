@@ -1,17 +1,15 @@
-# $OpenBSD: Makefile,v 1.64 2019/07/12 20:48:30 sthen Exp $
+# $OpenBSD: Makefile,v 1.67 2020/12/30 09:25:22 ajacoutot Exp $
 
 COMMENT-main=		library handling all the details of proxy configuration
 COMMENT-webkit=		pacrunner libproxy plugin for webkit-based browsers
 
 GH_ACCOUNT=		libproxy
 GH_PROJECT=		libproxy
-GH_TAGNAME=		0.4.15
+GH_TAGNAME=		0.4.17
 SUBST_VARS=		GH_TAGNAME
 
 PKGNAME-main=		${DISTNAME}
 PKGNAME-webkit=		${GH_PROJECT}-webkit-${GH_TAGNAME}
-REVISION-main=		4
-REVISION-webkit=	3
 
 CATEGORIES=		net
 
@@ -41,7 +39,8 @@ MULTI_PACKAGES=		-main -webkit
 BUILD_DEPENDS=		lang/vala
 
 RUN_DEPENDS-main=	${MODPY_RUN_DEPENDS}
-LIB_DEPENDS-main=	devel/glib2
+LIB_DEPENDS-main=	devel/glib2 \
+			x11/dbus
 
 RUN_DEPENDS-webkit=	# empty
 LIB_DEPENDS-webkit=	STEM->=${GH_TAGNAME}:${BUILD_PKGPATH}, \
@@ -50,11 +49,11 @@ LIB_DEPENDS-webkit=	STEM->=${GH_TAGNAME}:${BUILD_PKGPATH}, \
 WANTLIB += intl m ${COMPILER_LIBCXX}
 
 WANTLIB-main += ${WANTLIB}
-WANTLIB-main += c gio-2.0 glib-2.0 gobject-2.0 perl pthread
+WANTLIB-main += c dbus-1 gio-2.0 glib-2.0 gobject-2.0 perl pthread
 WANTLIB-main += perl # uses perl ABI
 
 WANTLIB-webkit += ${WANTLIB}
-WANTLIB-webkit += glib-2.0 javascriptcoregtk-4.0 proxy pthread
+WANTLIB-webkit += glib-2.0 gobject-2.0 javascriptcoregtk-4.0 proxy pthread
 
 CONFIGURE_ENV=	LIBlibproxy_VERSION=${LIBproxy_VERSION}
 MAKE_ENV=	LIBlibproxy_VERSION=${LIBproxy_VERSION}
@@ -77,5 +76,7 @@ CONFIGURE_ARGS +=	-DWITH_WEBKIT3:BOOL=ON
 .else
 CONFIGURE_ARGS +=	-DWITH_WEBKIT:BOOL=OFF
 .endif
+
+DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 .include <bsd.port.mk>

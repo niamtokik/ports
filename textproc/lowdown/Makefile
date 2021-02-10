@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.21 2020/05/30 17:06:37 paco Exp $
+# $OpenBSD: Makefile,v 1.23 2020/12/10 08:28:12 fcambus Exp $
 
 COMMENT =	simple markdown translator
-DISTNAME =	lowdown-0.6.5
+DISTNAME =	lowdown-0.7.4
 CATEGORIES =	textproc
 
 HOMEPAGE =	https://kristaps.bsd.lv/lowdown/

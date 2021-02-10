@@ -1,33 +1,39 @@
-# $OpenBSD: Makefile,v 1.21 2020/02/08 15:11:19 sthen Exp $
-
-# built but not actually installed at present; patches are needed for the
-# build so it seems easier to keep the SHARED_LIBS infrastructure here.
-SHARED_LIBS=	ndpi 0.0
+# $OpenBSD: Makefile,v 1.26 2021/01/18 13:15:40 sthen Exp $
 
 COMMENT=	network traffic probe with web ui and deep packet inspection
 
 GH_ACCOUNT=	ntop
 GH_PROJECT=	ntopng
-GH_TAGNAME=	3.8.1
-NDPI_V=		3.0
-DISTFILES=	ntopng-${GH_TAGNAME}.tar.gz ndpi-${NDPI_V}.tar.gz:0
+GH_COMMIT=	01399c847b1d69aa808c85b7d73556fc2485951a
+NTOPNG_V=	4.2
+NTOPNG_D=	20201231
+DISTNAME=	ntopng-${NTOPNG_V}.${NTOPNG_D}
+
+# ndpi does not have a particularly stable API so is pulled in directly
+# to this port; the shared lib for ndpi is built but not installed
+# so it seems easier to keep the SHARED_LIBS infrastructure here.
+SHARED_LIBS=	ndpi 0.0
+NDPI_V=		3.4
+NDPI_COMMIT=	75898a4f9e7034e8af8fe24eb442114f5c7339f6
+DISTFILES=	ntopng-${NTOPNG_V}-{}${GH_COMMIT}.tar.gz ndpi-${NDPI_V}-{}${NDPI_COMMIT}.tar.gz:0
 
 CATEGORIES=	net
 
 HOMEPAGE=	https://www.ntop.org/
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # GPLv3+
 PERMIT_PACKAGE=	Yes
 
 WANTLIB += ${COMPILER_LIBCXX}
-WANTLIB += c crypto curl hiredis json-c m mariadb maxminddb
-WANTLIB += pcap radcli rrd sodium sqlite3 ssl z zmq zstd
+WANTLIB += c crypto curl expat gcrypt hiredis json-c m mariadb
+WANTLIB += maxminddb netsnmp pcap radcli rrd sodium sqlite3 ssl
+WANTLIB += z zmq zstd
 
 COMPILER =	base-clang ports-gcc
 
-MASTER_SITES0=	https://github.com/ntop/ndpi/archive/${NDPI_V}/
+MASTER_SITES0=	https://github.com/ntop/ndpi/archive/
 
 RUN_DEPENDS=	databases/redis \
 		net/libmaxminddb,-db \
@@ -40,9 +46,11 @@ LIB_DEPENDS=	archivers/zstd \
 		devel/json-c \
 		net/curl \
 		net/libmaxminddb \
+		net/net-snmp \
 		net/radcli \
 		net/rrdtool \
-		net/zeromq
+		net/zeromq \
+		security/libgcrypt
 
 MAKE_FLAGS=	CC="${CC}" CXX="${CXX}"
 MAKE_ENV=	LIBndpi_VERSION="${LIBndpi_VERSION}"
@@ -54,11 +62,13 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 CONFIGURE_STYLE= autoreconf
 CONFIGURE_ENV=	LDFLAGS="-L${LOCALBASE}/lib" \
 		CPPFLAGS="-I${LOCALBASE}/include" \
+		CFLAGS="${CFLAGS} -I${LOCALBASE}/include" \
 		ac_cv_lib_ldap_ldap_initialize=no
 
 AUTOCONF_VERSION=	2.69
 AUTOMAKE_VERSION=	1.16
-AUTORECONF=		sh -c "./autogen.sh; cd nDPI; ./autogen.sh"
+GIT_RELEASE=		${NTOPNG_V}:${GH_COMMIT:C/(^..........).*/\1/}
+AUTORECONF=		sh -c "GIT_RELEASE=${GIT_RELEASE} ./autogen.sh; cd nDPI; ./autogen.sh"
 
 MODGNU_CONFIG_GUESS_DIRS= ${WRKSRC} ${WRKSRC}/nDPI
 

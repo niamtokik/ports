@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.6 2019/07/12 20:45:01 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2020/11/12 21:24:06 benoit Exp $
 
 COMMENT =	role for daemonizing your Moose based application
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	MooseX-Daemonize-0.21
+DISTNAME =	MooseX-Daemonize-0.22
 CATEGORIES =	devel
 FIX_EXTRACT_PERMISSIONS =	Yes
 

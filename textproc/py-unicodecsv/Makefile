@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.3 2019/07/12 20:50:13 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/11/04 20:21:47 jasper Exp $
 
 COMMENT =		drop-in replace for csv with unicode support
 
 MODPY_EGG_VERSION =	0.14.1
 DISTNAME =		unicodecsv-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
-REVISION =		0
+REVISION =		2
 
 CATEGORIES =		textproc
 
@@ -23,6 +23,6 @@ MODPY_SETUPTOOLS =	Yes
 NO_TEST =		Yes
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR ?=		python3
 
 .include <bsd.port.mk>

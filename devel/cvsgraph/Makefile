@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.23 2019/07/12 20:44:07 sthen Exp $
+# $OpenBSD: Makefile,v 1.25 2021/02/01 13:47:23 fcambus Exp $
 
 COMMENT=		graphical representation of CVS repository
 
-DISTNAME=		cvsgraph-1.7.0
+DISTNAME=		cvsgraph-1.7.1
 CATEGORIES=		devel
-HOMEPAGE=		http://www.akhphd.au.dk/~bertho/cvsgraph
+HOMEPAGE=		https://www.vagrearg.org/content/cvsgraph
 REVISION=		0
 
 # GPLv2+
@@ -13,7 +13,8 @@ PERMIT_PACKAGE=	Yes
 WANTLIB += c fontconfig freetype gd iconv jpeg m png pthread tiff webp
 WANTLIB += z
 
-MASTER_SITES=		${HOMEPAGE}/release/
+# also https://gitlab.com/bertho/cvsgraph/
+MASTER_SITES=		https://www.vagrearg.org/cvsgraph/release/
 
 LIB_DEPENDS=		converters/libiconv \
 			graphics/gd

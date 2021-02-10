@@ -1,13 +1,13 @@
-# $OpenBSD: Makefile,v 1.38 2019/07/12 20:45:04 sthen Exp $
+# $OpenBSD: Makefile,v 1.40 2020/12/05 19:16:15 afresh1 Exp $
 
-COMMENT =	perl module to validate function/method parameters
+COMMENT =	validate method/function parameters
 
-DISTNAME =	Params-Validate-1.29
+DISTNAME =	Params-Validate-1.30
 CATEGORIES =	devel
 
-MAINTAINER =	Andrew Fresh <afresh1@openbsd.org>
+MAINTAINER =	Andrew Hewus Fresh <afresh1@openbsd.org>
 
-# artistic_2
+# Artistic 2.0
 PERMIT_PACKAGE =	Yes
 
 MODULES =	cpan
@@ -23,7 +23,6 @@ TEST_DEPENDS =	devel/p5-Test-Fatal \
 
 # Optional depends to avoid skipping tests
 TEST_DEPENDS +=	devel/p5-Test-Taint>=0.02 \
-		devel/p5-Readonly \
-		devel/p5-Readonly-XS
+		devel/p5-Readonly 
 
 .include <bsd.port.mk>

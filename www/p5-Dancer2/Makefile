@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.9 2020/01/30 03:45:45 afresh1 Exp $
+# $OpenBSD: Makefile,v 1.12 2021/02/03 08:29:17 benoit Exp $
 
 COMMENT =		lightweight yet powerful web application framework
 
 MODULES =		cpan
 PKG_ARCH =		*
-DISTNAME =		Dancer2-0.300000
+DISTNAME =		Dancer2-0.300005
 CATEGORIES =		www
 
 # Perl
@@ -41,6 +41,7 @@ RUN_DEPENDS = 		devel/p5-App-Cmd \
 			devel/p5-YAML
 
 TEST_DEPENDS =		devel/p5-AnyEvent \
+			devel/p5-Test-CPAN-Meta \
 			devel/p5-Test-EOL \
 			devel/p5-Test-Fatal \
 			devel/p5-Test-Memory-Cycle>=1.04 \

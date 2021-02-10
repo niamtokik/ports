@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.11 2019/07/12 20:45:01 sthen Exp $
+# $OpenBSD: Makefile,v 1.13 2021/01/02 16:55:08 benoit Exp $
 
 COMMENT =	code attribute introspection
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	MooseX-MethodAttributes-0.31
+DISTNAME =	MooseX-MethodAttributes-0.32
 CATEGORIES =	devel
 
 FIX_EXTRACT_PERMISSIONS =	Yes
@@ -13,11 +13,10 @@ FIX_EXTRACT_PERMISSIONS =	Yes
 PERMIT_PACKAGE =		Yes
 
 RUN_DEPENDS =	devel/p5-Moose \
-		devel/p5-MooseX-Types>=0.21 \
 		devel/p5-namespace-autoclean>=0.08
 
 TEST_DEPENDS =	devel/p5-MooseX-Role-Parameterized \
 		devel/p5-Test-Fatal \
-		devel/p5-Test-Requires
+		devel/p5-Test-Needs
 
 .include <bsd.port.mk>

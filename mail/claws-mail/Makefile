@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.127 2020/05/28 20:58:36 solene Exp $
+# $OpenBSD: Makefile,v 1.130 2020/10/27 09:25:37 solene Exp $
 
 COMMENT-main=		mail and news client
 COMMENT-bogofilter=	bogofilter plugin
@@ -6,7 +6,7 @@ COMMENT-spamassassin=	spamassassin plugin
 COMMENT-pdfviewer=	pdfviewer plugin
 COMMENT-gdata=		gdata plugin
 
-V=			3.17.5
+V=			3.17.8
 DISTNAME=		claws-mail-${V}
 PKGNAME-main=		${DISTNAME}
 PKGNAME-bogofilter=	claws-mail-bogofilter-${V}

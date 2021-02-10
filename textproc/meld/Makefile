@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.70 2020/05/28 04:57:01 kirby Exp $
+# $OpenBSD: Makefile,v 1.73 2020/11/13 08:48:46 ajacoutot Exp $
 
 COMMENT=		graphical diff and merge tool
 
 GNOME_VERSION=		3.21.0
 GNOME_PROJECT=		meld
 MODPY_EGG_VERSION=	${GNOME_VERSION}
-REVISION=		0
+REVISION=		3
 
 CATEGORIES=		textproc
 

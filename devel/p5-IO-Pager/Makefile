@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.20 2019/07/12 20:44:57 sthen Exp $
+# $OpenBSD: Makefile,v 1.23 2020/11/05 11:17:57 sthen Exp $
 
 COMMENT =	select a pager if destination is a TTY
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	IO-Pager-0.39
+DISTNAME =	IO-Pager-2.10
 CATEGORIES =	devel
 
 # Perl
@@ -12,6 +12,7 @@ PERMIT_PACKAGE =	Yes
 
 EXTRACT_SUFX =		.tgz
 
-TEST_IS_INTERACTIVE =	Yes
+CPAN_AUTHOR =		JPIERCE
+TEST_ENV =		TERM=vt220
 
 .include <bsd.port.mk>

@@ -1,9 +1,12 @@
-# $OpenBSD: Makefile,v 1.65 2020/05/14 15:15:01 jasper Exp $
+# $OpenBSD: Makefile,v 1.68 2020/11/07 11:40:16 jasper Exp $
+
+# XXX: https://gitlab.gnome.org/GNOME/gnome-notes/-/merge_requests/79
+BROKEN =		needs update to 3.38.0 and unbreak with libhandy1
 
 COMMENT=		simple note editor
 
 GNOME_PROJECT=		bijiben
-GNOME_VERSION=		3.36.1
+GNOME_VERSION=		3.36.3
 
 # GPLv3
 PERMIT_PACKAGE=		Yes

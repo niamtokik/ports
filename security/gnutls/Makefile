@@ -1,14 +1,15 @@
-# $OpenBSD: Makefile,v 1.165 2020/06/04 09:08:22 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.167 2020/12/14 08:00:03 ajacoutot Exp $
 
 COMMENT=		GNU Transport Layer Security library
 
-V=			3.6.14
+V=			3.6.15
 DISTNAME=		gnutls-${V}
 EXTRACT_SUFX=		.tar.xz
+REVISION=		0
 
 CATEGORIES=		security
 
-SHARED_LIBS +=  gnutls               46.6     # 58.0
+SHARED_LIBS +=  gnutls               46.6     # 58.1
 SHARED_LIBS +=  gnutlsxx             29.1     # 29.0
 SHARED_LIBS +=  gnutls-dane          0.0      # 4.1
 
@@ -31,6 +32,7 @@ MASTER_SITES=		https://www.gnupg.org/ftp/gcrypt/gnutls/v${V:C/^([0-9]+\.[0-9]+).
 BUILD_DEPENDS=		devel/cmocka
 
 LIB_DEPENDS=		converters/libunistring \
+			devel/gettext,-runtime \
 			devel/libidn2 \
 			net/libunbound \
 			security/libtasn1 \

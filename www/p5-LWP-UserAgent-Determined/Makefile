@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.11 2019/07/12 20:50:56 sthen Exp $
+# $OpenBSD: Makefile,v 1.13 2020/12/14 09:35:56 benoit Exp $
 
 COMMENT=	virtual browser that retries on errors
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME=	LWP-UserAgent-Determined-1.03
-REVISION=	1
+DISTNAME =	LWP-UserAgent-Determined-1.07
 CATEGORIES=	www
 
 # Perl

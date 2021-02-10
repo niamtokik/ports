@@ -1,10 +1,8 @@
-# $OpenBSD: Makefile,v 1.95 2020/04/18 14:17:57 cwen Exp $
+# $OpenBSD: Makefile,v 1.99 2021/02/01 20:28:05 rsadowski Exp $
 
 COMMENT=	create, alter and inspect Matroska files
 
-# Update depends on a new boost version
-DISTNAME=	mkvtoolnix-33.0.0
-REVISION=	2
+DISTNAME=	mkvtoolnix-53.0.0
 
 CATEGORIES=	multimedia x11
 
@@ -15,9 +13,9 @@ MAINTAINER =	Rafael Sadowski <rsadowski@openbsd.org>
 # GPLv2
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} FLAC boost_filesystem-mt boost_regex-mt
-WANTLIB += boost_system-mt c cmark ebml iconv intl m magic matroska
-WANTLIB += ogg pugixml vorbis z
+WANTLIB += ${COMPILER_LIBCXX} FLAC boost_filesystem-mt
+WANTLIB += boost_system-mt c dvdread ebml fmt iconv intl m magic
+WANTLIB += matroska ogg pcre2-8 pugixml vorbis z
 
 MASTER_SITES=	https://www.bunkus.org/videotools/mkvtoolnix/sources/
 
@@ -40,11 +38,13 @@ LIB_DEPENDS=	audio/flac \
 		audio/libogg \
 		audio/libvorbis \
 		devel/boost \
+		devel/fmt \
 		devel/gettext,-runtime \
+		devel/libdvdread \
 		devel/libmagic \
-		multimedia/libmatroska>=1.5.0 \
-		textproc/cmark \
-		textproc/libebml>=1.3.7 \
+		devel/pcre2 \
+		multimedia/libmatroska>=1.6.2 \
+		textproc/libebml>=1.4.0 \
 		textproc/pugixml
 
 MAKE_ENV+=	V=1
@@ -70,9 +70,10 @@ FLAVOR?=
 CONFIGURE_ARGS+= --disable-gui
 .else
 MODULES+=	x11/qt5
-WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Multimedia
-WANTLIB += Qt5Network Qt5Widgets
-LIB_DEPENDS +=	x11/qt5/qtmultimedia
+WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Multimedia Qt5Network
+WANTLIB += Qt5Widgets cmark
+LIB_DEPENDS +=	x11/qt5/qtmultimedia \
+		textproc/cmark
 RUN_DEPENDS+=	devel/desktop-file-utils \
 		misc/shared-mime-info \
 		x11/gtk+3,-guic

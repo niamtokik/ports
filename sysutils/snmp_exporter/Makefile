@@ -1,11 +1,12 @@
-# $OpenBSD: Makefile,v 1.6 2020/06/01 20:44:22 sthen Exp $
+# $OpenBSD: Makefile,v 1.9 2020/11/20 21:17:22 sthen Exp $
 
 COMMENT =		Prometheus exporter for SNMP metrics
 
 # updating: bump V version, "make patch" (fix patches if needed),
 # "make mibs", update M version, "make makesum".
-V =			0.18.0
-M =			0.18.0
+V =			0.19.0
+M =			0.19.0
+REVISION =		0
 GH_ACCOUNT =		prometheus
 GH_PROJECT =		snmp_exporter
 GH_TAGNAME =		v$V
@@ -14,7 +15,7 @@ CATEGORIES =		sysutils
 
 HOMEPAGE =		https://prometheus.io/
 
-MAINTAINER =		Stuart Henderson <sthen@openbsd.org>
+MAINTAINER =		Stuart Henderson <stu.ports@spacehopper.org>
 
 # Apache 2.0
 PERMIT_PACKAGE =	Yes

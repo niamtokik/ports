@@ -1,26 +1,31 @@
-# $OpenBSD: Makefile,v 1.25 2019/07/12 20:44:50 sthen Exp $
+# $OpenBSD: Makefile,v 1.30 2020/12/06 20:40:31 afresh1 Exp $
 
-COMMENT =		perl objected oriented Date Time
+COMMENT =		date and time object for Perl
 
 MODULES =		cpan
-DISTNAME =		DateTime-1.07
+DISTNAME =		DateTime-1.54
 EPOCH =			0
 CATEGORIES =		devel
-REVISION =		2
 
-MAINTAINER = Andrew Fresh <afresh1@openbsd.org>
+MAINTAINER =	Andrew Hewus Fresh <afresh1@openbsd.org>
 
-# artistic_2
+# Artistic 2.0
 PERMIT_PACKAGE =	Yes
 
 WANTLIB += c perl
-CONFIGURE_STYLE =	modbuild
 
-TEST_DEPENDS =	devel/p5-Test-Fatal
+BUILD_DEPENDS =	devel/p5-Dist-CheckConflicts>=0.02
 
-RUN_DEPENDS =	devel/p5-DateTime-Locale \
-		devel/p5-DateTime-TimeZone \
-		devel/p5-Params-Validate \
-		devel/p5-Try-Tiny
+RUN_DEPENDS =	devel/p5-DateTime-Locale>=1.06 \
+		devel/p5-DateTime-TimeZone>=2.44 \
+		devel/p5-Dist-CheckConflicts>=0.02 \
+		devel/p5-Params-ValidationCompiler>=0.26 \
+		devel/p5-Specio>=0.18 \
+		devel/p5-Try-Tiny \
+		devel/p5-namespace-autoclean>=0.19
+
+TEST_DEPENDS =	devel/p5-CPAN-Meta-Check>=0.011 \
+		devel/p5-Test-Fatal \
+		devel/p5-Test-Warnings>=0.005
 
 .include <bsd.port.mk>

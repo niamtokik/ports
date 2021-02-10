@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.10 2019/03/11 23:21:24 sthen Exp $
+@comment $OpenBSD: PLIST,v 1.13 2020/11/28 08:34:50 ajacoutot Exp $
 include/freeipmi/
 include/freeipmi/api/
 include/freeipmi/api/ipmi-api.h
@@ -268,16 +268,12 @@ include/ipmi_monitoring_offsets.h
 include/ipmiconsole.h
 include/ipmidetect.h
 @info info/freeipmi-faq.info
-lib/libfreeipmi.a
 lib/libfreeipmi.la
 @lib lib/libfreeipmi.so.${LIBfreeipmi_VERSION}
-lib/libipmiconsole.a
 lib/libipmiconsole.la
 @lib lib/libipmiconsole.so.${LIBipmiconsole_VERSION}
-lib/libipmidetect.a
 lib/libipmidetect.la
 @lib lib/libipmidetect.so.${LIBipmidetect_VERSION}
-lib/libipmimonitoring.a
 lib/libipmimonitoring.la
 @lib lib/libipmimonitoring.so.${LIBipmimonitoring_VERSION}
 lib/pkgconfig/libfreeipmi.pc
@@ -439,6 +435,7 @@ share/examples/freeipmi/freeipmi_interpret_sel.conf
 share/examples/freeipmi/freeipmi_interpret_sensor.conf
 @sample ${SYSCONFDIR}/freeipmi/freeipmi_interpret_sensor.conf
 share/examples/freeipmi/ipckey
+@sample /var/db/freeipmi/
 @sample /var/db/freeipmi/ipckey
 share/examples/freeipmi/ipmidetect.conf
 @sample ${SYSCONFDIR}/freeipmi/ipmidetect.conf
@@ -450,6 +447,5 @@ share/examples/freeipmi/libipmiconsole.conf
 @sample ${SYSCONFDIR}/freeipmi/libipmiconsole.conf
 @sample /var/cache/ipmimonitoringsdrcache/
 @sample /var/cache/ipmiseld/
-@sample /var/db/freeipmi/
 @sample /var/log/freeipmi/
 @sample /var/log/ipmiconsole/

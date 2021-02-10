@@ -1,0 +1,5 @@
+@comment $OpenBSD: PLIST,v 1.2 2021/02/09 10:49:51 kn Exp $
+@bin bin/catgirl
+@man man/man1/catgirl.1
+share/examples/catgirl/
+share/examples/catgirl/chat.tmux.conf

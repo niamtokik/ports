@@ -1,9 +1,10 @@
-#	$OpenBSD: Makefile,v 1.8 2020/02/18 09:42:01 benoit Exp $
+#	$OpenBSD: Makefile,v 1.10 2020/07/03 21:45:18 sthen Exp $
 
 COMMENT=	store multiple values per key
 
-DISTNAME =	Tie-Hash-MultiValue-1.05
+DISTNAME =	Tie-Hash-MultiValue-1.06
 CATEGORIES=	devel
+REVISION =	0
 
 # perl
 PERMIT_PACKAGE=	Yes

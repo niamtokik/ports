@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.22 2020/05/28 15:10:52 paco Exp $
+# $OpenBSD: Makefile,v 1.24 2021/02/02 00:23:19 sthen Exp $
 
 COMMENT=		module and program for processing ID3 tags
 
-MODPY_EGG_VERSION=	0.9.5
+MODPY_EGG_VERSION=	0.9.6
 DISTNAME=		eyeD3-${MODPY_EGG_VERSION}
 CATEGORIES=		audio
 
@@ -17,8 +17,7 @@ MODULES=		lang/python
 # standalone software - intentionally no py-* prefix/FLAVOR.
 MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 RUN_DEPENDS=		devel/py-deprecation${MODPY_FLAVOR} \
-			devel/py-filetype${MODPY_FLAVOR} \
-			devel/py-six${MODPY_FLAVOR}
+			devel/py-filetype${MODPY_FLAVOR}
 
 MODPY_SETUPTOOLS=	Yes
 

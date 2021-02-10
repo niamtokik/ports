@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.15 2020/04/18 18:14:13 sthen Exp $
+# $OpenBSD: Makefile,v 1.20 2020/12/09 22:28:39 tracey Exp $
 
 COMMENT=	tool to programme a wide range of amateur radios
 
-MODPY_EGG_VERSION= 20200409
+MODPY_EGG_VERSION= 20201128
+REVISION=	0
 DISTNAME=	chirp-daily-${MODPY_EGG_VERSION}
 PKGNAME=	chirp-${MODPY_EGG_VERSION}
 
@@ -16,8 +17,7 @@ PERMIT_PACKAGE=	Yes
 MASTER_SITES=	https://trac.chirp.danplanet.com/chirp_daily/daily-${MODPY_EGG_VERSION}/
 
 MODULES=	lang/python
-COMMON_DEPS=	devel/py-serial \
-		textproc/libxml,-python
+COMMON_DEPS=	devel/py-serial
 BUILD_DEPENDS=	${COMMON_DEPS}
 RUN_DEPENDS=	${COMMON_DEPS} \
 		devel/desktop-file-utils \
@@ -30,5 +30,6 @@ NO_TEST=	Yes
 post-extract:
 	sed -i 's,/usr/share,${PREFIX}/share,' \
 	    ${WRKSRC}/chirp/ui/mainapp.py
+	rm ${WRKSRC}/chirp/drivers/generic_xml*
 
 .include <bsd.port.mk>

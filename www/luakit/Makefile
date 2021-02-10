@@ -1,21 +1,18 @@
-# $OpenBSD: Makefile,v 1.24 2019/07/12 20:50:48 sthen Exp $
-
-BROKEN-powerpc = help2man: can't get `--help' info from ./luakit
+# $OpenBSD: Makefile,v 1.28 2020/11/12 14:39:54 semarie Exp $
 
 COMMENT =	fast, small, webkit based browser written in lua
 
-# Date of the most recent upstream commit.
 GH_ACCOUNT =	luakit
-GH_TAGNAME =	2.1
 GH_PROJECT =	luakit
+GH_TAGNAME =	2.2.1
 
 EPOCH =		1
 
 CATEGORIES =	www
 
-MAINTAINER =	Aaron Bieber <abieber@openbsd.org>
+MAINTAINER =	Stefan Hagen <sh+ports@codevoid.de>
 
-HOMEPAGE =	http://luakit.org
+HOMEPAGE =	https://luakit.github.io
 
 # GPLv3
 PERMIT_PACKAGE =	Yes
@@ -24,15 +21,12 @@ USE_GMAKE =		Yes
 
 COMPILER =	base-clang ports-gcc
 
-WANTLIB += ${COMPILER_LIBCXX}
 WANTLIB += atk-1.0 c cairo cairo-gobject gdk-3 gdk_pixbuf-2.0
-WANTLIB += gio-2.0 glib-2.0 gobject-2.0 gthread-2.0 gtk-3 intl
-WANTLIB += javascriptcoregtk-4.0 luajit-5.1 pango-1.0 pangocairo-1.0
-WANTLIB += soup-2.4 sqlite3 webkit2gtk-4.0
+WANTLIB += gio-2.0 glib-2.0 gobject-2.0 gthread-2.0 gtk-3 harfbuzz
+WANTLIB += intl javascriptcoregtk-4.0 luajit-5.1 pango-1.0
+WANTLIB += pangocairo-1.0 pthread soup-2.4 sqlite3 webkit2gtk-4.0
 
 MODULES =	lang/lua
-
-NO_TEST =	Yes
 
 BUILD_DEPENDS =	devel/help2man \
 		devel/luafs
@@ -43,6 +37,11 @@ RUN_DEPENDS =	devel/desktop-file-utils \
 
 LIB_DEPENDS =	lang/luajit \
 		www/webkitgtk4
+
+TEST_DEPENDS =	devel/luassert \
+		devel/luacheck
+
+TEST_TARGET =	run-tests
 
 # webkit browsing
 RUN_DEPENDS +=	multimedia/gstreamer1/plugins-good \

@@ -1,14 +1,13 @@
-# $OpenBSD: Makefile,v 1.17 2019/11/17 19:50:39 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.19 2020/07/31 13:28:05 ajacoutot Exp $
 
 COMMENT=	local CVE checker tool
 
 GH_ACCOUNT=	sjvermeu
 GH_PROJECT=	cvechecker
 GH_TAGNAME=	v3.9
+REVISION=	1
 
 CATEGORIES=	security sysutils
-
-MAINTAINER=	Antoine Jacoutot <ajacoutot@openbsd.org>
 
 # GPLv3
 PERMIT_PACKAGE=	Yes
@@ -23,10 +22,6 @@ LIB_DEPENDS=	devel/libconfig \
 RUN_DEPENDS=	net/wget \
 		sysutils/coreutils \
 		textproc/libxslt
-
-# XXX non functional yet
-#FLAVORS=	mysql
-FLAVOR?=
 
 LOCALSTATEDIR=	${BASELOCALSTATEDIR}/db
 

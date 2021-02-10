@@ -1,16 +1,15 @@
-# $OpenBSD: Makefile,v 1.56 2020/04/04 08:36:55 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.58 2020/11/05 19:42:29 sthen Exp $
 
 COMMENT=	free H.264/MPEG-4 AVC encoder
 
-V=		20191220
-DISTNAME=	x264-snapshot-${V}-2245
-PKGNAME=	x264-${V}
+DISTNAME=	x264-20200705
+GH_ACCOUNT=	mirror
+GH_PROJECT=	x264
+GH_COMMIT=	cde9a93319bea766a92e306d69059c76de970190
 REVISION=	0
 CATEGORIES=	multimedia
-MASTER_SITES=	https://comstyle.com/source/
-EXTRACT_SUFX=	.tar.xz
 
-SHARED_LIBS=	x264	21.0
+SHARED_LIBS=	x264	22.0
 
 HOMEPAGE=	https://www.videolan.org/developers/x264.html
 
@@ -43,8 +42,9 @@ CONFIGURE_ARGS+=--prefix=${PREFIX} \
 		--disable-lavf \
 		--disable-swscale
 
-.if ${MACHINE_ARCH} == "i386" || ${MACHINE_ARCH} == "mips64" || \
-    ${MACHINE_ARCH} == "mips64el" || ${MACHINE_ARCH} == "powerpc"
+.if ${MACHINE_ARCH} == "arm" || ${MACHINE_ARCH} == "i386" || \
+    ${MACHINE_ARCH} == "mips64" || ${MACHINE_ARCH} == "mips64el" || \
+    ${MACHINE_ARCH} == "powerpc"
 CONFIGURE_ARGS+=--disable-asm
 .endif
 

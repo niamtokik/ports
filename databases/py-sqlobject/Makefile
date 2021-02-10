@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.22 2020/01/21 20:38:01 sthen Exp $
+# $OpenBSD: Makefile,v 1.25 2021/01/01 11:22:56 benoit Exp $
 
 COMMENT =		Object Relational Manager
 
-MODPY_EGG_VERSION =	3.8.0
+MODPY_EGG_VERSION =	3.9.0
 DISTNAME =		SQLObject-${MODPY_EGG_VERSION}
 PKGNAME =		py-sqlobject-${MODPY_EGG_VERSION}
 
@@ -14,16 +14,16 @@ HOMEPAGE =		http://www.sqlobject.org/
 PERMIT_PACKAGE =	Yes
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 MODPY_PI =		Yes
+MODPY_PYTEST =		Yes
 
 MODULES =		lang/python
 RUN_DEPENDS =		www/py-formencode${MODPY_FLAVOR} \
 			devel/py-dispatcher${MODPY_FLAVOR}
 TEST_DEPENDS =		devel/py-nose${MODPY_FLAVOR} \
 			devel/py-py${MODPY_FLAVOR} \
-			devel/py-test${MODPY_FLAVOR} \
 			${BASE_PKGPATH}${MODPY_FLAVOR}=${MODPY_EGG_VERSION}
 
 MODPY_SETUPTOOLS =	Yes

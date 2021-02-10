@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.7 2020/04/01 14:35:10 jasper Exp $
+# $OpenBSD: Makefile,v 1.9 2020/10/03 15:39:58 ajacoutot Exp $
 
 COMMENT=		python library to easily handle data structure
 
@@ -8,6 +8,7 @@ GH_TAGNAME=		v3.0
 MODPY_EGG_VERSION=	${GH_TAGNAME:S/v//}
 DISTNAME=		liblarch-${MODPY_EGG_VERSION}
 PKGNAME=		py-liblarch-${MODPY_EGG_VERSION}
+REVISION=		1
 
 CATEGORIES=		devel
 

@@ -1,16 +1,15 @@
-# $OpenBSD: Makefile,v 1.4 2020/06/05 05:40:29 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.7 2021/01/23 18:10:26 rsadowski Exp $
 
 COMMENT =	KDE password wallet manager
 DISTNAME =	kwalletmanager-${VERSION}
 CATEGORIES =	x11 security
-REVISION =	1
 
 HOMEPAGE =	https://userbase.kde.org/KDE_Wallet_Manager
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5Auth KF5AuthCore KF5Codecs
 WANTLIB += KF5ConfigCore KF5ConfigGui KF5ConfigWidgets KF5CoreAddons
 WANTLIB += KF5Crash KF5DBusAddons KF5I18n KF5IconThemes KF5ItemViews
-WANTLIB += KF5JobWidgets KF5KCMUtils KF5KIOCore KF5Notifications
+WANTLIB += KF5JobWidgets KF5KCMUtils KF5KIOCore KF5KIOGui KF5Notifications
 WANTLIB += KF5Service KF5Wallet KF5WidgetsAddons KF5WindowSystem
 WANTLIB += KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network
 WANTLIB += Qt5Widgets Qt5Xml c m
@@ -21,8 +20,6 @@ MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
 MODKDE5_ICON_CACHE = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	devel/kf5/ktextwidgets
 

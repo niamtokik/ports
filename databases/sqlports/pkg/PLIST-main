@@ -1,9 +1,11 @@
-@comment $OpenBSD: PLIST-main,v 1.6 2019/05/18 21:35:22 espie Exp $
+@comment $OpenBSD: PLIST-main,v 1.8 2020/07/06 09:06:45 espie Exp $
 @option always-update
 @conflict sqlports-compact-<7.0
 @pkgpath databases/sqlports,-compact
 bin/print-ports-index
 bin/rebuild-sqlports-cache
 bin/show-reverse-deps
+@man man/man1/show-reverse-deps.1
+@man man/man5/sqlports.5
 share/sqlports
 share/sqlports_cache.sql

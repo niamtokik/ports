@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.12 2019/09/08 16:48:59 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.14 2020/11/13 17:18:56 kmos Exp $
 
 COMMENT=		thin layer of graphic data types
 
 GNOME_PROJECT=		graphene
-GNOME_VERSION=		1.10.0
+GNOME_VERSION=		1.10.2
 
-SHARED_LIBS += graphene-1.0              2.1 # 0.1000.0
+SHARED_LIBS += graphene-1.0              2.1 # 0.1000.2
 
 CATEGORIES=		graphics
 
@@ -20,6 +20,8 @@ MASTER_SITES=		https://github.com/ebassi/graphene/releases/download/${GNOME_VERS
 
 MODULES=		devel/meson \
 			x11/gnome
+
+COMPILER=		base-clang ports-gcc
 
 MODGNOME_TOOLS=		gobject-introspection
 

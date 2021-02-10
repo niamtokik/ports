@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.13 2020/03/23 18:01:05 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.18 2020/12/19 16:25:04 rsadowski Exp $
 
 COMMENT =	core KDE extensions to Qt classes
 DISTNAME =	kcoreaddons-${VERSION}
 
-SHARED_LIBS =	KF5CoreAddons		5.0
+SHARED_LIBS =	KF5CoreAddons		6.3
 
 WANTLIB =	${COMPILER_LIBCXX} Qt5Core c fam m pthread
 
@@ -19,6 +19,5 @@ TESTS_IS_INTERACTIVE =	X11
 #5 - kformattest (Failed)
 #22 - kdirwatch_fam_unittest (Child aborted)
 #23 - kdirwatch_qfswatch_unittest (Failed)
-
 
 .include <bsd.port.mk>

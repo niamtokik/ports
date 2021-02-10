@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.6 2019/11/08 18:05:58 kmos Exp $
+# $OpenBSD: Makefile,v 1.8 2020/10/08 20:34:52 daniel Exp $
 
 COMMENT =		Python package for describing statistical models
 
@@ -6,7 +6,7 @@ MODPY_EGG_VERSION =	0.4.1
 DISTNAME =		patsy-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
 CATEGORIES =		math
-REVISION =		1
+REVISION =		3
 
 # BSD
 PERMIT_PACKAGE =	Yes
@@ -26,6 +26,6 @@ TEST_DEPENDS =		devel/py-nose${MODPY_FLAVOR} \
 			math/py-scipy${MODPY_FLAVOR}
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 .include <bsd.port.mk>

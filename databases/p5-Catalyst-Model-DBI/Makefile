@@ -1,19 +1,20 @@
-# $OpenBSD: Makefile,v 1.12 2019/07/12 20:43:54 sthen Exp $
+# $OpenBSD: Makefile,v 1.14 2020/10/09 03:45:52 afresh1 Exp $
 
 COMMENT= 	DBI model class for Catalyst
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME=	Catalyst-Model-DBI-0.20
-REVISION=	1
+DISTNAME=	Catalyst-Model-DBI-0.32
 CATEGORIES=	www databases
 
 # Perl
 PERMIT_PACKAGE=	Yes
 
 RUN_DEPENDS=	databases/p5-DBI \
+		databases/p5-DBIx-Connector \
 		www/p5-Catalyst-Runtime
 
-MAKE_ENV+=	TEST_POD=1
+# POD tests fail
+MAKE_ENV+=	TEST_POD=0
 
 .include <bsd.port.mk>

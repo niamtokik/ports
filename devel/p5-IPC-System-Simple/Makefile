@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.2 2019/07/12 20:44:58 sthen Exp $
+# $OpenBSD: Makefile,v 1.4 2020/11/07 06:29:33 benoit Exp $
 
 COMMENT =	run commands simply, with detailed diagnostics
-DISTNAME =	IPC-System-Simple-1.25
+DISTNAME =	IPC-System-Simple-1.30
 CATEGORIES =	devel
 
 # Perl

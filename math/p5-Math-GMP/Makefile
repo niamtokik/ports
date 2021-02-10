@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.37 2020/01/14 09:56:35 benoit Exp $
+# $OpenBSD: Makefile,v 1.39 2020/11/11 09:21:25 benoit Exp $
 
 COMMENT=	high speed arbitrary-size integer math
 
 MODULES=	cpan
-DISTNAME =	Math-GMP-2.19
+DISTNAME =	Math-GMP-2.20
 CATEGORIES=	math
 
 # LGPLv2+

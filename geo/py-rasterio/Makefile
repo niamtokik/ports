@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.9 2020/05/19 17:34:54 martin Exp $
+# $OpenBSD: Makefile,v 1.17 2021/01/29 09:59:40 martin Exp $
 
 COMMENT =	geospatial raster data API and CLI
 
-MODPY_EGG_VERSION =	1.1.4
+MODPY_EGG_VERSION =	1.2.0
 DISTNAME =	rasterio-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
 
@@ -32,6 +32,7 @@ BUILD_DEPENDS +=	math/py-numpy${MODPY_FLAVOR}
 
 RUN_DEPENDS =	geo/py-cligj${MODPY_FLAVOR}>=0.5 \
 		net/py-boto3${MODPY_FLAVOR} \
+		devel/py-attrs${MODPY_FLAVOR} \
 		devel/py-click${MODPY_FLAVOR} \
 		devel/py-click-plugins${MODPY_FLAVOR} \
 		math/py-numpy${MODPY_FLAVOR} \
@@ -41,9 +42,11 @@ RUN_DEPENDS =	geo/py-cligj${MODPY_FLAVOR}>=0.5 \
 # test_read_no_band requires hdf5 support in GDAL
 # requires datafiles only on github...
 NO_TEST =	Yes
-TEST_DEPENDS =	devel/py-test${MODPY_FLAVOR} \
-		devel/py-test-cov${MODPY_FLAVOR} \
+TEST_DEPENDS =	devel/py-certifi${MODPY_FLAVOR} \
 		devel/py-hypothesis${MODPY_FLAVOR} \
-		devel/py-mock${MODPY_FLAVOR}
+		devel/py-mock${MODPY_FLAVOR} \
+		devel/py-test${MODPY_FLAVOR} \
+		devel/py-test-cov${MODPY_FLAVOR} \
+		geo/py-shapely${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

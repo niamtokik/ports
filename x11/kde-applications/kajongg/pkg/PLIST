@@ -1,5 +1,6 @@
-@comment $OpenBSD: PLIST,v 1.2 2020/03/23 18:01:16 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.4 2021/01/23 18:10:16 rsadowski Exp $
 bin/kajongg
+bin/kajonggserver
 share/applications/org.kde.kajongg.desktop
 share/doc/HTML/de/kajongg/
 share/doc/HTML/de/kajongg/index.cache.bz2
@@ -67,6 +68,7 @@ ${MODPY_COMMENT}share/kajongg/${MODPY_PYCACHE}/
 share/kajongg/${MODPY_PYCACHE}about.${MODPY_PYC_MAGIC_TAG}pyc
 share/kajongg/${MODPY_PYCACHE}altint.${MODPY_PYC_MAGIC_TAG}pyc
 share/kajongg/${MODPY_PYCACHE}animation.${MODPY_PYC_MAGIC_TAG}pyc
+share/kajongg/${MODPY_PYCACHE}appversion.${MODPY_PYC_MAGIC_TAG}pyc
 share/kajongg/${MODPY_PYCACHE}background.${MODPY_PYC_MAGIC_TAG}pyc
 share/kajongg/${MODPY_PYCACHE}backgroundselector.${MODPY_PYC_MAGIC_TAG}pyc
 share/kajongg/${MODPY_PYCACHE}board.${MODPY_PYC_MAGIC_TAG}pyc
@@ -135,6 +137,7 @@ share/kajongg/${MODPY_PYCACHE}wind.${MODPY_PYC_MAGIC_TAG}pyc
 share/kajongg/about.py
 share/kajongg/altint.py
 share/kajongg/animation.py
+share/kajongg/appversion.py
 share/kajongg/background.py
 share/kajongg/backgroundselector.py
 share/kajongg/backgroundselector.ui
@@ -587,6 +590,7 @@ share/locale/ja/LC_MESSAGES/kajongg.mo
 share/locale/kk/LC_MESSAGES/kajongg.mo
 share/locale/km/LC_MESSAGES/kajongg.mo
 share/locale/lt/LC_MESSAGES/kajongg.mo
+share/locale/ml/LC_MESSAGES/kajongg.mo
 share/locale/mr/LC_MESSAGES/kajongg.mo
 share/locale/nb/LC_MESSAGES/kajongg.mo
 share/locale/nds/LC_MESSAGES/kajongg.mo

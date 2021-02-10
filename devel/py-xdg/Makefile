@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.24 2019/07/12 20:45:56 sthen Exp $
+# $OpenBSD: Makefile,v 1.26 2020/10/20 16:19:29 ajacoutot Exp $
 
 COMMENT=		python library to access freedesktop.org standards
 
-MODPY_EGG_VERSION=	0.26
+MODPY_EGG_VERSION=	0.27
 DISTNAME=		pyxdg-${MODPY_EGG_VERSION}
 PKGNAME=		py-xdg-${MODPY_EGG_VERSION}
-REVISION=		0
 
 CATEGORIES=		devel
 
@@ -22,6 +21,7 @@ FLAVOR?=
 MODULES=		lang/python
 
 MODPY_PI=		Yes
+MODPY_SETUPTOOLS=	Yes
 
 TEST_DEPENDS=		devel/py-nose${MODPY_FLAVOR}
 

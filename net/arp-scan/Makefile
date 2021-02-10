@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.55 2020/04/18 18:17:08 sthen Exp $
+# $OpenBSD: Makefile,v 1.58 2021/01/03 18:55:01 sthen Exp $
 
 COMMENT-main =	ARP scanning and fingerprinting tool
 COMMENT-mac =	MAC address vendor list
@@ -6,16 +6,16 @@ COMMENT-mac =	MAC address vendor list
 V =		1.9
 DISTNAME =	arp-scan-$V
 PKGNAME-main =	${DISTNAME}
-REVISION-main =	13
+REVISION-main =	14
 
-M =		20200418
+M =		20210103
 PKGNAME-mac =	mac-vendor-$M
 
 CATEGORIES =	net
 
 HOMEPAGE =	https://github.com/royhills/arp-scan
 
-MAINTAINER =	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER =	Stuart Henderson <stu.ports@spacehopper.org>
 
 MASTER_SITES =	https://github.com/royhills/arp-scan/releases/download/$V/
 MASTER_SITES0 =	https://spacehopper.org/mirrors/

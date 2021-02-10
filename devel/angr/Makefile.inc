@@ -1,10 +1,9 @@
-# $OpenBSD: Makefile.inc,v 1.6 2020/02/15 18:36:18 kn Exp $
+# $OpenBSD: Makefile.inc,v 1.11 2021/01/21 19:46:42 jasper Exp $
 
 # vex is amd64-only; sync with security/angrop
 ONLY_FOR_ARCHS =	amd64
 
-MAINTAINER ?=		Jasper Lievisse Adriaanse <jasper@openbsd.org>, \
-			Klemens Nanni <kn@openbsd.org>
+MAINTAINER ?=		Jasper Lievisse Adriaanse <jasper@openbsd.org>
 
 CATEGORIES =		devel security
 
@@ -21,7 +20,7 @@ MODPY_PI ?=		Yes
 MODPY_SETUPTOOLS ?=	Yes
 MODPY_VERSION ?=	${MODPY_DEFAULT_VERSION_3}
 
-MODPY_EGG_VERSION ?=	8.20.1.7
+MODPY_EGG_VERSION ?=	9.0.5450
 DISTNAME ?=		${ANGR_PYTHON_MODULE}-${MODPY_EGG_VERSION}
 PKGNAME =		${MODPY_PY_PREFIX}${DISTNAME}
 .endif

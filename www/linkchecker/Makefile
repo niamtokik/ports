@@ -1,54 +1,35 @@
-# $OpenBSD: Makefile,v 1.50 2019/07/12 20:50:47 sthen Exp $
+# $OpenBSD: Makefile,v 1.54 2021/01/30 14:38:50 sthen Exp $
 
-COMMENT-main=	checks HTML documents for broken links, CLI
-COMMENT-x11=	checks HTML documents for broken links, GUI
+COMMENT=	checks HTML documents for broken links, CLI
 
-V=		9.3
-REVISION-main=	3
-REVISION-x11=	3
-MODPY_EGG_VERSION=${V}
-GH_ACCOUNT=	wummel
+MODPY_EGG_VERSION= 10.0.1
+GH_ACCOUNT=	linkchecker
 GH_PROJECT=	linkchecker
-GH_TAGNAME=	upstream/$V
+GH_TAGNAME=	v${MODPY_EGG_VERSION}
 
-DISTNAME=	${GH_PROJECT}-${V}
-PKGNAME-main=	${DISTNAME}
-PKGNAME-x11=	${GH_PROJECT}-gui-${V}
-CATEGORIES=    	www
-
-HOMEPAGE=	http://wummel.github.io/linkchecker/
+CATEGORIES=	www
 
 # GPLv2+
 PERMIT_PACKAGE=	Yes
 
 WANTLIB+=	${MODPY_WANTLIB} pthread
 
+HOMEPAGE=	https://linkchecker.github.io/linkchecker/
+
+MODPY_SETUPTOOLS= Yes
 MODULES=	lang/python
+MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 
-RUN_DEPENDS-main=	net/py-dnspython \
-			www/py-requests
-
-RUN_DEPENDS-x11=	devel/desktop-file-utils \
-			www/linkchecker,-main \
-			x11/gtk+3,-guic \
-			x11/py-qt4
-
-SEPARATE_BUILD=		Yes
-MULTI_PACKAGES=		-main -x11
-
-WRKDIST=	${WRKDIR}/${GH_PROJECT}-upstream-${V}
+# tests exist but need at least parameterized, miniboa to be ported.
+# tests use network.
 NO_TEST=	Yes
 
-post-extract:
-	@perl -pi -e 's,logo48x48,linkchecker,' ${WRKSRC}/doc/*.desktop
+RUN_DEPENDS=	devel/py-xdg${MODPY_FLAVOR} \
+		net/py-dnspython${MODPY_FLAVOR} \
+		www/py-beautifulsoup4${MODPY_FLAVOR} \
+		www/py-requests${MODPY_FLAVOR}
 
-post-install:
-.for s in 16 32 48 64 128
-	${INSTALL_DATA_DIR} ${PREFIX}/share/icons/hicolor/${s}x${s}/apps
-	${INSTALL_DATA} ${WRKSRC}/doc/html/logo${s}x${s}.png \
-		${PREFIX}/share/icons/hicolor/${s}x${s}/apps/linkchecker.png
-.endfor
-	${INSTALL_DATA} ${WRKSRC}/doc/html/lccollection.qhcp \
-		${PREFIX}/share/linkchecker/lccollection.qhc
+SEPARATE_BUILD=	Yes
+PORTHOME=	${WRKDIR}
 
 .include <bsd.port.mk>

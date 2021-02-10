@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.138 2020/02/29 08:17:58 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.144 2021/02/10 08:25:46 kn Exp $
 
      SUBDIR =
      SUBDIR += abiword
@@ -11,6 +11,7 @@
      SUBDIR += cooledit,python
      SUBDIR += dhex
      SUBDIR += dte
+     SUBDIR += editorconfig-core-c
      SUBDIR += ee
      SUBDIR += elvis
      SUBDIR += elvis,no_x11
@@ -25,13 +26,13 @@
      SUBDIR += gummi
      SUBDIR += hexcurse
      SUBDIR += hexedit
-     SUBDIR += hnb
      SUBDIR += ht
      SUBDIR += ht,no_x11
      SUBDIR += jed
      SUBDIR += jed,no_x11
      SUBDIR += joe
      SUBDIR += jove
+     SUBDIR += kakoune
      SUBDIR += kile
      SUBDIR += ktikz
      SUBDIR += ldapvi
@@ -44,11 +45,11 @@
      SUBDIR += ne
      SUBDIR += nedit
      SUBDIR += neovim
+     SUBDIR += neovim-qt
      SUBDIR += nvi
      SUBDIR += nvi,iconv
      SUBDIR += py-neovim
      SUBDIR += py-neovim,python3
-     SUBDIR += py-qscintilla
      SUBDIR += py-qscintilla,python3
      SUBDIR += qscintilla
      SUBDIR += scintilla
@@ -68,19 +69,12 @@
      SUBDIR += tweak
      SUBDIR += uemacs
      SUBDIR += vile
-     SUBDIR += vim,gtk2
-     SUBDIR += vim,gtk2,lua
-     SUBDIR += vim,gtk2,perl,python,ruby
-     SUBDIR += vim,gtk2,perl,python3,ruby
      SUBDIR += vim,gtk3
      SUBDIR += vim,gtk3,lua
-     SUBDIR += vim,gtk3,perl,python,ruby
      SUBDIR += vim,gtk3,perl,python3,ruby
      SUBDIR += vim,no_x11
      SUBDIR += vim,no_x11,lua
-     SUBDIR += vim,no_x11,python
      SUBDIR += vim,no_x11,python3
-     SUBDIR += vim,no_x11,perl,python,ruby
      SUBDIR += vim,no_x11,perl,python3,ruby
      SUBDIR += vim-spell
      SUBDIR += vis

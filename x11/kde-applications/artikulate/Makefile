@@ -1,23 +1,22 @@
-# $OpenBSD: Makefile,v 1.7 2020/06/03 05:13:35 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.10 2021/01/23 18:10:14 rsadowski Exp $
 
 COMMENT =	pronunciation trainer
 DISTNAME =	artikulate-${VERSION}
 CATEGORIES =	education
-REVISION =	1
 
-SHARED_LIBS +=  artikulatecore            1.0 # 0.0
-SHARED_LIBS +=  artikulatelearnerprofile  1.0 # 0.0
-SHARED_LIBS +=  artikulatesound           1.0 # 0.0
+SHARED_LIBS +=  artikulatecore            2.0 # 0.0
+SHARED_LIBS +=  artikulatelearnerprofile  2.0 # 0.0
+SHARED_LIBS +=  artikulatesound           2.0 # 0.0
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5Attica KF5Auth KF5AuthCore
 WANTLIB += KF5Codecs KF5ConfigCore KF5ConfigGui KF5ConfigWidgets
 WANTLIB += KF5CoreAddons KF5Crash KF5I18n KF5NewStuff KF5NewStuffCore
 WANTLIB += KF5Service KF5WidgetsAddons KF5XmlGui Qt5Core Qt5DBus
-WANTLIB += Qt5Gui Qt5Multimedia Qt5Network Qt5Qml Qt5Quick Qt5Sql
-WANTLIB += Qt5Widgets Qt5Xml Qt5XmlPatterns c m
+WANTLIB += Qt5Gui Qt5Multimedia Qt5Network Qt5Qml Qt5QmlModels
+WANTLIB += Qt5Quick Qt5Sql Qt5Widgets Qt5Xml Qt5XmlPatterns c
+WANTLIB += m
 
-MODULES +=	x11/kde-applications \
-		lang/python
+MODULES +=	lang/python
 
 MODPY_RUNDEP =	No
 

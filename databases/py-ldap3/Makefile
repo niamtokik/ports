@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.4 2020/03/09 11:34:17 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2021/02/03 15:32:23 sthen Exp $
 
 COMMENT =	RFC4510 conforming LDAP V3 pure Python client library
 
-MODPY_EGG_VERSION =	2.7
+MODPY_EGG_VERSION =	2.9
 DISTNAME =	ldap3-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
 
@@ -15,6 +15,9 @@ PERMIT_PACKAGE =	Yes
 
 MODULES =	lang/python
 
+FLAVORS =	python3
+FLAVOR ?=	python3
+
 MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
 
@@ -23,8 +26,5 @@ MODPY_SETUPTOOLS =	Yes
 NO_TEST =		Yes
 
 RUN_DEPENDS =	devel/py-asn1${MODPY_FLAVOR}
-
-FLAVORS =	python3
-FLAVOR ?=
 
 .include <bsd.port.mk>

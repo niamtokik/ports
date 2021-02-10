@@ -1,12 +1,9 @@
-# $OpenBSD: Makefile,v 1.101 2020/05/19 08:28:04 sthen Exp $
-
-# ld.bfd hits a different problem, undefined reference to peas_* functions in ide-context.c:165
-BROKEN-i386=	non-ABS relocation R_386_GOTOFF against symbol '.LC74'
+# $OpenBSD: Makefile,v 1.107 2021/02/03 11:49:20 ajacoutot Exp $
 
 COMMENT=		IDE for GNOME
 
 GNOME_PROJECT=		gnome-builder
-GNOME_VERSION=		3.36.0
+GNOME_VERSION=		3.38.2
 
 CATEGORIES=		devel
 
@@ -17,8 +14,8 @@ WANTLIB += atk-1.0 c cairo cairo-gobject clang dazzle-1.0 devhelp-3
 WANTLIB += enchant-2 fontconfig gdk-3 gdk_pixbuf-2.0 gio-2.0 girepository-1.0
 WANTLIB += gladeui-2 glib-2.0 gobject-2.0 gspell-1 gtk-3 gtksourceview-4
 WANTLIB += intl json-glib-1.0 jsonrpc-glib-1.0 m pango-1.0 pangocairo-1.0
-WANTLIB += pangoft2-1.0 pcre peas-1.0 template_glib-1.0 vte-2.91
-WANTLIB += webkit2gtk-4.0 xml2
+WANTLIB += pangoft2-1.0 pcre peas-1.0 soup-2.4 template_glib-1.0
+WANTLIB += vte-2.91 webkit2gtk-4.0 xml2
 
 MODULES=		devel/dconf \
 			devel/meson \
@@ -62,9 +59,9 @@ LIB_DEPENDS=		devel/glade \
 			x11/gtksourceview4
 
 .include <bsd.port.arch.mk>
-.if ${ARCH:Mi386} # needs 64-bit atomic ops
-CFLAGS +=		-march=i586
-CXXFLAGS +=		-march=i586
+.if ${ARCH:Mi386}
+# Doesn't build with lld: non-ABS relocation R_386_GOTOFF against symbol '.LC74'
+USE_LLD =		No
 .endif
 
 CONFIGURE_ARGS=		-Dplugin_valgrind=false \
@@ -80,6 +77,13 @@ CONFIGURE_ARGS +=	-Dplugin_git=false
 MODGNOME_LDFLAGS +=	-L${X11BASE}/lib
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
+
+# disable meson's default of using "-Wl,--as-needed" with ld.bfd;
+# build failures due to undefined references are often seen.
+.include <bsd.port.arch.mk>
+.if !${PROPERTIES:Mlld} || ${ARCH:Mi386}
+CONFIGURE_ARGS +=	-Db_asneeded=false
+.endif
 
 # don't pick up llvm-config(1) from base
 pre-configure:

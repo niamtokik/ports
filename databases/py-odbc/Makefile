@@ -1,10 +1,11 @@
-# $OpenBSD: Makefile,v 1.23 2020/02/15 19:32:51 benoit Exp $
+# $OpenBSD: Makefile,v 1.26 2021/01/04 14:06:28 sthen Exp $
 
 COMMENT =	ODBC bindings for Python
 
-MODPY_EGG_VERSION = 4.0.28
+MODPY_EGG_VERSION = 4.0.30
 DISTNAME =	pyodbc-${MODPY_EGG_VERSION}
 PKGNAME =	${DISTNAME:S/py/py-/}
+REVISION =	1
 
 CATEGORIES =	databases
 

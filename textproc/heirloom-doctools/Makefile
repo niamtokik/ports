@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.13 2019/07/12 20:49:58 sthen Exp $
+# $OpenBSD: Makefile,v 1.15 2021/02/01 04:16:41 jsg Exp $
 
 COMMENT =		modernized troff implementation
 
-V =			160308
+V =			191015
 DISTNAME =		heirloom-doctools-$V
-REVISION =		4
+REVISION =		0
 
 CATEGORIES =		textproc print
 

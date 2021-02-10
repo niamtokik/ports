@@ -1,17 +1,15 @@
-# $OpenBSD: Makefile,v 1.44 2019/11/18 11:41:26 sthen Exp $
+# $OpenBSD: Makefile,v 1.50 2021/02/02 14:24:32 sthen Exp $
 
 COMMENT=	library for HTTP/2
 
-V=		1.40.0
+V=		1.43.0
 DISTNAME=	nghttp2-$V
 
-SHARED_LIBS +=	nghttp2              0.16     # 33.0
+SHARED_LIBS +=	nghttp2              0.17     # 33.0
 
 CATEGORIES=	www
 
 HOMEPAGE=	https://nghttp2.org/
-
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
 
 # MIT
 PERMIT_PACKAGE=	Yes
@@ -19,13 +17,15 @@ PERMIT_PACKAGE=	Yes
 MASTER_SITES=	https://github.com/tatsuhiro-t/nghttp2/releases/download/v$V/
 
 SEPARATE_BUILD=		Yes
+DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
-CONFIGURE_STYLE=	gnu
+CONFIGURE_STYLE=	autoconf
+AUTOCONF_VERSION=	2.69
 # - examples have conflicts (libevent, libevent2, libev)
 # - hpack-tools require a C++11 compiler (array)
 # Both of these pull in additional libraries; deliberately trying to keep
-# dependencies light for this port, to avoid pulling in the world, and
-# to avoid restricting arch.
+# dependencies light for this port (dep path cmake->curl->nghttp2, don't
+# want to restrict arch).
 CONFIGURE_ARGS+=	--disable-examples \
 			--disable-hpack-tools \
 			--disable-python-bindings \

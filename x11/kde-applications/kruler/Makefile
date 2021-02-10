@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.5 2020/06/05 05:40:28 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.7 2020/11/03 16:12:39 rsadowski Exp $
 
 COMMENT =	screen ruler for KDE
 DISTNAME =	kruler-${VERSION}
 CATEGORIES =	graphics
-REVISION =	1
 
 HOMEPAGE =	https://www.kde.org/applications/graphics/kruler/
 
@@ -19,8 +18,6 @@ MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	devel/kf5/kauth \
 		devel/kf5/kcodecs \

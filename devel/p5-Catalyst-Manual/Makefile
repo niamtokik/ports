@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.18 2019/07/12 20:44:46 sthen Exp $
+# $OpenBSD: Makefile,v 1.20 2020/10/09 02:59:07 afresh1 Exp $
 
 COMMENT=	catalyst documentation
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME=	Catalyst-Manual-5.9002
+DISTNAME=	Catalyst-Manual-5.9011
 CATEGORIES=	devel
-REVISION=	1
 
 # there was a version with six digits behind the dot
 EPOCH=		0

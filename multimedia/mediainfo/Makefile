@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.22 2020/04/14 22:37:27 naddy Exp $
+# $OpenBSD: Makefile,v 1.24 2020/10/30 20:55:01 naddy Exp $
 
 COMMENT=	display technical and tag data for video and audio files
 
-VERSION=	20.03
+VERSION=	20.09
 PKGNAME=	mediainfo-${VERSION}
 CATEGORIES=	multimedia
 HOMEPAGE=	https://mediaarea.net/en/MediaInfo
@@ -33,6 +33,9 @@ MEDIAINFODIR=	${WRKSRC}/MediaInfo/Project/GNU/CLI
 
 SUBDIRS=	${ZENLIBDIR} ${MEDIAINFOLIBDIR} ${MEDIAINFODIR}
 
+DEBUG_PACKAGES=	${BUILD_PACKAGES}
+
+# MediaInfoLib tests fetch files from the Internet
 NO_TEST=	Yes
 
 # fix line endings for files that are patched

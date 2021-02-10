@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.36 2020/03/23 21:33:38 sebastia Exp $
+# $OpenBSD: Makefile,v 1.38 2021/02/03 18:50:36 sebastia Exp $
 
 COMMENT=		HTML, XML, SAX and Reader parser
 
-DISTNAME=		nokogiri-1.10.8
+DISTNAME=		nokogiri-1.11.1
 CATEGORIES=		textproc
 
 HOMEPAGE=		http://nokogiri.org/
@@ -16,6 +16,13 @@ WANTLIB=		exslt xml2 xslt gcrypt gpg-error
 LIB_DEPENDS=		textproc/libxslt
 
 MODULES=		lang/ruby
+
+FLAVOR ?=
+
+.if ${FLAVOR:Mruby26}
+BUILD_DEPENDS +=	${RUN_DEPENDS}
+RUN_DEPENDS +=		devel/ruby-racc,${MODRUBY_FLAVOR}
+.endif
 
 CONFIGURE_STYLE=	ruby gem ext
 

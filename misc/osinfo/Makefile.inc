@@ -1,17 +1,15 @@
-# $OpenBSD: Makefile.inc,v 1.11 2020/05/31 10:36:21 ajacoutot Exp $
+# $OpenBSD: Makefile.inc,v 1.14 2021/02/04 11:47:56 ajacoutot Exp $
 
-V ?=			1.8.0
+V ?=			1.9.0
 
 CATEGORIES=		misc devel
 
 MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 
-HOMEPAGE=		http://libosinfo.org/
+HOMEPAGE=		https://libosinfo.org/
 
 # GPLv2+ - LGPLv2+
 PERMIT_PACKAGE=		Yes
 
 MASTER_SITES=		https://releases.pagure.org/libosinfo/
 EXTRACT_SUFX=		.tar.xz
-
-MODULES +=		devel/meson

@@ -1,5 +1,6 @@
-@comment $OpenBSD: PLIST,v 1.2 2013/12/16 15:45:53 ajacoutot Exp $
-lib/python${MODPY_VERSION}/site-packages/_tagpy.so
+@comment $OpenBSD: PLIST,v 1.4 2021/01/04 14:06:27 sthen Exp $
+@pkgpath audio/py-tagpy
+@so lib/python${MODPY_VERSION}/site-packages/_tagpy.${MODPY_PYC_MAGIC_TAG}so
 lib/python${MODPY_VERSION}/site-packages/tagpy/
 lib/python${MODPY_VERSION}/site-packages/tagpy-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
 lib/python${MODPY_VERSION}/site-packages/tagpy-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/PKG-INFO

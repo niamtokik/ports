@@ -1,12 +1,12 @@
-# $OpenBSD: Makefile,v 1.255 2020/04/28 06:43:43 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.258 2021/02/02 11:49:22 ajacoutot Exp $
 
 COMMENT-main=		Common Unix Printing System
 COMMENT-libs=		CUPS libraries and headers
 
-VERSION=		2.3.3
-GH_ACCOUNT=		apple
+VERSION=		${GH_TAGNAME:S/v//:S/op/./}
+GH_ACCOUNT=		OpenPrinting
 GH_PROJECT=		cups
-GH_TAGNAME=		v${VERSION}
+GH_TAGNAME=		v2.3.3op2
 
 PKGNAME-main=		cups-${VERSION}
 PKGNAME-libs=		cups-libs-${VERSION}
@@ -14,10 +14,8 @@ PKGNAME-libs=		cups-libs-${VERSION}
 CATEGORIES=		print sysutils
 
 # config-scripts/cups-sharedlibs.m4
-SHARED_LIBS+=  cupsimage       6.1 # 2
-SHARED_LIBS+=  cups            7.1 # 2
-
-HOMEPAGE=		http://www.cups.org/
+SHARED_LIBS+=  cupsimage       6.2 # 2
+SHARED_LIBS+=  cups            7.2 # 2
 
 MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 
@@ -47,9 +45,6 @@ LIB_DEPENDS-main=	${BASE_PKGPATH},-libs=${VERSION} \
 
 RUN_DEPENDS-main=	print/cups-filters
 
-# optional for now
-#RUN_DEPENDS-main +=	graphics/colord
-
 # we don't install the desktop file
 #BUILD_DEPENDS +=	devel/xdg-utils
 #RUN_DEPENDS-main +=	devel/xdg-utils
@@ -66,8 +61,8 @@ FAKE_FLAGS=		BUILDROOT=${WRKINST} \
 			MENUDIR=${PREFIX}/share/applications \
 			SERVERROOT=${WRKINST}${PREFIX}/share/examples/cups
 
-AUTOCONF_VERSION= 	2.69
-AUTOMAKE_VERSION= 	1.15
+AUTOCONF_VERSION= 	2.70
+AUTOMAKE_VERSION= 	1.16
 
 USE_GMAKE=		Yes
 

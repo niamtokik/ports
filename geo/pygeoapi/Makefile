@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.4 2020/02/21 12:33:28 landry Exp $
+# $OpenBSD: Makefile,v 1.7 2021/01/21 00:37:10 daniel Exp $
 
 COMMENT =		OGC API server implementation
 
-MODPY_EGG_VERSION =	0.7.0
+MODPY_EGG_VERSION =	0.9.0
 DISTNAME =		pygeoapi-${MODPY_EGG_VERSION}
 
 CATEGORIES =		geo devel
@@ -16,11 +16,17 @@ MODULES =		lang/python
 MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
 MODPY_SETUPTOOLS =	Yes
-# PyPi tarball doesnt ship tests subdir.. and there's no run_tests.py on github either
-# https://github.com/geopython/pygeoapi/issues/339
+# PyPi tarball doesnt ship tests subdir.. and missing pyld dep
 MODPY_PI =		Yes
 NO_TEST =	Yes
+#MODPY_PYTEST =	Yes
+#TEST_DEPENDS =	${RUN_DEPENDS} \
+#		databases/py-mongo${MODPY_FLAVOR}
 RUN_DEPENDS =	devel/py-click${MODPY_FLAVOR} \
+		devel/py-dateutil${MODPY_FLAVOR} \
+		devel/py-tz${MODPY_FLAVOR} \
+		geo/py-proj${MODPY_FLAVOR} \
+		geo/py-rasterio${MODPY_FLAVOR}>=1.1.8p1 \
 		textproc/py-yaml${MODPY_FLAVOR} \
 		textproc/py-unicodecsv${MODPY_FLAVOR} \
 		www/py-flask${MODPY_FLAVOR} \

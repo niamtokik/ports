@@ -1,17 +1,17 @@
-# $OpenBSD: Makefile,v 1.4 2020/06/05 05:40:24 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.7 2021/01/23 18:10:15 rsadowski Exp $
 
 COMMENT =	graphical equivalent of du
 DISTNAME =	filelight-${VERSION}
 CATEGORIES =	x11 sysutils
-REVISION =	1
 
 HOMEPAGE =	https://kde.org/applications/utilities/org.kde.filelight
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Auth KF5AuthCore KF5Codecs KF5Completion
 WANTLIB += KF5ConfigCore KF5ConfigGui KF5ConfigWidgets KF5CoreAddons
-WANTLIB += KF5I18n KF5JobWidgets KF5KIOCore KF5KIOWidgets KF5Service
-WANTLIB += KF5WidgetsAddons KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus
-WANTLIB += Qt5Gui Qt5Network Qt5Widgets Qt5Xml c m
+WANTLIB += KF5I18n KF5JobWidgets KF5KIOCore KF5KIOGui KF5KIOWidgets
+WANTLIB += KF5Service KF5WidgetsAddons KF5WindowSystem KF5XmlGui
+WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5Svg
+WANTLIB += Qt5Widgets Qt5Xml c m
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes
@@ -19,8 +19,6 @@ MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	devel/kf5/kitemviews \
 		devel/kf5/solid

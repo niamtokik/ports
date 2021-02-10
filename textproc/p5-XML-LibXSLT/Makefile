@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.53 2020/01/21 19:27:58 bluhm Exp $
+# $OpenBSD: Makefile,v 1.55 2020/07/03 21:45:53 sthen Exp $
 
 COMMENT =	interface to the GNOME libxslt library
 
 DISTNAME =	XML-LibXSLT-1.99
+REVISION =	1
 
 CATEGORIES =	textproc
 

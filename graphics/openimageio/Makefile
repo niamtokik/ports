@@ -1,71 +1,87 @@
-# $OpenBSD: Makefile,v 1.41 2020/05/14 12:35:31 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.50 2021/01/23 12:46:26 jasper Exp $
 
 BROKEN-i386 =		clang segfault compiling imagebufalgo_pixelmath.cpp
 BROKEN-powerpc =	clang segfault compiling imagebufalgo_pixelmath.cpp
 
 COMMENT =		library for reading and writing images
 
-GH_ACCOUNT = 		OpenImageIO
-GH_PROJECT = 		oiio
-V =			1.8.6
+GH_ACCOUNT =		OpenImageIO
+GH_PROJECT =		oiio
 GH_TAGNAME =		Release-$V
+V =			2.2.10.0
+ROBIN_VER =		0.6.2
 DISTNAME =		openimageio-${V}
-REVISION =		7
+REVISION =		0
 
-SHARED_LIBS +=		OpenImageIO		5.0 # 1.0
-SHARED_LIBS +=  	OpenImageIO_Util	2.0 # 1.5
+SHARED_LIBS +=		OpenImageIO		8.0 # 2.2.10
+SHARED_LIBS +=		OpenImageIO_Util	4.0 # 2.2.10
 
 CATEGORIES =		graphics devel
 
-HOMEPAGE =		http://www.openimageio.org
+HOMEPAGE =		https://sites.google.com/site/openimageio/home
 
-MAINTAINER =		Pascal Stumpf <pascal@stumpf.co>
+MAINTAINER =		Dimitri Karamazov <deserter666@danwin1210.me>
 
 # BSD
 PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} ${MODPY_WANTLIB}
-WANTLIB += GL GLEW GLU Half-2_5 Iex-2_5 IlmImf-2_5 IlmThread-2_5
-WANTLIB += Imath-2_5 OpenColorIO Qt5Core Qt5Gui Qt5OpenGL Qt5Widgets
-WANTLIB += avcodec avformat avutil boost_atomic-mt boost_chrono-mt
-WANTLIB += boost_date_time-mt boost_filesystem-mt boost_python-mt
-WANTLIB += boost_system-mt boost_thread-mt bz2 c freetype gif
-WANTLIB += jpeg m openjpeg png raw_r swscale tiff webp z
+WANTLIB += GL GLU Half-2_5 Iex-2_5 IexMath-2_5 IlmImf-2_5
+WANTLIB += IlmThread-2_5 Imath-2_5 OpenColorIO Qt5Core Qt5Gui
+WANTLIB += Qt5OpenGL Qt5Widgets avcodec avformat avutil
+WANTLIB += boost_atomic-mt boost_chrono-mt boost_date_time-mt
+WANTLIB += boost_filesystem-mt boost_system-mt boost_thread-mt
+WANTLIB += bz2 c freetype gif intl jpeg m openjp2 png pugixml
+WANTLIB += raw_r swscale tiff util webp webpdemux z
+
+MASTER_SITES0 =		https://github.com/Tessil/robin-map/
+
+DISTFILES =		${DISTNAME}.tar.gz \
+			robin-map-{archive/v}${ROBIN_VER}.tar.gz:0
 
 MODULES =		devel/cmake \
 			lang/python \
-			x11/qt5 \
+			x11/qt5
+
+MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 COMPILER =		base-clang ports-gcc
 
-BUILD_DEPENDS =		textproc/txt2man
+BUILD_DEPENDS =		devel/fmt \
+			textproc/txt2man \
+			devel/py-pybind11${MODPY_FLAVOR}
 
 LIB_DEPENDS =		devel/boost \
-			graphics/openjpeg \
-			graphics/tiff \
-			graphics/libwebp \
-			graphics/glew \
-			graphics/openexr \
-			graphics/giflib \
-			graphics/opencolorio \
 			graphics/ffmpeg \
-			graphics/libraw
+			graphics/giflib \
+			graphics/libraw \
+			graphics/libwebp \
+			graphics/opencolorio \
+			graphics/openexr \
+			graphics/openjp2 \
+			graphics/png \
+			graphics/tiff \
+			textproc/pugixml
 
-CONFIGURE_ARGS +=	-DUSE_OPENCV=OFF \
-			-DCMAKE_INSTALL_MANDIR="man/man1" \
-			-DSTOP_ON_WARNING=OFF
-
-CXXFLAGS +=		-pthread
-.if ${MACHINE_ARCH} == "i386"
-CXXFLAGS +=		-march=i686
-.endif
-WRKDIST =		${WRKDIR}/oiio-Release-$V
+CONFIGURE_ARGS +=	-DCMAKE_INSTALL_MANDIR="man/man1" \
+			-DSTOP_ON_WARNING=OFF \
+			-DUSE_CCACHE=OFF \
+			-DUSE_DICOM=OFF \
+			-DUSE_EXTERNAL_PUGIXML=ON \
+			-DUSE_OPENCV=OFF \
+			-DUSE_HDF5=OFF \
+			-DUSE_LIBHEIF=OFF \
+			-Dpybind11_DIR=${MODPY_SITEPKG}/pybind11/share/cmake/pybind11/
 
 # Fix undefined reference to __atomic_*
 .if ${MACHINE_ARCH:Mhppa}
-CONFIGURE_ENV += 	LDFLAGS="${LDFLAGS} -latomic"
-WANTLIB +=              atomic
+CONFIGURE_ENV +=	LDFLAGS="${LDFLAGS} -latomic"
+WANTLIB +=		atomic
 .endif
+
+post-extract:
+	mkdir ${WRKSRC}/ext
+	cp -r ${WRKDIR}/robin-map-${ROBIN_VER} ${WRKSRC}/ext/robin-map
 
 post-install:
 	find ${PREFIX} -name '*.orig' -delete

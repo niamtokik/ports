@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.15 2020/05/07 14:24:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.18 2021/01/04 14:06:33 sthen Exp $
 
 BROKEN-arm =	llvm out of memory
 BROKEN-powerpc = virtual memory exhausted, even with -O1
@@ -6,15 +6,15 @@ BROKEN-powerpc = virtual memory exhausted, even with -O1
 COMMENT-main =	 C++ machine learning library
 COMMENT-python = python bindings to C++ machine learning library
 
-V = 		3.2.1
-REVISION-main =		1
-REVISION-python =	1
+V = 		3.4.2
 
 # STB stuff
 # XXX remember to bump REV if they change
 # should be "fixed" in next version
 V1 =		2.22
 V2 =		1.13
+
+REVISION-python =       0
 
 
 DISTNAME = 	mlpack-$V
@@ -62,6 +62,7 @@ MODPY_RUNDEP =	No
 BUILD_DEPENDS += 	textproc/txt2man \
 			lang/cython${MODPY_FLAVOR} \
 			math/ensmallen \
+			devel/py-setuptools${MODPY_FLAVOR} \
 			math/py-pandas${MODPY_FLAVOR} \
 			devel/py-distutils-extra${MODPY_FLAVOR} \
 			devel/py-test-runner${MODPY_FLAVOR}
@@ -72,7 +73,8 @@ LIB_DEPENDS-main =	math/armadillo \
 LIB_DEPENDS-python = 	math/mlpack,-main \
 			devel/boost
 
-RUN_DEPENDS-python = 	math/py-pandas${MODPY_FLAVOR}
+RUN_DEPENDS-python = 	${MODPY_RUN_DEPENDS} \
+			math/py-pandas${MODPY_FLAVOR}
 
 # XXX set this *explicitly*, do not depend on module order
 CONFIGURE_STYLE = 	cmake
@@ -83,6 +85,7 @@ CONFIGURE_ARGS += 	-DCMAKE_DISABLE_FIND_PACKAGE_Git=TRUE \
 			-DUSING_GIT=OFF \
 			-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=TRUE \
 			-DDOWNLOAD_ENSMALLEN=OFF \
+			-DBUILD_PYTHON_BINDINGS=ON \
 			-DCMAKE_INSTALL_MANDIR=${PREFIX}/man/man1
 
 # naddy reported a burp

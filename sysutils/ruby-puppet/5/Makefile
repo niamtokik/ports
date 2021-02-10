@@ -1,13 +1,15 @@
-# $OpenBSD: Makefile,v 1.26 2020/05/27 21:08:34 sebastia Exp $
+# $OpenBSD: Makefile,v 1.36 2021/02/02 20:10:09 sebastia Exp $
 
 PORTROACH=		limit:^5
 
-VERSION=		5.5.20
+VERSION=		5.5.22
+REVISION=		6
 
 RUN_DEPENDS+=		databases/ruby-hiera3,${MODRUBY_FLAVOR} \
 			devel/ruby-gettext-setup,${MODRUBY_FLAVOR}>=0.28,<1 \
 			devel/ruby-locale,${MODRUBY_FLAVOR}>=2.1,<3 \
 			devel/ruby-rgen,${MODRUBY_FLAVOR} \
+			devel/ruby-sync,${MODRUBY_FLAVOR} \
 			converters/ruby-multi_json,${MODRUBY_FLAVOR} \
 			sysutils/facter
 
@@ -30,5 +32,7 @@ do-install:
 	mv ${WRKINST}${SYSCONFDIR}/puppetlabs ${PREFIX}/${MODRUBY_RELEXAMPLEDIR}-puppet
 	${INSTALL_DATA} ${WRKSRC}/conf/*.conf ${PREFIX}/${MODRUBY_RELEXAMPLEDIR}-puppet/puppet/
 	${INSTALL_DATA} ${WRKSRC}/ext/rack/config.ru ${PREFIX}/${MODRUBY_RELEXAMPLEDIR}-puppet/puppet/
+	# Suppress a huge number of Ruby deprecation/obsolete warnings
+	sed -i -e "s/ruby${MODRUBY_BINREV}/ruby${MODRUBY_BINREV} -W0/" ${PREFIX}/bin/puppet
 
 .include <bsd.port.mk>

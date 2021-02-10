@@ -1,10 +1,9 @@
-# $OpenBSD: Makefile,v 1.5 2017/08/02 11:40:40 kettenis Exp $
+# $OpenBSD: Makefile,v 1.7 2021/01/31 11:26:40 kettenis Exp $
 
 COMMENT=	binutils for ${CONFIG} cross-development
 
-VERSION=	2.27
+VERSION=	2.31.1
 DISTNAME=	binutils-${VERSION}
-REVISION=	0
 
 FLAVORS=	aarch64 arm
 FLAVOR?=	arm

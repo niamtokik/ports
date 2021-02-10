@@ -1,9 +1,11 @@
-# $OpenBSD: Makefile,v 1.17 2019/11/12 06:46:40 jeremy Exp $
+# $OpenBSD: Makefile,v 1.19 2020/10/06 22:36:06 jeremy Exp $
 
 COMMENT=	Ruby bindings for libvirt
 
 DISTNAME=	ruby-${PKGNAME}
 PKGNAME=	libvirt-0.7.1
+REVISION=	1
+
 CATEGORIES=	sysutils
 
 HOMEPAGE=	https://libvirt.org/ruby/
@@ -11,9 +13,9 @@ HOMEPAGE=	https://libvirt.org/ruby/
 # LGPLv2.1
 PERMIT_PACKAGE=	Yes
 
-MODULES=	lang/ruby
+WANTLIB += virt virt-lxc virt-qemu
 
-WANTLIB += c m pthread virt virt-lxc virt-qemu ${MODRUBY_WANTLIB}
+MODULES=	lang/ruby
 
 LIB_DEPENDS=	sysutils/libvirt
 

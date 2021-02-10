@@ -1,19 +1,18 @@
-# $OpenBSD: Makefile,v 1.18 2020/05/05 13:35:58 kurt Exp $
+# $OpenBSD: Makefile,v 1.22 2021/01/21 19:29:01 kurt Exp $
 
 ONLY_FOR_ARCHS=	i386 amd64 aarch64
 USE_WXNEEDED=	Yes
 DPB_PROPERTIES=	parallel
 
 COMMENT=	OpenJDK Software Development Kit v${VERSION_STR}
-BASE_VER=	11.0.7
-PATCH_VER=	10
-BSD_PORT_REL=	2
+BASE_VER=	11.0.10
+PATCH_VER=	9
+BSD_PORT_REL=	1
 VERSION_STR=	${BASE_VER}+${PATCH_VER}-${BSD_PORT_REL}
 PACKAGE_VER=	${BASE_VER}.${PATCH_VER}.${BSD_PORT_REL}
 PKGNAME=	jdk-${PACKAGE_VER}
 PKGSTEM=	jdk-11
 EPOCH=		0
-REVISION=	0
 
 DIST_SUBDIR=	jdk
 DISTNAME=	jdk-${VERSION_STR}
@@ -40,7 +39,7 @@ PERMIT_PACKAGE=	Yes
 DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 WANTLIB += ${COMPILER_LIBCXX} X11 Xext Xi Xrender Xtst c freetype gif
-WANTLIB += iconv jpeg lcms2 m png pthread z
+WANTLIB += harfbuzz iconv jpeg lcms2 m png pthread z
 
 NO_TEST=	Yes
 
@@ -78,6 +77,7 @@ BUILD_DEPENDS+=	${MODGNU_AUTOCONF_DEPENDS} \
 		shells/bash
 
 LIB_DEPENDS=	converters/libiconv \
+		devel/harfbuzz \
 		graphics/jpeg \
 		graphics/lcms2 \
 		graphics/png \
@@ -105,6 +105,7 @@ CONFIGURE_ARGS=	MAKE=${GMAKE} \
 		--with-libpng=system \
 		--with-lcms=system \
 		--with-libjpeg=system \
+		--with-harfbuzz=system \
 		--with-giflib=system \
 		--with-giflib-include=${LOCALBASE}/include \
 		--with-giflib-lib=${LOCALBASE}/lib \
@@ -139,7 +140,7 @@ CONFIGURE_ARGS+=--enable-aot=no
 PKG_ARGS+=	-Daot=0
 .endif
 
-.if ${MACHINE_ARCH} == "aarch64"
+.if ${MACHINE_ARCH} != "i386"
 PKG_ARGS+=	-Dci=1
 .else
 PKG_ARGS+=	-Dci=0
@@ -161,11 +162,9 @@ post-build:
 		    sh -c 'mv {} `echo {} | sed s/.debuginfo/.so/`' \; && \
 		mv jspawnhelper.so jspawnhelper && \
 		cp libjsig.so server/
-	cd ${BUILDDIR}/jdk/bin && \
+	cd ${IMAGEDIR}/bin && \
 		find . -name \*.debuginfo -exec \
-		    sh -c 'cp {} ${IMAGEDIR}/bin/`echo {} | sed s/.debuginfo//`' \;
-	cp ${BUILDDIR}/support/native/java.base/java_objs/java.debuginfo \
-		${IMAGEDIR}/bin/java
+		    sh -c 'mv {} `echo {} | sed s/.debuginfo//`' \;
 .endif
 
 do-install:

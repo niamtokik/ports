@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.4 2020/06/05 05:40:28 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.6 2020/11/03 16:12:38 rsadowski Exp $
 
 COMMENT =	desktop sharing
 DISTNAME =	krfb-${VERSION}
 CATEGORIES =	net x11
-REVISION =	1
 
-SHARED_LIBS +=  krfbprivate               1.0 # 5.0
+SHARED_LIBS +=  krfbprivate               2.0 # 5.0
 
 HOMEPAGE =	https://kde.org/applications/internet/org.kde.krfb
 
@@ -16,8 +15,6 @@ WANTLIB += KF5WidgetsAddons KF5WindowSystem KF5XmlGui Qt5Core
 WANTLIB += Qt5DBus Qt5Gui Qt5Network Qt5Widgets Qt5X11Extras Qt5Xml
 WANTLIB += X11 Xdamage Xext Xtst c m vncserver xcb xcb-damage
 WANTLIB += xcb-image xcb-render xcb-shape xcb-shm xcb-xfixes
-
-MODULES +=	x11/kde-applications
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes

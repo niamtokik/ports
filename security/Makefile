@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.579 2020/05/23 21:56:21 sthen Exp $
+# $OpenBSD: Makefile,v 1.609 2021/02/02 20:11:44 jeremy Exp $
 
      SUBDIR =
      SUBDIR += ADMsnmp
      SUBDIR += ROPgadget
-     SUBDIR += acme-client
      SUBDIR += aescrypt
      SUBDIR += age
      SUBDIR += aide
@@ -64,21 +63,20 @@
      SUBDIR += fwknop
      SUBDIR += ghidra
      SUBDIR += gnupg
-     SUBDIR += gnupg,card,ldap
-     SUBDIR += gnupg2
      SUBDIR += gnutls
      SUBDIR += go-crypto
      SUBDIR += go-siphash
      SUBDIR += go-ed25519
+     SUBDIR += gobuster
      SUBDIR += gopass
      SUBDIR += gpa
      SUBDIR += gpgme
      SUBDIR += gringotts
      SUBDIR += hashdeep
+     SUBDIR += hashid
      SUBDIR += hatchet
      SUBDIR += hcxtools
      SUBDIR += heimdal
-     SUBDIR += hitch
      SUBDIR += hlfl
      SUBDIR += hs-SHA
      SUBDIR += hs-crypto-api
@@ -97,7 +95,6 @@
      SUBDIR += john
      SUBDIR += john-jumbo
      SUBDIR += kc
-     SUBDIR += keepassx
      SUBDIR += keepassxc
      SUBDIR += keepassxc,yubikey
      SUBDIR += keepassxc,browser
@@ -122,6 +119,7 @@
      SUBDIR += libident
      SUBDIR += libksba
      SUBDIR += libmcrypt
+     SUBDIR += libmodsecurity
      SUBDIR += libnettle
      SUBDIR += libotr
      SUBDIR += libperseus
@@ -137,7 +135,6 @@
      SUBDIR += luasec
      SUBDIR += luasec,lua52
      SUBDIR += luasec,lua53
-     SUBDIR += lxnb
      SUBDIR += lynis
      SUBDIR += mcrypt
      SUBDIR += mhash
@@ -167,6 +164,7 @@
      SUBDIR += p0f
      SUBDIR += p0f3
      SUBDIR += p11-kit
+     SUBDIR += p5-Alt-Crypt-RSA-BigInt
      SUBDIR += p5-Auth-Yubikey_Decrypter
      SUBDIR += p5-Authen-Htpasswd
      SUBDIR += p5-Authen-NTLM
@@ -192,10 +190,12 @@
      SUBDIR += p5-Crypt-Eksblowfish
      SUBDIR += p5-Crypt-IDEA
      SUBDIR += p5-Crypt-LE
+     SUBDIR += p5-Crypt-OpenPGP
      SUBDIR += p5-Crypt-OpenSSL-Bignum
      SUBDIR += p5-Crypt-OpenSSL-DSA
      SUBDIR += p5-Crypt-OpenSSL-EC
      SUBDIR += p5-Crypt-OpenSSL-ECDSA
+     SUBDIR += p5-Crypt-OpenSSL-Guess
      SUBDIR += p5-Crypt-OpenSSL-PKCS10
      SUBDIR += p5-Crypt-OpenSSL-RSA
      SUBDIR += p5-Crypt-OpenSSL-Random
@@ -234,12 +234,13 @@
      SUBDIR += p5-Mozilla-CA-Fake
      SUBDIR += p5-Net-SSL-ExpireDate
      SUBDIR += p5-Net-SSLGlue
-     SUBDIR += p5-Net_SSLeay
+     SUBDIR += p5-Net-SSLeay
      SUBDIR += p5-PGP-Sign
      SUBDIR += p5-PGP-Sign,pgp
      SUBDIR += p5-POE-Component-SSLify
      SUBDIR += p5-Text-Password-Pronounceable
      SUBDIR += p5-Tie-EncryptedHash
+     SUBDIR += p5-Unix-OpenBSD-Random
      SUBDIR += pass-otp
      SUBDIR += passwdqc
      SUBDIR += password-gorilla
@@ -260,6 +261,7 @@
      SUBDIR += pgpdump
      SUBDIR += pidgin-otr
      SUBDIR += pinentry,
+     SUBDIR += pivy
      SUBDIR += pixiewps
      SUBDIR += plaso
      SUBDIR += polarssl
@@ -270,12 +272,12 @@
      SUBDIR += pwntools
      SUBDIR += pwsafe
      SUBDIR += pwsafe,no_x11
-     SUBDIR += py-M2Crypto
      SUBDIR += py-M2Crypto,python3
      SUBDIR += py-PyNaCl
      SUBDIR += py-PyNaCl,python3
      SUBDIR += py-aes
      SUBDIR += py-aes,python3
+     SUBDIR += py-argon2-cffi,python3
      SUBDIR += py-artifacts,python3
      SUBDIR += py-asn1crypto
      SUBDIR += py-asn1crypto,python3
@@ -301,7 +303,6 @@
      SUBDIR += py-gnupg
      SUBDIR += py-gnupg,python3
      SUBDIR += py-josepy,python3
-     SUBDIR += py-keyring
      SUBDIR += py-keyring,python3
      SUBDIR += py-libnacl,python3
      SUBDIR += py-miasm
@@ -310,7 +311,6 @@
      SUBDIR += py-oauthlib,python3
      SUBDIR += py-paramiko
      SUBDIR += py-paramiko,python3
-     SUBDIR += py-passlib
      SUBDIR += py-passlib,python3
      SUBDIR += py-pbkdf2
      SUBDIR += py-pbkdf2,python3
@@ -324,7 +324,6 @@
      SUBDIR += py-pyscard,python3
      SUBDIR += py-requests-aws4auth
      SUBDIR += py-requests-aws4auth,python3
-     SUBDIR += py-ropper
      SUBDIR += py-ropper,python3
      SUBDIR += py-rsa
      SUBDIR += py-rsa,python3
@@ -332,7 +331,6 @@
      SUBDIR += py-scp,python3
      SUBDIR += py-scrypt
      SUBDIR += py-scrypt,python3
-     SUBDIR += py-secretstorage
      SUBDIR += py-secretstorage,python3
      SUBDIR += py-service_identity
      SUBDIR += py-service_identity,python3
@@ -342,12 +340,12 @@
      SUBDIR += py-vivisect
      SUBDIR += py-viv_utils
      SUBDIR += py-yaswfp
-     SUBDIR += qca
      SUBDIR += qca-qt5
-     SUBDIR += qoauth
      SUBDIR += qtkeychain
+     SUBDIR += qtpass
      SUBDIR += radiusniff
      SUBDIR += rarcrack
+     SUBDIR += rbw
      SUBDIR += rdp
      SUBDIR += reaver
      SUBDIR += recon-ng
@@ -355,13 +353,19 @@
      SUBDIR += reop
      SUBDIR += rhash
      SUBDIR += routersploit
+     SUBDIR += ruby-argon2,ruby26
+     SUBDIR += ruby-argon2,ruby27
+     SUBDIR += ruby-argon2,ruby30
      SUBDIR += ruby-bcrypt,ruby26
      SUBDIR += ruby-bcrypt,ruby27
+     SUBDIR += ruby-bcrypt,ruby30
      SUBDIR += ruby-cms_scanner
      SUBDIR += ruby-gpgme,ruby26
      SUBDIR += ruby-gpgme,ruby27
+     SUBDIR += ruby-gpgme,ruby30
      SUBDIR += ruby-pledge,ruby26
      SUBDIR += ruby-pledge,ruby27
+     SUBDIR += ruby-pledge,ruby30
      SUBDIR += ruby-hmac
      SUBDIR += ruby-openid
      SUBDIR += samdump2
@@ -371,7 +375,6 @@
      SUBDIR += sentinel
      SUBDIR += shash
      SUBDIR += shash,static
-     SUBDIR += siphon
      SUBDIR += slurpie
      SUBDIR += smbsniff
      SUBDIR += smtpscan
@@ -384,15 +387,16 @@
      SUBDIR += sqlmap
      SUBDIR += ssdeep
      SUBDIR += ssh-askpass-fullscreen
+     SUBDIR += ssh-audit
      SUBDIR += ssh-ldap-helper
      SUBDIR += sshguard
      SUBDIR += sshlockout
      SUBDIR += sslScanner
      SUBDIR += sslscan
-     SUBDIR += sslscan,openssl
      SUBDIR += sslsplit
      SUBDIR += ssss
      SUBDIR += stegdetect
+     SUBDIR += stegseek
      SUBDIR += steghide
      SUBDIR += strobe
      SUBDIR += stunnel
@@ -405,6 +409,7 @@
      SUBDIR += tcltls
      SUBDIR += tempwatch
      SUBDIR += theharvester
+     SUBDIR += tls-attacker
      SUBDIR += towitoko
      SUBDIR += uacme
      SUBDIR += vault
@@ -412,6 +417,7 @@
      SUBDIR += vpnc
      SUBDIR += wapiti
      SUBDIR += wesng
+     SUBDIR += wfuzz
      SUBDIR += wpa_supplicant
      SUBDIR += wpscan
      SUBDIR += wycheproof-testvectors

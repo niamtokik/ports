@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.47 2020/03/27 07:34:08 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.49 2020/06/20 10:45:09 ajacoutot Exp $
 
 COMMENT=	free H.265/HEVC encoder
 
-VER=		3.3
+VER=		3.4
 DISTNAME=	x265_${VER}
 PKGNAME=	x265-${VER}
-REVISION=	0
 CATEGORIES=	multimedia
 MASTER_SITES=	https://bitbucket.org/multicoreware/x265/downloads/
 
-SHARED_LIBS=	x265	21.0
+SHARED_LIBS=	x265	22.0
 
 HOMEPAGE=	http://x265.org/
 
@@ -35,7 +34,7 @@ CONFIGURE_ARGS+=-DCMAKE_ASM_YASM_FLAGS_DEBUG="-g dwarf2" \
 		-DENABLE_PIC=On \
 		-DENABLE_TESTS=On
 
-.if ${MACHINE_ARCH} == "i386"
+.if ${MACHINE_ARCH} == "aarch64" || ${MACHINE_ARCH} == "i386"
 CONFIGURE_ARGS+=-DENABLE_ASSEMBLY=Off
 .endif
 

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.194 2020/03/22 17:44:52 kn Exp $
+# $OpenBSD: Makefile,v 1.199 2021/01/05 13:01:46 sthen Exp $
 
      SUBDIR =
      SUBDIR += WordGenerator
@@ -28,6 +28,7 @@
      SUBDIR += feathernotes
      SUBDIR += figlet
      SUBDIR += findutils
+     SUBDIR += freeopcua
      SUBDIR += ftdi-eeprom
      SUBDIR += garmin-utils
      SUBDIR += geekcode
@@ -36,8 +37,6 @@
      SUBDIR += gone
      SUBDIR += gpsd
      SUBDIR += gramps
-     SUBDIR += gtk3mm-documentation
-     SUBDIR += gutenpy
      SUBDIR += hfsplus
      SUBDIR += hwdata
      SUBDIR += ietf-cli
@@ -45,6 +44,7 @@
      SUBDIR += insult
      SUBDIR += lfm
      SUBDIR += libdivecomputer
+     SUBDIR += libstubborn
      SUBDIR += lifelines
      SUBDIR += logjam
      SUBDIR += m17n
@@ -86,6 +86,7 @@
      SUBDIR += portroach
      SUBDIR += posixtestsuite
      SUBDIR += py-imdb
+     SUBDIR += py-jdcal,python3
      SUBDIR += py-memcached
      SUBDIR += py-memcached,python3
      SUBDIR += randtype

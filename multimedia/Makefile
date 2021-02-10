@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.125 2020/05/26 17:06:34 espie Exp $
+# $OpenBSD: Makefile,v 1.131 2021/02/07 22:06:53 naddy Exp $
 
      SUBDIR =
      SUBDIR += aom
      SUBDIR += assimp
      SUBDIR += atomicparsley
      SUBDIR += audiopreview
-     SUBDIR += avinfo
      SUBDIR += ccextractor
      SUBDIR += dav1d
      SUBDIR += devede
@@ -21,6 +20,7 @@
      SUBDIR += handbrake
      SUBDIR += hdhomerun
      SUBDIR += imagination
+     SUBDIR += kid3
      SUBDIR += kguitar
      SUBDIR += libaacs
      SUBDIR += libass
@@ -62,9 +62,8 @@
      SUBDIR += p5-Mac-iTunes-Library
      SUBDIR += p5-Storable-AMF
      SUBDIR += phonon
-     SUBDIR += phonon-qt5
      SUBDIR += phonon-backend
-     SUBDIR += py-caption
+     SUBDIR += py-caption,python3
      SUBDIR += py-casttube,python3
      SUBDIR += py-chromecast,python3
      SUBDIR += py-pafy
@@ -77,6 +76,7 @@
      SUBDIR += streamlink
      SUBDIR += subrip
      SUBDIR += subtitleripper
+     SUBDIR += svt-av1
      SUBDIR += swfmill
      SUBDIR += swftools
      SUBDIR += synfig

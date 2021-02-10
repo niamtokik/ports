@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.16 2019/07/12 20:46:04 sthen Exp $
+# $OpenBSD: Makefile,v 1.18 2020/12/14 06:26:27 rsadowski Exp $
 
 COMMENT =		YAML parser and emitter in C++
 
-V=			0.5.1
+V=			0.6.3
 GH_ACCOUNT=		jbeder
 GH_PROJECT=		yaml-cpp
-GH_TAGNAME=		release-$V
+GH_TAGNAME=		yaml-cpp-$V
 DISTNAME =		yaml-cpp-$V
-REVISION =		6
 
-SHARED_LIBS =		yaml-cpp	2.0 # 0.5
+SHARED_LIBS =		yaml-cpp	3.0 # 0.5
 
 CATEGORIES =		devel
 
@@ -20,13 +19,12 @@ PERMIT_PACKAGE =	Yes
 
 WANTLIB += m ${COMPILER_LIBCXX}
 
-COMPILER =		base-clang ports-gcc base-gcc
-
-BUILD_DEPENDS =		devel/boost
-RUN_DEPENDS =		devel/boost
+COMPILER =		base-clang ports-gcc
 
 MODULES =		devel/cmake
 
-CONFIGURE_ARGS =	-DBUILD_SHARED_LIBS=ON
+CONFIGURE_ARGS =	-DYAML_BUILD_SHARED_LIBS=ON \
+			-DYAML_CPP_BUILD_TOOLS=OFF \
+			-DYAML_CPP_BUILD_TESTS=OFF
 
 .include <bsd.port.mk>

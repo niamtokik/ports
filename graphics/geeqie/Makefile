@@ -1,29 +1,28 @@
-# $OpenBSD: Makefile,v 1.23 2019/12/01 14:24:17 kirby Exp $
+# $OpenBSD: Makefile,v 1.26 2021/01/26 16:26:21 ajacoutot Exp $
 
 COMMENT=		lightweight Gtk+3 based image viewer
 
-DISTNAME=		geeqie-1.5.1
+DISTNAME=		geeqie-1.6
 EXTRACT_SUFX=		.tar.xz
 CATEGORIES=		graphics
 EPOCH=			0
+REVISION=		0
 
 HOMEPAGE=		http://geeqie.org/
 
 # GPLv2+
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += atk-1.0 c cairo cairo-gobject exiv2 gdk-3 gdk_pixbuf-2.0
-WANTLIB += gio-2.0 glib-2.0 gobject-2.0 gthread-2.0 gtk-3 intl
-WANTLIB += jpeg lcms2 m pango-1.0 pangocairo-1.0 pthread ${COMPILER_LIBCXX}
-WANTLIB += tiff
+WANTLIB += ${COMPILER_LIBCXX} atk-1.0 c cairo cairo-gobject exiv2
+WANTLIB += gdk-3 gdk_pixbuf-2.0 gio-2.0 glib-2.0 gobject-2.0 gthread-2.0
+WANTLIB += gtk-3 harfbuzz intl jpeg lcms2 m openjp2 pango-1.0
+WANTLIB += pangocairo-1.0 tiff
 
-COMPILER =		base-clang ports-gcc base-gcc
+COMPILER=		base-clang ports-gcc base-gcc
 
 MASTER_SITES=		http://geeqie.org/
 
 MODULES=		textproc/intltool
-
-BUILD_DEPENDS=		x11/gnome/doc-utils
 
 RUN_DEPENDS=		devel/desktop-file-utils \
 			devel/xdg-utils \
@@ -31,7 +30,7 @@ RUN_DEPENDS=		devel/desktop-file-utils \
 			graphics/exiftran
 
 LIB_DEPENDS=		graphics/exiv2 \
-			graphics/lcms2 \
+			graphics/openjp2 \
 			x11/gtk+3
 
 USE_GMAKE=		Yes
@@ -49,9 +48,12 @@ CONFIGURE_ARGS=		--disable-doxygen-doc \
 			--with-htmldir=${PREFIX}/share/doc/geeqie \
 			--with-readmedir=${PREFIX}/share/doc/geeqie
 
-AUTOCONF_VERSION=	2.69
-AUTOMAKE_VERSION=	1.14
+AUTOCONF_VERSION=	2.70
+AUTOMAKE_VERSION=	1.16
 AUTORECONF=		./autogen.sh
 MAKE_ENV=		MKDIR_P='mkdir -p'
+
+post-install:
+	rm -rf ${PREFIX}/share/doc/
 
 .include <bsd.port.mk>

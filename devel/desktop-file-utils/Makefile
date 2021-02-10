@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.55 2019/08/03 22:58:42 tb Exp $
+# $OpenBSD: Makefile,v 1.58 2020/06/20 19:45:36 kmos Exp $
 
 COMMENT=	utilities for dot.desktop entries
 
-DISTNAME=	desktop-file-utils-0.24
-REVISION=	0
+DISTNAME=	desktop-file-utils-0.26
 
 EXTRACT_SUFX=	.tar.xz
 
@@ -21,14 +20,14 @@ WANTLIB += c glib-2.0 intl
 
 MASTER_SITES=	https://freedesktop.org/software/desktop-file-utils/releases/
 
+# -std=gnu11
+COMPILER=	base-clang ports-gcc
+
+MODULES=	devel/meson
+
 LIB_DEPENDS=	devel/glib2
 
-USE_GMAKE=	Yes
-
-CONFIGURE_STYLE=gnu
-CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
-		LDFLAGS="-L${LOCALBASE}/lib" \
-		ac_cv_prog_EMACS=no
+DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/src/update-desktop-database.c

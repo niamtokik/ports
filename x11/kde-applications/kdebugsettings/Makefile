@@ -1,19 +1,16 @@
-# $OpenBSD: Makefile,v 1.5 2020/05/28 04:21:26 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.7 2020/11/03 16:12:34 rsadowski Exp $
 
 COMMENT =	application to edit QLoggingCategory
 DISTNAME =	kdebugsettings-${VERSION}
 CATEGORIES =	x11 sysutils
-REVISION =	1
 
-SHARED_LIBS +=  kdebugsettings         0.0 # 5.0
+SHARED_LIBS +=  kdebugsettings         1.0 # 5.0
 
 HOMEPAGE =	https://kde.org/applications/development/org.kde.kdebugsettings
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Completion KF5ConfigCore KF5CoreAddons
 WANTLIB += KF5DBusAddons KF5I18n KF5ItemViews KF5WidgetsAddons
 WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Widgets c m
-
-MODULES +=	x11/kde-applications
 
 MODKDE5_TRANSLATIONS = yes
 MODKDE5_DESKTOP_FILE = yes

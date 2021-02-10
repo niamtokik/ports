@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.26 2020/05/31 10:36:37 ajacoutot Exp $
+@comment $OpenBSD: PLIST,v 1.29 2021/02/03 12:29:42 ajacoutot Exp $
 share/osinfo/
 share/osinfo/LICENSE
 share/osinfo/VERSION
@@ -123,15 +123,21 @@ share/osinfo/install-script/ubuntu.com/ubuntu-preseed-desktop.xml
 share/osinfo/install-script/ubuntu.com/ubuntu-preseed-jeos.xml
 share/osinfo/os/
 share/osinfo/os/alpinelinux.org/
+share/osinfo/os/alpinelinux.org/alpinelinux-3.10.xml
+share/osinfo/os/alpinelinux.org/alpinelinux-3.11.xml
+share/osinfo/os/alpinelinux.org/alpinelinux-3.12.xml
+share/osinfo/os/alpinelinux.org/alpinelinux-3.13.xml
 share/osinfo/os/alpinelinux.org/alpinelinux-3.5.xml
 share/osinfo/os/alpinelinux.org/alpinelinux-3.6.xml
 share/osinfo/os/alpinelinux.org/alpinelinux-3.7.xml
 share/osinfo/os/alpinelinux.org/alpinelinux-3.8.xml
+share/osinfo/os/alpinelinux.org/alpinelinux-3.9.xml
 share/osinfo/os/altlinux.org/
 share/osinfo/os/altlinux.org/alt-8.0.xml
 share/osinfo/os/altlinux.org/alt-8.1.xml
 share/osinfo/os/altlinux.org/alt-8.2.xml
 share/osinfo/os/altlinux.org/alt-9.0.xml
+share/osinfo/os/altlinux.org/alt-9.1.xml
 share/osinfo/os/altlinux.org/alt-p8.starterkits.xml
 share/osinfo/os/altlinux.org/alt-p9.starterkits.xml
 share/osinfo/os/altlinux.org/alt-sisyphus.xml
@@ -293,6 +299,7 @@ share/osinfo/os/elementary.io/
 share/osinfo/os/elementary.io/elementary-5.0.xml
 share/osinfo/os/endlessos.com/
 share/osinfo/os/endlessos.com/eos-3.1.xml
+share/osinfo/os/endlessos.com/eos-3.10.xml
 share/osinfo/os/endlessos.com/eos-3.2.xml
 share/osinfo/os/endlessos.com/eos-3.3.xml
 share/osinfo/os/endlessos.com/eos-3.4.xml
@@ -300,7 +307,11 @@ share/osinfo/os/endlessos.com/eos-3.5.xml
 share/osinfo/os/endlessos.com/eos-3.6.xml
 share/osinfo/os/endlessos.com/eos-3.7.xml
 share/osinfo/os/endlessos.com/eos-3.8.xml
+share/osinfo/os/endlessos.com/eos-3.9.xml
 share/osinfo/os/fedoraproject.org/
+share/osinfo/os/fedoraproject.org/coreos-next.xml
+share/osinfo/os/fedoraproject.org/coreos-stable.xml
+share/osinfo/os/fedoraproject.org/coreos-testing.xml
 share/osinfo/os/fedoraproject.org/fedora-1.xml
 share/osinfo/os/fedoraproject.org/fedora-10.xml
 share/osinfo/os/fedoraproject.org/fedora-11.xml
@@ -327,6 +338,7 @@ share/osinfo/os/fedoraproject.org/fedora-3.xml
 share/osinfo/os/fedoraproject.org/fedora-30.xml
 share/osinfo/os/fedoraproject.org/fedora-31.xml
 share/osinfo/os/fedoraproject.org/fedora-32.xml
+share/osinfo/os/fedoraproject.org/fedora-33.xml
 share/osinfo/os/fedoraproject.org/fedora-4.xml
 share/osinfo/os/fedoraproject.org/fedora-5.xml
 share/osinfo/os/fedoraproject.org/fedora-6.xml
@@ -340,6 +352,9 @@ share/osinfo/os/fedoraproject.org/silverblue-29.xml
 share/osinfo/os/fedoraproject.org/silverblue-30.xml
 share/osinfo/os/fedoraproject.org/silverblue-31.xml
 share/osinfo/os/fedoraproject.org/silverblue-32.xml
+share/osinfo/os/fedoraproject.org/silverblue-33.xml
+share/osinfo/os/fedoraproject.org/silverblue-rawhide.xml
+share/osinfo/os/fedoraproject.org/silverblue-unknown.xml
 share/osinfo/os/freebsd.org/
 share/osinfo/os/freebsd.org/freebsd-1.0.xml
 share/osinfo/os/freebsd.org/freebsd-10.0.xml
@@ -351,8 +366,10 @@ share/osinfo/os/freebsd.org/freebsd-11.0.xml
 share/osinfo/os/freebsd.org/freebsd-11.1.xml
 share/osinfo/os/freebsd.org/freebsd-11.2.xml
 share/osinfo/os/freebsd.org/freebsd-11.3.xml
+share/osinfo/os/freebsd.org/freebsd-11.4.xml
 share/osinfo/os/freebsd.org/freebsd-12.0.xml
 share/osinfo/os/freebsd.org/freebsd-12.1.xml
+share/osinfo/os/freebsd.org/freebsd-12.2.xml
 share/osinfo/os/freebsd.org/freebsd-2.0.5.xml
 share/osinfo/os/freebsd.org/freebsd-2.0.xml
 share/osinfo/os/freebsd.org/freebsd-2.2.8.xml
@@ -407,6 +424,8 @@ share/osinfo/os/gnome.org/gnome-3.8.xml
 share/osinfo/os/gnome.org/gnome-continuous-3.10.xml
 share/osinfo/os/gnome.org/gnome-continuous-3.12.xml
 share/osinfo/os/gnome.org/gnome-continuous-3.14.xml
+share/osinfo/os/guix.gnu.org/
+share/osinfo/os/guix.gnu.org/guix-1.1.xml
 share/osinfo/os/haiku-os.org/
 share/osinfo/os/haiku-os.org/haiku-nightly.xml
 share/osinfo/os/haiku-os.org/haiku-r1alpha1.xml
@@ -414,6 +433,11 @@ share/osinfo/os/haiku-os.org/haiku-r1alpha2.xml
 share/osinfo/os/haiku-os.org/haiku-r1alpha3.xml
 share/osinfo/os/haiku-os.org/haiku-r1alpha4.1.xml
 share/osinfo/os/haiku-os.org/haiku-r1beta1.xml
+share/osinfo/os/libosinfo.org/
+share/osinfo/os/libosinfo.org/linux-2016.xml
+share/osinfo/os/libosinfo.org/linux-2018.xml
+share/osinfo/os/libosinfo.org/linux-2020.xml
+share/osinfo/os/libosinfo.org/unknown.xml
 share/osinfo/os/mageia.org/
 share/osinfo/os/mageia.org/mageia-1.xml
 share/osinfo/os/mageia.org/mageia-2.xml
@@ -421,6 +445,7 @@ share/osinfo/os/mageia.org/mageia-3.xml
 share/osinfo/os/mageia.org/mageia-4.xml
 share/osinfo/os/mageia.org/mageia-5.xml
 share/osinfo/os/mageia.org/mageia-6.xml
+share/osinfo/os/mageia.org/mageia-7.xml
 share/osinfo/os/mandriva.com/
 share/osinfo/os/mandriva.com/mandrake-10.0.xml
 share/osinfo/os/mandriva.com/mandrake-10.1.xml
@@ -526,6 +551,7 @@ share/osinfo/os/netbsd.org/netbsd-8.2.xml
 share/osinfo/os/netbsd.org/netbsd-9.0.xml
 share/osinfo/os/nixos.org/
 share/osinfo/os/nixos.org/nixos-20.03.xml
+share/osinfo/os/nixos.org/nixos-20.09.xml
 share/osinfo/os/nixos.org/nixos-unknown.xml
 share/osinfo/os/nixos.org/nixos-unstable.xml
 share/osinfo/os/novell.com/
@@ -572,6 +598,7 @@ share/osinfo/os/opensuse.org/opensuse-13.1.xml
 share/osinfo/os/opensuse.org/opensuse-13.2.xml
 share/osinfo/os/opensuse.org/opensuse-15.0.xml
 share/osinfo/os/opensuse.org/opensuse-15.1.xml
+share/osinfo/os/opensuse.org/opensuse-15.2.xml
 share/osinfo/os/opensuse.org/opensuse-42.1.xml
 share/osinfo/os/opensuse.org/opensuse-42.2.xml
 share/osinfo/os/opensuse.org/opensuse-42.3.xml
@@ -615,7 +642,11 @@ share/osinfo/os/oracle.com/ol-7.3.xml
 share/osinfo/os/oracle.com/ol-7.4.xml
 share/osinfo/os/oracle.com/ol-7.5.xml
 share/osinfo/os/oracle.com/ol-7.6.xml
+share/osinfo/os/oracle.com/ol-7.7.xml
+share/osinfo/os/oracle.com/ol-7.8.xml
 share/osinfo/os/oracle.com/ol-8.0.xml
+share/osinfo/os/oracle.com/ol-8.1.xml
+share/osinfo/os/oracle.com/ol-8.2.xml
 share/osinfo/os/oracle.com/solaris-11.xml
 share/osinfo/os/pureos.net/
 share/osinfo/os/pureos.net/pureos-8.xml
@@ -687,6 +718,8 @@ share/osinfo/os/redhat.com/rhel-8-unknown.xml
 share/osinfo/os/redhat.com/rhel-8.0.xml
 share/osinfo/os/redhat.com/rhel-8.1.xml
 share/osinfo/os/redhat.com/rhel-8.2.xml
+share/osinfo/os/redhat.com/rhel-8.3.xml
+share/osinfo/os/redhat.com/rhel-8.4.xml
 share/osinfo/os/redhat.com/rhel-atomic-7.0.xml
 share/osinfo/os/redhat.com/rhel-atomic-7.1.xml
 share/osinfo/os/redhat.com/rhel-atomic-7.2.xml
@@ -745,6 +778,9 @@ share/osinfo/os/scientificlinux.org/scientificlinux-7.3.xml
 share/osinfo/os/scientificlinux.org/scientificlinux-7.4.xml
 share/osinfo/os/scientificlinux.org/scientificlinux-7.5.xml
 share/osinfo/os/scientificlinux.org/scientificlinux-7.6.xml
+share/osinfo/os/slackware.com/
+share/osinfo/os/slackware.com/slackware-14.2.xml
+share/osinfo/os/slackware.com/slackware-current.xml
 share/osinfo/os/sun.com/
 share/osinfo/os/sun.com/opensolaris-2009.06.xml
 share/osinfo/os/sun.com/solaris-10.xml
@@ -756,6 +792,7 @@ share/osinfo/os/suse.com/caasp-3.0.xml
 share/osinfo/os/suse.com/caasp-unknown.xml
 share/osinfo/os/suse.com/sle-15-unknown.xml
 share/osinfo/os/suse.com/sle-15.1.xml
+share/osinfo/os/suse.com/sle-15.2.xml
 share/osinfo/os/suse.com/sle-15.xml
 share/osinfo/os/suse.com/sle-unknown.xml
 share/osinfo/os/suse.com/sled-10.1.xml
@@ -800,6 +837,8 @@ share/osinfo/os/system76.com/popos-18.04.xml
 share/osinfo/os/system76.com/popos-18.10.xml
 share/osinfo/os/system76.com/popos-19.04.xml
 share/osinfo/os/system76.com/popos-19.10.xml
+share/osinfo/os/system76.com/popos-20.04.xml
+share/osinfo/os/system76.com/popos-20.10.xml
 share/osinfo/os/ubuntu.com/
 share/osinfo/os/ubuntu.com/ubuntu-10.04.xml
 share/osinfo/os/ubuntu.com/ubuntu-10.10.xml
@@ -822,6 +861,7 @@ share/osinfo/os/ubuntu.com/ubuntu-18.10.xml
 share/osinfo/os/ubuntu.com/ubuntu-19.04.xml
 share/osinfo/os/ubuntu.com/ubuntu-19.10.xml
 share/osinfo/os/ubuntu.com/ubuntu-20.04.xml
+share/osinfo/os/ubuntu.com/ubuntu-20.10.xml
 share/osinfo/os/ubuntu.com/ubuntu-4.10.xml
 share/osinfo/os/ubuntu.com/ubuntu-5.04.xml
 share/osinfo/os/ubuntu.com/ubuntu-5.10.xml

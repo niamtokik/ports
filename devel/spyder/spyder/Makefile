@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.6 2020/03/10 12:35:37 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2021/01/05 13:53:33 ajacoutot Exp $
 
 COMMENT =		Scientific PYthon Development EnviRonment
 
 MODPY_EGG_VERSION =	3.3.3
-REVISION =		3
+REVISION =		5
 DISTNAME =		spyder-${MODPY_EGG_VERSION}
 PKGNAME =		spyder3-${MODPY_EGG_VERSION}
 

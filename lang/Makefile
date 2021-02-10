@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.243 2020/06/02 14:09:16 jturner Exp $
+# $OpenBSD: Makefile,v 1.247 2021/01/15 14:58:46 gonzalo Exp $
 
      SUBDIR =
      SUBDIR += STk
@@ -31,7 +31,6 @@
      SUBDIR += erlang
      SUBDIR += expect
      SUBDIR += flang
-     SUBDIR += fpc
      SUBDIR += freebasic
      SUBDIR += freehdl
      SUBDIR += fsharp
@@ -112,6 +111,7 @@
      SUBDIR += spin
      SUBDIR += squeak
      SUBDIR += swi-prolog
+     SUBDIR += tcc
      SUBDIR += tcl
      SUBDIR += tcltutor
      SUBDIR += tinyscheme

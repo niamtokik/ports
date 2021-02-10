@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.8 2019/09/27 15:39:44 sthen Exp $
+# $OpenBSD: Makefile,v 1.10 2021/02/06 20:33:27 sthen Exp $
 
 COMMENT=	roundcube plugin: log end-user IP in Dovecot using IMAP ID
 
@@ -6,11 +6,12 @@ GH_ACCOUNT=	corbosman
 GH_PROJECT=	dovecot_ident
 GH_TAGNAME=	2.2
 PKGNAME=	rcube-${DISTNAME}
-REVISION=	2
+MODPHP_VERSION=	7.4
+REVISION=	4
 
 CATEGORIES=	mail www
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # GPLv2
 PERMIT_PACKAGE=	Yes

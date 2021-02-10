@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.14 2019/07/12 20:50:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.16 2020/11/02 21:40:38 benoit Exp $
 
 COMMENT=	Simple HTML Calendars
 
 MODULES=	cpan
 PKG_ARCH=	*
-DISTNAME=	HTML-CalendarMonthSimple-1.25
-REVISION=	2
+DISTNAME =	HTML-CalendarMonthSimple-1.26
 CATEGORIES=	www
 FIX_EXTRACT_PERMISSIONS=Yes
 

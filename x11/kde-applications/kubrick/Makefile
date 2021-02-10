@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.5 2020/06/03 05:13:44 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.8 2021/01/23 18:10:26 rsadowski Exp $
 
 COMMENT =	3-D Game based on Rubiks Cube
 DISTNAME =	kubrick-${VERSION}
 CATEGORIES =	games
-REVISION =	0
 
 HOMEPAGE =	https://www.kde.org/applications/games/kubrick
 
@@ -11,16 +10,14 @@ WANTLIB += ${COMPILER_LIBCXX} GL GLU KF5Auth KF5AuthCore KF5Codecs
 WANTLIB += KF5ConfigCore KF5ConfigGui KF5ConfigWidgets KF5CoreAddons
 WANTLIB += KF5Crash KF5I18n KF5KDEGames KF5KIOCore KF5Service
 WANTLIB += KF5WidgetsAddons KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus
-WANTLIB += Qt5Gui Qt5Network Qt5OpenGL Qt5Qml Qt5Quick Qt5QuickWidgets
-WANTLIB += Qt5Svg Qt5Widgets Qt5Xml c m
+WANTLIB += Qt5Gui Qt5Network Qt5OpenGL Qt5Qml Qt5QmlModels Qt5Quick
+WANTLIB += Qt5QuickWidgets Qt5Svg Qt5Widgets Qt5Xml c m
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	x11/qt5/qtquickcontrols
 RUN_DEPENDS =	x11/qt5/qtquickcontrols

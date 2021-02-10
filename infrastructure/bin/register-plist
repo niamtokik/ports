@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-# $OpenBSD: register-plist,v 1.22 2019/05/28 19:41:48 espie Exp $
+# $OpenBSD: register-plist,v 1.27 2020/06/28 10:58:25 espie Exp $
 # Copyright (c) 2005,2012
 # Marc Espie.  All rights reserved.
 # Redistribution and use in source and binary forms, with or without
@@ -132,6 +132,24 @@ sub record_generic_depends
 
 sub find_mogrified
 {
+}
+
+sub save_stuff
+{
+}
+
+package OpenBSD::PackingElement::Manpage;
+sub save_stuff
+{
+	my ($self, $state) = @_;
+	return unless defined $state->{saveman};
+	my $fname = $self->fullname;
+	require File::Path;
+	require File::Copy;
+	require File::Basename;
+	my $dest = "$state->{saveman}/$fname";
+	File::Path::mkpath(File::Basename::dirname($dest));
+	File::Copy::copy("$state->{fakedir}/$fname", $dest);
 }
 
 package OpenBSD::PackingElement::DigitalSignature;
@@ -409,6 +427,38 @@ sub compare_more
 	return Result::Different;
 }
 
+package OpenBSD::RegisterPlist::State;
+our @ISA = qw(OpenBSD::State);
+
+
+sub init
+{
+	my $self = shift;
+	$self->{signature_style} = 'unsigned';
+	$self->SUPER::init(@_);
+}
+
+sub handle_options
+{
+	my $self = shift;
+
+	$self->SUPER::handle_options('tpns:', 
+	    '[-n] [-s dir] [-t p1 p2] dir pkg ...');
+
+	if ($self->opt('s')) {
+		$self->{snapdir} = $self->opt('s');
+	}
+	if ($self->opt('n')) {
+		$self->{not} = 1;
+	}
+	if ($self->defines("SAVEMAN")) {
+		$self->{saveman} = $self->defines("SAVEMAN");
+	}
+	if ($self->defines("FAKEDIR")) {
+		$self->{fakedir} = $self->defines("FAKEDIR");
+	}
+}
+
 package main;
 
 sub combine
@@ -526,6 +576,7 @@ sub act_on_compare
 {
 	my ($r, $p1, $p2, $result, $state) = @_;
 
+	my $verb = $state->{not} ? "would be" : "was";
 	if ($r == Result::Different) {
 		more_mogrified($p1, $p2, $state);
 		error_blurb($state, $p2);
@@ -533,8 +584,8 @@ sub act_on_compare
 		return 1;
 	}
 	if ($r == Result::Updatable) {
-		$p1->tofile($result);
-		$state->errsay("#1 was updated", $result);
+		$p1->tofile($result) if !$state->{not};
+		$state->errsay("#1 #2 updated", $result, $verb);
 		for my $i (@{$state->{updates}}) {
 			$state->errsay("#1 -> #2",
 			    $i->[0]->fullstring, 
@@ -542,9 +593,9 @@ sub act_on_compare
 		}
 	}
 	if ($r == Result::UpdatableButShowDiff) {
-		$state->errsay("#1 was updated", $result);
+		$state->errsay("#1 #2 updated", $result, $verb);
 		write_out_diff($p1, $p2, $result, $state);
-		$p1->tofile($result);
+		$p1->tofile($result) if !$state->opt('n');
 	}
 	return 0;
 }
@@ -601,9 +652,9 @@ sub compare_versions
 	return $result;
 }
 
-my $state = OpenBSD::State->new('register-plist');
-$state->{signature_style} = 'unsigned';
-$state->handle_options('tp', '[-t p1 p2] dir pkg ...');
+my $state = OpenBSD::RegisterPlist::State->new('register-plist');
+$state->handle_options;
+
 if (@ARGV < 2 && !$state->opt('p')) {
 	$state->usage;
 }
@@ -658,6 +709,9 @@ for my $pkgfile (@ARGV) {
 	$pkg->wipe_info;
 
 	$plist->forget_details;
+	if (defined $state->{fakedir}) {
+		$plist->save_stuff($state);
+	}
 	for my $dir (@dirs) {
 		next unless -d $dir;
 		my $result = $dir.'/'.$plist->pkgname;
@@ -670,9 +724,15 @@ for my $pkgfile (@ARGV) {
 		$error += compare_versions($dir, $plist, $state);
 	}
 	if (!$error) {
-		my $result = $dirs[0].'/'.$plist->pkgname;
-		if (!-f $result || -z _) {
+		if (defined $state->{snapdir}) {
+			my $result = $state->{snapdir}.'/'.$plist->pkgname;
 			$plist->tofile($result);
+		}
+		if (!$state->{not}) {
+			my $result = $dirs[0].'/'.$plist->pkgname;
+			if (!-f $result || -z _) {
+				$plist->tofile($result);
+			}
 		}
 	}
 }

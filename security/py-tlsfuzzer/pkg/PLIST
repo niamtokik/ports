@@ -1,33 +1,47 @@
-@comment $OpenBSD: PLIST,v 1.2 2020/03/15 05:45:03 tb Exp $
+@comment $OpenBSD: PLIST,v 1.7 2020/11/06 09:31:31 tb Exp $
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer-0.0.1-py${MODPY_VERSION}.egg-info
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/__init__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}analysis.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}combine.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}expect.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}extract.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}fuzzers.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}handshake_helpers.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}helpers.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}messages.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}runner.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}scanner.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}timing_runner.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}tree.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/analysis.py
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/combine.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/expect.py
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/extract.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/fuzzers.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/handshake_helpers.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/helpers.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/messages.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/runner.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/scanner.py
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/timing_runner.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/tree.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/__init__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}_ordered_dict.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}lists.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}log.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}ordered_dict.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}statics.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/_ordered_dict.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/lists.py
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/log.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/ordered_dict.py
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/statics.py
 share/tlsfuzzer/
 share/tlsfuzzer/scripts/
 ${MODPY_COMMENT}share/tlsfuzzer/scripts/${MODPY_PYCACHE}/
@@ -37,6 +51,7 @@ share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-aes-gcm-nonces.${MODPY_PYC_MAGIC_TA
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-aesccm.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-alpn-negotiation.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-atypical-padding.${MODPY_PYC_MAGIC_TAG}pyc
+share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-bleichenbacher-timing.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-bleichenbacher-workaround.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-certificate-malformed.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-certificate-request.${MODPY_PYC_MAGIC_TAG}pyc
@@ -72,6 +87,7 @@ share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-extended-master-secret-extension-wi
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-extended-master-secret-extension.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-extensions.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-fallback-scsv.${MODPY_PYC_MAGIC_TAG}pyc
+share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-ffdhe-expected-params.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-ffdhe-negotiation.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-fuzzed-MAC.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-fuzzed-ciphertext.${MODPY_PYC_MAGIC_TAG}pyc
@@ -95,6 +111,7 @@ share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-invalid-version.${MODPY_PYC_MAGIC_T
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-large-hello.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-large-number-of-extensions.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-legacy-renegotiation.${MODPY_PYC_MAGIC_TAG}pyc
+share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-lucky13.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-message-duplication.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-message-skipping.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-no-heartbeat.${MODPY_PYC_MAGIC_TAG}pyc
@@ -159,6 +176,7 @@ share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-signature-algorithms.${MODPY_
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-symetric-ciphers.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-unrecognised-groups.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-version-negotiation.${MODPY_PYC_MAGIC_TAG}pyc
+share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-zero-content-type.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-zero-length-data.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-truncating-of-client-hello.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-truncating-of-finished.${MODPY_PYC_MAGIC_TAG}pyc
@@ -173,6 +191,7 @@ share/tlsfuzzer/scripts/test-aes-gcm-nonces.py
 share/tlsfuzzer/scripts/test-aesccm.py
 share/tlsfuzzer/scripts/test-alpn-negotiation.py
 share/tlsfuzzer/scripts/test-atypical-padding.py
+share/tlsfuzzer/scripts/test-bleichenbacher-timing.py
 share/tlsfuzzer/scripts/test-bleichenbacher-workaround.py
 share/tlsfuzzer/scripts/test-certificate-malformed.py
 share/tlsfuzzer/scripts/test-certificate-request.py
@@ -208,6 +227,7 @@ share/tlsfuzzer/scripts/test-extended-master-secret-extension-with-client-cert.p
 share/tlsfuzzer/scripts/test-extended-master-secret-extension.py
 share/tlsfuzzer/scripts/test-extensions.py
 share/tlsfuzzer/scripts/test-fallback-scsv.py
+share/tlsfuzzer/scripts/test-ffdhe-expected-params.py
 share/tlsfuzzer/scripts/test-ffdhe-negotiation.py
 share/tlsfuzzer/scripts/test-fuzzed-MAC.py
 share/tlsfuzzer/scripts/test-fuzzed-ciphertext.py
@@ -231,6 +251,7 @@ share/tlsfuzzer/scripts/test-invalid-version.py
 share/tlsfuzzer/scripts/test-large-hello.py
 share/tlsfuzzer/scripts/test-large-number-of-extensions.py
 share/tlsfuzzer/scripts/test-legacy-renegotiation.py
+share/tlsfuzzer/scripts/test-lucky13.py
 share/tlsfuzzer/scripts/test-message-duplication.py
 share/tlsfuzzer/scripts/test-message-skipping.py
 share/tlsfuzzer/scripts/test-no-heartbeat.py
@@ -295,6 +316,7 @@ share/tlsfuzzer/scripts/test-tls13-signature-algorithms.py
 share/tlsfuzzer/scripts/test-tls13-symetric-ciphers.py
 share/tlsfuzzer/scripts/test-tls13-unrecognised-groups.py
 share/tlsfuzzer/scripts/test-tls13-version-negotiation.py
+share/tlsfuzzer/scripts/test-tls13-zero-content-type.py
 share/tlsfuzzer/scripts/test-tls13-zero-length-data.py
 share/tlsfuzzer/scripts/test-truncating-of-client-hello.py
 share/tlsfuzzer/scripts/test-truncating-of-finished.py

@@ -1,4 +1,9 @@
-$OpenBSD: patch-src_install_c,v 1.2 2019/07/27 09:34:40 ajacoutot Exp $
+$OpenBSD: patch-src_install_c,v 1.4 2020/06/20 11:39:36 ajacoutot Exp $
+
+From 1926ae7021a2f8e842ad566a49f3a947c02cec92 Mon Sep 17 00:00:00 2001
+From: Antoine Jacoutot <ajacoutot@gnome.org>
+Date: Fri, 19 Jun 2020 10:12:04 +0200
+Subject: [PATCH] pledge: add support to remaining utilities
 
 Index: src/install.c
 --- src/install.c.orig
@@ -7,8 +12,8 @@ Index: src/install.c
  
    setlocale (LC_ALL, "");
  
-+#if HAVE_PLEDGE
-+  if (pledge("stdio rpath wpath cpath fattr", NULL) == -1) {
++#ifdef HAVE_PLEDGE
++  if (pledge ("stdio rpath wpath cpath fattr", NULL) == -1) {
 +    g_printerr ("pledge\n");
 +    return 1;
 +  }
@@ -21,11 +26,11 @@ Index: src/install.c
        g_option_group_add_entries (group, install_options);
        g_option_context_add_group (context, group);
      }
-+#if HAVE_PLEDGE
++#ifdef HAVE_PLEDGE
 +  else
 +    {
 +      /* In edit mode we can drop the fattr pledge. */
-+      if (pledge("stdio rpath wpath cpath", NULL) == -1) {
++      if (pledge ("stdio rpath wpath cpath", NULL) == -1) {
 +        g_printerr ("pledge in edit_mode\n");
 +        return 1;
 +      }

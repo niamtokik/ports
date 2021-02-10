@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.1.1.1 2019/07/23 19:22:22 jasper Exp $
+@comment $OpenBSD: PLIST,v 1.3 2021/01/17 19:50:44 jasper Exp $
 lib/python${MODPY_VERSION}/site-packages/archinfo/
 lib/python${MODPY_VERSION}/site-packages/archinfo-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
 lib/python${MODPY_VERSION}/site-packages/archinfo-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/PKG-INFO
@@ -12,6 +12,7 @@ lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch.${MODPY_P
 lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_aarch64.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_amd64.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_arm.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_avr.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_mips32.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_mips64.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/archinfo/${MODPY_PYCACHE}arch_ppc32.${MODPY_PYC_MAGIC_TAG}pyc
@@ -26,6 +27,7 @@ lib/python${MODPY_VERSION}/site-packages/archinfo/arch.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_aarch64.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_amd64.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_arm.py
+lib/python${MODPY_VERSION}/site-packages/archinfo/arch_avr.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_mips32.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_mips64.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_ppc32.py
@@ -35,4 +37,5 @@ lib/python${MODPY_VERSION}/site-packages/archinfo/arch_soot.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/arch_x86.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/archerror.py
 lib/python${MODPY_VERSION}/site-packages/archinfo/defines.py
+lib/python${MODPY_VERSION}/site-packages/archinfo/py.typed
 lib/python${MODPY_VERSION}/site-packages/archinfo/tls.py

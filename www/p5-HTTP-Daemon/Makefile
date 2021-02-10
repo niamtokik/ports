@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.4 2020/01/02 12:30:53 bluhm Exp $
+# $OpenBSD: Makefile,v 1.6 2020/07/03 21:46:02 sthen Exp $
 
 COMMENT =	simple http server class
 
-DISTNAME =	HTTP-Daemon-6.06
+DISTNAME =	HTTP-Daemon-6.12
+REVISION =	0
 
 CATEGORIES =	www
 

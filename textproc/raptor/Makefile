@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.17 2019/07/12 20:50:14 sthen Exp $
+# $OpenBSD: Makefile,v 1.19 2020/11/10 07:43:37 sthen Exp $
 
 
 COMMENT=		RDF Parser Toolkit for Redland
 DISTNAME=		raptor2-2.0.15
 PKGNAME=		${DISTNAME:C/raptor2/raptor/}
 CATEGORIES=		textproc
-REVISION=		2
+REVISION=		4
 
 SHARED_LIBS +=  raptor2              0.0      # 0.0
 

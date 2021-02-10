@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile.inc,v 1.2 2019/07/13 10:59:27 sthen Exp $
+# $OpenBSD: Makefile.inc,v 1.4 2020/11/09 21:48:25 cwen Exp $
 
 V ?=			1.5.0
 DISTNAME ?=		agar-$V
 
 CATEGORIES ?=		x11
 
-HOMEPAGE ?=		http://libagar.org/
+HOMEPAGE ?=		https://libagar.org/
 
 # BSD
 PERMIT_PACKAGE ?=	Yes

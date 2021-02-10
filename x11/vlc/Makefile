@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.241 2020/05/15 06:32:34 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.247 2021/01/23 09:50:09 ajacoutot Exp $
 
 COMMENT-main=	VideoLAN client; multimedia player
 COMMENT-jack=	JACK audio output module for VLC
 
-V=		3.0.10
+V=		3.0.12
 DISTNAME=	vlc-${V}
 PKGNAME-main=	${DISTNAME}
 PKGNAME-jack=	vlc-jack-${V}
@@ -26,18 +26,18 @@ WANTLIB-common=	dbus-1 iconv idn intl m pthread
 WANTLIB-main=	EGL GL ICE Qt5Core Qt5Gui Qt5Svg Qt5Widgets Qt5X11Extras \
 		SDL SDL_image SM X11 X11-xcb Xau Xcomposite Xcursor \
 		Xdamage Xdmcp Xext Xfixes Xi Xinerama Xpm Xrandr Xrender \
-		Xxf86vm aom archive ass atk-1.0 atk-bridge-2.0 avcodec \
-		avformat avutil b2 bluray bz2 c cairo cairo-gobject \
-		cddb charset crypto dav1d dbus-1 double-conversion \
+		Xxf86vm aom archive ass atk-1.0 atk-bridge-2.0 avahi-client \
+		avahi-common avcodec avformat avutil b2 bluray bz2 \
+		c cairo cairo-gobject cddb charset crypto dav1d double-conversion \
 		drm dvbpsi dvdnav dvdread ebml epoxy execinfo expat \
 		ffi fontconfig freetype fribidi gbm gcrypt gdk-3 gdk_pixbuf-2.0 \
 		gio-2.0 glapi glib-2.0 gmodule-2.0 gmp gnutls gobject-2.0 \
 		gpg-error graphite2 gsm gthread-2.0 gtk-3 harfbuzz \
-		hogweed iconv icudata icui18n icuio icuuc idn idn2 \
-		intl jpeg lcms2 lz4 lzma m matroska mp3lame nettle \
-		nfs notify ogg opus p11-kit pango-1.0 pangocairo-1.0 \
-		pangoft2-1.0 pcre pcre2-16 pixman-1 placebo png postproc \
-		rsvg-2 samplerate smb2 sndio speex speexdsp ssl swresample \
+		hogweed icudata icui18n icuio icuuc idn2 jpeg lcms2 \
+		lz4 lzma matroska mp3lame nettle nfs notify ogg opus \
+		p11-kit pango-1.0 pangocairo-1.0 pangoft2-1.0 pcre \
+		pcre2-16 pixman-1 placebo png postproc protobuf-lite \
+		rsvg-2 smb2 sndio soxr speex speexdsp ssl swresample \
 		swscale tag tar tasn1 theoradec theoraenc tiff unistring \
 		usbhid vorbis vorbisenc vpx webp x264 x265 xcb xcb-composite \
 		xcb-dri2 xcb-dri3 xcb-glx xcb-keysyms xcb-present xcb-randr \
@@ -64,7 +64,7 @@ LIB_DEPENDS-main= ${MODQT5_LIB_DEPENDS} \
 		archivers/libarchive \
 		archivers/libtar \
 		audio/libcddb \
-		audio/libsamplerate \
+		audio/libsoxr \
 		audio/libvorbis \
 		audio/opus \
 		audio/speex \
@@ -77,6 +77,7 @@ LIB_DEPENDS-main= ${MODQT5_LIB_DEPENDS} \
 		devel/libnfs \
 		devel/libnotify \
 		devel/libsmb2 \
+		devel/protobuf \
 		devel/sdl \
 		devel/sdl-image \
 		graphics/ffmpeg \
@@ -90,6 +91,7 @@ LIB_DEPENDS-main= ${MODQT5_LIB_DEPENDS} \
 		multimedia/libv4l \
 		multimedia/x264 \
 		multimedia/x265 \
+		net/avahi \
 		security/gnutls \
 		security/libgcrypt \
 		textproc/libebml \
@@ -119,10 +121,8 @@ CONFIGURE_ARGS+=--disable-a52 \
 		--disable-aribb25 \
 		--disable-aribsub \
 		--disable-asdcp \
-		--disable-avahi \
 		--disable-caca \
 		--disable-chromaprint \
-		--disable-chromecast \
 		--disable-crystalhd \
 		--disable-dav1d \
 		--disable-dc1394 \
@@ -156,6 +156,7 @@ CONFIGURE_ARGS+=--disable-a52 \
 		--disable-opencv \
 		--disable-projectm \
 		--disable-pulse \
+		--disable-samplerate \
 		--disable-schroedinger \
 		--disable-secret \
 		--disable-sftp \
@@ -163,7 +164,6 @@ CONFIGURE_ARGS+=--disable-a52 \
 		--disable-shout \
 		--disable-sid \
 		--disable-smbclient \
-		--disable-soxr \
 		--disable-spatialaudio \
 		--disable-srt \
 		--disable-svg \

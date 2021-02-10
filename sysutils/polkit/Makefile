@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.80 2020/01/19 00:58:09 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.83 2020/10/17 08:42:39 ajacoutot Exp $
 
 COMMENT=		framework for granting privileged operations to users
 
-DISTNAME=		polkit-0.116
-REVISION=		1
+DISTNAME=		polkit-0.118
 
 SHARED_LIBS +=  polkit-gobject-1	2.0 # .0.0
 SHARED_LIBS +=  polkit-agent-1		2.0 # .0.0
@@ -17,8 +16,8 @@ MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 # GPLv2+
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} c expat ffi gio-2.0 glib-2.0 gmodule-2.0
-WANTLIB += gobject-2.0 iconv intl m mozjs-60 pcre z
+WANTLIB += ${COMPILER_LIBCXX} c expat gio-2.0 glib-2.0 gmodule-2.0
+WANTLIB += gobject-2.0 intl mozjs-78
 
 MASTER_SITES=		https://www.freedesktop.org/software/polkit/releases/
 
@@ -28,13 +27,18 @@ COMPILER=		base-clang ports-gcc
 MODULES=		lang/python \
 			textproc/intltool
 
+MODPY_BUILDDEP=		No
+MODPY_RUNDEP=		No
+
+USE_GMAKE=		Yes
+
 BUILD_DEPENDS=		devel/gobject-introspection
 
 # man pages
 BUILD_DEPENDS+=		textproc/docbook-xsl
 
 LIB_DEPENDS=		devel/glib2 \
-			devel/spidermonkey60
+			devel/spidermonkey78
 
 # /usr/local/share/dbus-1/system-services/
 RUN_DEPENDS +=		x11/dbus,-suid
@@ -55,9 +59,7 @@ CONFIGURE_ARGS=		--disable-libelogind \
 # fgetgrent, fgetpwent
 CONFIGURE_ARGS +=	--disable-test
 
-MODPY_BUILDDEP=		No
-MODPY_RUNDEP=		No
-USE_GMAKE=		Yes
+DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
 FAKE_FLAGS=		sysconfdir=${PREFIX}/share/examples/polkit
 

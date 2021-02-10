@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.23 2020/03/04 14:33:29 sthen Exp $
+# $OpenBSD: Makefile,v 1.25 2020/10/07 13:32:49 sthen Exp $
 
 COMMENT=	ACME protocol implementation
 

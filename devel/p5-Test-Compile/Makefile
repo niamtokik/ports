@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.3 2019/11/24 14:24:39 cwen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/07/03 21:45:12 sthen Exp $
 
 COMMENT =		check whether Perl files compile correctly
-DISTNAME =		Test-Compile-v2.3.1
+DISTNAME =		Test-Compile-v2.4.0
 PKGNAME =		p5-${DISTNAME:S/v//g}
 CATEGORIES =		devel
+REVISION =		0
 
 MAINTAINER =		Charlene Wendling <cwen@openbsd.org>
 

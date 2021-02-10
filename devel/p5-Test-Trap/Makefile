@@ -1,10 +1,9 @@
-# $OpenBSD: Makefile,v 1.7 2019/07/12 20:45:11 sthen Exp $
+# $OpenBSD: Makefile,v 1.9 2021/01/26 13:51:15 sthen Exp $
 
 COMMENT=		trap exit codes
 
-DISTNAME =		Test-Trap-v0.2.4
+DISTNAME =		Test-Trap-v0.3.4
 PKGNAME=		p5-${DISTNAME:S/v//}
-REVISION =		1
 
 CATEGORIES=		devel
 

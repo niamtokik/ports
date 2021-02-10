@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.4 2019/12/28 18:12:32 jasper Exp $
+# $OpenBSD: Makefile,v 1.8 2021/01/03 12:50:45 jasper Exp $
 
 COMMENT =		extensible memoizing collections and decorators
 
-MODPY_EGG_VERSION =	4.0.0
+MODPY_EGG_VERSION =	4.2.0
 DISTNAME =		cachetools-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
-REVISION =		0
 
 CATEGORIES =		devel
 

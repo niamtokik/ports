@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.1.1.1 2020/02/28 09:18:41 tb Exp $
+@comment $OpenBSD: PLIST,v 1.4 2021/01/23 12:24:04 tb Exp $
 bin/tls.py
 bin/tlsdb.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/
@@ -96,12 +96,15 @@ lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}cryptomat
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}datefuncs.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}deprecations.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}dns_utils.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}dsakey.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}ecc.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}ecdsakey.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}format_output.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}keyfactory.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}lists.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}openssl_aes.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}openssl_aesccm.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}openssl_aesgcm.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}openssl_rc4.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}openssl_rsakey.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}openssl_tripledes.${MODPY_PYC_MAGIC_TAG}pyc
@@ -116,6 +119,7 @@ lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_ae
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_aesccm.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_aesgcm.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_chacha20_poly1305.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_dsakey.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_ecdsakey.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_key.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/${MODPY_PYCACHE}python_rc4.${MODPY_PYC_MAGIC_TAG}pyc
@@ -143,12 +147,15 @@ lib/python${MODPY_VERSION}/site-packages/tlslite/utils/cryptomath.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/datefuncs.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/deprecations.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/dns_utils.py
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/dsakey.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/ecc.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/ecdsakey.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/format_output.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/keyfactory.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/lists.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/openssl_aes.py
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/openssl_aesccm.py
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/openssl_aesgcm.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/openssl_rc4.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/openssl_rsakey.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/openssl_tripledes.py
@@ -163,6 +170,7 @@ lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_aes.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_aesccm.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_aesgcm.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_chacha20_poly1305.py
+lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_dsakey.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_ecdsakey.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_key.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/utils/python_rc4.py
@@ -179,4 +187,4 @@ lib/python${MODPY_VERSION}/site-packages/tlslite/utils/x25519.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/verifierdb.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/x509.py
 lib/python${MODPY_VERSION}/site-packages/tlslite/x509certchain.py
-lib/python${MODPY_VERSION}/site-packages/tlslite_ng-0.8.0_alpha37-py${MODPY_VERSION}.egg-info
+lib/python${MODPY_VERSION}/site-packages/tlslite_ng-0.8.0_alpha40-py${MODPY_VERSION}.egg-info

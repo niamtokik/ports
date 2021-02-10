@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.9 2019/07/12 20:44:48 sthen Exp $
+# $OpenBSD: Makefile,v 1.11 2020/11/06 09:02:33 benoit Exp $
 
 COMMENT =	implement some of Autoconf macros in pure Perl
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	Config-AutoConf-0.317
+DISTNAME =	Config-AutoConf-0.319
 CATEGORIES =	devel
 
 # Perl

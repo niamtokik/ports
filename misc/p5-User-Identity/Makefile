@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.10 2019/07/12 20:47:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.12 2020/11/21 09:31:04 benoit Exp $
 
 COMMENT =		maintains info about a physical person
 
-DISTNAME =		User-Identity-0.97
+DISTNAME =		User-Identity-1.00
 CATEGORIES =		misc
 
 # perl

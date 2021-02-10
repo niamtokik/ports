@@ -1,15 +1,16 @@
-# $OpenBSD: Makefile,v 1.28 2020/01/30 23:19:33 sthen Exp $
+# $OpenBSD: Makefile,v 1.30 2020/07/11 22:54:39 sthen Exp $
 
 COMMENT=	create and manage certificates, CSRs, keys, etc
 
-V=		2.2.1
+V=		2.3.0
 DISTNAME=	xca-$V
 PORTROACH=	skipv:RELEASE.$V
 CATEGORIES=	security x11
+REVISION=	0
 
 HOMEPAGE=	https://hohnstaedt.de/xca/
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # BSD
 PERMIT_PACKAGE=	Yes

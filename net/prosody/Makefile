@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.57 2020/06/02 07:22:46 landry Exp $
+# $OpenBSD: Makefile,v 1.59 2020/10/05 22:09:34 solene Exp $
 
 COMMENT=	communications server for Jabber/XMPP written in Lua
-DISTNAME=	prosody-0.11.5
+DISTNAME=	prosody-0.11.7
 CATEGORIES=	net
 MASTER_SITES=	https://prosody.im/downloads/source/
 
@@ -20,7 +20,10 @@ MODLUA_RUN_DEPENDS+= databases/luadbi \
 		devel/luafs \
 		security/luasec \
 		textproc/luaexpat>=1.3.0
+
+# fails, depends on busted not yet in
 TEST_DEPENDS =	${MODLUA_RUN_DEPENDS}
+
 WANTLIB+=	crypto idn
 
 CONFIGURE_STYLE=simple

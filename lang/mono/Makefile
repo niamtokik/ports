@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.136 2020/04/14 14:43:21 robert Exp $
+# $OpenBSD: Makefile,v 1.142 2020/12/17 15:17:51 robert Exp $
 
 USE_WXNEEDED=	Yes
 
 COMMENT=	cross platform, open source .NET developement framework
 
-V=		6.8.0.105
-REVISION=	1
+V=		6.12.0.107
 
 DISTNAME=	mono-${V}
 
@@ -36,6 +35,7 @@ EXTRACT_SUFX=	.tar.xz
 MODULES=	lang/mono \
 		lang/python
 
+MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 MODMONO_DEPS=	No
 
 USE_GMAKE=	Yes
@@ -60,10 +60,6 @@ AUTOCONF_VERSION=2.69
 AUTOMAKE_VERSION=1.15
 
 CONFIGURE_ENV=	ac_cv_header_execinfo_h=no
-
-.if ${MACHINE_ARCH} == "i386"
-CONFIGURE_ENV+=	CFLAGS="-march=i586"
-.endif
 
 CONFIGURE_ARGS=	--with-gc=included \
 		--with-tls=pthread \

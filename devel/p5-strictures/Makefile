@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.9 2019/07/12 20:45:15 sthen Exp $
+# $OpenBSD: Makefile,v 1.11 2020/11/05 21:15:31 benoit Exp $
 
 FIX_EXTRACT_PERMISSIONS = Yes
 
@@ -6,11 +6,10 @@ COMMENT =	turn on strict and make most warnings fatal
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	strictures-2.000005
+DISTNAME =	strictures-2.000006
 CATEGORIES =	devel
-REVISION =	0
 
-CPAN_AUTHOR =	ETHER
+CPAN_AUTHOR =	HAARG
 
 # Perl
 PERMIT_PACKAGE =	Yes

@@ -1,8 +1,11 @@
-# $OpenBSD: Makefile,v 1.14 2020/05/28 19:42:04 bket Exp $
+# $OpenBSD: Makefile,v 1.23 2021/02/03 15:27:24 bket Exp $
+
+BROKEN-aarch64 =	SIGILL when running rclone
+BROKEN-arm =		SIGBUS when running rclone
 
 COMMENT =	rsync for cloud storage
 
-V =		1.52.0
+V =		1.54.0
 DISTNAME =	rclone-v${V}
 PKGNAME =	rclone-${V}
 
@@ -13,20 +16,26 @@ HOMEPAGE =	https://rclone.org/
 MAINTAINER =	Bjorn Ketelaars <bket@openbsd.org>
 
 # MIT
-PERMIT_PACKAGE = Yes
+PERMIT_PACKAGE =	Yes
 
-WANTLIB += c pthread
+WANTLIB =	c pthread
 
-MASTER_SITES =  https://downloads.rclone.org/v${V}/
+MASTER_SITES =	https://downloads.rclone.org/v${V}/
+DISTFILES =	${DISTNAME}${EXTRACT_SUFX} \
+		${DISTNAME}-vendor${EXTRACT_SUFX}
 
 MODULES =	lang/go
 MODGO_TYPE =	bin
 
 ALL_TARGET =	github.com/rclone/rclone
 
+post-extract:
+	mv ${WRKDIR}/vendor ${WRKDIST}
+
 post-build:
 .for s in bash zsh
-	cd ${MODGO_WORKSPACE}/bin && ./rclone genautocomplete $s rclone.$s
+	cd ${MODGO_WORKSPACE}/bin && \
+		HOME=${WRKSRC} ./rclone genautocomplete $s rclone.$s
 .endfor
 
 do-install:

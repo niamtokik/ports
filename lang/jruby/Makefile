@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.86 2020/03/27 15:04:03 jeremy Exp $
+# $OpenBSD: Makefile,v 1.89 2020/12/12 03:18:01 jeremy Exp $
 
 # Runtime failures on i386 in IO#pos and IO#rewind
 ONLY_FOR_ARCHS = amd64
 
 COMMENT =	pure-Java implementation of the Ruby language
 
-V =		9.2.11.1
+V =		9.2.14.0
 DISTNAME =	jruby-dist-${V}-bin
 PKGNAME =	jruby-${V}
 CATEGORIES =	lang lang/ruby
@@ -38,6 +38,7 @@ RUN_DEPENDS =	java/javaPathHelper
 
 JRUBY_HOME =	${PREFIX}/jruby
 
+MAKE_ENV+=	CXX=${CXX}
 WRKDIST =	${WRKDIR}/jruby-${V}
 JFFI_HOME =	${WRKDIST}/jffi
 JFFI_ARCH =	${MACHINE_ARCH:S/amd64/x86_64/}-OpenBSD

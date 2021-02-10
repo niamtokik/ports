@@ -1,17 +1,16 @@
-# $OpenBSD: Makefile,v 1.3 2019/07/12 20:45:52 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/11/21 14:46:07 benoit Exp $
 
 COMMENT =	a generic plug-in system for python
 
-MODPY_EGG_VERSION =	0.5.3
+MODPY_EGG_VERSION =	0.5.4
 DISTNAME =	plugnplay-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
-REVISION =	0
 
 CATEGORIES =	devel
 
 HOMEPAGE =	https://github.com/daltonmatos/plugnplay
 
-# BSD
+# GPLv2
 PERMIT_PACKAGE =	Yes
 
 MODULES =	lang/python

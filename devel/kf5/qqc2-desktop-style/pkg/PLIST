@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.6 2020/03/23 18:01:12 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.8 2020/11/15 06:48:36 rsadowski Exp $
 lib/cmake/KF5QQC2DeskopStyle/
 lib/cmake/KF5QQC2DeskopStyle/KF5QQC2DeskopStyleConfig.cmake
 lib/cmake/KF5QQC2DeskopStyle/KF5QQC2DeskopStyleConfigVersion.cmake
@@ -48,12 +48,14 @@ lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/TextArea.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/TextField.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/ToolBar.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/ToolButton.qml
+lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/ToolSeparator.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/ToolTip.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/DefaultListItemBackground.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/FocusRect.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/MobileCursor.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/MobileTextActionsToolBar.qml
+lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/TextFieldContextMenu.qml
 lib/qt5/qml/QtQuick/Controls.2/org.kde.desktop/private/qmldir
 lib/qt5/qml/org/kde/qqc2desktopstyle/
 lib/qt5/qml/org/kde/qqc2desktopstyle/private/
