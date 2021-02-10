@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.60 2020/06/24 22:13:11 naddy Exp $
+@comment $OpenBSD: PLIST,v 1.64 2021/02/05 17:08:04 naddy Exp $
 @bin bin/curl
 bin/curl-config
 include/curl/
@@ -7,6 +7,7 @@ include/curl/curlver.h
 include/curl/easy.h
 include/curl/mprintf.h
 include/curl/multi.h
+include/curl/options.h
 include/curl/stdcheaders.h
 include/curl/system.h
 include/curl/typecheck-gcc.h
@@ -30,6 +31,7 @@ lib/pkgconfig/libcurl.pc
 @man man/man3/CURLINFO_CONTENT_LENGTH_UPLOAD_T.3
 @man man/man3/CURLINFO_CONTENT_TYPE.3
 @man man/man3/CURLINFO_COOKIELIST.3
+@man man/man3/CURLINFO_EFFECTIVE_METHOD.3
 @man man/man3/CURLINFO_EFFECTIVE_URL.3
 @man man/man3/CURLINFO_FILETIME.3
 @man man/man3/CURLINFO_FILETIME_T.3
@@ -52,6 +54,7 @@ lib/pkgconfig/libcurl.pc
 @man man/man3/CURLINFO_PRIVATE.3
 @man man/man3/CURLINFO_PROTOCOL.3
 @man man/man3/CURLINFO_PROXYAUTH_AVAIL.3
+@man man/man3/CURLINFO_PROXY_ERROR.3
 @man man/man3/CURLINFO_PROXY_SSL_VERIFYRESULT.3
 @man man/man3/CURLINFO_REDIRECT_COUNT.3
 @man man/man3/CURLINFO_REDIRECT_TIME.3
@@ -105,6 +108,7 @@ lib/pkgconfig/libcurl.pc
 @man man/man3/CURLOPT_ALTSVC_CTRL.3
 @man man/man3/CURLOPT_APPEND.3
 @man man/man3/CURLOPT_AUTOREFERER.3
+@man man/man3/CURLOPT_AWS_SIGV4.3
 @man man/man3/CURLOPT_BUFFERSIZE.3
 @man man/man3/CURLOPT_CAINFO.3
 @man man/man3/CURLOPT_CAPATH.3
@@ -173,6 +177,12 @@ lib/pkgconfig/libcurl.pc
 @man man/man3/CURLOPT_HEADERDATA.3
 @man man/man3/CURLOPT_HEADERFUNCTION.3
 @man man/man3/CURLOPT_HEADEROPT.3
+@man man/man3/CURLOPT_HSTS.3
+@man man/man3/CURLOPT_HSTSREADDATA.3
+@man man/man3/CURLOPT_HSTSREADFUNCTION.3
+@man man/man3/CURLOPT_HSTSWRITEDATA.3
+@man man/man3/CURLOPT_HSTSWRITEFUNCTION.3
+@man man/man3/CURLOPT_HSTS_CTRL.3
 @man man/man3/CURLOPT_HTTP09_ALLOWED.3
 @man man/man3/CURLOPT_HTTP200ALIASES.3
 @man man/man3/CURLOPT_HTTPAUTH.3
@@ -324,6 +334,7 @@ lib/pkgconfig/libcurl.pc
 @man man/man3/CURLOPT_SSL_CIPHER_LIST.3
 @man man/man3/CURLOPT_SSL_CTX_DATA.3
 @man man/man3/CURLOPT_SSL_CTX_FUNCTION.3
+@man man/man3/CURLOPT_SSL_EC_CURVES.3
 @man man/man3/CURLOPT_SSL_ENABLE_ALPN.3
 @man man/man3/CURLOPT_SSL_ENABLE_NPN.3
 @man man/man3/CURLOPT_SSL_FALSESTART.3
@@ -380,6 +391,9 @@ lib/pkgconfig/libcurl.pc
 @man man/man3/curl_easy_escape.3
 @man man/man3/curl_easy_getinfo.3
 @man man/man3/curl_easy_init.3
+@man man/man3/curl_easy_option_by_id.3
+@man man/man3/curl_easy_option_by_name.3
+@man man/man3/curl_easy_option_next.3
 @man man/man3/curl_easy_pause.3
 @man man/man3/curl_easy_perform.3
 @man man/man3/curl_easy_recv.3

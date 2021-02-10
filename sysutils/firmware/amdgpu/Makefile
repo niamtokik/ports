@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.5 2020/07/01 11:06:08 jsg Exp $
+# $OpenBSD: Makefile,v 1.7 2021/01/20 10:06:32 jsg Exp $
 
 FW_DRIVER=	amdgpu
-FW_VER=		20200619
+FW_VER=		20201218
 DISTNAME=	linux-firmware-${FW_VER}
 EXTRACT_SUFX=	.tar.xz
 EXTRACT_FILES=	${DISTNAME}/{LICENSE.\*,\*.bin}

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.59 2020/06/19 04:13:33 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.62 2021/01/27 05:21:23 rsadowski Exp $
 
      SUBDIR =
 
@@ -129,7 +129,6 @@
      SUBDIR += kaddressbook
      SUBDIR += kalarm
      SUBDIR += kdepim-addons
-     SUBDIR += kdepim-apps-libs
      SUBDIR += kdepim-runtime
      SUBDIR += kleopatra
      SUBDIR += kmail
@@ -201,9 +200,7 @@
      #SUBDIR += kaccounts-integration
      #SUBDIR += kaccounts-providers
      SUBDIR += kalarmcal
-     SUBDIR += kblog
      SUBDIR += kcalutils
-     SUBDIR += kdav
      SUBDIR += kdeedu-data
      SUBDIR += kidentitymanagement
      SUBDIR += kimap
@@ -244,5 +241,17 @@
 
      # Former projects under the hat of KDE Applications
      SUBDIR += okteta
+
+     # Gone upstream?
+     #SUBDIR += kdav
+     #SUBDIR += kblog
+     #SUBDIR += kdepim-apps-libs
+
+     # XXX keep in sync
+     # life outside of x11/kde-applications
+     # net/konversation
+     # net/ktorrent
+     # net/libktorrent
+     # x11/yakuake
 
 .include <bsd.port.subdir.mk>

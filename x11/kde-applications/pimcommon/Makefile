@@ -1,29 +1,27 @@
-# $OpenBSD: Makefile,v 1.3 2020/06/27 16:13:25 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2021/01/23 18:10:29 rsadowski Exp $
 
 COMMENT =	common libraries for KDE PIM
 DISTNAME =	pimcommon-${VERSION}
 CATEGORIES =	devel
-REVISION =	0
 
-SHARED_LIBS +=  KF5PimCommon              0.0 # 5.13.3
-SHARED_LIBS +=  KF5PimCommonAkonadi       0.0 # 5.13.3
+SHARED_LIBS +=  KF5PimCommon              2.1 # 5.13.3
+SHARED_LIBS +=  KF5PimCommonAkonadi       3.0 # 5.13.3
 
 WANTLIB += ${COMPILER_LIBCXX} KF5AkonadiContact KF5AkonadiCore
-WANTLIB += KF5AkonadiWidgets KF5Archive KF5Attica KF5Auth KF5AuthCore
-WANTLIB += KF5Codecs KF5Completion KF5ConfigCore KF5ConfigGui
-WANTLIB += KF5ConfigWidgets KF5Contacts KF5CoreAddons KF5DBusAddons
-WANTLIB += KF5I18n KF5IMAP KF5ItemModels KF5JobWidgets KF5KIOCore
-WANTLIB += KF5KIOWidgets KF5Libkdepim KF5LibkdepimAkonadi KF5Mime
-WANTLIB += KF5NewStuff KF5NewStuffCore KF5PimTextEdit KF5Purpose
-WANTLIB += KF5PurposeWidgets KF5Service KF5WidgetsAddons KF5XmlGui
-WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport
-WANTLIB += Qt5Widgets Qt5Xml m
+WANTLIB += KF5AkonadiSearchPIM KF5AkonadiWidgets KF5Archive KF5Attica
+WANTLIB += KF5Auth KF5AuthCore KF5Codecs KF5Completion KF5ConfigCore
+WANTLIB += KF5ConfigGui KF5ConfigWidgets KF5Contacts KF5CoreAddons
+WANTLIB += KF5GrantleeTheme KF5I18n KF5IMAP KF5ItemModels KF5ItemViews
+WANTLIB += KF5JobWidgets KF5KCMUtils KF5KIOCore KF5KIOGui KF5KIOWidgets
+WANTLIB += KF5Ldap KF5Libkdepim KF5Mime KF5NewStuff KF5NewStuffCore
+WANTLIB += KF5PimTextEdit KF5Purpose KF5PurposeWidgets KF5Service
+WANTLIB += KF5WidgetsAddons KF5WindowSystem KF5XmlGui Qt5Concurrent
+WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport Qt5Widgets
+WANTLIB += Qt5Xml m
 
 MODKDE5_TRANSLATIONS = yes
 
 MODKF5_L10N_CONFLICT = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	textproc/libxslt \
 		devel/boost
@@ -36,7 +34,6 @@ LIB_DEPENDS =	devel/kf5/attica \
 		devel/kf5/kconfigwidgets \
 		devel/kf5/kcontacts \
 		devel/kf5/kcoreaddons \
-		devel/kf5/kdbusaddons \
 		devel/kf5/ki18n \
 		devel/kf5/kio \
 		devel/kf5/kitemmodels \
@@ -47,10 +44,13 @@ LIB_DEPENDS =	devel/kf5/attica \
 		devel/kf5/kxmlgui \
 		devel/kf5/purpose \
 		x11/kde-applications/akonadi \
+		x11/kde-applications/akonadi-search \
+		x11/kde-applications/akonadi-contacts \
 		x11/kde-applications/kimap \
 		x11/kde-applications/kmime \
 		x11/kde-applications/kpimtextedit \
-		x11/kde-applications/libkdepim
+		x11/kde-applications/libkdepim \
+		x11/kde-applications/kldap
 
 TEST_IS_INTERACTIVE =	X11
 

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.186 2020/07/16 05:46:38 daniel Exp $
+# $OpenBSD: Makefile,v 1.198 2020/12/06 12:55:48 sthen Exp $
 
      SUBDIR =
      SUBDIR += 4ti2
@@ -27,7 +27,6 @@
      SUBDIR += fftw3
      SUBDIR += fftw3,float
      SUBDIR += foma
-     SUBDIR += freemat
      SUBDIR += galculator
      SUBDIR += gbc
      SUBDIR += geogebra
@@ -99,6 +98,8 @@
      SUBDIR += p5-Math-Int128
      SUBDIR += p5-Math-Int64
      SUBDIR += p5-Math-MatrixReal
+     SUBDIR += p5-Math-Prime-Util
+     SUBDIR += p5-Math-Prime-Util-GMP
      SUBDIR += p5-Math-Random-ISAAC
      SUBDIR += p5-Math-Round
      SUBDIR += p5-Math-Spline
@@ -116,41 +117,33 @@
      SUBDIR += plplot
      SUBDIR += prover9
      SUBDIR += pspp
-     SUBDIR += py-Numeric
      SUBDIR += py-PyWavelets,python3
      SUBDIR += py-affine
      SUBDIR += py-affine,python3
      SUBDIR += py-bottleneck,python3
-     SUBDIR += py-cftime
+     SUBDIR += py-cftime,python3
      SUBDIR += py-cvxopt,python3
      SUBDIR += py-cvxpy,python3
-     SUBDIR += py-ecos
      SUBDIR += py-ecos,python3
      SUBDIR += py-graphviz
      SUBDIR += py-graphviz,python3
      SUBDIR += py-h5py,python3
      SUBDIR += py-mpmath
      SUBDIR += py-mpmath,python3
-     SUBDIR += py-networkx
+     SUBDIR += py-networkx,python3
      SUBDIR += py-netcdf4
-     SUBDIR += py-numexpr
      SUBDIR += py-numexpr,python3
      SUBDIR += py-numpy
      SUBDIR += py-numpy,python3
-     SUBDIR += py-osqp
      SUBDIR += py-osqp,python3
      SUBDIR += py-pandas,python3
-     SUBDIR += py-patsy
      SUBDIR += py-patsy,python3
      SUBDIR += py-scikit-image,python3
      SUBDIR += py-scikit-learn,python3
-     SUBDIR += py-scipy
      SUBDIR += py-scipy,python3
-     SUBDIR += py-scs
      SUBDIR += py-scs,python3
      SUBDIR += py-pysmt
      SUBDIR += py-pysmt,python3
-     SUBDIR += py-snuggs
      SUBDIR += py-snuggs,python3
      SUBDIR += py-statistics
      SUBDIR += py-sympy,python3
@@ -163,6 +156,7 @@
      SUBDIR += suitesparse
      SUBDIR += udunits
      SUBDIR += veusz
+     SUBDIR += visidata
      SUBDIR += wcalc
      SUBDIR += wmcalc
      SUBDIR += wxMaxima

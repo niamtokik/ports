@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.433 2020/07/15 20:42:27 kn Exp $
+# $OpenBSD: Makefile,v 1.447 2021/02/10 01:01:10 kn Exp $
 
      SUBDIR =
      SUBDIR += abcde
@@ -35,7 +35,6 @@
      SUBDIR += dumb
      SUBDIR += easytag
      SUBDIR += espeak
-     SUBDIR += exaile
      SUBDIR += faad
      SUBDIR += faudio
      SUBDIR += fdk-aac
@@ -44,10 +43,8 @@
      SUBDIR += flac123
      SUBDIR += flite
      SUBDIR += fluidsynth
-     SUBDIR += fookebox
      SUBDIR += freealut
      SUBDIR += generaluser-gs-soundfont
-     SUBDIR += gimmix
      SUBDIR += glyr
      SUBDIR += gmpc
      SUBDIR += gmpc-plugins
@@ -112,7 +109,6 @@
      SUBDIR += milkytracker
      SUBDIR += mkplaylist
      SUBDIR += moc
-     SUBDIR += mono-taglib
      SUBDIR += morseplayer
      SUBDIR += mp3applygain
      SUBDIR += mp3blaster
@@ -186,7 +182,6 @@
      SUBDIR += potamus
      SUBDIR += puddletag
      SUBDIR += pulseaudio
-     SUBDIR += py-acoustid
      SUBDIR += py-acoustid,python3
      SUBDIR += py-ao
      SUBDIR += py-audio
@@ -196,20 +191,16 @@
      SUBDIR += py-discid,python3
      SUBDIR += py-discogs-client,python3
      SUBDIR += py-eyed3
+     SUBDIR += py-fsb5
      SUBDIR += py-last
      SUBDIR += py-last,python3
      SUBDIR += py-mpd
-     SUBDIR += py-mpd2
      SUBDIR += py-mpd2,python3
      SUBDIR += py-musicbrainzngs
      SUBDIR += py-musicbrainzngs,python3
      SUBDIR += py-mutagen,python3
-     SUBDIR += py-ogg
-     SUBDIR += py-tagpy
      SUBDIR += py-tagpy,python3
-     SUBDIR += py-vorbis
      SUBDIR += pykaraoke
-     SUBDIR += pympd
      SUBDIR += qsynth
      SUBDIR += quodlibet
      SUBDIR += rgain
@@ -218,8 +209,10 @@
      SUBDIR += rubberband
      SUBDIR += ruby-taglib,ruby26
      SUBDIR += ruby-taglib,ruby27
+     SUBDIR += ruby-taglib,ruby30
      SUBDIR += ruby-vorbis_comment,ruby26
      SUBDIR += ruby-vorbis_comment,ruby27
+     SUBDIR += ruby-vorbis_comment,ruby30
      SUBDIR += schismtracker
      SUBDIR += scmpc
      SUBDIR += shntool
@@ -261,13 +254,11 @@
      SUBDIR += wmtune
      SUBDIR += xcd
      SUBDIR += xcdplayer
-     SUBDIR += xhippo
      SUBDIR += xmcd
      SUBDIR += xmms2
      SUBDIR += xmms2-scrobbler
      SUBDIR += xmp
      SUBDIR += ympd
      SUBDIR += yt-audio
-     SUBDIR += zeya
 
 .include <bsd.port.subdir.mk>

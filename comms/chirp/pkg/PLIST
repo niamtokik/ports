@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.11 2020/06/08 09:07:34 sthen Exp $
+@comment $OpenBSD: PLIST,v 1.13 2020/12/08 16:34:57 tracey Exp $
 bin/chirpw
 bin/rpttool
 lib/python${MODPY_VERSION}/site-packages/chirp/
@@ -40,6 +40,8 @@ lib/python${MODPY_VERSION}/site-packages/chirp/drivers/anytone778uv.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/anytone778uv.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/anytone_ht.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/anytone_ht.pyc
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/anytone_iii.py
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/anytone_iii.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ap510.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ap510.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/baofeng_common.py
@@ -100,6 +102,8 @@ lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ftm3200d.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ftm3200d.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ftm350.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ftm350.pyc
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ftm7250d.py
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ftm7250d.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ga510.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ga510.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/generic_csv.py
@@ -148,6 +152,8 @@ lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ict7h.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ict7h.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ict8.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/ict8.pyc
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/icv86.py
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/icv86.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/icw32.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/icw32.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/icx8x.py
@@ -234,6 +240,8 @@ lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uv3r25.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uv3r25.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uv8000.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uv8000.pyc
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uv88.py
+lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uv88.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uvf8d.py
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/th_uvf8d.pyc
 lib/python${MODPY_VERSION}/site-packages/chirp/drivers/thd72.py

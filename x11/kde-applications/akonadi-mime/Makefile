@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/13 06:16:49 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.4 2021/01/23 18:10:13 rsadowski Exp $
 
 COMMENT =	PIM Akonadi mime support library
 DISTNAME =	akonadi-mime-${VERSION}
 CATEGORIES =	devel productivity
 
-SHARED_LIBS +=  KF5AkonadiMime            0.0 # 5.6
+SHARED_LIBS +=  KF5AkonadiMime            1.1 # 5.6
 
 WANTLIB += ${COMPILER_LIBCXX} KF5AkonadiCore KF5AkonadiPrivate
 WANTLIB += KF5AkonadiWidgets KF5Auth KF5AuthCore KF5Codecs KF5ConfigCore
@@ -14,8 +14,6 @@ WANTLIB += KF5WidgetsAddons KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus
 WANTLIB += Qt5Gui Qt5Network Qt5Test Qt5Widgets Qt5Xml c m
 
 MODKDE5_TRANSLATIONS = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	devel/boost \
 		misc/shared-mime-info \

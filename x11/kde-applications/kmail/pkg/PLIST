@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.1.1.1 2020/06/14 05:08:41 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.4 2021/01/23 18:10:22 rsadowski Exp $
 @conflict kdepimlibs-<=4
 @bin bin/akonadi_archivemail_agent
 @bin bin/akonadi_followupreminder_agent
@@ -9,15 +9,15 @@
 @bin bin/kmail-refresh-settings
 @bin bin/ktnef
 @lib lib/libkmailprivate.so.${LIBkmailprivate_VERSION}
-lib/qt5/plugins/akonadi/config/
 @so lib/qt5/plugins/akonadi/config/archivemailagentconfig.so
 @so lib/qt5/plugins/akonadi/config/followupreminderagentconfig.so
 @so lib/qt5/plugins/kcm_kmail.so
 @so lib/qt5/plugins/kcm_kmailsummary.so
 @so lib/qt5/plugins/kcm_kontactsummary.so
 @so lib/qt5/plugins/kmailpart.so
-@so lib/qt5/plugins/kontact_kmailplugin.so
-@so lib/qt5/plugins/kontact_summaryplugin.so
+lib/qt5/plugins/kontact5/
+@so lib/qt5/plugins/kontact5/kontact_kmailplugin.so
+@so lib/qt5/plugins/kontact5/kontact_summaryplugin.so
 share/akonadi/agents/archivemailagent.desktop
 share/akonadi/agents/followupreminder.desktop
 share/akonadi/agents/mailfilteragent.desktop
@@ -99,17 +99,28 @@ share/doc/HTML/en/akonadi_sendlater_agent/sendlateragent-configure.png
 share/doc/HTML/en/akonadi_sendlater_agent/sendlateragent-dialog.png
 share/doc/HTML/en/kmail2/
 share/doc/HTML/en/kmail2/accountwizard.png
+share/doc/HTML/en/kmail2/accountwizard2.png
+share/doc/HTML/en/kmail2/accountwizard3.png
+share/doc/HTML/en/kmail2/accountwizard4.png
 share/doc/HTML/en/kmail2/aggregationtheme.png
+share/doc/HTML/en/kmail2/composer-window.png
 share/doc/HTML/en/kmail2/configure.docbook
 share/doc/HTML/en/kmail2/configure.png
+share/doc/HTML/en/kmail2/configurebutton.png
 share/doc/HTML/en/kmail2/credits-and-licenses.docbook
+share/doc/HTML/en/kmail2/document-decrypt.png
+share/doc/HTML/en/kmail2/document-edit.png
+share/doc/HTML/en/kmail2/document-import.png
+share/doc/HTML/en/kmail2/document-new.png
+share/doc/HTML/en/kmail2/document-open.png
 share/doc/HTML/en/kmail2/faq.docbook
+share/doc/HTML/en/kmail2/filter-dialog.png
 share/doc/HTML/en/kmail2/folder-example.png
 share/doc/HTML/en/kmail2/folder-properties.png
 share/doc/HTML/en/kmail2/folderarchiveagent.png
 share/doc/HTML/en/kmail2/getting-started.docbook
+share/doc/HTML/en/kmail2/go-down.png
 share/doc/HTML/en/kmail2/identitiesadvanced.png
-share/doc/HTML/en/kmail2/identity.png
 share/doc/HTML/en/kmail2/identitycryptography.png
 share/doc/HTML/en/kmail2/identitygeneral.png
 share/doc/HTML/en/kmail2/identitypicture.png
@@ -120,15 +131,27 @@ share/doc/HTML/en/kmail2/index.docbook
 share/doc/HTML/en/kmail2/intro.docbook
 share/doc/HTML/en/kmail2/kmailwelcome.png
 share/doc/HTML/en/kmail2/layout.png
+share/doc/HTML/en/kmail2/mail-attachment.png
 share/doc/HTML/en/kmail2/mail-mark-important.png
 share/doc/HTML/en/kmail2/mail-mark-read.png
 share/doc/HTML/en/kmail2/mail-mark-task.png
 share/doc/HTML/en/kmail2/mail-mark-unread.png
+share/doc/HTML/en/kmail2/mail-message-new.png
+share/doc/HTML/en/kmail2/mail-queue.png
+share/doc/HTML/en/kmail2/mail-receive.png
+share/doc/HTML/en/kmail2/mail-send.png
 share/doc/HTML/en/kmail2/mail-thread-ignored.png
 share/doc/HTML/en/kmail2/mail-thread-watch.png
 share/doc/HTML/en/kmail2/menus.docbook
 share/doc/HTML/en/kmail2/message.png
 share/doc/HTML/en/kmail2/messagelisttheme.png
+share/doc/HTML/en/kmail2/newidentity.png
+share/doc/HTML/en/kmail2/newidentity2.png
+share/doc/HTML/en/kmail2/preferences-desktop-font.png
+share/doc/HTML/en/kmail2/preview.png
+share/doc/HTML/en/kmail2/receiving.png
+share/doc/HTML/en/kmail2/sending.png
+share/doc/HTML/en/kmail2/sending2.png
 share/doc/HTML/en/kmail2/smile.png
 share/doc/HTML/en/kmail2/troubleshooting.docbook
 share/doc/HTML/en/kmail2/using-kmail.docbook
@@ -411,6 +434,8 @@ share/locale/da/LC_MESSAGES/akonadi_archivemail_agent.mo
 share/locale/da/LC_MESSAGES/akonadi_followupreminder_agent.mo
 share/locale/da/LC_MESSAGES/akonadi_mailfilter_agent.mo
 share/locale/da/LC_MESSAGES/akonadi_sendlater_agent.mo
+share/locale/da/LC_MESSAGES/akonadi_unifiedmailbox_agent.mo
+share/locale/da/LC_MESSAGES/kmail-refresh-settings.mo
 share/locale/da/LC_MESSAGES/kmail.mo
 share/locale/da/LC_MESSAGES/ktnef.mo
 share/locale/de/LC_MESSAGES/akonadi_archivemail_agent.mo
@@ -422,8 +447,11 @@ share/locale/de/LC_MESSAGES/kmail-refresh-settings.mo
 share/locale/de/LC_MESSAGES/kmail.mo
 share/locale/de/LC_MESSAGES/ktnef.mo
 share/locale/el/LC_MESSAGES/akonadi_archivemail_agent.mo
+share/locale/el/LC_MESSAGES/akonadi_followupreminder_agent.mo
 share/locale/el/LC_MESSAGES/akonadi_mailfilter_agent.mo
 share/locale/el/LC_MESSAGES/akonadi_sendlater_agent.mo
+share/locale/el/LC_MESSAGES/akonadi_unifiedmailbox_agent.mo
+share/locale/el/LC_MESSAGES/kmail-refresh-settings.mo
 share/locale/el/LC_MESSAGES/kmail.mo
 share/locale/el/LC_MESSAGES/ktnef.mo
 share/locale/en_GB/LC_MESSAGES/akonadi_archivemail_agent.mo
@@ -447,6 +475,8 @@ share/locale/et/LC_MESSAGES/akonadi_archivemail_agent.mo
 share/locale/et/LC_MESSAGES/akonadi_followupreminder_agent.mo
 share/locale/et/LC_MESSAGES/akonadi_mailfilter_agent.mo
 share/locale/et/LC_MESSAGES/akonadi_sendlater_agent.mo
+share/locale/et/LC_MESSAGES/akonadi_unifiedmailbox_agent.mo
+share/locale/et/LC_MESSAGES/kmail-refresh-settings.mo
 share/locale/et/LC_MESSAGES/kmail.mo
 share/locale/et/LC_MESSAGES/ktnef.mo
 share/locale/eu/LC_MESSAGES/kmail.mo
@@ -534,6 +564,7 @@ share/locale/lt/LC_MESSAGES/akonadi_followupreminder_agent.mo
 share/locale/lt/LC_MESSAGES/akonadi_mailfilter_agent.mo
 share/locale/lt/LC_MESSAGES/akonadi_sendlater_agent.mo
 share/locale/lt/LC_MESSAGES/akonadi_unifiedmailbox_agent.mo
+share/locale/lt/LC_MESSAGES/kmail-refresh-settings.mo
 share/locale/lt/LC_MESSAGES/kmail.mo
 share/locale/lt/LC_MESSAGES/ktnef.mo
 share/locale/lv/LC_MESSAGES/akonadi_archivemail_agent.mo
@@ -614,6 +645,8 @@ share/locale/sl/LC_MESSAGES/akonadi_archivemail_agent.mo
 share/locale/sl/LC_MESSAGES/akonadi_followupreminder_agent.mo
 share/locale/sl/LC_MESSAGES/akonadi_mailfilter_agent.mo
 share/locale/sl/LC_MESSAGES/akonadi_sendlater_agent.mo
+share/locale/sl/LC_MESSAGES/akonadi_unifiedmailbox_agent.mo
+share/locale/sl/LC_MESSAGES/kmail-refresh-settings.mo
 share/locale/sl/LC_MESSAGES/kmail.mo
 share/locale/sl/LC_MESSAGES/ktnef.mo
 share/locale/sr/LC_MESSAGES/akonadi_archivemail_agent.mo
@@ -667,8 +700,6 @@ share/locale/zh_TW/LC_MESSAGES/ktnef.mo
 share/metainfo/org.kde.kmail2.appdata.xml
 share/qlogging-categories5/kmail.categories
 share/qlogging-categories5/kmail.renamecategories
-share/qlogging-categories5/ktnefapps.categories
-share/qlogging-categories5/ktnefapps.renamecategories
 @tag gtk-update-icon-cache %D/share/icons/breeze-dark
 @tag update-desktop-database
 @tag gtk-update-icon-cache %D/share/icons/hicolor

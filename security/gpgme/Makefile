@@ -1,19 +1,18 @@
-# $OpenBSD: Makefile,v 1.56 2019/08/15 18:20:21 phessler Exp $
+# $OpenBSD: Makefile,v 1.59 2021/02/06 18:39:11 sthen Exp $
 
 COMMENT-main =		GnuPG Made Easy
 COMMENT-qt =		Qt bindings for GPGme
 
-VERSION =		1.13.1
+VERSION =		1.15.1
 DISTNAME =		gpgme-${VERSION}
 PKGNAME-main =		gpgme-${VERSION}
 PKGNAME-qt =		gpgme-qt-${VERSION}
-REVISION =		0
 
 CATEGORIES =		security devel
 
-SHARED_LIBS +=  gpgme                22.0     # 33.1
-SHARED_LIBS +=  gpgmepp              0.0      # 16.0
-SHARED_LIBS +=  qgpgme               0.0      # 10.4
+SHARED_LIBS +=  gpgme                22.1     # 35.1
+SHARED_LIBS +=  gpgmepp              0.0      # 18.1
+SHARED_LIBS +=  qgpgme               0.0      # 12.1
 
 HOMEPAGE =		https://www.gnupg.org/software/gpgme/index.html
 
@@ -39,12 +38,8 @@ NOT_FOR_ARCHS-qt =	alpha mips64 sh
 
 CONFIGURE_STYLE =	gnu
 
-# Requires gpgsm (gnupg 2.x) during build, but can run with any gnupg.
-BUILD_DEPENDS =		gnupg->=2:security/gnupg2
-
-# gnupg-* is normally the default anyway, but gnupg1 overrides PKGSPEC
-# so we must be explicit here.
-RUN_DEPENDS =		gnupg-*:security/gnupg
+BUILD_DEPENDS =		security/gnupg>=2.2.23p1
+RUN_DEPENDS =		security/gnupg>=2.2.23p1
 LIB_DEPENDS-main =	${LIB_DEPENDS:N*qt*} \
 			devel/gettext,-runtime \
 			security/libgpg-error>=1.4 \
@@ -69,11 +64,8 @@ CONFIGURE_ARGS +=	--enable-languages=''
 # needed for the regression tests
 USE_GMAKE =		Yes
 
-# The tests target gpg2. Running with gpg version 1 will give:
-# `./t-support.h:160: GPGME: Invalid crypto engine'
-# https://dev.gnupg.org/T3512
-TEST_DEPENDS +=		security/gnupg2
-pre-build:
-	ln -sf ${LOCALBASE}/bin/gpg2 ${WRKDIR}/bin/gpg
+pre-configure:
+	${SUBST_CMD} ${WRKSRC}/lang/cpp/src/GpgmeppConfig.cmake.in.in
+	${SUBST_CMD} ${WRKSRC}/lang/qt/src/QGpgmeConfig.cmake.in.in
 
 .include <bsd.port.mk>

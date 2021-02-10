@@ -1,22 +1,22 @@
-# $OpenBSD: Makefile,v 1.16 2020/03/23 18:01:11 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.21 2021/01/23 18:09:55 rsadowski Exp $
 
 COMMENT =	core components and tools of the Plasma Workspaces
 DISTNAME =	plasma-framework-${VERSION}
 
-SHARED_LIBS =	KF5Plasma		6.0
-SHARED_LIBS +=	KF5PlasmaQuick		6.0
+SHARED_LIBS =	KF5Plasma		9.0
+SHARED_LIBS +=	KF5PlasmaQuick		7.1
 
 WANTLIB += ${COMPILER_LIBCXX} EGL GL ICE KF5Activities KF5Archive
 WANTLIB += KF5Auth KF5AuthCore KF5CalendarEvents KF5Codecs KF5Completion
 WANTLIB += KF5ConfigCore KF5ConfigGui KF5ConfigWidgets KF5CoreAddons
 WANTLIB += KF5Declarative KF5GlobalAccel KF5GuiAddons KF5I18n
-WANTLIB += KF5IconThemes KF5JobWidgets KF5KIOCore KF5KIOWidgets
+WANTLIB += KF5IconThemes KF5JobWidgets KF5KIOCore KF5KIOGui KF5KIOWidgets
 WANTLIB += KF5Notifications KF5Package KF5QuickAddons KF5Service
 WANTLIB += KF5WidgetsAddons KF5WindowSystem KF5XmlGui Qt5Concurrent
-WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5Qml Qt5Quick Qt5Sql
-WANTLIB += Qt5Svg Qt5Widgets Qt5X11Extras Qt5Xml SM X11 Xext c
-WANTLIB += m xcb xcb-composite xcb-damage xcb-render xcb-shape
-WANTLIB += xcb-xfixes
+WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5Qml Qt5QmlModels
+WANTLIB += Qt5Quick Qt5Sql Qt5Svg Qt5Widgets Qt5X11Extras Qt5Xml
+WANTLIB += SM X11 Xext c m xcb xcb-composite xcb-damage xcb-render
+WANTLIB += xcb-shape xcb-xfixes
 
 BUILD_DEPENDS =	archivers/bzip2 \
 		devel/gettext,-tools \

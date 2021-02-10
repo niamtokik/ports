@@ -1,13 +1,17 @@
-# $OpenBSD: Makefile,v 1.289 2020/05/18 17:45:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.294 2021/01/20 14:57:49 sthen Exp $
 
 COMMENT-server=	compact IMAP/POP3 server
 COMMENT-ldap=	LDAP authentication / dictionary support for Dovecot
 COMMENT-mysql=	MySQL authentication / dictionary support for Dovecot
 COMMENT-postgresql= PostgreSQL authentication / dictionary support for Dovecot
 
+# XXX -stable package builds can't detect PKGSPEC updates properly;
+# if backporting an update to stable, ensure all ports depending on
+# this are bumped and that -current is same/newer version than -stable
 V_MAJOR=	2.3
-V_DOVECOT=	2.3.10.1
+V_DOVECOT=	2.3.13
 EPOCH=		0
+REVISION=	0
 
 DISTNAME=	dovecot-${V_DOVECOT}
 PKGNAME=	dovecot-${V_DOVECOT}
@@ -19,15 +23,15 @@ PKGNAME-postgresql= dovecot-postgresql-${V_DOVECOT}
 CATEGORIES=	mail
 MASTER_SITES=	${HOMEPAGE}releases/${V_MAJOR}/
 
-SHARED_LIBS=	dovecot-compression 1.0 \
+SHARED_LIBS=	dovecot-compression 1.1 \
 		dovecot-dsync	1.0 \
 		dovecot-fts	1.0 \
 		dovecot-lda	3.0 \
 		dovecot-ldap    1.0 \
-		dovecot-login	3.0 \
+		dovecot-login	4.0 \
 		dovecot-sql	3.0 \
-		dovecot-storage	3.0 \
-		dovecot		3.0
+		dovecot-storage	4.0 \
+		dovecot		4.0
 
 HOMEPAGE=	https://dovecot.org/
 
@@ -36,14 +40,16 @@ MAINTAINER=	Brad Smith <brad@comstyle.com>
 # LGPLv2.1 and MIT
 PERMIT_PACKAGE=	Yes
 
-WANTLIB-server=	bz2 c crypto expat iconv lz4 lzma m pthread sqlite3 ssl z sodium
+WANTLIB-server=	bz2 c crypto expat iconv lz4 lzma m pthread sodium \
+		sqlite3 ssl z zstd
 WANTLIB-ldap=	crypto iconv lber ldap sasl2 ssl lib/dovecot/dovecot
-WANTLIB-mysql=	crypto iconv m mariadb pthread ssl z
+WANTLIB-mysql=	crypto m mariadb pthread ssl z
 WANTLIB-postgresql= crypto m pq ssl
 
 LIB_DEPENDS+=	archivers/bzip2 \
 		archivers/lz4 \
 		archivers/xz \
+		archivers/zstd \
 		converters/libiconv \
 		databases/sqlite3 \
 		security/libsodium
@@ -78,6 +84,7 @@ FLAVOR+=	no_ldap no_mysql no_postgresql
 
 MULTI_PACKAGES= -server -ldap -mysql -postgresql
 SUBPACKAGE?=	-server
+DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 .include <bsd.port.arch.mk>
 

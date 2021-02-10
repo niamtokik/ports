@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.23 2020/07/21 07:41:51 jasper Exp $
+# $OpenBSD: Makefile,v 1.25 2021/01/15 19:01:31 jasper Exp $
 
 COMMENT =		libre and portable reverse engineering framework
 
-V =			4.5.0
+V =			4.5.1
 SUBST_VARS +=		V
 
 GH_PROJECT =		radare2
@@ -14,6 +14,7 @@ GH_TAGNAME =		${V}
 TREESITTER_COMMIT =	86a5dabb
 MASTER_SITES0 =		https://github.com/tree-sitter/tree-sitter/archive/
 
+MASTER_SITES =		https://distfiles.sigtrap.nl/
 DISTFILES =		${DISTNAME}${EXTRACT_SUFX} \
 			treesitter-{}${TREESITTER_COMMIT}.tar.gz:0
 

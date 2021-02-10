@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.74 2020/06/30 06:08:06 landry Exp $
+# $OpenBSD: Makefile,v 1.76 2020/10/11 16:11:47 landry Exp $
 
      SUBDIR =
      SUBDIR += foxtrotgps
@@ -19,6 +19,7 @@
      SUBDIR += libchamplain
      SUBDIR += libosmium
      SUBDIR += libpostal
+     SUBDIR += librttopo
      SUBDIR += mapcache
      SUBDIR += mapproxy
      SUBDIR += mapserver
@@ -63,7 +64,8 @@
      SUBDIR += py-supermercado,python3
      SUBDIR += pygeoapi
      SUBDIR += qgis
-     SUBDIR += qlandkartegt
+     SUBDIR += qmapshack
+     SUBDIR += routino
      SUBDIR += ruby-findmyiphone
      SUBDIR += spatialindex
      SUBDIR += spatialite

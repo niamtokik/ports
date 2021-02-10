@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.37 2020/07/14 17:52:11 jasper Exp $
+# $OpenBSD: Makefile,v 1.41 2020/11/09 15:17:21 jasper Exp $
 
 COMMENT =		pure python IPMI protocol library
 
-MODPY_EGG_VERSION =	1.5.15
+MODPY_EGG_VERSION =	1.5.19
 DISTNAME =		pyghmi-${MODPY_EGG_VERSION}
 PKGNAME =		${DISTNAME:S/py/${MODPY_PY_PREFIX}/}
 
@@ -20,7 +20,7 @@ MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
 
 FLAVORS =		python3
-FLAVOR ?=		python3
+FLAVOR =		python3
 
 BUILD_DEPENDS =		devel/py-pbr${MODPY_FLAVOR} \
 			security/py-cryptography${MODPY_FLAVOR}

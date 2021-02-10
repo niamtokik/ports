@@ -1,13 +1,14 @@
-# $OpenBSD: Makefile,v 1.11 2020/07/19 13:02:38 thfr Exp $
+# $OpenBSD: Makefile,v 1.17 2020/11/15 22:05:10 gkoehler Exp $
 
 COMMENT =	2D and 3D game engine
 
-V =		3.2.2
+V =		3.2.3
 DISTNAME =	godot-${V}-stable
 PKGNAME =	godot-${V}
+REVISION =	0
 CATEGORIES =	games
 HOMEPAGE =	https://godotengine.org/
-MAINTAINER =	Thomas Frohwein <thfr@openbsd.org>
+MAINTAINER =	Omar Polo <op@omarpolo.com>
 
 # MIT
 PERMIT_PACKAGE =	Yes
@@ -15,19 +16,19 @@ PERMIT_PACKAGE =	Yes
 WANTLIB += ${COMPILER_LIBCXX}
 WANTLIB += GL X11 Xau Xcursor Xdmcp Xext Xfixes Xi Xinerama Xrandr
 WANTLIB += Xrender c enet execinfo freetype intl m mbedtls mbedcrypto
-WANTLIB += mbedx509 mpcdec ogg opus opusfile png theora theoradec
+WANTLIB += mbedx509 mpcdec ogg opus opusfile png sndio theora theoradec
 WANTLIB += vorbis vorbisfile webp xcb z pcre2-32 vpx zstd
 
-COMPILER =		base-clang ports-gcc base-gcc
+# C++14
+COMPILER =	base-clang ports-gcc
 
 MASTER_SITES =	https://downloads.tuxfamily.org/godotengine/${V}/
 EXTRACT_SUFX =	.tar.xz
 
 MODULES =		devel/scons
 # Can't disable builtin_bullet until devel/bullet has been updated to 2.88
-# Building with module_mono_enabled requires msbuild (which we don't have
-# yet) and to fix the sharedlib_ext in modules/mono/config.py to '.so.1.0'
-# Disable pulseaudio which is currently not working
+# Building with module_mono_enabled requires msbuild and to fix the
+# sharedlib_ext in modules/mono/config.py to '.so.1.0'
 MODSCONS_FLAGS =	CC="${CC}" \
 			CXX="${CXX}" \
 			CFLAGS="${CFLAGS}" \
@@ -48,11 +49,13 @@ MODSCONS_FLAGS =	CC="${CC}" \
 			builtin_pcre2=no \
 			builtin_zlib=no \
 			builtin_zstd=no \
-			dev=yes \
 			platform=x11 \
 			progress=no \
 			pulseaudio=no \
-			target=release_debug
+			target=release_debug \
+			verbose=yes \
+			warnings=extra \
+			werror=no
 LIB_DEPENDS =		archivers/zstd \
 			audio/libvorbis \
 			audio/musepack \
@@ -76,10 +79,11 @@ WANTLIB +=     atomic
 
 # Fix relocation overflows
 .if ${MACHINE_ARCH:Mpowerpc}
-CFLAGS +=      -mlongcall
-CXXFLAGS +=    -mlongcall
 LDFLAGS +=     -Wl,--relax
 .endif
+
+post-extract:
+	cp -R ${FILESDIR}/sndio ${WRKDIST}/drivers
 
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/drivers/unix/os_unix.cpp

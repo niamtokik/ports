@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.17 2019/11/20 19:31:11 otto Exp $
+# $OpenBSD: Makefile,v 1.20 2020/10/06 07:08:37 otto Exp $
 
 COMMENT=		highly DNS-, DoS- and abuse-aware loadbalancer
 
-DISTNAME=		dnsdist-1.4.0
+DISTNAME=		dnsdist-1.5.1
 EXTRACT_SUFX=		.tar.bz2
 #REVISION=		0
 
@@ -37,6 +37,7 @@ CONFIGURE_ARGS+=	--without-gnutls \
 			--enable-dnstap \
 			--enable-dns-over-https
 CONFIGURE_ENV+=		CPPFLAGS="-I${LOCALBASE}/include" \
+			CXXFLAGS="-Wno-deprecated-copy" \
 			LDFLAGS="-L${LOCALBASE}/lib" \
 			LIBEDIT_LIBS='-ledit -lcurses' \
 			LIBEDIT_CFLAGS=' '
@@ -53,12 +54,6 @@ LIB_DEPENDS+=		${MODLUA_LIB_DEPENDS} \
 			devel/protobuf \
 			net/libfstrm \
 			www/h2o
-
-.if ${MACHINE_ARCH:Mi386}
-# needs 64-bit atomics
-CFLAGS+=		-march=i586
-CXXFLAGS+=		-march=i586
-.endif
 
 post-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/{doc,examples}/dnsdist

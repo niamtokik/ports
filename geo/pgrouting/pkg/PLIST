@@ -1,10 +1,17 @@
-@comment $OpenBSD: PLIST,v 1.13 2020/07/20 08:36:27 landry Exp $
-@so lib/postgresql/libpgrouting-3.0.so
+@comment $OpenBSD: PLIST,v 1.17 2021/01/25 09:39:22 landry Exp $
+@so lib/postgresql/libpgrouting-3.1.so
 share/postgresql/extension/pgrouting--2.6.0--${V}.sql
 share/postgresql/extension/pgrouting--2.6.1--${V}.sql
 share/postgresql/extension/pgrouting--2.6.2--${V}.sql
 share/postgresql/extension/pgrouting--2.6.3--${V}.sql
 share/postgresql/extension/pgrouting--3.0.0--${V}.sql
 share/postgresql/extension/pgrouting--3.0.1--${V}.sql
+share/postgresql/extension/pgrouting--3.0.2--${V}.sql
+share/postgresql/extension/pgrouting--3.0.3--${V}.sql
+share/postgresql/extension/pgrouting--3.0.4--${V}.sql
+share/postgresql/extension/pgrouting--3.0.5--${V}.sql
+share/postgresql/extension/pgrouting--3.1.0--${V}.sql
+share/postgresql/extension/pgrouting--3.1.1--${V}.sql
+share/postgresql/extension/pgrouting--3.1.2--${V}.sql
 share/postgresql/extension/pgrouting--${V}.sql
 share/postgresql/extension/pgrouting.control

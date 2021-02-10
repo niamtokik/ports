@@ -1,33 +1,30 @@
-# $OpenBSD: Makefile,v 1.30 2020/07/03 21:13:01 sthen Exp $
+# $OpenBSD: Makefile,v 1.33 2021/01/16 22:36:17 sthen Exp $
 
 COMMENT=		DNS toolkit for Python
 
-MODPY_EGG_VERSION=	1.16.0
-REVISION=		3
+# see net/py2-dnspython for py2 version
+MODPY_EGG_VERSION=	2.1.0
 DISTNAME=		dnspython-${MODPY_EGG_VERSION}
+EXTRACT_SUFX=		.zip
+MASTER_SITES=		${HOMEPAGE}kits/${MODPY_EGG_VERSION}/
 PKGNAME=		py-${DISTNAME}
 CATEGORIES=		net
 
-HOMEPAGE=		http://www.dnspython.org/
+HOMEPAGE=		https://www.dnspython.org/
 
 # BSD
 PERMIT_PACKAGE=		Yes
 
-MASTER_SITES=		${HOMEPAGE}kits/${MODPY_EGG_VERSION}/
-
 FLAVORS=		python3
-FLAVOR?=
+FLAVOR=			python3
 
 MODULES=		lang/python
+MODPY_PI=		Yes
 MODPY_SETUPTOOLS=	Yes
 MODPY_ADJ_FILES=	examples/*.py
 MODPY_PYTEST=		Yes
 
 TEST_DEPENDS=		security/py-ecdsa${MODPY_FLAVOR}
-
-.if !${FLAVOR:Mpython3}
-TEST_DEPENDS+=		devel/py-typing
-.endif
 
 TEST_ENV+=		PYTHONPATH="${WRKSRC}"
 

@@ -1,30 +1,24 @@
-# $OpenBSD: Makefile,v 1.18 2020/07/11 22:54:38 sthen Exp $
+# $OpenBSD: Makefile,v 1.20 2021/02/01 20:22:29 sthen Exp $
 
 COMMENT =	SIP swiss army knife
 
-DISTNAME =	sipsak-0.9.6-1
-REVISION =	1
+V =		0.9.8.1
+DISTNAME =	sipsak-$V
 CATEGORIES =	net
 
-PKGNAME =	${DISTNAME:S/-1//}
-WRKDIST =	${WRKDIR}/${DISTNAME:S/-1//}
-
-HOMEPAGE =	http://sipsak.org/
-
-MAINTAINER =	Stuart Henderson <stu.ports@spacehopper.org>
-
-LIB_DEPENDS =	net/libcares
+HOMEPAGE =	https://github.com/nils-ohlmeier/sipsak
 
 # GPLv2+
 PERMIT_PACKAGE =	Yes
 
-WANTLIB =		c crypto cares
+WANTLIB += c cares gnutls
 
-MASTER_SITES =		${MASTER_SITE_SOURCEFORGE:=sipsak.berlios/}
+MASTER_SITES =		https://github.com/nils-ohlmeier/sipsak/releases/download/$V/
 
 CONFIGURE_STYLE =	gnu
+CONFIGURE_ARGS =	LDFLAGS="-L${LOCALBASE}/lib"
 
-CONFIGURE_ARGS =	--disable-gnutls \
-			LDFLAGS="-L${LOCALBASE}/lib"
+LIB_DEPENDS =	net/libcares \
+		security/gnutls
 
 .include <bsd.port.mk>

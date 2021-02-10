@@ -1,10 +1,8 @@
-# $OpenBSD: Makefile.inc,v 1.5 2020/07/01 07:52:58 fcambus Exp $
+# $OpenBSD: Makefile.inc,v 1.13 2021/02/01 13:44:58 fcambus Exp $
 
-V =		2020-07
+V =		2021-02
 
 CATEGORIES =	net
-
-MAINTAINER =	Frederic Cambus <fcambus@openbsd.org>
 
 HOMEPAGE =	https://db-ip.com/db/lite.php
 

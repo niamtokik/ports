@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.21 2020/05/15 06:34:13 ajacoutot Exp $
+@comment $OpenBSD: PLIST,v 1.25 2021/01/17 15:47:40 sthen Exp $
 @conflict bnc-*
 @conflict irc-*
 @conflict ircd-ratbox-*
@@ -68,8 +68,12 @@ lib/ircd-hybrid/modules/autoload/m_lusers.la
 @so lib/ircd-hybrid/modules/autoload/m_lusers.so
 lib/ircd-hybrid/modules/autoload/m_map.la
 @so lib/ircd-hybrid/modules/autoload/m_map.so
+lib/ircd-hybrid/modules/autoload/m_metadata.la
+@so lib/ircd-hybrid/modules/autoload/m_metadata.so
 lib/ircd-hybrid/modules/autoload/m_module.la
 @so lib/ircd-hybrid/modules/autoload/m_module.so
+lib/ircd-hybrid/modules/autoload/m_monitor.la
+@so lib/ircd-hybrid/modules/autoload/m_monitor.so
 lib/ircd-hybrid/modules/autoload/m_motd.la
 @so lib/ircd-hybrid/modules/autoload/m_motd.so
 lib/ircd-hybrid/modules/autoload/m_names.la
@@ -96,6 +100,8 @@ lib/ircd-hybrid/modules/autoload/m_stats.la
 @so lib/ircd-hybrid/modules/autoload/m_stats.so
 lib/ircd-hybrid/modules/autoload/m_svinfo.la
 @so lib/ircd-hybrid/modules/autoload/m_svinfo.so
+lib/ircd-hybrid/modules/autoload/m_svsaccount.la
+@so lib/ircd-hybrid/modules/autoload/m_svsaccount.so
 lib/ircd-hybrid/modules/autoload/m_svshost.la
 @so lib/ircd-hybrid/modules/autoload/m_svshost.so
 lib/ircd-hybrid/modules/autoload/m_svsjoin.la
@@ -134,8 +140,6 @@ lib/ircd-hybrid/modules/autoload/m_version.la
 @so lib/ircd-hybrid/modules/autoload/m_version.so
 lib/ircd-hybrid/modules/autoload/m_wallops.la
 @so lib/ircd-hybrid/modules/autoload/m_wallops.so
-lib/ircd-hybrid/modules/autoload/m_watch.la
-@so lib/ircd-hybrid/modules/autoload/m_watch.so
 lib/ircd-hybrid/modules/autoload/m_webirc.la
 @so lib/ircd-hybrid/modules/autoload/m_webirc.so
 lib/ircd-hybrid/modules/autoload/m_who.la
@@ -225,6 +229,7 @@ share/ircd-hybrid/help/locops
 share/ircd-hybrid/help/lusers
 share/ircd-hybrid/help/map
 share/ircd-hybrid/help/module
+share/ircd-hybrid/help/monitor
 share/ircd-hybrid/help/motd
 share/ircd-hybrid/help/names
 share/ircd-hybrid/help/nick

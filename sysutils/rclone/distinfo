@@ -1,2 +1,4 @@
-SHA256 (rclone-v1.52.2.tar.gz) = 2HUc/r3ak+f7YVu75E5287Awyoecx68aki0sjFfTHvg=
-SIZE (rclone-v1.52.2.tar.gz) = 19425937
+SHA256 (rclone-v1.54.0-vendor.tar.gz) = s8ftiw5U4vkzYZRimSANH92UtljnQQtduj++uQ3OQUM=
+SHA256 (rclone-v1.54.0.tar.gz) = lflS3AWbhCvUAzhFi3dlf3taFoDEyoN6Otz4O2PI/aE=
+SIZE (rclone-v1.54.0-vendor.tar.gz) = 6884873
+SIZE (rclone-v1.54.0.tar.gz) = 14905375

@@ -1,9 +1,9 @@
-$OpenBSD: patch-lib_isc_unix_socket_c,v 1.21 2020/06/17 20:46:54 sthen Exp $
+$OpenBSD: patch-lib_isc_unix_socket_c,v 1.25 2021/01/21 13:38:54 sthen Exp $
 
 Index: lib/isc/unix/socket.c
 --- lib/isc/unix/socket.c.orig
 +++ lib/isc/unix/socket.c
-@@ -2394,6 +2394,7 @@ again:
+@@ -2409,6 +2409,7 @@ again:
  		}
  #endif /* if defined(SO_SNDBUF) */
  	}
@@ -11,7 +11,7 @@ Index: lib/isc/unix/socket.c
  #ifdef IPV6_RECVTCLASS
  	if ((sock->pf == AF_INET6) &&
  	    (setsockopt(sock->fd, IPPROTO_IPV6, IPV6_RECVTCLASS, (void *)&on,
-@@ -2418,6 +2419,7 @@ again:
+@@ -2433,6 +2434,7 @@ again:
  				 sock->fd, strbuf);
  	}
  #endif /* ifdef IP_RECVTOS */

@@ -1,17 +1,17 @@
-# $OpenBSD: Makefile,v 1.85 2020/06/16 07:37:20 kirby Exp $
+# $OpenBSD: Makefile,v 1.88 2021/02/08 03:42:13 kirby Exp $
 
 PORTROACH = 	limitw:1,even
 
 BROKEN-hppa =		missing atomic ops
 COMMENT=	fantasy turn-based strategy game
 
-DISTNAME=	wesnoth-1.14.13
+DISTNAME=	wesnoth-1.14.15
 
 CATEGORIES=	games x11
 
 MAINTAINER=	Kirill Bychkov <kirby@openbsd.org>
 
-HOMEPAGE=	http://www.wesnoth.org/
+HOMEPAGE=	https://www.wesnoth.org/
 
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=wesnoth/}
 EXTRACT_SUFX=	.tar.bz2

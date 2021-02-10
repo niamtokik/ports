@@ -1,7 +1,10 @@
-@comment $OpenBSD: PLIST,v 1.21 2020/05/22 04:52:48 bket Exp $
+@comment $OpenBSD: PLIST,v 1.24 2021/01/05 18:29:19 bket Exp $
 @bin bin/filezilla
 @bin bin/fzputtygen
 @bin bin/fzsftp
+@static-lib lib/libfzclient-private.a
+lib/libfzclient-private.la
+@lib lib/libfzclient-private.so.${LIBfzclient-private_VERSION}
 @man man/man1/filezilla.1
 @man man/man1/fzputtygen.1
 @man man/man1/fzsftp.1
@@ -728,8 +731,6 @@ share/filezilla/resources/tango/theme.xml
 share/filezilla/resources/xrc/
 share/filezilla/resources/xrc/dialogs.xrc
 share/filezilla/resources/xrc/netconfwizard.xrc
-share/filezilla/resources/xrc/settings.xrc
-share/filezilla/resources/xrc/storj.xrc
 share/icons/hicolor/16x16/apps/filezilla.png
 share/icons/hicolor/32x32/apps/filezilla.png
 share/icons/hicolor/480x480/

@@ -1,6 +1,7 @@
-@comment $OpenBSD: PLIST-main,v 1.6 2017/07/03 22:14:20 sthen Exp $
+@comment $OpenBSD: PLIST-main,v 1.8 2021/02/06 21:32:06 sthen Exp $
 @newgroup _kamailio:628
 @newuser _kamailio:628:628:daemon:Kamailio:/nonexistent:/sbin/nologin
+@rcscript ${RCDIR}/kamailio
 lib/kamailio/
 lib/kamailio/kamctl/
 lib/kamailio/kamctl/dbtextdb/
@@ -15,136 +16,149 @@ lib/kamailio/kamctl/kamdbctl.base
 lib/kamailio/kamctl/kamdbctl.dbtext
 @lib lib/kamailio/libsrdb1.so.${LIBsrdb1_VERSION}
 @lib lib/kamailio/libsrdb2.so.${LIBsrdb2_VERSION}
-@lib lib/kamailio/libsrutils.so.${LIBsrutils_VERSION}
 @lib lib/kamailio/libtrie.so.${LIBtrie_VERSION}
 lib/kamailio/modules/
-lib/kamailio/modules/acc.so
-lib/kamailio/modules/alias_db.so
-lib/kamailio/modules/app_jsdt.so
-lib/kamailio/modules/async.so
-lib/kamailio/modules/auth.so
-lib/kamailio/modules/auth_db.so
-lib/kamailio/modules/auth_diameter.so
-lib/kamailio/modules/auth_identity.so
-lib/kamailio/modules/auth_xkeys.so
-lib/kamailio/modules/avp.so
-lib/kamailio/modules/avpops.so
-lib/kamailio/modules/benchmark.so
-lib/kamailio/modules/blst.so
-lib/kamailio/modules/call_control.so
-lib/kamailio/modules/cfg_db.so
-lib/kamailio/modules/cfg_rpc.so
-lib/kamailio/modules/cfgt.so
-lib/kamailio/modules/cfgutils.so
-lib/kamailio/modules/corex.so
-lib/kamailio/modules/counters.so
-lib/kamailio/modules/cplc.so
-lib/kamailio/modules/crypto.so
-lib/kamailio/modules/ctl.so
-lib/kamailio/modules/db2_ops.so
-lib/kamailio/modules/db_cluster.so
-lib/kamailio/modules/db_flatstore.so
-lib/kamailio/modules/db_text.so
-lib/kamailio/modules/debugger.so
-lib/kamailio/modules/dialog.so
-lib/kamailio/modules/dialplan.so
-lib/kamailio/modules/dispatcher.so
-lib/kamailio/modules/diversion.so
-lib/kamailio/modules/dmq.so
-lib/kamailio/modules/dmq_usrloc.so
-lib/kamailio/modules/domain.so
-lib/kamailio/modules/domainpolicy.so
-lib/kamailio/modules/drouting.so
-lib/kamailio/modules/enum.so
-lib/kamailio/modules/exec.so
-lib/kamailio/modules/group.so
-lib/kamailio/modules/htable.so
-lib/kamailio/modules/http_async_client.so
-lib/kamailio/modules/http_client.so
-lib/kamailio/modules/imc.so
-lib/kamailio/modules/ipops.so
-lib/kamailio/modules/jsonrpcs.so
-lib/kamailio/modules/kex.so
-lib/kamailio/modules/lcr.so
-lib/kamailio/modules/log_custom.so
-lib/kamailio/modules/mangler.so
-lib/kamailio/modules/matrix.so
-lib/kamailio/modules/maxfwd.so
-lib/kamailio/modules/mediaproxy.so
-lib/kamailio/modules/mohqueue.so
-lib/kamailio/modules/mqueue.so
-lib/kamailio/modules/msilo.so
-lib/kamailio/modules/msrp.so
-lib/kamailio/modules/mtree.so
-lib/kamailio/modules/nat_traversal.so
-lib/kamailio/modules/nathelper.so
-lib/kamailio/modules/nosip.so
-lib/kamailio/modules/outbound.so
-lib/kamailio/modules/p_usrloc.so
-lib/kamailio/modules/path.so
-lib/kamailio/modules/pdb.so
-lib/kamailio/modules/pdt.so
-lib/kamailio/modules/permissions.so
-lib/kamailio/modules/pike.so
-lib/kamailio/modules/pipelimit.so
-lib/kamailio/modules/prefix_route.so
-lib/kamailio/modules/pv.so
-lib/kamailio/modules/qos.so
-lib/kamailio/modules/ratelimit.so
-lib/kamailio/modules/regex.so
-lib/kamailio/modules/registrar.so
-lib/kamailio/modules/rr.so
-lib/kamailio/modules/rtimer.so
-lib/kamailio/modules/rtjson.so
-lib/kamailio/modules/rtpengine.so
-lib/kamailio/modules/rtpproxy.so
-lib/kamailio/modules/sanity.so
-lib/kamailio/modules/sca.so
-lib/kamailio/modules/sdpops.so
-lib/kamailio/modules/seas.so
-lib/kamailio/modules/sipcapture.so
-lib/kamailio/modules/sipt.so
-lib/kamailio/modules/siptrace.so
-lib/kamailio/modules/siputils.so
-lib/kamailio/modules/sl.so
-lib/kamailio/modules/sms.so
-lib/kamailio/modules/smsops.so
-lib/kamailio/modules/speeddial.so
-lib/kamailio/modules/sqlops.so
-lib/kamailio/modules/ss7ops.so
-lib/kamailio/modules/sst.so
-lib/kamailio/modules/statistics.so
-lib/kamailio/modules/statsc.so
-lib/kamailio/modules/statsd.so
-lib/kamailio/modules/stun.so
-lib/kamailio/modules/tcpops.so
-lib/kamailio/modules/textops.so
-lib/kamailio/modules/textopsx.so
-lib/kamailio/modules/timer.so
-lib/kamailio/modules/tls.so
-lib/kamailio/modules/tm.so
-lib/kamailio/modules/tmrec.so
-lib/kamailio/modules/tmx.so
-lib/kamailio/modules/topoh.so
-lib/kamailio/modules/topos.so
-lib/kamailio/modules/tsilo.so
-lib/kamailio/modules/uac.so
-lib/kamailio/modules/uac_redirect.so
-lib/kamailio/modules/uid_auth_db.so
-lib/kamailio/modules/uid_avp_db.so
-lib/kamailio/modules/uid_domain.so
-lib/kamailio/modules/uid_gflags.so
-lib/kamailio/modules/uid_uri_db.so
-lib/kamailio/modules/uri_db.so
-lib/kamailio/modules/userblacklist.so
-lib/kamailio/modules/usrloc.so
-lib/kamailio/modules/utils.so
-lib/kamailio/modules/websocket.so
-lib/kamailio/modules/xhttp.so
-lib/kamailio/modules/xhttp_rpc.so
-lib/kamailio/modules/xlog.so
-lib/kamailio/modules/xmpp.so
-lib/kamailio/modules/xprint.so
+@so lib/kamailio/modules/acc.so
+@so lib/kamailio/modules/acc_diameter.so
+@so lib/kamailio/modules/alias_db.so
+@so lib/kamailio/modules/app_jsdt.so
+@so lib/kamailio/modules/app_sqlang.so
+@so lib/kamailio/modules/async.so
+@so lib/kamailio/modules/auth.so
+@so lib/kamailio/modules/auth_db.so
+@so lib/kamailio/modules/auth_diameter.so
+@so lib/kamailio/modules/auth_identity.so
+@so lib/kamailio/modules/auth_xkeys.so
+@so lib/kamailio/modules/avp.so
+@so lib/kamailio/modules/avpops.so
+@so lib/kamailio/modules/benchmark.so
+@so lib/kamailio/modules/blst.so
+@so lib/kamailio/modules/call_control.so
+@so lib/kamailio/modules/call_obj.so
+@so lib/kamailio/modules/cfg_db.so
+@so lib/kamailio/modules/cfg_rpc.so
+@so lib/kamailio/modules/cfgt.so
+@so lib/kamailio/modules/cfgutils.so
+@so lib/kamailio/modules/corex.so
+@so lib/kamailio/modules/counters.so
+@so lib/kamailio/modules/cplc.so
+@so lib/kamailio/modules/crypto.so
+@so lib/kamailio/modules/ctl.so
+@so lib/kamailio/modules/db2_ops.so
+@so lib/kamailio/modules/db_cluster.so
+@so lib/kamailio/modules/db_flatstore.so
+@so lib/kamailio/modules/db_text.so
+@so lib/kamailio/modules/debugger.so
+@so lib/kamailio/modules/dialog.so
+@so lib/kamailio/modules/dialplan.so
+@so lib/kamailio/modules/dispatcher.so
+@so lib/kamailio/modules/diversion.so
+@so lib/kamailio/modules/dmq.so
+@so lib/kamailio/modules/dmq_usrloc.so
+@so lib/kamailio/modules/domain.so
+@so lib/kamailio/modules/domainpolicy.so
+@so lib/kamailio/modules/drouting.so
+@so lib/kamailio/modules/enum.so
+@so lib/kamailio/modules/evrexec.so
+@so lib/kamailio/modules/exec.so
+@so lib/kamailio/modules/group.so
+@so lib/kamailio/modules/htable.so
+@so lib/kamailio/modules/http_async_client.so
+@so lib/kamailio/modules/http_client.so
+@so lib/kamailio/modules/imc.so
+@so lib/kamailio/modules/ipops.so
+@so lib/kamailio/modules/jsonrpcs.so
+@so lib/kamailio/modules/keepalive.so
+@so lib/kamailio/modules/kemix.so
+@so lib/kamailio/modules/kex.so
+@so lib/kamailio/modules/lcr.so
+@so lib/kamailio/modules/log_custom.so
+@so lib/kamailio/modules/lost.so
+@so lib/kamailio/modules/mangler.so
+@so lib/kamailio/modules/matrix.so
+@so lib/kamailio/modules/maxfwd.so
+@so lib/kamailio/modules/mediaproxy.so
+@so lib/kamailio/modules/mohqueue.so
+@so lib/kamailio/modules/mqueue.so
+@so lib/kamailio/modules/msilo.so
+@so lib/kamailio/modules/msrp.so
+@so lib/kamailio/modules/mtree.so
+@so lib/kamailio/modules/nat_traversal.so
+@so lib/kamailio/modules/nathelper.so
+@so lib/kamailio/modules/nosip.so
+@so lib/kamailio/modules/outbound.so
+@so lib/kamailio/modules/p_usrloc.so
+@so lib/kamailio/modules/path.so
+@so lib/kamailio/modules/pdb.so
+@so lib/kamailio/modules/pdt.so
+@so lib/kamailio/modules/permissions.so
+@so lib/kamailio/modules/pike.so
+@so lib/kamailio/modules/pipelimit.so
+@so lib/kamailio/modules/prefix_route.so
+@so lib/kamailio/modules/pv.so
+@so lib/kamailio/modules/pv_headers.so
+@so lib/kamailio/modules/qos.so
+@so lib/kamailio/modules/ratelimit.so
+@so lib/kamailio/modules/regex.so
+@so lib/kamailio/modules/registrar.so
+@so lib/kamailio/modules/rr.so
+@so lib/kamailio/modules/rtimer.so
+@so lib/kamailio/modules/rtjson.so
+@so lib/kamailio/modules/rtpengine.so
+@so lib/kamailio/modules/rtpproxy.so
+@so lib/kamailio/modules/sanity.so
+@so lib/kamailio/modules/sca.so
+@so lib/kamailio/modules/sdpops.so
+@so lib/kamailio/modules/seas.so
+@so lib/kamailio/modules/secfilter.so
+@so lib/kamailio/modules/sipcapture.so
+@so lib/kamailio/modules/sipdump.so
+@so lib/kamailio/modules/sipjson.so
+@so lib/kamailio/modules/sipt.so
+@so lib/kamailio/modules/siptrace.so
+@so lib/kamailio/modules/siputils.so
+@so lib/kamailio/modules/sl.so
+@so lib/kamailio/modules/sms.so
+@so lib/kamailio/modules/smsops.so
+@so lib/kamailio/modules/speeddial.so
+@so lib/kamailio/modules/sqlops.so
+@so lib/kamailio/modules/ss7ops.so
+@so lib/kamailio/modules/sst.so
+@so lib/kamailio/modules/statistics.so
+@so lib/kamailio/modules/statsc.so
+@so lib/kamailio/modules/statsd.so
+@so lib/kamailio/modules/stun.so
+@so lib/kamailio/modules/tcpops.so
+@so lib/kamailio/modules/textops.so
+@so lib/kamailio/modules/textopsx.so
+@so lib/kamailio/modules/timer.so
+@so lib/kamailio/modules/tls.so
+@so lib/kamailio/modules/tm.so
+@so lib/kamailio/modules/tmrec.so
+@so lib/kamailio/modules/tmx.so
+@so lib/kamailio/modules/topoh.so
+@so lib/kamailio/modules/topos.so
+@so lib/kamailio/modules/tsilo.so
+@so lib/kamailio/modules/uac.so
+@so lib/kamailio/modules/uac_redirect.so
+@so lib/kamailio/modules/uid_auth_db.so
+@so lib/kamailio/modules/uid_avp_db.so
+@so lib/kamailio/modules/uid_domain.so
+@so lib/kamailio/modules/uid_gflags.so
+@so lib/kamailio/modules/uid_uri_db.so
+@so lib/kamailio/modules/uri_db.so
+@so lib/kamailio/modules/userblacklist.so
+@so lib/kamailio/modules/usrloc.so
+@so lib/kamailio/modules/utils.so
+@so lib/kamailio/modules/websocket.so
+@so lib/kamailio/modules/xhttp.so
+@so lib/kamailio/modules/xhttp_prom.so
+@so lib/kamailio/modules/xhttp_rpc.so
+@so lib/kamailio/modules/xlog.so
+@so lib/kamailio/modules/xmpp.so
+@so lib/kamailio/modules/xprint.so
+lib/kamailio/openssl_mutex_shared/
+@so lib/kamailio/openssl_mutex_shared/openssl_mutex_shared.so
 @man man/man5/kamailio.cfg.5
 @man man/man8/kamailio.8
 @man man/man8/kamcmd.8
@@ -159,8 +173,10 @@ share/doc/kamailio/INSTALL
 share/doc/kamailio/README
 share/doc/kamailio/modules/
 share/doc/kamailio/modules/README.acc
+share/doc/kamailio/modules/README.acc_diameter
 share/doc/kamailio/modules/README.alias_db
 share/doc/kamailio/modules/README.app_jsdt
+share/doc/kamailio/modules/README.app_sqlang
 share/doc/kamailio/modules/README.async
 share/doc/kamailio/modules/README.auth
 share/doc/kamailio/modules/README.auth_db
@@ -172,6 +188,7 @@ share/doc/kamailio/modules/README.avpops
 share/doc/kamailio/modules/README.benchmark
 share/doc/kamailio/modules/README.blst
 share/doc/kamailio/modules/README.call_control
+share/doc/kamailio/modules/README.call_obj
 share/doc/kamailio/modules/README.cfg_db
 share/doc/kamailio/modules/README.cfg_rpc
 share/doc/kamailio/modules/README.cfgt
@@ -196,6 +213,7 @@ share/doc/kamailio/modules/README.domain
 share/doc/kamailio/modules/README.domainpolicy
 share/doc/kamailio/modules/README.drouting
 share/doc/kamailio/modules/README.enum
+share/doc/kamailio/modules/README.evrexec
 share/doc/kamailio/modules/README.exec
 share/doc/kamailio/modules/README.group
 share/doc/kamailio/modules/README.htable
@@ -204,9 +222,12 @@ share/doc/kamailio/modules/README.http_client
 share/doc/kamailio/modules/README.imc
 share/doc/kamailio/modules/README.ipops
 share/doc/kamailio/modules/README.jsonrpcs
+share/doc/kamailio/modules/README.keepalive
+share/doc/kamailio/modules/README.kemix
 share/doc/kamailio/modules/README.kex
 share/doc/kamailio/modules/README.lcr
 share/doc/kamailio/modules/README.log_custom
+share/doc/kamailio/modules/README.lost
 share/doc/kamailio/modules/README.mangler
 share/doc/kamailio/modules/README.matrix
 share/doc/kamailio/modules/README.maxfwd
@@ -229,6 +250,7 @@ share/doc/kamailio/modules/README.pike
 share/doc/kamailio/modules/README.pipelimit
 share/doc/kamailio/modules/README.prefix_route
 share/doc/kamailio/modules/README.pv
+share/doc/kamailio/modules/README.pv_headers
 share/doc/kamailio/modules/README.qos
 share/doc/kamailio/modules/README.ratelimit
 share/doc/kamailio/modules/README.regex
@@ -242,7 +264,10 @@ share/doc/kamailio/modules/README.sanity
 share/doc/kamailio/modules/README.sca
 share/doc/kamailio/modules/README.sdpops
 share/doc/kamailio/modules/README.seas
+share/doc/kamailio/modules/README.secfilter
 share/doc/kamailio/modules/README.sipcapture
+share/doc/kamailio/modules/README.sipdump
+share/doc/kamailio/modules/README.sipjson
 share/doc/kamailio/modules/README.sipt
 share/doc/kamailio/modules/README.siptrace
 share/doc/kamailio/modules/README.siputils
@@ -281,6 +306,7 @@ share/doc/kamailio/modules/README.usrloc
 share/doc/kamailio/modules/README.utils
 share/doc/kamailio/modules/README.websocket
 share/doc/kamailio/modules/README.xhttp
+share/doc/kamailio/modules/README.xhttp_prom
 share/doc/kamailio/modules/README.xhttp_rpc
 share/doc/kamailio/modules/README.xlog
 share/doc/kamailio/modules/README.xmpp
@@ -288,8 +314,6 @@ share/doc/kamailio/modules/README.xprint
 share/examples/kamailio/
 @sample ${SYSCONFDIR}/kamailio/
 @comment share/examples/kamailio/dictionary.kamailio
-share/examples/kamailio/kamailio-advanced.cfg
-share/examples/kamailio/kamailio-basic.cfg
 share/examples/kamailio/kamailio.cfg
 @sample ${SYSCONFDIR}/kamailio/kamailio.cfg
 share/examples/kamailio/kamctlrc
@@ -348,6 +372,7 @@ share/kamailio/dbtext/kamailio/rls_watchers
 share/kamailio/dbtext/kamailio/rtpengine
 share/kamailio/dbtext/kamailio/rtpproxy
 share/kamailio/dbtext/kamailio/sca_subscriptions
+share/kamailio/dbtext/kamailio/secfilter
 share/kamailio/dbtext/kamailio/silo
 share/kamailio/dbtext/kamailio/sip_trace
 share/kamailio/dbtext/kamailio/speed_dial
@@ -371,4 +396,3 @@ share/kamailio/dbtext/kamailio/watchers
 share/kamailio/dbtext/kamailio/xcap
 @comment share/snmp/
 @comment share/snmp/mibs/
-@rcscript ${RCDIR}/kamailio

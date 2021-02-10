@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.22 2019/11/01 15:53:54 jasper Exp $
+# $OpenBSD: Makefile,v 1.24 2020/11/06 21:35:17 jca Exp $
 
 COMMENT=	swiss army knife SMTP transaction tester
 
-DISTNAME=	swaks-20190914.0
+DISTNAME=	swaks-20201014.0
 
 CATEGORIES=	mail
 
@@ -15,7 +15,7 @@ MAINTAINER=	Jeremie Courreges-Anglas <jca@wxcvbn.org>
 PERMIT_PACKAGE=	Yes
 
 RUN_DEPENDS=	net/p5-Net-DNS \
-		security/p5-Net_SSLeay \
+		security/p5-Net-SSLeay \
 		security/p5-Authen-SASL \
 		security/p5-Authen-NTLM \
 		net/p5-IO-Socket-INET6

@@ -1,26 +1,25 @@
-# $OpenBSD: Makefile,v 1.177 2020/07/11 22:54:35 sthen Exp $
+# $OpenBSD: Makefile,v 1.184 2021/01/19 17:54:47 sthen Exp $
 
 DPB_PROPERTIES =	parallel
 
 COMMENT-main =		open-source LDAP software (client)
 COMMENT-server =	open-source LDAP software (server)
 
-DISTNAME =		openldap-2.4.50
+DISTNAME =		openldap-2.4.57
 PKGNAME-main =		${DISTNAME:S/-/-client-/}
 PKGNAME-server =	${DISTNAME:S/-/-server-/}
-REVISION =		4
 
 # overwrite -main pkgname/path to strip FLAVOR, aci only affects the server
 FULLPKGNAME-main =	${DISTNAME:S/-/-client-/}${FLAVOR_EXT:S/-aci//}
 FULLPKGPATH-main =	databases/openldap,-main${FLAVOR_EXT:S/-aci//:S/-/,/g}
 
-SHARED_LIBS +=	lber                 12.0     # 12.6
+SHARED_LIBS +=	lber                 12.0     # 12.14
 SHARED_LIBS +=	lber-2.4             12.0
 
-SHARED_LIBS +=	ldap                 13.1     # 12.6
-SHARED_LIBS +=	ldap-2.4             13.1
-SHARED_LIBS +=	ldap_r               13.1
-SHARED_LIBS +=	ldap_r-2.4           13.1
+SHARED_LIBS +=	ldap                 13.2     # 12.14
+SHARED_LIBS +=	ldap-2.4             13.2
+SHARED_LIBS +=	ldap_r               13.2
+SHARED_LIBS +=	ldap_r-2.4           13.2
 
 CATEGORIES =	databases net
 
@@ -43,7 +42,7 @@ COMPILER =		base-clang ports-gcc base-gcc
 EXTRACT_SUFX =		.tgz
 
 SEPARATE_BUILD =	Yes
-AUTOCONF_VERSION =	2.69
+AUTOCONF_VERSION =	2.65
 CONFIGURE_STYLE =	autoconf
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 

@@ -1,13 +1,13 @@
-# $OpenBSD: Makefile,v 1.6 2020/07/03 21:45:50 sthen Exp $
+# $OpenBSD: Makefile,v 1.8 2021/02/02 12:28:50 cwen Exp $
 
 COMMENT =	Template Toolkit reimplemented in as little code as possible
 
 MODULES =	cpan
 PKG_ARCH =	*
-DISTNAME =	Template-Tiny-1.12
+DISTNAME =	Template-Tiny-1.13
 CATEGORIES =	textproc
 
-REVISION =	2
+FIX_EXTRACT_PERMISSIONS =	Yes
 
 # perl
 PERMIT_PACKAGE =	Yes

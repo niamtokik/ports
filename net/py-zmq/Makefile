@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.28 2020/07/03 21:13:03 sthen Exp $
+# $OpenBSD: Makefile,v 1.30 2021/01/04 14:06:36 sthen Exp $
 
 COMMENT =		Python bindings for ZeroMQ
 
@@ -6,7 +6,7 @@ MODPY_EGG_VERSION =	18.0.1
 DISTNAME =		pyzmq-${MODPY_EGG_VERSION}
 PKGNAME =		${DISTNAME:S/py/py-/}
 EPOCH =			0
-REVISION =		0
+REVISION =		2
 
 CATEGORIES =		net devel
 
@@ -35,6 +35,6 @@ TEST_DEPENDS =		devel/py-test${MODPY_FLAVOR} \
 			www/py-tornado${MODPY_FLAVOR}
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 .include <bsd.port.mk>

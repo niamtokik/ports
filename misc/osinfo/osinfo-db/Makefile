@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.34 2020/06/24 17:30:00 cwen Exp $
+# $OpenBSD: Makefile,v 1.41 2021/02/03 12:29:42 ajacoutot Exp $
 
 COMMENT=		osinfo database files
 
-V=			20200529
-REVISION=		0
+V=			20210202
 DISTNAME=		osinfo-db-${V}
 EXTRACT_SUFX=		.tar.xz
 
@@ -20,9 +19,6 @@ CONFIGURE_STYLE=	none # !meson
 do-install:
 	osinfo-db-import --root ${WRKINST} --dir ${TRUEPREFIX}/share/osinfo \
 		${FULLDISTDIR}/${DISTFILES}
-# https://gitlab.com/libosinfo/osinfo-db/-/merge_requests/151
-	${INSTALL_DATA} ${FILESDIR}/openbsd-6.7.xml \
-		${PREFIX}/share/osinfo/os/openbsd.org/
 
 # Adding a new OpenBSD release
 # ============================

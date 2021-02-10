@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.4 2020/06/05 05:40:25 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.6 2020/11/03 16:12:34 rsadowski Exp $
 
 COMMENT =	KDE color selector
 DISTNAME =	kcolorchooser-${VERSION}
 CATEGORIES =	x11 graphics
-REVISION =	1
 
 HOMEPAGE =	https://www.kde.org/applications/graphics/kcolorchooser/
 
@@ -17,8 +16,6 @@ MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	devel/kf5/kauth \
 		devel/kf5/kcodecs \

@@ -1,24 +1,15 @@
-# $OpenBSD: Makefile,v 1.25 2020/07/03 21:12:37 sthen Exp $
+# $OpenBSD: Makefile,v 1.31 2021/02/06 21:42:49 sthen Exp $
 
 COMMENT-main=	perl bindings for Xapian
 COMMENT-python=	python bindings for Xapian
 COMMENT-ruby=	ruby bindings for Xapian
 
-V=		1.4.15
+V=		1.4.18
 DISTNAME=	xapian-bindings-${V}
-
-REVISION-python= 0
 
 PKGNAME-main=	xapian-bindings-perl-${V}
 PKGNAME-python=	xapian-bindings-python-${V}
 PKGNAME-ruby=	ruby${MODRUBY_BINREV}-xapian-${V}
-
-MODULES=	lang/python \
-		lang/ruby
-
-MODPY_VERSION ?=	${MODPY_DEFAULT_VERSION_3}
-
-MULTI_PACKAGES=	-main -python -ruby
 
 CATEGORIES=	databases textproc
 
@@ -27,28 +18,39 @@ HOMEPAGE=	https://xapian.org/
 # GPLv2
 PERMIT_PACKAGE=	Yes
 
+WANTLIB += ${COMPILER_LIBCXX} m z xapian
+WANTLIB-main = ${WANTLIB} c perl
+
 MASTER_SITES=	https://oligarchy.co.uk/xapian/${V}/
 EXTRACT_SUFX=	.tar.xz
 
 # -std=gnu++11
-COMPILER=		base-clang ports-gcc base-gcc
+COMPILER=		base-clang ports-gcc
+
+# base libtool doesn't support -shrext
+USE_LIBTOOL=		gnu
 
 LIB_DEPENDS=		databases/xapian-core
 
-BUILD_DEPENDS=		textproc/py-sphinx${MODPY_FLAVOR}
+BUILD_DEPENDS=		textproc/py-sphinx${MODPY_FLAVOR}>=1.5
 
-WANTLIB += ${COMPILER_LIBCXX} m uuid z xapian
-WANTLIB-main = ${WANTLIB} c perl
+MODULES=	lang/python \
+		lang/ruby
+
+MODPY_VERSION ?=	${MODPY_DEFAULT_VERSION_3}
+
+MULTI_PACKAGES=	-main -python -ruby
 
 MODRUBY_RUNDEP = 	No
 MODPY_RUNDEP = 		No
 
-RUN_DEPENDS-python =	textproc/py-sphinx${MODPY_FLAVOR} \
+RUN_DEPENDS-python =	textproc/py-sphinx${MODPY_FLAVOR}>=1.5 \
 			${MODPY_RUN_DEPENDS}
 RUN_DEPENDS-ruby =	${MODRUBY_RUN_DEPENDS}
 SUBST_VARS+=		MODRUBY_BINREV
 
-CONFIGURE_STYLE=	gnu
+CONFIGURE_STYLE=	autoconf
+AUTOCONF_VERSION=	2.69
 CONFIGURE_ENV=		RUBY="${RUBY}" RDOC="${RUBY:S/ruby/rdoc/}"
 CONFIGURE_ARGS=		--with-perl \
 			--with-python3 \

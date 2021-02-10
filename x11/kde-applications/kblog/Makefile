@@ -1,18 +1,17 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/06/13 19:30:07 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.3 2020/11/03 16:12:33 rsadowski Exp $
 
 COMMENT =	KDE PIM blogging library
+VERSION =	20.04.3
 DISTNAME =	kblog-${VERSION}
 CATEGORIES =	devel
 
-SHARED_LIBS +=  KF5Blog       0.0 # 5.13.2
+SHARED_LIBS +=  KF5Blog       1.0 # 5.13.2
 
 WANTLIB += ${COMPILER_LIBCXX} KF5CalendarCore KF5ConfigCore KF5CoreAddons
 WANTLIB += KF5I18n KF5KIOCore KF5Service KF5Syndication KF5XmlRpcClient
 WANTLIB += Qt5Concurrent Qt5Core Qt5DBus Qt5Network m
 
 MODKDE5_TRANSLATIONS = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	devel/kf5/kcalendarcore \
 		devel/kf5/kconfig \

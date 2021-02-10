@@ -1,8 +1,14 @@
-@comment $OpenBSD: PLIST-main,v 1.7 2020/07/03 21:10:55 sthen Exp $
+@comment $OpenBSD: PLIST-main,v 1.12 2021/01/04 14:04:42 sthen Exp $
 @option no-default-conflict
 @option is-branch
 @conflict python-${VERSION_SPEC}
-@conflict python->=3.7,<3.7.8p0
+@conflict python->=3.2,<3.8
+@pkgpath lang/python/3.2,-main
+@pkgpath lang/python/3.3,-main
+@pkgpath lang/python/3.4,-main
+@pkgpath lang/python/3.5,-main
+@pkgpath lang/python/3.6,-main
+@pkgpath lang/python/3.7,-main
 bin/2to3
 bin/2to3-3.8
 bin/pydoc3
@@ -1188,187 +1194,6 @@ lib/python3.8/distutils/msvc9compiler.py
 lib/python3.8/distutils/msvccompiler.py
 lib/python3.8/distutils/spawn.py
 lib/python3.8/distutils/sysconfig.py
-lib/python3.8/distutils/tests/
-lib/python3.8/distutils/tests/Setup.sample
-lib/python3.8/distutils/tests/__init__.py
-lib/python3.8/distutils/tests/__pycache__/
-lib/python3.8/distutils/tests/__pycache__/__init__.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/__init__.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/__init__.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/support.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/support.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/support.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_archive_util.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_archive_util.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_archive_util.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_dumb.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_dumb.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_dumb.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_msi.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_msi.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_msi.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_rpm.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_rpm.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_rpm.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_wininst.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_wininst.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_bdist_wininst.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_clib.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_clib.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_clib.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_ext.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_ext.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_ext.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_py.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_py.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_py.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_scripts.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_scripts.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_build_scripts.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_check.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_check.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_check.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_clean.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_clean.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_clean.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_cmd.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_cmd.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_cmd.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_config.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_config.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_config.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_config_cmd.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_config_cmd.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_config_cmd.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_core.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_core.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_core.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_cygwinccompiler.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_cygwinccompiler.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_cygwinccompiler.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dep_util.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dep_util.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dep_util.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dir_util.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dir_util.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dir_util.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dist.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dist.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_dist.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_extension.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_extension.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_extension.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_file_util.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_file_util.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_file_util.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_filelist.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_filelist.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_filelist.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_data.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_data.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_data.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_headers.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_headers.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_headers.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_lib.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_lib.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_lib.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_scripts.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_scripts.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_install_scripts.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_log.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_log.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_log.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_msvc9compiler.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_msvc9compiler.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_msvc9compiler.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_msvccompiler.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_msvccompiler.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_msvccompiler.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_register.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_register.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_register.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_sdist.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_sdist.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_sdist.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_spawn.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_spawn.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_spawn.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_sysconfig.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_sysconfig.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_sysconfig.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_text_file.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_text_file.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_text_file.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_unixccompiler.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_unixccompiler.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_unixccompiler.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_upload.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_upload.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_upload.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_util.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_util.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_util.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_version.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_version.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_version.cpython-38.pyc
-lib/python3.8/distutils/tests/__pycache__/test_versionpredicate.cpython-38.opt-1.pyc
-lib/python3.8/distutils/tests/__pycache__/test_versionpredicate.cpython-38.opt-2.pyc
-lib/python3.8/distutils/tests/__pycache__/test_versionpredicate.cpython-38.pyc
-lib/python3.8/distutils/tests/includetest.rst
-lib/python3.8/distutils/tests/support.py
-lib/python3.8/distutils/tests/test_archive_util.py
-lib/python3.8/distutils/tests/test_bdist.py
-lib/python3.8/distutils/tests/test_bdist_dumb.py
-lib/python3.8/distutils/tests/test_bdist_msi.py
-lib/python3.8/distutils/tests/test_bdist_rpm.py
-lib/python3.8/distutils/tests/test_bdist_wininst.py
-lib/python3.8/distutils/tests/test_build.py
-lib/python3.8/distutils/tests/test_build_clib.py
-lib/python3.8/distutils/tests/test_build_ext.py
-lib/python3.8/distutils/tests/test_build_py.py
-lib/python3.8/distutils/tests/test_build_scripts.py
-lib/python3.8/distutils/tests/test_check.py
-lib/python3.8/distutils/tests/test_clean.py
-lib/python3.8/distutils/tests/test_cmd.py
-lib/python3.8/distutils/tests/test_config.py
-lib/python3.8/distutils/tests/test_config_cmd.py
-lib/python3.8/distutils/tests/test_core.py
-lib/python3.8/distutils/tests/test_cygwinccompiler.py
-lib/python3.8/distutils/tests/test_dep_util.py
-lib/python3.8/distutils/tests/test_dir_util.py
-lib/python3.8/distutils/tests/test_dist.py
-lib/python3.8/distutils/tests/test_extension.py
-lib/python3.8/distutils/tests/test_file_util.py
-lib/python3.8/distutils/tests/test_filelist.py
-lib/python3.8/distutils/tests/test_install.py
-lib/python3.8/distutils/tests/test_install_data.py
-lib/python3.8/distutils/tests/test_install_headers.py
-lib/python3.8/distutils/tests/test_install_lib.py
-lib/python3.8/distutils/tests/test_install_scripts.py
-lib/python3.8/distutils/tests/test_log.py
-lib/python3.8/distutils/tests/test_msvc9compiler.py
-lib/python3.8/distutils/tests/test_msvccompiler.py
-lib/python3.8/distutils/tests/test_register.py
-lib/python3.8/distutils/tests/test_sdist.py
-lib/python3.8/distutils/tests/test_spawn.py
-lib/python3.8/distutils/tests/test_sysconfig.py
-lib/python3.8/distutils/tests/test_text_file.py
-lib/python3.8/distutils/tests/test_unixccompiler.py
-lib/python3.8/distutils/tests/test_upload.py
-lib/python3.8/distutils/tests/test_util.py
-lib/python3.8/distutils/tests/test_version.py
-lib/python3.8/distutils/tests/test_versionpredicate.py
-lib/python3.8/distutils/tests/xxmodule.c
 lib/python3.8/distutils/text_file.py
 lib/python3.8/distutils/unixccompiler.py
 lib/python3.8/distutils/util.py
@@ -2005,8 +1830,8 @@ lib/python3.8/ensurepip/__pycache__/_uninstall.cpython-38.opt-1.pyc
 lib/python3.8/ensurepip/__pycache__/_uninstall.cpython-38.opt-2.pyc
 lib/python3.8/ensurepip/__pycache__/_uninstall.cpython-38.pyc
 lib/python3.8/ensurepip/_bundled/
-lib/python3.8/ensurepip/_bundled/pip-19.2.3-py2.py3-none-any.whl
-lib/python3.8/ensurepip/_bundled/setuptools-41.2.0-py2.py3-none-any.whl
+lib/python3.8/ensurepip/_bundled/pip-20.2.3-py2.py3-none-any.whl
+lib/python3.8/ensurepip/_bundled/setuptools-49.2.1-py3-none-any.whl
 lib/python3.8/ensurepip/_uninstall.py
 lib/python3.8/enum.py
 lib/python3.8/filecmp.py
@@ -2125,82 +1950,82 @@ lib/python3.8/json/scanner.py
 lib/python3.8/json/tool.py
 lib/python3.8/keyword.py
 lib/python3.8/lib-dynload/
-@so lib/python3.8/lib-dynload/_asyncio.so
-@so lib/python3.8/lib-dynload/_bisect.so
-@so lib/python3.8/lib-dynload/_blake2.so
-@so lib/python3.8/lib-dynload/_bz2.so
-@so lib/python3.8/lib-dynload/_codecs_cn.so
-@so lib/python3.8/lib-dynload/_codecs_hk.so
-@so lib/python3.8/lib-dynload/_codecs_iso2022.so
-@so lib/python3.8/lib-dynload/_codecs_jp.so
-@so lib/python3.8/lib-dynload/_codecs_kr.so
-@so lib/python3.8/lib-dynload/_codecs_tw.so
-@so lib/python3.8/lib-dynload/_contextvars.so
-@so lib/python3.8/lib-dynload/_crypt.so
-@so lib/python3.8/lib-dynload/_csv.so
-@so lib/python3.8/lib-dynload/_ctypes.so
-@so lib/python3.8/lib-dynload/_ctypes_test.so
-@so lib/python3.8/lib-dynload/_curses.so
-@so lib/python3.8/lib-dynload/_curses_panel.so
-@so lib/python3.8/lib-dynload/_datetime.so
-@so lib/python3.8/lib-dynload/_dbm.so
-@so lib/python3.8/lib-dynload/_decimal.so
-@so lib/python3.8/lib-dynload/_elementtree.so
-@so lib/python3.8/lib-dynload/_hashlib.so
-@so lib/python3.8/lib-dynload/_heapq.so
-@so lib/python3.8/lib-dynload/_json.so
-@so lib/python3.8/lib-dynload/_lsprof.so
-@so lib/python3.8/lib-dynload/_lzma.so
-@so lib/python3.8/lib-dynload/_md5.so
-@so lib/python3.8/lib-dynload/_multibytecodec.so
-@so lib/python3.8/lib-dynload/_multiprocessing.so
-@so lib/python3.8/lib-dynload/_opcode.so
-@so lib/python3.8/lib-dynload/_pickle.so
-@so lib/python3.8/lib-dynload/_posixshmem.so
-@so lib/python3.8/lib-dynload/_posixsubprocess.so
-@so lib/python3.8/lib-dynload/_queue.so
-@so lib/python3.8/lib-dynload/_random.so
-@so lib/python3.8/lib-dynload/_sha1.so
-@so lib/python3.8/lib-dynload/_sha256.so
-@so lib/python3.8/lib-dynload/_sha3.so
-@so lib/python3.8/lib-dynload/_sha512.so
-@so lib/python3.8/lib-dynload/_socket.so
-@so lib/python3.8/lib-dynload/_sqlite3.so
-@so lib/python3.8/lib-dynload/_ssl.so
-@so lib/python3.8/lib-dynload/_statistics.so
-@so lib/python3.8/lib-dynload/_struct.so
-@so lib/python3.8/lib-dynload/_testbuffer.so
-@so lib/python3.8/lib-dynload/_testcapi.so
-@so lib/python3.8/lib-dynload/_testimportmultiple.so
-@so lib/python3.8/lib-dynload/_testinternalcapi.so
-@so lib/python3.8/lib-dynload/_testmultiphase.so
-@so lib/python3.8/lib-dynload/_uuid.so
-@so lib/python3.8/lib-dynload/_xxsubinterpreters.so
-@so lib/python3.8/lib-dynload/_xxtestfuzz.so
-@so lib/python3.8/lib-dynload/array.so
-@so lib/python3.8/lib-dynload/audioop.so
-@so lib/python3.8/lib-dynload/binascii.so
-@so lib/python3.8/lib-dynload/cmath.so
-@so lib/python3.8/lib-dynload/fcntl.so
-@so lib/python3.8/lib-dynload/grp.so
-@so lib/python3.8/lib-dynload/math.so
-@so lib/python3.8/lib-dynload/mmap.so
-@so lib/python3.8/lib-dynload/nis.so
-@so lib/python3.8/lib-dynload/parser.so
-@so lib/python3.8/lib-dynload/pyexpat.so
-@so lib/python3.8/lib-dynload/readline.so
-@so lib/python3.8/lib-dynload/resource.so
-@so lib/python3.8/lib-dynload/select.so
-@so lib/python3.8/lib-dynload/syslog.so
-@so lib/python3.8/lib-dynload/termios.so
-@so lib/python3.8/lib-dynload/unicodedata.so
-@so lib/python3.8/lib-dynload/xxlimited.so
-@so lib/python3.8/lib-dynload/zlib.so
+@so lib/python3.8/lib-dynload/_asyncio.cpython-38.so
+@so lib/python3.8/lib-dynload/_bisect.cpython-38.so
+@so lib/python3.8/lib-dynload/_blake2.cpython-38.so
+@so lib/python3.8/lib-dynload/_bz2.cpython-38.so
+@so lib/python3.8/lib-dynload/_codecs_cn.cpython-38.so
+@so lib/python3.8/lib-dynload/_codecs_hk.cpython-38.so
+@so lib/python3.8/lib-dynload/_codecs_iso2022.cpython-38.so
+@so lib/python3.8/lib-dynload/_codecs_jp.cpython-38.so
+@so lib/python3.8/lib-dynload/_codecs_kr.cpython-38.so
+@so lib/python3.8/lib-dynload/_codecs_tw.cpython-38.so
+@so lib/python3.8/lib-dynload/_contextvars.cpython-38.so
+@so lib/python3.8/lib-dynload/_crypt.cpython-38.so
+@so lib/python3.8/lib-dynload/_csv.cpython-38.so
+@so lib/python3.8/lib-dynload/_ctypes.cpython-38.so
+@so lib/python3.8/lib-dynload/_ctypes_test.cpython-38.so
+@so lib/python3.8/lib-dynload/_curses.cpython-38.so
+@so lib/python3.8/lib-dynload/_curses_panel.cpython-38.so
+@so lib/python3.8/lib-dynload/_datetime.cpython-38.so
+@so lib/python3.8/lib-dynload/_dbm.cpython-38.so
+@so lib/python3.8/lib-dynload/_decimal.cpython-38.so
+@so lib/python3.8/lib-dynload/_elementtree.cpython-38.so
+@so lib/python3.8/lib-dynload/_hashlib.cpython-38.so
+@so lib/python3.8/lib-dynload/_heapq.cpython-38.so
+@so lib/python3.8/lib-dynload/_json.cpython-38.so
+@so lib/python3.8/lib-dynload/_lsprof.cpython-38.so
+@so lib/python3.8/lib-dynload/_lzma.cpython-38.so
+@so lib/python3.8/lib-dynload/_md5.cpython-38.so
+@so lib/python3.8/lib-dynload/_multibytecodec.cpython-38.so
+@so lib/python3.8/lib-dynload/_multiprocessing.cpython-38.so
+@so lib/python3.8/lib-dynload/_opcode.cpython-38.so
+@so lib/python3.8/lib-dynload/_pickle.cpython-38.so
+@so lib/python3.8/lib-dynload/_posixshmem.cpython-38.so
+@so lib/python3.8/lib-dynload/_posixsubprocess.cpython-38.so
+@so lib/python3.8/lib-dynload/_queue.cpython-38.so
+@so lib/python3.8/lib-dynload/_random.cpython-38.so
+@so lib/python3.8/lib-dynload/_sha1.cpython-38.so
+@so lib/python3.8/lib-dynload/_sha256.cpython-38.so
+@so lib/python3.8/lib-dynload/_sha3.cpython-38.so
+@so lib/python3.8/lib-dynload/_sha512.cpython-38.so
+@so lib/python3.8/lib-dynload/_socket.cpython-38.so
+@so lib/python3.8/lib-dynload/_sqlite3.cpython-38.so
+@so lib/python3.8/lib-dynload/_ssl.cpython-38.so
+@so lib/python3.8/lib-dynload/_statistics.cpython-38.so
+@so lib/python3.8/lib-dynload/_struct.cpython-38.so
+@so lib/python3.8/lib-dynload/_testbuffer.cpython-38.so
+@so lib/python3.8/lib-dynload/_testcapi.cpython-38.so
+@so lib/python3.8/lib-dynload/_testimportmultiple.cpython-38.so
+@so lib/python3.8/lib-dynload/_testinternalcapi.cpython-38.so
+@so lib/python3.8/lib-dynload/_testmultiphase.cpython-38.so
+@so lib/python3.8/lib-dynload/_uuid.cpython-38.so
+@so lib/python3.8/lib-dynload/_xxsubinterpreters.cpython-38.so
+@so lib/python3.8/lib-dynload/_xxtestfuzz.cpython-38.so
+@so lib/python3.8/lib-dynload/array.cpython-38.so
+@so lib/python3.8/lib-dynload/audioop.cpython-38.so
+@so lib/python3.8/lib-dynload/binascii.cpython-38.so
+@so lib/python3.8/lib-dynload/cmath.cpython-38.so
+@so lib/python3.8/lib-dynload/fcntl.cpython-38.so
+@so lib/python3.8/lib-dynload/grp.cpython-38.so
+@so lib/python3.8/lib-dynload/math.cpython-38.so
+@so lib/python3.8/lib-dynload/mmap.cpython-38.so
+@so lib/python3.8/lib-dynload/nis.cpython-38.so
+@so lib/python3.8/lib-dynload/parser.cpython-38.so
+@so lib/python3.8/lib-dynload/pyexpat.cpython-38.so
+@so lib/python3.8/lib-dynload/readline.cpython-38.so
+@so lib/python3.8/lib-dynload/resource.cpython-38.so
+@so lib/python3.8/lib-dynload/select.cpython-38.so
+@so lib/python3.8/lib-dynload/syslog.cpython-38.so
+@so lib/python3.8/lib-dynload/termios.cpython-38.so
+@so lib/python3.8/lib-dynload/unicodedata.cpython-38.so
+@so lib/python3.8/lib-dynload/xxlimited.cpython-38.so
+@so lib/python3.8/lib-dynload/zlib.cpython-38.so
 lib/python3.8/lib2to3/
 lib/python3.8/lib2to3/Grammar.txt
-lib/python3.8/lib2to3/Grammar3.8.3.final.0.pickle
+lib/python3.8/lib2to3/Grammar3.8.7.final.0.pickle
 lib/python3.8/lib2to3/PatternGrammar.txt
-lib/python3.8/lib2to3/PatternGrammar3.8.3.final.0.pickle
+lib/python3.8/lib2to3/PatternGrammar3.8.7.final.0.pickle
 lib/python3.8/lib2to3/__init__.py
 lib/python3.8/lib2to3/__main__.py
 lib/python3.8/lib2to3/__pycache__/
@@ -2498,72 +2323,6 @@ lib/python3.8/lib2to3/pgen2/tokenize.py
 lib/python3.8/lib2to3/pygram.py
 lib/python3.8/lib2to3/pytree.py
 lib/python3.8/lib2to3/refactor.py
-lib/python3.8/lib2to3/tests/
-lib/python3.8/lib2to3/tests/__init__.py
-lib/python3.8/lib2to3/tests/__main__.py
-lib/python3.8/lib2to3/tests/__pycache__/
-lib/python3.8/lib2to3/tests/__pycache__/__init__.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/__init__.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/__init__.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/__main__.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/__main__.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/__main__.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/pytree_idempotency.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/pytree_idempotency.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/pytree_idempotency.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/support.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/support.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/support.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_all_fixers.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_all_fixers.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_all_fixers.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_fixers.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_fixers.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_fixers.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_main.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_main.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_main.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_parser.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_parser.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_parser.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_pytree.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_pytree.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_pytree.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_refactor.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_refactor.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_refactor.cpython-38.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_util.cpython-38.opt-1.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_util.cpython-38.opt-2.pyc
-lib/python3.8/lib2to3/tests/__pycache__/test_util.cpython-38.pyc
-lib/python3.8/lib2to3/tests/data/
-lib/python3.8/lib2to3/tests/data/README
-lib/python3.8/lib2to3/tests/data/bom.py
-lib/python3.8/lib2to3/tests/data/crlf.py
-lib/python3.8/lib2to3/tests/data/different_encoding.py
-lib/python3.8/lib2to3/tests/data/false_encoding.py
-lib/python3.8/lib2to3/tests/data/fixers/
-lib/python3.8/lib2to3/tests/data/fixers/bad_order.py
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/__init__.py
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/fix_explicit.py
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/fix_first.py
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/fix_last.py
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/fix_parrot.py
-lib/python3.8/lib2to3/tests/data/fixers/myfixes/fix_preorder.py
-lib/python3.8/lib2to3/tests/data/fixers/no_fixer_cls.py
-lib/python3.8/lib2to3/tests/data/fixers/parrot_example.py
-lib/python3.8/lib2to3/tests/data/infinite_recursion.py
-lib/python3.8/lib2to3/tests/data/py2_test_grammar.py
-lib/python3.8/lib2to3/tests/data/py3_test_grammar.py
-lib/python3.8/lib2to3/tests/pytree_idempotency.py
-lib/python3.8/lib2to3/tests/support.py
-lib/python3.8/lib2to3/tests/test_all_fixers.py
-lib/python3.8/lib2to3/tests/test_fixers.py
-lib/python3.8/lib2to3/tests/test_main.py
-lib/python3.8/lib2to3/tests/test_parser.py
-lib/python3.8/lib2to3/tests/test_pytree.py
-lib/python3.8/lib2to3/tests/test_refactor.py
-lib/python3.8/lib2to3/tests/test_util.py
 lib/python3.8/linecache.py
 lib/python3.8/locale.py
 lib/python3.8/logging/

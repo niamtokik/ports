@@ -1,15 +1,15 @@
-# $OpenBSD: Makefile,v 1.20 2020/07/24 01:22:36 afresh1 Exp $
+# $OpenBSD: Makefile,v 1.23 2021/01/04 00:07:19 afresh1 Exp $
 
-COMMENT =		DateTime submodule for TZ
+COMMENT =	DateTime submodule for TZ
 
-MODULES =		cpan
-PKG_ARCH =		*
-DISTNAME =		DateTime-TimeZone-2.39
-CATEGORIES =		devel
+MODULES =	cpan
+PKG_ARCH =	*
+DISTNAME =	DateTime-TimeZone-2.46
+CATEGORIES =	devel
 
-MAINTAINER =		Andrew Hewus Fresh <afresh1@openbsd.org>
+MAINTAINER =	Andrew Hewus Fresh <afresh1@openbsd.org>
 
-# perl_5
+# Perl
 PERMIT_PACKAGE =	Yes
 
 RUN_DEPENDS =	devel/p5-Class-Singleton>=1.03 \
@@ -27,4 +27,4 @@ TEST_DEPENDS +=	devel/p5-DateTime \
 		devel/p5-Test-Output \
 		devel/p5-Test-Taint
 
-.include <bsd.port.mk>	
+.include <bsd.port.mk>

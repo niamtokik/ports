@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.16 2020/06/08 03:18:15 bket Exp $
+# $OpenBSD: Makefile,v 1.20 2020/12/30 06:53:15 rsadowski Exp $
 
 COMMENT =		manual tiling window manager
-DISTNAME =		herbstluftwm-0.8.3
+DISTNAME =		herbstluftwm-0.9.1
 CATEGORIES =		x11
 
 HOMEPAGE =		https://herbstluftwm.org/
@@ -49,5 +49,7 @@ post-install:
 		${PREFIX}/man/man1/herbstluftwm.1
 	${INSTALL_MAN} ${WRKSRC}/doc/herbstluftwm-tutorial.7 \
 		${PREFIX}/man/man7/herbstluftwm-tutorial.7
+	${INSTALL_DATA} ${WRKSRC}/doc/hlwm-doc.json \
+		${PREFIX}/share/doc/herbstluftwm/
 
 .include <bsd.port.mk>

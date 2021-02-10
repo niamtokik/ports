@@ -1,7 +1,7 @@
-# $OpenBSD: Makefile,v 1.31 2020/04/05 15:44:52 naddy Exp $
+# $OpenBSD: Makefile,v 1.41 2021/02/09 02:12:43 gkoehler Exp $
 
-ONLY_FOR_ARCHS = \
-	aarch64 alpha amd64 arm hppa i386 mips64 mips64el powerpc sparc64
+ONLY_FOR_ARCHS = aarch64 alpha amd64 arm hppa i386 mips64 mips64el \
+	powerpc powerpc64 sparc64
 
 # XXX: sparc64
 ONLY_FOR_ARCHS-ada = amd64 hppa i386 mips64 powerpc
@@ -15,17 +15,17 @@ USE_LLD = No
 
 DPB_PROPERTIES = parallel
 
-V = 8.3.0
-REVISION = 5
+V = 8.4.0
 FULL_VERSION = $V
 FULL_PKGVERSION = $V
+REVISION = 6
 
-ADASTRAP-amd64 = adastrap-amd64-$V-2.tar.xz
+ADASTRAP-amd64 = adastrap-amd64-8.3.0-2.tar.xz
 ADASTRAP-arm = adastrap-arm-4.9.4-0.tar.xz
-ADASTRAP-hppa = adastrap-hppa-$V-1.tar.xz
-ADASTRAP-i386 = adastrap-i386-$V-2.tar.xz
-ADASTRAP-mips64 = adastrap-mips64-$V-1.tar.xz
-ADASTRAP-powerpc = adastrap-powerpc-$V-2.tar.xz
+ADASTRAP-hppa = adastrap-hppa-8.3.0-1.tar.xz
+ADASTRAP-i386 = adastrap-i386-8.3.0-2.tar.xz
+ADASTRAP-mips64 = adastrap-mips64-8.3.0-1.tar.xz
+ADASTRAP-powerpc = adastrap-powerpc-8.3.0-2.tar.xz
 ADASTRAP-sparc64 = adastrap-sparc64-6.5.0-0.tar.xz
 
 PKGNAME-main =  gcc-${FULL_PKGVERSION}
@@ -66,7 +66,10 @@ EXTRACT_ONLY =	${DISTNAME}.tar.xz
 BUILD_DEPENDS +=	devel/bison \
 			devel/libexecinfo
 
-.if ${MACHINE_ARCH} == "aarch64" || ${MACHINE_ARCH} == "arm"
+.if ${MACHINE_ARCH} == "aarch64" || ${MACHINE_ARCH} == "arm" || \
+    ${MACHINE_ARCH} == "powerpc64"
+# would be helpful on i386/amd64 too, but some ports also need the old
+# ld.bfd in base which can't cope with new gas.
 BUILD_DEPENDS +=	devel/gas
 RUN_DEPENDS +=		devel/gas
 RUN_DEPENDS-main +=	devel/gas
@@ -172,8 +175,8 @@ PKG_ARGS += -DX86=0
 .if ${MACHINE_ARCH} == "aarch64" || ${MACHINE_ARCH} == "alpha" || \
 	${MACHINE_ARCH} == "arm" || \
 	${MACHINE_ARCH} == "amd64" || ${MACHINE_ARCH} == "i386" || \
-	${MACHINE_ARCH} == "powerpc" || ${MACHINE_ARCH} == "sh" || \
-	${MACHINE_ARCH} == "sparc64"
+	${MACHINE_ARCH} == "powerpc" ||	${MACHINE_ARCH} == "powerpc64" || \
+	${MACHINE_ARCH} == "sh" || ${MACHINE_ARCH} == "sparc64"
 PKG_ARGS += -DITM=1
 .else
 PKG_ARGS += -DITM=0

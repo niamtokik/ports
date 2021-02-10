@@ -1,4 +1,4 @@
-# $OpenBSD: arch-defines.mk,v 1.75 2020/07/12 07:59:48 kettenis Exp $
+# $OpenBSD: arch-defines.mk,v 1.79 2021/01/18 19:32:50 kettenis Exp $
 #
 # ex:ts=4 sw=4 filetype=make:
 #
@@ -18,7 +18,7 @@ APM_ARCHS = arm64 amd64 i386 loongson macppc sparc64
 BE_ARCHS = hppa m88k mips64 powerpc powerpc64 sparc64
 LE_ARCHS = aarch64 alpha amd64 arm i386 mips64el sh
 LP64_ARCHS = aarch64 alpha amd64 mips64 mips64el powerpc64 sparc64
-GCC4_ARCHS = alpha hppa mips64el sh sparc64
+GCC4_ARCHS = alpha hppa sh sparc64
 GCC3_ARCHS = m88k
 # XXX easier for ports that depend on mono
 MONO_ARCHS = amd64 i386
@@ -28,15 +28,15 @@ GO_ARCHS = aarch64 amd64 arm arm64 armv7 i386
 RUST_ARCHS = aarch64 amd64 i386 sparc64
 
 # arches where the base compiler is clang
-CLANG_ARCHS = aarch64 amd64 arm i386 mips64 powerpc powerpc64
+CLANG_ARCHS = aarch64 amd64 arm i386 mips64 mips64el powerpc powerpc64
 # arches using LLVM's linker (ld.lld); others use binutils' ld.bfd
 LLD_ARCHS = aarch64 amd64 arm i386 powerpc64
 
 # arches where ports devel/llvm builds - populates llvm ONLY_FOR_ARCHS
 # as well as available for PROPERTIES checks.
-LLVM_ARCHS = aarch64 amd64 arm i386 mips64 mips64el powerpc sparc64
+LLVM_ARCHS = aarch64 amd64 arm i386 mips64 mips64el powerpc powerpc64 sparc64
 # arches where ports-gcc >4.9 exists.  To be used again for modules
-GCC49_ARCHS = aarch64 alpha amd64 arm hppa i386 mips64 mips64el powerpc sparc64
+GCC49_ARCHS = aarch64 alpha amd64 arm hppa i386 mips64 mips64el powerpc powerpc64 sparc64
 
 # arches where there is a C++11 compiler, either clang in base or ports-gcc
 CXX11_ARCHS = ${CLANG_ARCHS} ${GCC49_ARCHS}
@@ -81,12 +81,14 @@ LLD_EMUL =
 
 # system version wide specifics
 _SYSTEM_VERSION = 1
-_SYSTEM_VERSION-aarch64 = 4
-_SYSTEM_VERSION-amd64 = 4
-_SYSTEM_VERSION-arm = 4
-_SYSTEM_VERSION-i386 = 2
-_SYSTEM_VERSION-mips64 = 1
-_SYSTEM_VERSION-powerpc = 1
+_SYSTEM_VERSION-aarch64 = 5
+_SYSTEM_VERSION-amd64 = 5
+_SYSTEM_VERSION-arm = 5
+_SYSTEM_VERSION-i386 = 3
+_SYSTEM_VERSION-mips64 = 2
+_SYSTEM_VERSION-mips64el = 1
+_SYSTEM_VERSION-powerpc = 2
+_SYSTEM_VERSION-powerpc64 = 1
 _SYSTEM_VERSION-${MACHINE_ARCH} ?= 0
 _SYSTEM_VERSION-${ARCH} ?= 0
 

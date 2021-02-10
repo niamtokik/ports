@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.122 2020/07/16 10:07:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.129 2021/01/21 13:38:54 sthen Exp $
 
 COMMENT=	Berkeley Internet Name Daemon: DNS server and tools
 
-# Odd numbers devel, even numbers stable, ESV branched occasionally.
-# 9.16.x is ESV.
-V=		9.16.5
+# Second digits: odd numbers devel, even numbers stable,
+# ESV branched occasionally.  9.16.x is ESV.
+V=		9.16.11
 PORTROACH=	limitw:1,even
 EXTRACT_SUFX=	.tar.xz
 EPOCH=		0
@@ -13,10 +13,10 @@ DISTNAME=	bind-$V
 PKGNAME=	isc-bind-${V:S/-P/pl/}
 
 # in shared_libs.log but not installed: isc-nosymtbl, t_api
-SHARED_LIBS +=  isc                  6.0
+SHARED_LIBS +=  isc                  9.0
 SHARED_LIBS +=  isccc                3.0
-SHARED_LIBS +=  dns                  9.2
-SHARED_LIBS +=  isccfg               4.1
+SHARED_LIBS +=  dns                  10.2
+SHARED_LIBS +=  isccfg               4.2
 SHARED_LIBS +=  bind9                1.0
 SHARED_LIBS +=  irs                  3.0
 SHARED_LIBS +=	ns                   0.0
@@ -30,7 +30,7 @@ MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 # MPL 2.0
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c crypto iconv idn2 json-c lzma m pthread unistring uv xml2 z
+WANTLIB += c crypto iconv idn2 json-c lzma m pthread ssl unistring uv xml2 z
 
 MASTER_SITES=	${MASTER_SITE_ISC:=bind9/$V/}
 

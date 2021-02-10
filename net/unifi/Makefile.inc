@@ -1,28 +1,31 @@
-# $OpenBSD: Makefile.inc,v 1.15 2020/07/14 14:15:47 sthen Exp $
+# $OpenBSD: Makefile.inc,v 1.20 2021/01/26 18:17:40 sthen Exp $
 
 COMMENT=	controller for Ubiquiti uniFi (wifi/routing/switching/voip)
 
-MASTER_SITES?=	http://dl.ubnt.com/unifi/${V}${BUILD_V:C/^([1-9a-f])/-\1/}/
+_BV=		${BUILD_V:C/^http[^-]*-([0-9a-f]{10}).*/-\1/}
+MASTER_SITES?=	http://dl.ubnt.com/unifi/${V}${_BV}/
 
 JAF=		1.1.1
 DISTFILES=	unifi-$V{UniFi.unix}.zip \
 		unifi_sh_api-$V{unifi_sh_api} \
-		snappy-java-${SNAPPY_V}${SNAPPY_S}.jar:0 \
 		UBNT-MIB:1 \
 		UBNT-UniFi-MIB:1
+.if defined(SNAPPY_V)
+DISTFILES+=	snappy-java-${SNAPPY_V}${SNAPPY_S}.jar:0
+.endif
 EXTRACT_ONLY=	unifi-$V.zip
 PKGNAME=	unifi-$V
 
 # newer unifi uses newer snappy-java, but upstream stopped distributing
 # openbsd .so's. use a locally built one to replace.
-MASTER_SITES0=	https://spacehopper.org/mirrors/
+MASTER_SITES0?=	https://spacehopper.org/mirrors/
 MASTER_SITES1=	http://dl.ubnt-ut.com/snmp/
 
 CATEGORIES=	net
 
 HOMEPAGE=	http://wiki.ubnt.com/UniFi_FAQ
 
-MAINTAINER=	Stuart Henderson <sthen@openbsd.org>
+MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
 # at least the firmware files are restricted, if not more
 PERMIT_PACKAGE=	  https://www.ui.com/eula/
@@ -37,6 +40,11 @@ ONLY_FOR_ARCHS=	amd64
 
 RUN_DEPENDS=	databases/mongodb<3.6.0 \
 		java/javaPathHelper
+
+# disable dup file check, embedded version numbers in PLISTs result
+# in many changes for each update resulting in burning cpu on all
+# cores for many minutes at a time while pkglocate runs.
+UPDATE_PLIST_ARGS = -F
 
 NO_BUILD=	Yes
 NO_TEST=	Yes
@@ -58,9 +66,11 @@ pre-extract:
 post-extract:
 	@cp ${FULLDISTDIR}/unifi_sh_api-$V ${WRKSRC}/unifi_sh_api
 
+.if defined(SNAPPY_V)
 do-configure:
-	@if ! [ -r ${WRKSRC}/lib/snappy-java-${SNAPPY_V}.jar ]; then echo "** Version mismatch in snappy-java"; ls -l ${WRKSRC}/lib/snappy-java*; exit 1; fi
+	@if ! [ -r ${WRKSRC}/lib/snappy-java-${SNAPPY_V}.jar ]; then echo "** Version mismatch in snappy-java"; ls -l ${WRKSRC}/lib/snappy-java*; fi
 	cp ${FULLDISTDIR}/snappy-java-${SNAPPY_V}${SNAPPY_S}.jar ${WRKSRC}/lib/snappy-java-${SNAPPY_V}.jar
+.endif
 
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}{,/backup,/data,/run,/work}

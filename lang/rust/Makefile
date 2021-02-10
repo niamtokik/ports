@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.116 2020/07/22 06:59:17 semarie Exp $
+# $OpenBSD: Makefile,v 1.123 2021/01/01 09:02:54 semarie Exp $
 
 ONLY_FOR_ARCHS =	${RUST_ARCHS}
 
@@ -13,17 +13,14 @@ COMMENT-gdb =		Rust debugger through gdb
 COMMENT-clippy =	Rust linter
 COMMENT-rustfmt =	Rust code formatter
 
-V =			1.45.0
-CARGO_V =		0.46.0
-CLIPPY_V =		0.0.212
-RUSTFMT_V =		1.4.15
+V =			1.49.0
 DISTNAME =		rustc-${V}-src
 
 # rustc bootstrap version
-BV-aarch64 =		1.45.0-20200716
-BV-amd64 =		1.45.0-20200714
-BV-i386 =		1.45.0-20200715
-BV-sparc64 =		1.45.0-20200714
+BV-aarch64 =		1.49.0-20201231
+BV-amd64 =		1.49.0-20201230
+BV-i386 =		1.49.0-20201230
+BV-sparc64 =		1.49.0-20201231
 BV =			${BV-${MACHINE_ARCH}}
 
 PKGNAME =		rust-${V}
@@ -43,10 +40,10 @@ MAINTAINER =		Sebastien Marie <semarie@online.fr>
 # with portions covered by various BSD-like licenses
 PERMIT_PACKAGE =	Yes
 
-WANTLIB-main =		${COMPILER_LIBCXX} c crypto curl m pthread ssh2 ssl z
+WANTLIB-main =		${COMPILER_LIBCXX} c crypto curl git2 m pthread ssh2 ssl z
 WANTLIB-gdb =
-WANTLIB-clippy =	c c++abi m pthread
-WANTLIB-rustfmt =	c c++abi m pthread
+WANTLIB-clippy =	${COMPILER_LIBCXX} c m pthread
+WANTLIB-rustfmt =	${COMPILER_LIBCXX} c m pthread
 
 MASTER_SITES =		https://static.rust-lang.org/dist/ \
 			https://dev-static.rust-lang.org/dist/
@@ -73,30 +70,34 @@ SUPDISTFILES +=		${BOOTSTRAP-$m}
 
 # list of libraries with a hash in plist
 # the second field is used to have a different hash for each library
-LIBRUST_WITH_HASHES =	alloc 				01 \
-			backtrace 			02 \
-			backtrace_sys 			03 \
+LIBRUST_WITH_HASHES =	addr2line			01 \
+			adler				02 \
+			alloc 				03 \
 			chalk_derive			04 \
 			cfg_if 				05 \
 			compiler_builtins 		06 \
 			core 				07 \
 			getopts 			08 \
-			hashbrown 			09 \
-			libc 				0a \
-			panic_abort 			0b \
-			panic_unwind 			0c \
-			proc_macro 			0d \
-			rustc_demangle 			0e \
-			rustc_driver 			0f \
-			rustc_macros 			10 \
-			rustc_std_workspace_alloc 	11 \
-			rustc_std_workspace_core 	12 \
-			rustc_std_workspace_std 	13 \
-			std 				14 \
-			term 				15 \
-			test 				16 \
-			unicode_width 			17 \
-			unwind				18
+			gimli				09 \
+			hashbrown 			0a \
+			libc 				0b \
+			miniz_oxide			0c \
+			object				0d \
+			panic_abort 			0e \
+			panic_unwind 			0f \
+			proc_macro 			10 \
+			rustc_demangle 			11 \
+			rustc_driver 			12 \
+			rustc_macros 			13 \
+			rustc_std_workspace_alloc 	14 \
+			rustc_std_workspace_core 	15 \
+			rustc_std_workspace_std 	16 \
+			std 				17 \
+			term 				18 \
+			test 				19 \
+			tracing_attributes		20 \
+			unicode_width 			21 \
+			unwind				22
 
 # generate a stable hash mostly conforming to rust expectations
 # (it should change if anything changed)
@@ -140,6 +141,7 @@ BUILD_DEPENDS +=	devel/ninja
 BUILD_DEPENDS +=	devel/gdb
 
 LIB_DEPENDS-main +=	${LIB_DEPENDS} \
+			devel/libgit2/libgit2 \
 			net/curl \
 			security/libssh2
 
@@ -150,7 +152,14 @@ RUN_DEPENDS-rustfmt +=	lang/rust,-main
 
 MAKE_ENV +=	CARGO_HOME=${WRKBUILD}/cargo-home \
 		TMPDIR=${WRKBUILD} \
+		LIBGIT2_SYS_USE_PKG_CONFIG=1 \
 		LIBSSH2_SYS_USE_PKG_CONFIG=1
+
+# cargo assert() on i386 with standard libz
+.if "${MACHINE_ARCH}" == "i386"
+MAKE_ENV += 	LIBZ_SYS_STATIC=1
+.endif
+
 TEST_ENV +=	RUST_BACKTRACE=0
 
 .ifdef DEBUG
@@ -231,11 +240,11 @@ TEST_BIN = cd ${WRKBUILD} && exec ${SETENV} ${MAKE_ENV} ${TEST_ENV} \
 
 do-build:
 	${BUILD_BIN} dist --jobs=${MAKE_JOBS} \
-		src/libstd src/librustc cargo clippy rustfmt
+		library/std src/librustc cargo clippy rustfmt
 	rm -rf -- ${WRKBUILD}/build/tmp/dist
 
-COMPONENTS ?=	rustc-${V} rust-std-${V} cargo-${CARGO_V} \
-		clippy-${CLIPPY_V} rustfmt-${RUSTFMT_V}
+COMPONENTS ?=	rustc-${V} rust-std-${V} cargo-${V} \
+		clippy-${V} rustfmt-${V}
 do-install:
 	rm -rf ${WRKBUILD}/_extractdist
 .for _c in ${COMPONENTS}
@@ -250,9 +259,10 @@ do-install:
 .endfor
 	for lib in ${PREFIX}/lib/lib*.* ; do \
 		libname=$${lib##*/} ; \
-		test -e ${PREFIX}/lib/rustlib/${TRIPLE_ARCH}/lib/$${libname} && \
+		if [ -e ${PREFIX}/lib/rustlib/${TRIPLE_ARCH}/lib/$${libname} ] ; then \
 			ln -fs rustlib/${TRIPLE_ARCH}/lib/$${libname} \
 				${PREFIX}/lib/$${libname} ; \
+		fi ; \
 	done
 
 post-install:
@@ -281,7 +291,7 @@ bootstrap: build
 	${MAKE} clean=fake
 	${MAKE} fake \
 		PREFIX="${BOOTSTRAPDIR}" \
-		COMPONENTS="rustc-${V} rust-std-${V} cargo-${CARGO_V}" \
+		COMPONENTS="rustc-${V} rust-std-${V} cargo-${V}" \
 		FAKE_SETUP=""
 	${_PBUILD} rm -rf ${BOOTSTRAPDIR}/{man,share} \
 		${BOOTSTRAPDIR}/bin/rust-gdb*

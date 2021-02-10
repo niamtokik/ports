@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.11 2020/05/16 22:16:40 kn Exp $
+# $OpenBSD: Makefile,v 1.13 2021/01/17 07:36:21 kn Exp $
 
 COMMENT =	set of Maildir utilities
 
-DISTNAME =	mblaze-0.7
+DISTNAME =	mblaze-1.1
 CATEGORIES =	mail
 
 HOMEPAGE =	https://git.vuxu.org/mblaze/
@@ -28,5 +28,9 @@ FAKE_FLAGS =	PREFIX="${PREFIX}" \
 		MANDIR="${PREFIX}/man"
 
 TEST_TARGET =	check
+
+post-install:
+	${INSTALL_DATA_DIR} ${PREFIX}/share/mblaze/contrib
+	cd ${WRKBUILD}/contrib && pax -rw . ${PREFIX}/share/mblaze/contrib
 
 .include <bsd.port.mk>

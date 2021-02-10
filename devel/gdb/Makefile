@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.67 2020/07/03 21:12:38 sthen Exp $
+# $OpenBSD: Makefile,v 1.70 2021/02/10 04:55:19 jsg Exp $
 
 COMMENT=	GNU debugger
 CATEGORIES=	devel
 
 DISTNAME=	gdb-7.12.1
-REVISION=	12
+REVISION=	15
 
 HOMEPAGE=	https://www.gnu.org/software/gdb/
 
@@ -27,6 +27,7 @@ SEPARATE_BUILD= Yes
 CONFIGURE_STYLE=gnu
 CONFIGURE_ARGS=	--program-prefix=e \
 		--disable-nls \
+		--disable-sim \
 		--without-guile \
 		--without-lzma \
 		--enable-target=all \

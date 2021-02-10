@@ -1,22 +1,23 @@
-# $OpenBSD: Makefile,v 1.5 2020/07/03 21:12:47 sthen Exp $
+# $OpenBSD: Makefile,v 1.7 2020/11/21 14:28:01 benoit Exp $
 
 COMMENT =	utility for gitignore style pattern matching of file paths
 
-MODPY_EGG_VERSION = 0.5.9
+MODPY_EGG_VERSION = 0.8.1
 DISTNAME =	pathspec-${MODPY_EGG_VERSION}
 PKGNAME =	py-${DISTNAME}
-REVISION =	1
 
 CATEGORIES =	devel
 
 # Mozilla Public License v2
 PERMIT_PACKAGE =	Yes
 
-MODULES =	lang/python
-MODPY_PI =	Yes
+MODULES =		lang/python
+MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
+MODPY_PYTEST =		Yes
+MODPY_PYTEST_ARGS =	pathspec/
 
-FLAVORS =	python3
+FLAVORS =		python3
 FLAVOR ?=
 
 .include <bsd.port.mk>

@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.17 2020/07/03 21:12:53 sthen Exp $
+# $OpenBSD: Makefile,v 1.20 2021/02/09 17:36:58 namn Exp $
 
 COMMENT=	wysiwyw (what you see is what you want) editing platform
 
-DISTNAME=	TeXmacs-1.99.12-src
+DISTNAME=	TeXmacs-1.99.18-src
 PKGNAME=	${DISTNAME:S/-src//}
 CATEGORIES=	editors print x11
-REVISION=	0
 
 HOMEPAGE=	https://texmacs.org/
 
@@ -24,9 +23,7 @@ MODULES=	devel/cmake \
 		lang/python \
 		x11/qt5
 
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
-MODPY_ADJ_FILES=	plugins/tmpy/*.py \
-			plugins/tmpy/{graph,session}/*.py
+MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS=	print/ghostscript/gnu
 
@@ -45,14 +42,9 @@ CXXFLAGS+=	-Wno-deprecated-register
 
 post-extract:
 	rm -f ${WRKDIST}/plugins/mathematica/bin/realpath.py
-	# change python interpreter per plugins/python/README.md
-	sed -i 's,\(string-append.*\)python,\1python${MODPY_VERSION},' \
-		${WRKSRC}/plugins/python/progs/init-python.scm
-	sed -i 's,\(require.*\)python,\1python${MODPY_VERSION},' \
-		${WRKSRC}/plugins/python/progs/init-python.scm
-.for l in asymptote dratex gnuplot graph graphviz sympy xypic
-	find ${WRKSRC}/plugins/$l -name '*.scm' \
-		-exec sed -i 's,python,python${MODPY_VERSION},' {} +
-.endfor
+
+post-install:
+	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py \
+		${PREFIX}/share/TeXmacs/plugins/tmpy
 
 .include <bsd.port.mk>

@@ -1,6 +1,6 @@
-# $OpenBSD: Makefile,v 1.3 2020/06/07 11:26:07 martin Exp $
+# $OpenBSD: Makefile,v 1.6 2021/01/04 09:34:36 martin Exp $
 
-V =		1.19.0
+V =		1.21.0
 COMMENT =	blocking, shuffling, fast and lossless compression library
 PKGNAME =	blosc-${V}
 CATEGORIES =	archivers
@@ -28,7 +28,7 @@ LIB_DEPENDS =	archivers/lz4 \
 		archivers/zstd
 
 CONFIGURE_ARGS =	-DPREFER_EXTERNAL_LZ4=ON \
-			-DPREFER_EXTERNAL_SNAPPY=ON \
+			-DDEACTIVATE_SNAPPY=OFF \
 			-DPREFER_EXTERNAL_ZLIB=ON \
 			-DPREFER_EXTERNAL_ZSTD=ON
 

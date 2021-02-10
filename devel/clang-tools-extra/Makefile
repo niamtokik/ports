@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.7 2020/07/03 21:12:38 sthen Exp $
+# $OpenBSD: Makefile,v 1.12 2021/02/06 22:08:34 naddy Exp $
 
 # XXX
 # This port is more or less a copy from devel/llvm and it tries to
@@ -13,10 +13,10 @@ BROKEN-powerpc =	no consumers on powerpc, save 25 build hours in bulks
 
 COMMENT=	Clang extra tools
 
-LLVM_V =	8.0.1
+LLVM_V =	10.0.1
 DISTNAME =	llvm-${LLVM_V}.src
 PKGNAME=	clang-tools-extra-${LLVM_V}
-REVISION=	3
+REVISION=	1
 
 CATEGORIES =	devel
 
@@ -33,7 +33,7 @@ MASTER_SITES =	https://github.com/llvm/llvm-project/releases/download/llvmorg-${
 EXTRACT_SUFX =	.tar.xz
 
 DISTFILES =	llvm-${LLVM_V}.src${EXTRACT_SUFX} \
-		cfe-${LLVM_V}.src${EXTRACT_SUFX} \
+		clang-${LLVM_V}.src${EXTRACT_SUFX} \
 		clang-tools-extra-${LLVM_V}.src${EXTRACT_SUFX}
 
 COMPILER =		base-clang ports-gcc
@@ -67,7 +67,7 @@ CONFIGURE_ARGS +=	-DCLANG_ENABLE_STATIC_ANALYZER=ON \
 			-DLLVM_INCLUDE_TESTS=OFF \
 			-DLLVM_INCLUDE_BENCHMARKS=OFF
 
-GCC_VER =		8.3.0
+GCC_VER =		8.4.0
 .if ${MACHINE_ARCH} == "amd64"
 GCC_CONFIG =		x86_64-unknown-openbsd${OSREV}
 .else
@@ -80,7 +80,7 @@ ALL_TARGET =	tools/clang/tools/extra/all
 FAKE_TARGET =	tools/clang/tools/extra/install
 
 post-extract:
-	mv ${WRKDIR}/cfe-${LLVM_V}.src ${WRKSRC}/tools/clang
+	mv ${WRKDIR}/clang-${LLVM_V}.src ${WRKSRC}/tools/clang
 	mv ${WRKDIR}/clang-tools-extra-${LLVM_V}.src ${WRKSRC}/tools/clang/tools/extra
 
 pre-configure:

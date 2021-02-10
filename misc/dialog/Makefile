@@ -1,16 +1,15 @@
-# $OpenBSD: Makefile,v 1.45 2020/03/30 11:04:40 fcambus Exp $
+# $OpenBSD: Makefile,v 1.48 2021/01/14 21:55:22 fcambus Exp $
 
 COMMENT =		curses widgets (menus, lists, etc) for shell scripts
 
-V =			1.3-20200327
+V =			1.3-20201126
 DISTNAME =		dialog-${V}
 PKGNAME =		dialog-${V:S/-/./}
+REVISION =		1
 
 CATEGORIES =		misc
 
 HOMEPAGE =		https://invisible-island.net/dialog/dialog.html
-
-MAINTAINER =		Frederic Cambus <fcambus@openbsd.org>
 
 # LGPLv2.1
 PERMIT_PACKAGE =	Yes
@@ -30,6 +29,8 @@ MAKE_FILE =		makefile
 CONFIGURE_STYLE =	gnu
 CONFIGURE_ARGS =	--enable-nls
 CONFIGURE_ENV =		LDFLAGS="-L${LOCALBASE}/lib -liconv"
+
+FAKE_TARGET =		install install-man install-lib
 
 NO_TEST =		Yes
 

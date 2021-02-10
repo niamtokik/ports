@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.66 2019/03/12 22:13:54 sthen Exp $
+# $OpenBSD: Makefile,v 1.68 2021/01/28 22:42:39 sthen Exp $
 
 SUBDIR =
 SUBDIR += lts
+SUBDIR += 5.14
 SUBDIR += stable
-#SUBDIR += testing
 
 .include <bsd.port.subdir.mk>

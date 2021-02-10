@@ -1,18 +1,18 @@
-# $OpenBSD: Makefile,v 1.155 2020/07/10 22:35:45 naddy Exp $
+# $OpenBSD: Makefile,v 1.159 2021/02/05 17:08:03 naddy Exp $
 
 COMMENT=	transfer files with FTP, HTTP, HTTPS, etc.
 
-DISTNAME=	curl-7.71.1
-SHARED_LIBS=	curl                 26.5     # 10.0
+DISTNAME=	curl-7.75.0
+SHARED_LIBS=	curl                 26.8     # 11.0
 CATEGORIES=	net
-HOMEPAGE=	https://curl.haxx.se/
+HOMEPAGE=	https://curl.se/
 
 MAINTAINER=	Christian Weisgerber <naddy@openbsd.org>
 
 # MIT
 PERMIT_PACKAGE=	Yes
 
-MASTER_SITES=	https://curl.haxx.se/download/
+MASTER_SITES=	https://curl.se/download/
 EXTRACT_SUFX=	.tar.xz
 
 LIB_DEPENDS=	www/nghttp2
@@ -23,10 +23,12 @@ CONFIGURE_STYLE=autoconf
 # Beware of circular dependency curl -> brotli -> cmake -> curl
 CONFIGURE_ARGS=	--with-ca-bundle=/etc/ssl/cert.pem \
 		--without-brotli \
+		--without-hyper \
 		--without-libidn2 \
 		--without-libpsl \
 		--without-libssh \
-		--without-libssh2
+		--without-libssh2 \
+		--without-zstd
 CONFIGURE_ENV=	ac_cv_path_NROFF="/usr/bin/mandoc -Tascii"
 
 # speed up some time-consuming configure tests
@@ -39,6 +41,9 @@ DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 # Note:
 # use ulimit -p 256 for test
+
+# Skip python dependency; it is only required for three rudimentary
+# DICT/SMB/TELNET tests.
 
 # runsshserver: sshserver.pl --user=$USER
 TEST_ENV=	USER=$$USER

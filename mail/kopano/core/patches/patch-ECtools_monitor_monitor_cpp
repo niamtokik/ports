@@ -1,4 +1,4 @@
-$OpenBSD: patch-ECtools_monitor_monitor_cpp,v 1.14 2020/03/08 08:17:57 robert Exp $
+$OpenBSD: patch-ECtools_monitor_monitor_cpp,v 1.16 2021/02/09 10:32:33 robert Exp $
 
 Index: ECtools/monitor/monitor.cpp
 --- ECtools/monitor/monitor.cpp.orig
@@ -11,6 +11,6 @@ Index: ECtools/monitor/monitor.cpp
 -		{ "run_as_group", "kopano" },
 +		{ "run_as_user", "_kopano" },
 +		{ "run_as_group", "_kopano" },
- 		{ "pid_file", "/var/run/kopano/monitor.pid" },
+ 		{"pid_file", "", CONFIGSETTING_OBSOLETE},
  		{"log_method", "auto", CONFIGSETTING_NONEMPTY},
  		{"log_file", ""},

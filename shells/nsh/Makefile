@@ -1,13 +1,12 @@
-# $OpenBSD: Makefile,v 1.38 2019/11/06 12:45:45 naddy Exp $
+# $OpenBSD: Makefile,v 1.40 2021/02/04 22:13:09 naddy Exp $
 
 COMMENT =	network switch style shell
 
-DISTNAME =	nsh-1.0.20170819
-REVISION =	1
+DISTNAME =	nsh-1.0.20201006
 
 GH_ACCOUNT =	yellowman
 GH_PROJECT =	nsh
-GH_COMMIT =	23f1338bc463170bbf583096468c47248cfa548e
+GH_COMMIT =	4b92f9124641caddcce238293919b1ec45b5a20d
 
 CATEGORIES =	shells net
 HOMEPAGE =	http://www.nmedia.net/nsh/
@@ -28,6 +27,8 @@ LIB_DEPENDS =	databases/sqlite3
 .if ${FLAVOR:Mstatic}
 MAKE_FLAGS +=	LDADD="-ledit -ltermcap -lsqlite3 -lm -lpthread -static"
 .endif
+
+NO_TEST=	Yes
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKDIST}/nsh ${PREFIX}/bin

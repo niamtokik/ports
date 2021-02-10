@@ -1,4 +1,4 @@
-# $OpenBSD: go.port.mk,v 1.34 2020/07/17 18:19:17 abieber Exp $
+# $OpenBSD: go.port.mk,v 1.37 2021/01/16 23:38:13 abieber Exp $
 
 ONLY_FOR_ARCHS ?=	${GO_ARCHS}
 
@@ -13,6 +13,10 @@ MASTER_SITES${MODGO_MASTER_SITESN} ?= ${MASTER_SITE_ATHENS}
 
 MODGO_RUN_DEPENDS =	lang/go
 MODGO_BUILD_DEPENDS =	lang/go
+
+.for l in a b c d e f g h i j k l m n o p q r s t u v w x y z
+_subst := ${_subst}:S/${l:U}/!$l/g
+.endfor
 
 .if ${NO_BUILD:L} == "no" && ${MODGO_BUILDDEP:L} == "yes"
 BUILD_DEPENDS +=	${MODGO_BUILD_DEPENDS}
@@ -57,13 +61,18 @@ MODGO_TEST_CMD +=	-ldflags="${MODGO_LDFLAGS}"
 .endif
 
 .if defined(MODGO_MODNAME)
+.for _s in ${_subst}
+MODGO_MODNAME_ESC =	${MODGO_MODNAME${_s}}
+DISTNAME_ESC =		${DISTNAME${_s}}
+.endfor
+
 EXTRACT_SUFX ?=		.zip
 PKGNAME ?=		${DISTNAME:S/-v/-/}
 ALL_TARGET ?=		${MODGO_MODNAME}
 MODGO_FLAGS +=		-modcacherw
-DISTFILES =		${DISTNAME}${EXTRACT_SUFX}{${MODGO_VERSION}${EXTRACT_SUFX}}
-EXTRACT_ONLY =		${DISTNAME}${EXTRACT_SUFX}
-MASTER_SITES ?=		${MASTER_SITE_ATHENS}${MODGO_MODNAME}/@v/
+DISTFILES =		${DISTNAME_ESC}${EXTRACT_SUFX}{${MODGO_VERSION}${EXTRACT_SUFX}}
+EXTRACT_ONLY =		${DISTNAME_ESC}${EXTRACT_SUFX}
+MASTER_SITES ?=		${MASTER_SITE_ATHENS}${MODGO_MODNAME_ESC}/@v/
 .  for _modpath _modver in ${MODGO_MODULES}
 DISTFILES +=	${MODGO_DIST_SUBDIR}/${_modpath}/@v/${_modver}.zip{${_modpath}/@v/${_modver}.zip}:${MODGO_MASTER_SITESN}
 DISTFILES +=	${MODGO_DIST_SUBDIR}/${_modpath}/@v/${_modver}.mod{${_modpath}/@v/${_modver}.mod}:${MODGO_MASTER_SITESN}
@@ -71,7 +80,7 @@ DISTFILES +=	${MODGO_DIST_SUBDIR}/${_modpath}/@v/${_modver}.mod{${_modpath}/@v/$
 .  for _modpath _modver in ${MODGO_MODFILES}
 DISTFILES +=	${MODGO_DIST_SUBDIR}/${_modpath}/@v/${_modver}.mod{${_modpath}/@v/${_modver}.mod}:${MODGO_MASTER_SITESN}
 .  endfor
-MAKE_ENV +=		GOPROXY=file://${DISTDIR}/${MODGO_DIST_SUBDIR}
+MAKE_ENV +=		GOPROXY=file://${WRKDIR}/go_modules
 MAKE_ENV +=		GO111MODULE=on GOPATH="${MODGO_GOPATH}"
 .else
 # ports are not allowed to fetch from the network at build time; point
@@ -105,7 +114,10 @@ WRKSRC ?=		${MODGO_WORKSPACE}/src/${ALL_TARGET}
 MODGO_SETUP_WORKSPACE =	mkdir -p ${WRKSRC:H}; mv ${MODGO_SUBDIR} ${WRKSRC};
 .else
 WRKSRC ?=		${WRKDIR}/${MODGO_MODNAME}@${MODGO_VERSION}
-MODGO_SETUP_WORKSPACE =	ln -sf ${WRKSRC} ${WRKDIR}/${MODGO_MODNAME}
+MODGO_SETUP_WORKSPACE =	ln -sf ${WRKSRC} ${WRKDIR}/${MODGO_MODNAME};
+.for _MODGO_m in ${DISTFILES:Mgo_modules/*:C/{.*//}
+MODGO_SETUP_WORKSPACE += ${INSTALL} -D ${DISTDIR}/${_MODGO_m} ${WRKDIR}/${_MODGO_m};
+.endfor
 .endif
 
 INSTALL_STRIP =
@@ -161,3 +173,12 @@ do-test:
 	${MODGO_TEST_TARGET}
 .  endif
 .endif
+
+# modgo-gen-modules will output MODGO_MODULES and MODGO_MODFILES
+modgo-gen-modules:
+.    if empty(ALL_TARGET)
+	@${ECHO_MSG} "No ALL_TARGET set"
+	@exit 1
+.    else
+	@${_PERLSCRIPT}/modgo-gen-modules-helper ${ALL_TARGET}
+.    endif

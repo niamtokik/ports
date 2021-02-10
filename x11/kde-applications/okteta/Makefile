@@ -1,31 +1,31 @@
-# $OpenBSD: Makefile,v 1.9 2020/06/03 05:13:45 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.15 2021/02/08 20:00:49 rsadowski Exp $
 
 COMMENT =	Hex Editor
-VERSION =	0.26.3
+VERSION =	0.26.5
 DISTNAME =	okteta-${VERSION}
 CATEGORIES =	editors
+EPOCH =		0
 REVISION =	0
 
-EPOCH =		0
-
-SHARED_LIBS +=  Kasten4Controllers        0.0 # 0.4
+SHARED_LIBS +=  Kasten4Controllers        0.1 # 0.4
 SHARED_LIBS +=  Kasten4Core               0.0 # 0.4
 SHARED_LIBS +=  Kasten4Gui                0.0 # 0.4
 SHARED_LIBS +=  Kasten4Okteta2Controllers 0.0 # 0.4
 SHARED_LIBS +=  Kasten4Okteta2Core        0.0 # 0.4
 SHARED_LIBS +=  Kasten4Okteta2Gui         0.0 # 0.4
 SHARED_LIBS +=  Okteta3Core               0.0 # 0.10
-SHARED_LIBS +=  Okteta3Gui                0.0 # 0.10
+SHARED_LIBS +=  Okteta3Gui                0.1 # 0.10
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Attica KF5Auth KF5AuthCore KF5Bookmarks
 WANTLIB += KF5Codecs KF5Completion KF5ConfigCore KF5ConfigGui
 WANTLIB += KF5ConfigWidgets KF5CoreAddons KF5Crash KF5DBusAddons
 WANTLIB += KF5I18n KF5IconThemes KF5ItemViews KF5JobWidgets KF5KCMUtils
-WANTLIB += KF5KIOCore KF5KIOFileWidgets KF5KIOWidgets KF5NewStuff
-WANTLIB += KF5NewStuffCore KF5Parts KF5Service KF5Solid KF5SonnetUi
-WANTLIB += KF5TextWidgets KF5WidgetsAddons KF5XmlGui Qt5Concurrent
-WANTLIB += Qt5Core Qt5DBus Qt5Gui Qt5Network Qt5PrintSupport Qt5Qml
-WANTLIB += Qt5Script Qt5Widgets Qt5Xml c m qca-qt5
+WANTLIB += KF5KIOCore KF5KIOFileWidgets KF5KIOGui KF5KIOWidgets
+WANTLIB += KF5NewStuff KF5NewStuffCore KF5Parts KF5Service KF5Solid
+WANTLIB += KF5SonnetUi KF5TextWidgets KF5WidgetsAddons KF5WindowSystem
+WANTLIB += KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network
+WANTLIB += Qt5PrintSupport Qt5Qml Qt5Script Qt5Widgets Qt5Xml
+WANTLIB += c m qca-qt5
 
 MASTER_SITES =	${MASTER_SITE_KDE:=stable/okteta/${VERSION}/src/}
 
@@ -34,8 +34,6 @@ MODKDE5_ICON_CACHE = yes
 MODKDE5_TRANSLATIONS = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 RUN_DEPENDS +=	misc/shared-mime-info
 

@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.92 2020/07/03 21:13:04 sthen Exp $
+# $OpenBSD: Makefile,v 1.96 2021/01/22 23:27:06 mariani Exp $
+
+PORTROACH=	skipv:2.3.x
 
 COMMENT=	graphical frontend for LaTeX (nearly WYSIWYG)
 
-DISTNAME=	lyx-2.3.4.2
-REVISION=	0
+DISTNAME=	lyx-2.3.6.1
 
 CATEGORIES=	print editors
 
@@ -19,7 +20,7 @@ MASTER_SITES=	https://ftp.lip6.fr/pub/lyx/stable/2.3.x/ \
 		ftp://ftp.u-aizu.ac.jp/pub/tex/lyx/stable/2.3.x/
 
 WANTLIB+= ${COMPILER_LIBCXX} Qt5Concurrent Qt5Core Qt5Gui Qt5Svg
-WANTLIB+= Qt5Widgets Qt5X11Extras aspell c enchant-2 hunspell-1.6
+WANTLIB+= Qt5Widgets Qt5X11Extras aspell c enchant-2 hunspell-1.7
 WANTLIB+= iconv m magic xcb z
 
 COMPILER=	base-clang ports-gcc

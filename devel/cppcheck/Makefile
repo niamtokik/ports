@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.58 2020/06/21 22:08:55 gsoares Exp $
+# $OpenBSD: Makefile,v 1.60 2021/01/05 23:45:12 jsg Exp $
 
 COMMENT =		C/C++ static checker
 
-DISTNAME =		cppcheck-2.1
+DISTNAME =		cppcheck-2.3
 
 CATEGORIES =		devel
 

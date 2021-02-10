@@ -1,23 +1,19 @@
-# $OpenBSD: Makefile,v 1.5 2020/06/05 05:40:27 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.11 2021/01/23 18:10:22 rsadowski Exp $
 
 COMMENT =	sound channel mixer and volume control
 DISTNAME =	kmix-${VERSION}
 CATEGORIES =	audio
-REVISION =	2
 
 HOMEPAGE =	https://kde.org/applications/multimedia/org.kde.kmix
 
-SHARED_LIBS +=  kmixcore                1.0 # 5.13.80
+SHARED_LIBS +=  kmixcore                3.0 # 5.13.80
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Auth KF5AuthCore KF5Codecs KF5ConfigCore
 WANTLIB += KF5ConfigGui KF5ConfigWidgets KF5CoreAddons KF5DBusAddons
 WANTLIB += KF5GlobalAccel KF5I18n KF5Notifications KF5Package
 WANTLIB += KF5Plasma KF5Service KF5Solid KF5WidgetsAddons KF5WindowSystem
 WANTLIB += KF5XmlGui Qt5Core Qt5DBus Qt5Gui Qt5Widgets Qt5Xml
-WANTLIB += c canberra glib-2.0 m pulse pulse-mainloop-glib
-
-MODULES +=	x11/kde-applications \
-		multimedia/phonon
+WANTLIB += c canberra m pulse pulse-mainloop-glib
 
 MODKDE5_DESKTOP_FILE = yes
 MODKDE5_ICON_CACHE = yes
@@ -29,8 +25,8 @@ MODKDE5_DOCS = yes
 BUILD_DEPENDS =	devel/kf5/kinit
 RUN_DEPENDS =	devel/kf5/kinit
 
-LIB_DEPENDS =	audio/libcanberra \
-		devel/glib2 \
+LIB_DEPENDS =	audio/pulseaudio \
+		audio/libcanberra \
 		devel/kf5/kauth \
 		devel/kf5/kcodecs \
 		devel/kf5/kconfig \

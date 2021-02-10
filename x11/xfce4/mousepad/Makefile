@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.41 2019/08/15 06:54:43 landry Exp $
+# $OpenBSD: Makefile,v 1.45 2021/01/31 18:15:10 landry Exp $
 
 COMMENT=	Xfce4 simple text editor
 
-XFCE_VERSION=	0.4.2
+XFCE_VERSION=	0.5.2
 XFCE_GOODIE=	mousepad
 
 # GPLv2
@@ -10,6 +10,7 @@ PERMIT_PACKAGE=	Yes
 
 MODULES=	x11/xfce4
 MODXFCE_DESKTOP_FILE=	Yes
+MODXFCE_ICON_CACHE=	Yes
 
 LIB_DEPENDS=	x11/xfce4/xfconf \
 		x11/gtksourceview3
@@ -21,6 +22,6 @@ WANTLIB += gio-2.0 glib-2.0 gmodule-2.0 gobject-2.0 graphite2
 WANTLIB += gthread-2.0 gtk-3 gtksourceview-3.0 harfbuzz iconv
 WANTLIB += intl lzma m pango-1.0 pangocairo-1.0 pangoft2-1.0 pcre
 WANTLIB += pixman-1 png pthread xcb xcb-render xcb-shm xfconf-0
-WANTLIB += xml2 z
+WANTLIB += xml2 z ${COMPILER_LIBCXX}
 
 .include <bsd.port.mk>

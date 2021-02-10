@@ -1,7 +1,7 @@
-@comment $OpenBSD: PLIST,v 1.8 2020/06/03 05:13:35 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.11 2021/01/23 18:10:14 rsadowski Exp $
 @pkgpath x11/kde4/cantor
 @bin bin/cantor
-@bin bin/cantor_python3server
+@bin bin/cantor_pythonserver
 @bin bin/cantor_rserver
 @bin bin/cantor_scripteditor
 include/cantor/
@@ -16,25 +16,28 @@ include/cantor/defaultvariablemodel.h
 include/cantor/epsresult.h
 include/cantor/expression.h
 include/cantor/extension.h
+include/cantor/graphicpackage.h
 include/cantor/helpresult.h
 include/cantor/htmlresult.h
 include/cantor/imageresult.h
 include/cantor/jupyterutils.h
 include/cantor/latexresult.h
 include/cantor/mimeresult.h
+include/cantor/panelplugin.h
+include/cantor/panelpluginhandler.h
 include/cantor/renderer.h
 include/cantor/result.h
 include/cantor/session.h
 include/cantor/syntaxhelpobject.h
 include/cantor/textresult.h
 include/cantor/worksheetaccess.h
+@so lib/cantor_pythonbackend.so
 lib/cmake/Cantor/
 lib/cmake/Cantor/CantorConfig.cmake
 lib/cmake/Cantor/CantorConfigVersion.cmake
 lib/cmake/Cantor/CantorTargets${MODCMAKE_BUILD_SUFFIX}
 lib/cmake/Cantor/CantorTargets.cmake
 @so lib/libcantor_config.so
-@so lib/libcantor_pythonbackend.so
 @lib lib/libcantorlibs.so.${LIBcantorlibs_VERSION}
 lib/qt5/plugins/cantor/
 lib/qt5/plugins/cantor/assistants/
@@ -56,13 +59,15 @@ lib/qt5/plugins/cantor/backends/
 @so lib/qt5/plugins/cantor/backends/cantor_luabackend.so
 @so lib/qt5/plugins/cantor/backends/cantor_maximabackend.so
 @so lib/qt5/plugins/cantor/backends/cantor_octavebackend.so
-@so lib/qt5/plugins/cantor/backends/cantor_python3backend.so
+@so lib/qt5/plugins/cantor/backends/cantor_pythonbackend.so
 @so lib/qt5/plugins/cantor/backends/cantor_qalculatebackend.so
 @so lib/qt5/plugins/cantor/backends/cantor_rbackend.so
 @so lib/qt5/plugins/cantor/backends/cantor_sagebackend.so
 @so lib/qt5/plugins/cantor/backends/cantor_scilabbackend.so
 lib/qt5/plugins/cantor/panels/
+@so lib/qt5/plugins/cantor/panels/cantor_filebrowserpanelplugin.so
 @so lib/qt5/plugins/cantor/panels/cantor_helppanelplugin.so
+@so lib/qt5/plugins/cantor/panels/cantor_tocpanelplugin.so
 @so lib/qt5/plugins/cantor/panels/cantor_variablemanagerplugin.so
 @so lib/qt5/plugins/libcantorpart.so
 share/applications/org.kde.cantor.desktop
@@ -71,11 +76,15 @@ share/cantor/latex/
 share/cantor/latex/preview.sty
 share/cantor/maximabackend/
 share/cantor/maximabackend/cantor-initmaxima.lisp
+share/cantor/octave/
+share/cantor/octave/graphic_packages.xml
 share/cantor/octavebackend/
 share/cantor/octavebackend/cantor_eigenvectors.m
 share/cantor/octavebackend/cantor_plot2d.m
 share/cantor/octavebackend/cantor_plot3d.m
 share/cantor/octavebackend/cantor_print.m
+share/cantor/python/
+share/cantor/python/graphic_packages.xml
 share/cantor/sagebackend/
 share/cantor/sagebackend/cantor-execsage
 share/cantor/xslt/
@@ -87,7 +96,7 @@ share/config.kcfg/kalgebrabackend.kcfg
 share/config.kcfg/luabackend.kcfg
 share/config.kcfg/maximabackend.kcfg
 share/config.kcfg/octavebackend.kcfg
-share/config.kcfg/python3backend.kcfg
+share/config.kcfg/pythonbackend.kcfg
 share/config.kcfg/qalculatebackend.kcfg
 share/config.kcfg/rserver.kcfg
 share/config.kcfg/sagebackend.kcfg
@@ -99,7 +108,6 @@ share/doc/HTML/ca/cantor/import-dlg.png
 share/doc/HTML/ca/cantor/index.cache.bz2
 share/doc/HTML/ca/cantor/index.docbook
 share/doc/HTML/ca/cantor/integrate-dlg.png
-share/doc/HTML/ca/cantor/latex_formula.png
 share/doc/HTML/ca/cantor/matrix-dlg.png
 share/doc/HTML/ca/cantor/plot-dlg1.png
 share/doc/HTML/ca/cantor/plot-dlg2.png
@@ -172,28 +180,6 @@ share/doc/HTML/uk/cantor/plot2d-dlg.png
 share/doc/HTML/uk/cantor/plot3d-dlg.png
 share/doc/HTML/uk/cantor/screenshot.png
 share/doc/HTML/uk/cantor/solve-equations-dlg.png
-share/examples/cantor/
-share/examples/cantor/xdg/
-share/examples/cantor/xdg/cantor.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor.knsrc
-share/examples/cantor/xdg/cantor_kalgebra.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_kalgebra.knsrc
-share/examples/cantor/xdg/cantor_lua.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_lua.knsrc
-share/examples/cantor/xdg/cantor_maxima.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_maxima.knsrc
-share/examples/cantor/xdg/cantor_octave.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_octave.knsrc
-share/examples/cantor/xdg/cantor_python3.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_python3.knsrc
-share/examples/cantor/xdg/cantor_qalculate.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_qalculate.knsrc
-share/examples/cantor/xdg/cantor_r.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_r.knsrc
-share/examples/cantor/xdg/cantor_sage.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_sage.knsrc
-share/examples/cantor/xdg/cantor_scilab.knsrc
-@sample ${SYSCONFDIR}/xdg/cantor_scilab.knsrc
 share/icons/hicolor/128x128/apps/cantor.png
 share/icons/hicolor/16x16/apps/cantor.png
 share/icons/hicolor/22x22/apps/cantor.png
@@ -210,6 +196,17 @@ share/icons/hicolor/48x48/apps/rbackend.png
 share/icons/hicolor/48x48/apps/sagebackend.png
 share/icons/hicolor/48x48/apps/scilabbackend.png
 share/icons/hicolor/64x64/apps/cantor.png
+share/knsrcfiles/
+share/knsrcfiles/cantor.knsrc
+share/knsrcfiles/cantor_kalgebra.knsrc
+share/knsrcfiles/cantor_lua.knsrc
+share/knsrcfiles/cantor_maxima.knsrc
+share/knsrcfiles/cantor_octave.knsrc
+share/knsrcfiles/cantor_python.knsrc
+share/knsrcfiles/cantor_qalculate.knsrc
+share/knsrcfiles/cantor_r.knsrc
+share/knsrcfiles/cantor_sage.knsrc
+share/knsrcfiles/cantor_scilab.knsrc
 share/kxmlgui5/
 share/kxmlgui5/cantor/
 share/kxmlgui5/cantor/cantor_advancedplot_assistant.rc
@@ -246,6 +243,7 @@ share/locale/ga/LC_MESSAGES/cantor.mo
 share/locale/gl/LC_MESSAGES/cantor.mo
 share/locale/hr/LC_MESSAGES/cantor.mo
 share/locale/hu/LC_MESSAGES/cantor.mo
+share/locale/ia/LC_MESSAGES/cantor.mo
 share/locale/it/LC_MESSAGES/cantor.mo
 share/locale/ja/LC_MESSAGES/cantor.mo
 share/locale/kk/LC_MESSAGES/cantor.mo

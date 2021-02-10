@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.58 2020/07/03 21:12:56 sthen Exp $
+# $OpenBSD: Makefile,v 1.61 2021/02/09 10:32:33 robert Exp $
 
 # undefined ref's to libicon*, libintl* with ld.bfd
 ONLY_FOR_ARCHS=	${LLD_ARCHS}
@@ -9,8 +9,6 @@ COMMENT-mapi=	kopano MAPI extensions for PHP
 
 PKGNAME-main=	kopano-core-${V}
 PKGNAME-mapi=	kopano-mapi-${V}
-
-REVISION=	0
 
 CATEGORIES=	mail www productivity
 
@@ -36,6 +34,7 @@ MODULES=	lang/python \
 
 MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 MODPHP_DO_SAMPLE=mapi
+MODPHP_BUILDDEP=Yes
 MESSAGE-main=	# empty
 UNMESSAGE-main=	# empty
 
@@ -52,13 +51,12 @@ WANTLIB += lzma crypto ssl kvm idn2 unistring
 WANTLIB-main += c ${WANTLIB} ${MODPY_WANTLIB}
 WANTLIB-main += curl nghttp2 ical icalss
 WANTLIB-main += mariadb curses ssl xml2
-WANTLIB-main += gsoapssl++ tidy
+WANTLIB-main += gsoapssl++
 WANTLIB-main += ${LIBCXX}
 WANTLIB-main += icalvcal ldap_r HX jsoncpp
-WANTLIB-main += db_cxx uuid xapian
 WANTLIB-main += X11 Xext Xrender expat fontconfig freetype pixman-1
 WANTLIB-main += xcb xcb-render xcb-shm
-WANTLIB-main += cairo glib-2.0 gobject-2.0 graphite2
+WANTLIB-main += cairo glib-2.0 gobject-2.0
 WANTLIB-main += harfbuzz pango-1.0 pangocairo-1.0
 WANTLIB-main += png rrd
 WANTLIB-main += lber sasl2
@@ -78,7 +76,6 @@ RUN_DEPENDS-main= ${MODPY_RUN_DEPENDS} \
 		www/py-jwt${MODPY_FLAVOR}
 LIB_DEPENDS-main= databases/mariadb \
 		databases/openldap \
-		databases/xapian-core \
 		devel/gettext,-runtime \
 		devel/gsoap>=2.8.50 \
 		devel/jsoncpp \
@@ -90,15 +87,14 @@ LIB_DEPENDS-main= databases/mariadb \
 		net/rrdtool,-main \
 		textproc/icu4c \
 		textproc/libical \
-		textproc/libxml \
-		www/tidy
+		textproc/libxml
 
 WANTLIB-mapi += ${WANTLIB}
 WANTLIB-mapi += ical icalss mapi
 WANTLIB-mapi += xml2
 WANTLIB-mapi += ${LIBCXX}
 WANTLIB-mapi += icalvcal kcfreebusy kcicalmapi kcinetmapi
-WANTLIB-mapi += kcutil tidy
+WANTLIB-mapi += kcutil
 WANTLIB-mapi += HX curl jsoncpp nghttp2
 
 LIB_DEPENDS-mapi= ${BASE_PKGPATH}>=${V}

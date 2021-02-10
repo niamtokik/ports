@@ -1,6 +1,6 @@
-# $OpenBSD: Makefile.inc,v 1.12 2020/06/24 17:30:00 cwen Exp $
+# $OpenBSD: Makefile.inc,v 1.14 2021/02/04 11:47:56 ajacoutot Exp $
 
-V ?=			1.8.0
+V ?=			1.9.0
 
 CATEGORIES=		misc devel
 
@@ -13,5 +13,3 @@ PERMIT_PACKAGE=		Yes
 
 MASTER_SITES=		https://releases.pagure.org/libosinfo/
 EXTRACT_SUFX=		.tar.xz
-
-MODULES +=		devel/meson

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.665 2020/07/24 17:23:37 bcallah Exp $
+# $OpenBSD: Makefile,v 1.691 2021/02/08 20:48:32 naddy Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -16,6 +16,7 @@
      SUBDIR += asfiles
      SUBDIR += astime
      SUBDIR += autocutsel
+     SUBDIR += autorandr
      SUBDIR += awesome
      SUBDIR += bbdate
      SUBDIR += bbkeys
@@ -44,7 +45,6 @@
      SUBDIR += dbus-python,python3
      SUBDIR += dbus-tcl
      SUBDIR += dbusmenu-qt
-     SUBDIR += dbusmenu-qt,qt5
      SUBDIR += dmenu
      SUBDIR += driconf
      SUBDIR += driftnet
@@ -54,7 +54,6 @@
      SUBDIR += dzen2
      SUBDIR += dzen2,xft
      SUBDIR += e16keyedit
-     SUBDIR += e17
      SUBDIR += echinus
      SUBDIR += ede
      SUBDIR += elementary
@@ -92,6 +91,7 @@
      SUBDIR += golem
      SUBDIR += grantlee-qt5
      SUBDIR += greybird
+     SUBDIR += gromit-mpx
      SUBDIR += gtk+2
      SUBDIR += gtk+3
      SUBDIR += gtk+4
@@ -113,6 +113,7 @@
      SUBDIR += gtkglarea
      SUBDIR += gtkglext
      SUBDIR += gtkhotkey
+     SUBDIR += gtkmm40
      SUBDIR += gtksourceview
      SUBDIR += gtksourceview3
      SUBDIR += gtksourceview4
@@ -123,6 +124,7 @@
      SUBDIR += hs-X11-xft
      SUBDIR += hs-dbus
      SUBDIR += hs-xmonad-contrib
+     SUBDIR += hsetroot
      SUBDIR += human-icon-theme
      SUBDIR += i3
      SUBDIR += i3-gaps
@@ -141,12 +143,10 @@
      SUBDIR += iwidgets
      SUBDIR += jgmenu
      SUBDIR += jwm
-     SUBDIR += kde
      SUBDIR += kde-applications
-     SUBDIR += kde-shared-data
-     SUBDIR += keybinder
      SUBDIR += keybinder3
      SUBDIR += keynav
+     SUBDIR += kitty
      SUBDIR += klavaro
      SUBDIR += krusader
      SUBDIR += lablgtk2
@@ -160,6 +160,8 @@
      SUBDIR += libfm
      SUBDIR += libgdiplus
      SUBDIR += libhandy
+     #SUBDIR += libindicator
+     #SUBDIR += libappindicator
      SUBDIR += libqaccessibilityclient
      SUBDIR += libxdg-basedir
      SUBDIR += lsw
@@ -168,10 +170,12 @@
      SUBDIR += lxappearance
      SUBDIR += lxqt
      SUBDIR += lxrandr
+     SUBDIR += lxterminal
      SUBDIR += mate
      SUBDIR += menu-cache
      SUBDIR += menumaker
      SUBDIR += mlterm
+     SUBDIR += mlvwm
      SUBDIR += moka-icon-theme
      SUBDIR += mono-gtk2
      SUBDIR += motif
@@ -203,6 +207,7 @@
      SUBDIR += p5-Gtk2-Ex-Simple-List
      SUBDIR += p5-Gtk2-GladeXML
      SUBDIR += p5-Gtk2-ImageView
+     SUBDIR += p5-Gtk3
      SUBDIR += p5-Tk
      SUBDIR += p5-Tk-ProgressBar-Mac
      SUBDIR += p5-Tk-Splash
@@ -219,6 +224,7 @@
      SUBDIR += pcmanfm
      SUBDIR += peksystray
      SUBDIR += pekwm
+     SUBDIR += picom
      SUBDIR += pidgin-guifications
      SUBDIR += pidgin-libnotify
      SUBDIR += piewm
@@ -228,7 +234,7 @@
      SUBDIR += pwm
      SUBDIR += py-gtk2
      SUBDIR += py-pyglet
-     SUBDIR += py-qt4
+     SUBDIR += py-pyglet,python3
      SUBDIR += py-qt5
      SUBDIR += py-qt5,python3
      SUBDIR += py-qtawesome
@@ -244,14 +250,11 @@
      SUBDIR += py-xcbgen,python3
      SUBDIR += py-xlib
      SUBDIR += py-xlib,python3
-     SUBDIR += qt3
      SUBDIR += qt4
      SUBDIR += qt5
      SUBDIR += qt5ct
-     SUBDIR += qt5styleplugins
      SUBDIR += qtfm
      SUBDIR += qwt
-     SUBDIR += qwt,qt5
      SUBDIR += qdirstat
      SUBDIR += ratmen
      SUBDIR += ratpoison
@@ -266,10 +269,12 @@
      SUBDIR += ruby-dbus
      SUBDIR += ruby-tk,ruby26
      SUBDIR += ruby-tk,ruby27
+     SUBDIR += ruby-tk,ruby30
      SUBDIR += rxvt-unicode
      SUBDIR += sakura
      SUBDIR += sawfish
      SUBDIR += sclock
+     SUBDIR += screenkey
      SUBDIR += sct
      SUBDIR += skippy
      SUBDIR += slim
@@ -380,7 +385,6 @@
      SUBDIR += xdu
      SUBDIR += xfce4
      SUBDIR += xfe
-     SUBDIR += xfed
      SUBDIR += xforms
      SUBDIR += xglobe
      SUBDIR += xglobe,no_map
@@ -408,11 +412,11 @@
      SUBDIR += xscribble
      SUBDIR += xsel
      SUBDIR += xsettingsd
+     SUBDIR += xss-lock
      SUBDIR += xtacy
      SUBDIR += xtermset
      SUBDIR += xtestpicture
      SUBDIR += xtoolwait
-     SUBDIR += xtraceroute
      SUBDIR += xtu
      SUBDIR += xvkbd
      SUBDIR += xwallpaper

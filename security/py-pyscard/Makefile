@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.3 2020/07/03 21:13:07 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2021/01/04 14:06:37 sthen Exp $
 
 COMMENT =	smartcard package for Python
 
-MODPY_EGG_VERSION =	1.9.9
+MODPY_EGG_VERSION =	2.0.0
 DISTNAME =		pyscard-${MODPY_EGG_VERSION}
 PKGNAME =		py-${DISTNAME}
-REVISION =		1
+REVISION =		0
 
 CATEGORIES =	security
 
@@ -20,7 +20,6 @@ FLAVORS =		python3
 
 MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
-MODPY_PYTEST =		Yes
 
 BUILD_DEPENDS =	devel/swig \
 		security/pcsc-lite

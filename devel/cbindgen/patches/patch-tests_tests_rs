@@ -1,18 +1,18 @@
-$OpenBSD: patch-tests_tests_rs,v 1.2 2019/07/10 07:56:08 landry Exp $
+$OpenBSD: patch-tests_tests_rs,v 1.5 2021/01/05 10:27:06 landry Exp $
 
 supposed to read CXX & CC from env, but for some reason this doesnt work ?
 
 Index: tests/tests.rs
 --- tests/tests.rs.orig
 +++ tests/tests.rs
-@@ -61,8 +61,8 @@ fn run_cbindgen(
- 
- fn compile(cbindgen_output: &Path, language: Language) {
+@@ -69,8 +69,8 @@ fn compile(
+     skip_warning_as_error: bool,
+ ) {
      let cc = match language {
 -        Language::Cxx => env::var("CXX").unwrap_or_else(|_| "g++".to_owned()),
 -        Language::C => env::var("CC").unwrap_or_else(|_| "gcc".to_owned()),
 +        Language::Cxx => env::var("CXX").unwrap_or_else(|_| "c++".to_owned()),
 +        Language::C => env::var("CC").unwrap_or_else(|_| "cc".to_owned()),
+         Language::Cython => env::var("CYTHON").unwrap_or_else(|_| "cython".to_owned()),
      };
  
-     let mut object = cbindgen_output.to_path_buf();

@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.16 2020/07/08 20:41:10 bcallah Exp $
+@comment $OpenBSD: PLIST,v 1.18 2020/10/28 23:07:32 bcallah Exp $
 bin/streamlink
 lib/python${MODPY_VERSION}/site-packages/streamlink/
 lib/python${MODPY_VERSION}/site-packages/streamlink-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/
@@ -9,8 +9,10 @@ lib/python${MODPY_VERSION}/site-packages/streamlink-${MODPY_EGG_VERSION}-py${MOD
 lib/python${MODPY_VERSION}/site-packages/streamlink-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/requires.txt
 lib/python${MODPY_VERSION}/site-packages/streamlink-${MODPY_EGG_VERSION}-py${MODPY_VERSION}.egg-info/top_level.txt
 lib/python${MODPY_VERSION}/site-packages/streamlink/__init__.py
+lib/python${MODPY_VERSION}/site-packages/streamlink/__main__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/streamlink/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/streamlink/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink/${MODPY_PYCACHE}__main__.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/${MODPY_PYCACHE}_version.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/${MODPY_PYCACHE}api.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/${MODPY_PYCACHE}buffers.${MODPY_PYC_MAGIC_TAG}pyc
@@ -92,7 +94,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}adul
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}afreeca.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}akamaihd.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}albavision.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}aljazeeraen.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}animelab.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}app17.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ard_live.${MODPY_PYC_MAGIC_TAG}pyc
@@ -108,6 +109,7 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}brig
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}btsports.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}btv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}canalplus.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}cbsnews.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}cdnbg.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ceskatelevize.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}cinergroup.${MODPY_PYC_MAGIC_TAG}pyc
@@ -117,24 +119,20 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}comm
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}common_swf.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}crunchyroll.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}cubetv.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}cybergame.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dailymotion.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dash.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}delfi.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}deutschewelle.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dingittv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dlive.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dogan.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dogus.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}dommune.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}douyutv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}drdk.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}earthcam.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}egame.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ellobo.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}eltrecetv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}euronews.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}europaplus.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}facebook.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}filmon.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}foxtr.${MODPY_PYC_MAGIC_TAG}pyc
@@ -156,7 +154,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}huya
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}idf1.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ine.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}invintus.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}itvplayer.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}kingkong.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}kugou.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}latina.${MODPY_PYC_MAGIC_TAG}pyc
@@ -169,8 +166,10 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}lrt.
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ltv_lsm_lv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}mediaklikk.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}metube.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}mico.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}mitele.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}mjunoon.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}mrtmk.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}n13tv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}nbc.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}nbcnews.${MODPY_PYC_MAGIC_TAG}pyc
@@ -187,7 +186,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}onep
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}onetv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}openrectv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}orf_tvthek.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}pandatv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}periscope.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}picarto.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}piczel.${MODPY_PYC_MAGIC_TAG}pyc
@@ -215,10 +213,8 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}show
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}skai.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}sportal.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}sportschau.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}srgssr.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ssh101.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}stadium.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}startv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}steam.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}streamable.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}streamingvideoprovider.${MODPY_PYC_MAGIC_TAG}pyc
@@ -244,6 +240,7 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tv3c
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tv4play.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tv5monde.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tv8.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tv999.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tvibo.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tvp.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}tvplayer.${MODPY_PYC_MAGIC_TAG}pyc
@@ -254,7 +251,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}twit
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}twitch.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ustreamtv.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}ustvnow.${MODPY_PYC_MAGIC_TAG}pyc
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}vaughnlive.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}viasat.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}vidio.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/${MODPY_PYCACHE}vimeo.${MODPY_PYC_MAGIC_TAG}pyc
@@ -283,7 +279,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/adultswim.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/afreeca.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/akamaihd.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/albavision.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/aljazeeraen.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/animelab.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/app17.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ard_live.py
@@ -299,6 +294,7 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/brightcove.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/btsports.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/btv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/canalplus.py
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/cbsnews.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/cdnbg.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ceskatelevize.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/cinergroup.py
@@ -308,24 +304,20 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/common_jwplayer.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/common_swf.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/crunchyroll.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/cubetv.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/cybergame.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dailymotion.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dash.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/delfi.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/deutschewelle.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dingittv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dlive.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dogan.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dogus.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/dommune.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/douyutv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/drdk.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/earthcam.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/egame.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ellobo.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/eltrecetv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/euronews.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/europaplus.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/facebook.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/filmon.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/foxtr.py
@@ -347,7 +339,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/huya.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/idf1.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ine.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/invintus.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/itvplayer.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/kingkong.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/kugou.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/latina.py
@@ -360,8 +351,10 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/lrt.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ltv_lsm_lv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/mediaklikk.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/metube.py
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/mico.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/mitele.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/mjunoon.py
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/mrtmk.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/n13tv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/nbc.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/nbcnews.py
@@ -378,7 +371,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/oneplusone.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/onetv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/openrectv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/orf_tvthek.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/pandatv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/periscope.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/picarto.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/piczel.py
@@ -406,10 +398,8 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/showroom.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/skai.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/sportal.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/sportschau.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/srgssr.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ssh101.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/stadium.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/startv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/steam.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/streamable.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/streamingvideoprovider.py
@@ -435,6 +425,7 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tv3cat.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tv4play.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tv5monde.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tv8.py
+lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tv999.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tvibo.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tvp.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/tvplayer.py
@@ -445,7 +436,6 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/twitcasting.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/twitch.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ustreamtv.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/ustvnow.py
-lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/vaughnlive.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/viasat.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/vidio.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/plugins/vimeo.py
@@ -481,6 +471,7 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}file.
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}flvconcat.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}hds.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}hls.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}hls_filtered.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}hls_playlist.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}http.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/${MODPY_PYCACHE}playlist.${MODPY_PYC_MAGIC_TAG}pyc
@@ -497,6 +488,7 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/stream/file.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/flvconcat.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/hds.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/hls.py
+lib/python${MODPY_VERSION}/site-packages/streamlink/stream/hls_filtered.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/hls_playlist.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/http.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/stream/playlist.py
@@ -527,8 +519,10 @@ lib/python${MODPY_VERSION}/site-packages/streamlink/utils/times.py
 lib/python${MODPY_VERSION}/site-packages/streamlink/utils/url.py
 lib/python${MODPY_VERSION}/site-packages/streamlink_cli/
 lib/python${MODPY_VERSION}/site-packages/streamlink_cli/__init__.py
+lib/python${MODPY_VERSION}/site-packages/streamlink_cli/__main__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/streamlink_cli/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/streamlink_cli/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/streamlink_cli/${MODPY_PYCACHE}__main__.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink_cli/${MODPY_PYCACHE}argparser.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink_cli/${MODPY_PYCACHE}compat.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/streamlink_cli/${MODPY_PYCACHE}console.${MODPY_PYC_MAGIC_TAG}pyc

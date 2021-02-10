@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.4 2020/07/24 14:01:00 benoit Exp $
+# $OpenBSD: Makefile,v 1.7 2021/02/07 14:24:02 benoit Exp $
 
 COMMENT=	perl-based deployment and configuration management
 
 CPAN_AUTHOR=	FERKI
-DISTNAME=	Rex-1.12.0
+DISTNAME=	Rex-1.13.2
 
 CATEGORIES=	sysutils
 
@@ -18,9 +18,9 @@ RUN_DEPENDS=	converters/p5-JSON-XS \
 		converters/p5-JSON-MaybeXS \
 		devel/p5-Data-Validate-IP \
 		devel/p5-Devel-Caller \
-		devel/p5-File-ShareDir \
 		devel/p5-Hash-Merge \
 		devel/p5-IO-String \
+		devel/p5-IO-Tty \
 		devel/p5-List-MoreUtils \
 		devel/p5-Sort-Naturally \
 		devel/p5-Test-Pod \
@@ -33,7 +33,10 @@ RUN_DEPENDS=	converters/p5-JSON-XS \
 		textproc/p5-XML-Simple \
 		www/p5-LWP-UserAgent-Determined
 
+BUILD_DEPENDS=	devel/p5-File-ShareDir
+
 TEST_DEPENDS=	devel/p5-Test-Deep \
+		devel/p5-Test-Output \
 		devel/p5-Test-UseAllModules
 
 post-install:

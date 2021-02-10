@@ -1,16 +1,9 @@
-# $OpenBSD: Makefile,v 1.24 2020/07/01 12:04:47 pvk Exp $
+# $OpenBSD: Makefile,v 1.27 2020/11/21 15:58:40 pvk Exp $
 
 COMMENT =	lightweight shipper for real-time network analytics
 
 BEAT =		heartbeat
-VERSION =	7.8.0
 
-GH_ACCOUNT =	elastic
-GH_PROJECT =	beats
-GH_TAGNAME =	v${VERSION}
-
-CONFIGS =	heartbeat.{reference.yml,yml} monitors.d
-		
-WANTLIB += c pthread
+CONFIGS =	${BEAT}.{reference.yml,yml} monitors.d
 
 .include <bsd.port.mk>

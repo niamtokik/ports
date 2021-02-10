@@ -1,7 +1,10 @@
-@comment $OpenBSD: PLIST,v 1.2 2020/06/03 05:13:43 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.5 2021/01/23 18:10:25 rsadowski Exp $
 @pkgpath x11/kde4/ksudoku
 @bin bin/ksudoku
 share/applications/org.kde.ksudoku.desktop
+share/doc/HTML/ca/ksudoku/
+share/doc/HTML/ca/ksudoku/index.cache.bz2
+share/doc/HTML/ca/ksudoku/index.docbook
 share/doc/HTML/de/ksudoku/
 share/doc/HTML/de/ksudoku/index.cache.bz2
 share/doc/HTML/de/ksudoku/index.docbook
@@ -44,6 +47,7 @@ share/doc/HTML/uk/ksudoku/index.docbook
 share/examples/ksudoku/
 share/examples/ksudoku/xdg/
 share/examples/ksudoku/xdg/ksudokurc
+@sample ${SYSCONFDIR}/xdg/ksudokurc
 share/icons/hicolor/128x128/apps/ksudoku.png
 share/icons/hicolor/16x16/apps/ksudoku.png
 share/icons/hicolor/32x32/apps/ksudoku.png
@@ -215,6 +219,7 @@ share/locale/km/LC_MESSAGES/ksudoku.mo
 share/locale/ko/LC_MESSAGES/ksudoku.mo
 share/locale/lt/LC_MESSAGES/ksudoku.mo
 share/locale/lv/LC_MESSAGES/ksudoku.mo
+share/locale/ml/LC_MESSAGES/ksudoku.mo
 share/locale/mr/LC_MESSAGES/ksudoku.mo
 share/locale/nb/LC_MESSAGES/ksudoku.mo
 share/locale/nds/LC_MESSAGES/ksudoku.mo

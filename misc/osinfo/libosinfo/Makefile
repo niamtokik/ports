@@ -1,15 +1,15 @@
-# $OpenBSD: Makefile,v 1.14 2020/07/09 12:06:31 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.16 2021/02/04 11:47:56 ajacoutot Exp $
 
 COMMENT=		library for managing information about operating systems
 
 DISTNAME=		libosinfo-${V}
-REVISION=		2
 
-SHARED_LIBS += osinfo-1.0                1.5 # 0.1008.0
+SHARED_LIBS += osinfo-1.0                1.5 # 0.1009.0
 
 WANTLIB += c gio-2.0 glib-2.0 gobject-2.0 intl soup-2.4 xml2 xslt
 
-MODULES=		x11/gnome
+MODULES=		devel/meson \
+			x11/gnome
 
 MODGNOME_TOOLS=		gobject-introspection vala
 

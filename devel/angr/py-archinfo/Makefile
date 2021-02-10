@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.3 2020/07/07 14:51:51 kn Exp $
+# $OpenBSD: Makefile,v 1.5 2021/01/17 19:50:44 jasper Exp $
 
 COMMENT =		classes with architecture-specific information
 

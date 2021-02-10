@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2 2020/06/29 14:31:55 sthen Exp $
+# $OpenBSD: Makefile,v 1.4 2020/12/11 22:36:25 sthen Exp $
 
 COMMENT	=	ultra fast, simple, secure, standards compliant web server
 PKGNAME =	${DISTNAME:L}
@@ -6,7 +6,7 @@ CATEGORIES =	www
 
 GH_ACCOUNT =	uNetworking
 GH_PROJECT =	uWebSockets
-GH_TAGNAME =	v18.6.0
+GH_TAGNAME =	v18.17.0
 
 MAINTAINER =	Aisha Tammy <openbsd@aisha.cc>
 

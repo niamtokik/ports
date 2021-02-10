@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.28 2020/03/04 23:31:20 sthen Exp $
+# $OpenBSD: Makefile,v 1.31 2021/02/06 21:42:49 sthen Exp $
 
 COMMENT=	web search application
 
-V=		1.4.15
-# XXX remove ac_cv_func_snprintf=snprintf with next release
+V=		1.4.18
 PORTROACH=	limitw:1,even
 DISTNAME=	xapian-omega-${V}
 
@@ -14,7 +13,7 @@ HOMEPAGE=	https://xapian.org/
 # GPLv2
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} c iconv m magic pcre uuid xapian z
+WANTLIB += ${COMPILER_LIBCXX} c iconv m magic pcre xapian z
 
 MASTER_SITES=	https://oligarchy.co.uk/xapian/${V}/
 EXTRACT_SUFX=	.tar.xz
@@ -22,14 +21,14 @@ EXTRACT_SUFX=	.tar.xz
 # C++11
 COMPILER=       base-clang ports-gcc base-gcc
 
-LIB_DEPENDS=	databases/xapian-core>=${V} \
+LIB_DEPENDS=	converters/libiconv \
+		databases/xapian-core>=${V} \
 		devel/pcre \
 		devel/libmagic
 
 CONFIGURE_STYLE= gnu
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"
-CONFIGURE_ENV+= ac_cv_func_snprintf=snprintf
 
 FAKE_FLAGS=	sysconfdir=${PREFIX}/share/examples/xapian-omega \
 		pkglibbindir=${PREFIX}/libexec/xapian-omega/cgi-bin

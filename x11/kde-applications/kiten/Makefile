@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.7 2020/06/05 05:40:27 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.9 2020/11/03 16:12:36 rsadowski Exp $
 
 COMMENT =	Japanese reference tool for KDE
 DISTNAME =	kiten-${VERSION}
 CATEGORIES =	education
-REVISION =	1
 
-SHARED_LIBS +=  kiten                     1.0 # 5.0
+SHARED_LIBS +=  kiten                     2.0 # 5.0
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5Auth KF5AuthCore KF5Codecs
 WANTLIB += KF5Completion KF5ConfigCore KF5ConfigGui KF5ConfigWidgets
@@ -21,8 +20,6 @@ MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	devel/kf5/karchive \
 		devel/kf5/kauth \

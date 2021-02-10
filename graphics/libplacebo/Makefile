@@ -1,13 +1,13 @@
-# $OpenBSD: Makefile,v 1.3 2020/06/14 19:54:31 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.6 2021/02/06 21:45:41 sthen Exp $
 
 COMMENT=	reusable library for GPU-accelerated video/image rendering
 
 GH_ACCOUNT=	haasn
 GH_PROJECT=	libplacebo
-GH_TAGNAME=	v2.72.0
+GH_TAGNAME=	v3.104.0
 CATEGORIES=	graphics
 
-SHARED_LIBS=	placebo	2.0
+SHARED_LIBS=	placebo	3.0
 
 MAINTAINER=	Brad Smith <brad@comstyle.com>
 
@@ -23,7 +23,8 @@ LIB_DEPENDS=	graphics/lcms2
 COMPILER=	base-clang ports-gcc
 COMPILER_LANGS=	c
 
-CONFIGURE_ARGS+=-Dglslang=disabled \
+CONFIGURE_ARGS+=-Ddefault_library=both \
+		-Dglslang=disabled \
 		-Dshaderc=disabled \
 		-Dvulkan=disabled
 

@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.6 2020/05/05 13:35:58 kurt Exp $
+@comment $OpenBSD: PLIST,v 1.9 2021/01/21 19:29:02 kurt Exp $
 @option no-default-conflict
 @option is-branch
 @conflict jdk->=11v0,<12v0
@@ -280,6 +280,7 @@ jdk-11/jmods/jdk.management.agent.jmod
 jdk-11/jmods/jdk.management.jfr.jmod
 jdk-11/jmods/jdk.management.jmod
 jdk-11/jmods/jdk.naming.dns.jmod
+jdk-11/jmods/jdk.naming.ldap.jmod
 jdk-11/jmods/jdk.naming.rmi.jmod
 jdk-11/jmods/jdk.net.jmod
 jdk-11/jmods/jdk.pack.jmod
@@ -318,7 +319,6 @@ jdk-11/legal/java.desktop/ADDITIONAL_LICENSE_INFO
 jdk-11/legal/java.desktop/ASSEMBLY_EXCEPTION
 jdk-11/legal/java.desktop/LICENSE
 jdk-11/legal/java.desktop/colorimaging.md
-jdk-11/legal/java.desktop/harfbuzz.md
 jdk-11/legal/java.desktop/mesa3d.md
 jdk-11/legal/java.desktop/xwd.md
 jdk-11/legal/java.instrument/
@@ -458,6 +458,7 @@ jdk-11/legal/jdk.internal.opt/ADDITIONAL_LICENSE_INFO
 jdk-11/legal/jdk.internal.opt/ASSEMBLY_EXCEPTION
 jdk-11/legal/jdk.internal.opt/LICENSE
 jdk-11/legal/jdk.internal.opt/jopt-simple.md
+%%ci%%
 jdk-11/legal/jdk.jartool/
 jdk-11/legal/jdk.jartool/ADDITIONAL_LICENSE_INFO
 jdk-11/legal/jdk.jartool/ASSEMBLY_EXCEPTION
@@ -466,7 +467,6 @@ jdk-11/legal/jdk.javadoc/
 jdk-11/legal/jdk.javadoc/ADDITIONAL_LICENSE_INFO
 jdk-11/legal/jdk.javadoc/ASSEMBLY_EXCEPTION
 jdk-11/legal/jdk.javadoc/LICENSE
-jdk-11/legal/jdk.javadoc/jquery-migrate.md
 jdk-11/legal/jdk.javadoc/jquery.md
 jdk-11/legal/jdk.javadoc/jqueryUI.md
 jdk-11/legal/jdk.javadoc/jszip.md
@@ -533,6 +533,10 @@ jdk-11/legal/jdk.naming.dns/
 jdk-11/legal/jdk.naming.dns/ADDITIONAL_LICENSE_INFO
 jdk-11/legal/jdk.naming.dns/ASSEMBLY_EXCEPTION
 jdk-11/legal/jdk.naming.dns/LICENSE
+jdk-11/legal/jdk.naming.ldap/
+jdk-11/legal/jdk.naming.ldap/ADDITIONAL_LICENSE_INFO
+jdk-11/legal/jdk.naming.ldap/ASSEMBLY_EXCEPTION
+jdk-11/legal/jdk.naming.ldap/LICENSE
 jdk-11/legal/jdk.naming.rmi/
 jdk-11/legal/jdk.naming.rmi/ADDITIONAL_LICENSE_INFO
 jdk-11/legal/jdk.naming.rmi/ASSEMBLY_EXCEPTION
@@ -676,4 +680,3 @@ jdk-11/man/man1/
 jdk-11/release
 share/doc/pkg-readmes/${PKGSTEM}
 %%aot%%
-%%ci%%

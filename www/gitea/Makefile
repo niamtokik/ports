@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.40 2020/07/16 13:27:43 pvk Exp $
+# $OpenBSD: Makefile,v 1.47 2021/02/08 21:34:45 pvk Exp $
 
 COMMENT =		compact self-hosted Git service
 
-VERSION =		1.12.2
+VERSION =		1.13.2
 DISTNAME =		gitea-src-${VERSION}
 PKGNAME =		gitea-${VERSION}
 
@@ -21,21 +21,26 @@ WANTLIB +=		c pthread
 
 MODULES =		lang/go
 
-MODGO_FLAGS +=		-tags "sqlite cert"
+GO_TAGS =		sqlite sqlite_unlock_notify
+MODGO_FLAGS +=		-tags "${GO_TAGS}"
+MODGO_LDFLAGS += -X code.gitea.io/gitea/modules/setting.AppWorkPath=${PREFIX}/share/gitea
+MODGO_LDFLAGS += -X code.gitea.io/gitea/modules/setting.CustomConf=${SYSCONFDIR}/gitea/app.ini
+MODGO_LDFLAGS += -X code.gitea.io/gitea/modules/setting.CustomPath=${LOCALSTATEDIR}/gitea/custom
+MODGO_LDFLAGS += -X code.gitea.io/gitea/modules/setting.StaticRootPath=${PREFIX}/share/gitea
+MODGO_LDFLAGS += -X main.Version=${VERSION}
+MODGO_LDFLAGS += -X 'main.Tags=${GO_TAGS}'
 
 RUN_DEPENDS =		devel/git
 
 ALL_TARGET =		code.gitea.io/gitea
 WRKSRC =		${MODGO_WORKSPACE}/src/${ALL_TARGET}
 
-SUBST_VARS +=		VERSION
-
 do-extract:
 	@mkdir ${WRKDIST}
 	@tar xzf ${FULLDISTDIR}/${DISTFILES} -C ${WRKDIST}
 
 pre-configure:
-	${SUBST_CMD} ${WRKDIST}/{custom/conf/app.ini.sample,main.go}
+	${SUBST_CMD} ${WRKDIST}/custom/conf/app.example.ini
 
 do-install:
 	${INSTALL_PROGRAM} ${MODGO_WORKSPACE}/bin/gitea ${PREFIX}/sbin

@@ -1,10 +1,11 @@
-@comment $OpenBSD: PLIST,v 1.4 2020/06/24 06:01:51 tb Exp $
+@comment $OpenBSD: PLIST,v 1.7 2020/11/06 09:31:31 tb Exp $
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer-0.0.1-py${MODPY_VERSION}.egg-info
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/__init__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}analysis.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}combine.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}expect.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}extract.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}fuzzers.${MODPY_PYC_MAGIC_TAG}pyc
@@ -16,6 +17,7 @@ lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}scanner.${MOD
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}timing_runner.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/${MODPY_PYCACHE}tree.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/analysis.py
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/combine.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/expect.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/extract.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/fuzzers.py
@@ -30,10 +32,12 @@ lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/__init__.py
 ${MODPY_COMMENT}lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}/
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}_ordered_dict.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}lists.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}log.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}ordered_dict.${MODPY_PYC_MAGIC_TAG}pyc
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/${MODPY_PYCACHE}statics.${MODPY_PYC_MAGIC_TAG}pyc
+lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/_ordered_dict.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/lists.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/log.py
 lib/python${MODPY_VERSION}/site-packages/tlsfuzzer/utils/ordered_dict.py
@@ -172,6 +176,7 @@ share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-signature-algorithms.${MODPY_
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-symetric-ciphers.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-unrecognised-groups.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-version-negotiation.${MODPY_PYC_MAGIC_TAG}pyc
+share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-zero-content-type.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-tls13-zero-length-data.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-truncating-of-client-hello.${MODPY_PYC_MAGIC_TAG}pyc
 share/tlsfuzzer/scripts/${MODPY_PYCACHE}test-truncating-of-finished.${MODPY_PYC_MAGIC_TAG}pyc
@@ -311,6 +316,7 @@ share/tlsfuzzer/scripts/test-tls13-signature-algorithms.py
 share/tlsfuzzer/scripts/test-tls13-symetric-ciphers.py
 share/tlsfuzzer/scripts/test-tls13-unrecognised-groups.py
 share/tlsfuzzer/scripts/test-tls13-version-negotiation.py
+share/tlsfuzzer/scripts/test-tls13-zero-content-type.py
 share/tlsfuzzer/scripts/test-tls13-zero-length-data.py
 share/tlsfuzzer/scripts/test-truncating-of-client-hello.py
 share/tlsfuzzer/scripts/test-truncating-of-finished.py

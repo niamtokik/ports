@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.74 2020/06/24 20:52:49 bket Exp $
+# $OpenBSD: Makefile,v 1.78 2021/01/25 14:29:54 sthen Exp $
 
 # unconditionally uses machine/apmvar.h and related structures/defines
 ONLY_FOR_ARCHS=	${APM_ARCHS}
 
-V=		1.6.6
+V=		2.1.1
 COMMENT=	small and fast window manager
 DISTNAME=	icewm-${V}
 EXTRACT_SUFX=	.tar.lz
@@ -14,11 +14,14 @@ HOMEPAGE=	https://ice-wm.org/
 # LGPLv2 only
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += ${COMPILER_LIBCXX} FLAC ICE SM X11 Xcomposite Xdamage
-WANTLIB += Xext Xfixes Xft Xinerama Xpm Xrandr Xrender ao c expat
-WANTLIB += ffi fontconfig freetype fribidi gdk_pixbuf-2.0 gdk_pixbuf_xlib-2.0
-WANTLIB += gio-2.0 glib-2.0 gmodule-2.0 gobject-2.0 iconv intl
-WANTLIB += m ogg pcre sndfile vorbis vorbisenc xcb z
+WANTLIB += ${COMPILER_LIBCXX}
+WANTLIB += FLAC ICE Imlib2 SM X11 Xcomposite Xdamage Xext Xfixes
+WANTLIB += Xft Xinerama Xpm Xrandr Xrender ao c cairo cairo-gobject
+WANTLIB += expat ffi fontconfig freetype fribidi gdk_pixbuf-2.0
+WANTLIB += gio-2.0 glib-2.0 gmodule-2.0 gobject-2.0 harfbuzz iconv
+WANTLIB += intl lzma m ogg opus pango-1.0 pangocairo-1.0 pangoft2-1.0
+WANTLIB += pcre pixman-1 png rsvg-2 sndfile vorbis vorbisenc xcb
+WANTLIB += xcb-render xcb-shm xml2 z
 
 COMPILER=	base-clang ports-gcc base-gcc
 
@@ -30,7 +33,15 @@ BUILD_DEPENDS=	devel/gettext,-tools \
 LIB_DEPENDS=	audio/libao \
 		audio/libsndfile \
 		devel/fribidi \
-		graphics/gdk-pixbuf2
+		devel/glib2 \
+		devel/harfbuzz \
+		devel/pango \
+		devel/pcre \
+		graphics/cairo \
+		graphics/gdk-pixbuf2 \
+		graphics/imlib2 \
+		textproc/libxml,-main \
+		x11/gnome/librsvg
 
 RUN_DEPENDS=	devel/desktop-file-utils
 

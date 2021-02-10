@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.48 2020/07/03 21:13:22 sthen Exp $
+# $OpenBSD: Makefile,v 1.50 2021/01/03 12:13:05 jasper Exp $
 
 COMMENT=		input assistive technology
 
 GNOME_PROJECT=		caribou
 GNOME_VERSION=		0.4.21
-REVISION=		4
+REVISION=		5
 
 SHARED_LIBS +=  caribou              0.0      # 0.0
 
@@ -26,10 +26,10 @@ MODULES=		devel/dconf \
 			lang/python \
 			x11/gnome
 
+MODGNOME_TOOLS =	vala
 MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS=		devel/py-gobject3,${MODPY_FLAVOR} \
-			lang/vala \
 			textproc/libxslt
 
 RUN_DEPENDS=		devel/py-gobject3,${MODPY_FLAVOR}

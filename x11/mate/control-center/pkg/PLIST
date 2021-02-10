@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.10 2020/03/21 16:14:54 robert Exp $
+@comment $OpenBSD: PLIST,v 1.12 2020/11/08 08:19:16 ajacoutot Exp $
 @bin bin/mate-about-me
 @bin bin/mate-appearance-properties
 @bin bin/mate-at-properties
@@ -1042,6 +1042,23 @@ share/help/ka/mate-control-center/config-screensaver.xml
 share/help/ka/mate-control-center/config-themes.xml
 share/help/ka/mate-control-center/index.docbook
 share/help/ka/mate-control-center/legal.xml
+share/help/kab/
+share/help/kab/mate-control-center/
+share/help/kab/mate-control-center/config-accessibility-keyboard.xml
+share/help/kab/mate-control-center/config-background.xml
+share/help/kab/mate-control-center/config-behavior.xml
+share/help/kab/mate-control-center/config-cds.xml
+share/help/kab/mate-control-center/config-default-apps.xml
+share/help/kab/mate-control-center/config-file-type.xml
+share/help/kab/mate-control-center/config-hints.xml
+share/help/kab/mate-control-center/config-html.xml
+share/help/kab/mate-control-center/config-kbd.xml
+share/help/kab/mate-control-center/config-keybindings.xml
+share/help/kab/mate-control-center/config-mouse.xml
+share/help/kab/mate-control-center/config-screensaver.xml
+share/help/kab/mate-control-center/config-themes.xml
+share/help/kab/mate-control-center/index.docbook
+share/help/kab/mate-control-center/legal.xml
 share/help/kk/
 share/help/kk/mate-control-center/
 share/help/kk/mate-control-center/config-accessibility-keyboard.xml
@@ -2249,8 +2266,6 @@ share/mate-time-admin/map/timezone_9.png
 share/mate-time-admin/map/timezone_9_dim.png
 @comment share/mime/XMLnamespaces
 @comment share/mime/aliases
-share/mime/application/
-share/mime/application/x-mate-theme-package.xml
 @comment share/mime/generic-icons
 @comment share/mime/globs
 @comment share/mime/globs2

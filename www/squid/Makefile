@@ -1,16 +1,16 @@
-# $OpenBSD: Makefile,v 1.227 2020/07/21 15:52:40 sthen Exp $
+# $OpenBSD: Makefile,v 1.231 2021/02/01 12:57:26 sthen Exp $
 
 COMMENT-main=	WWW and FTP proxy cache and accelerator
 COMMENT-ldap=	LDAP authentication/ACL support for Squid
 COMMENT-ntlm=	NTLM authentication/ACL support for Squid
 
-V=		4.12
+V=		4.13
 DISTNAME=	squid-$V
 EXTRACT_SUFX=	.tar.xz
 PKGNAME-main=	squid-$V
 PKGNAME-ldap=	squid-ldap-$V
 PKGNAME-ntlm=	squid-ntlm-$V
-REVISION=	1
+REVISION-main=	1
 
 .for i in -ldap -ntlm
 # subpackages aren't flavoured, so overwrite the default name/path
@@ -121,10 +121,13 @@ LIB_DEPENDS-main+= ${MODHEIMDAL_LIB_DEPENDS} \
 		databases/openldap
 
 WANTLIB-main+=	${MODHEIMDAL_WANTLIB} \
+		heimdal/lib/gssapi \
+		heimdal/lib/heimntlm \
 		heimdal/lib/heimsqlite \
 		heimdal/lib/wind \
 		crypto lber ldap sasl2 ssl util
 CONFIGURE_ARGS+= --with-heimdal-krb5
+CONFIGURE_ENV+= LIB_KRB5_LIBS="-L${LOCALBASE}/heimdal/lib -Wl,-rpath ${LOCALBASE}/heimdal/lib -lgssapi -lkrb5"
 .else
 CONFIGURE_ARGS+= --with-krb5-config=no
 .endif
@@ -143,11 +146,9 @@ LIB_DEPENDS-ntlm=   security/libnettle
 WANTLIB-ntlm=       ${COMPILER_LIBCXX} c m nettle pthread
 
 pre-build:
-	@cd ${WRKSRC}; \
-	perl -pi -e 's,/usr/local,${LOCALBASE},g' \
-	    helpers/external_acl/wbinfo_group/ext_wbinfo_group_acl.pl.in \
-	    helpers/*/*/config.test \
-	    src/squid.8.in
+	@cd ${WRKSRC}/src; sed -i 's,/usr/local,${LOCALBASE},g' \
+	    acl/external/wbinfo_group/ext_wbinfo_group_acl.pl.in \
+	    squid.8.in
 
 post-install:
 	rm -rf ${WRKINST}/var/squid

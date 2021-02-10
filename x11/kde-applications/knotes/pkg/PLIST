@@ -1,11 +1,12 @@
-@comment $OpenBSD: PLIST,v 1.1.1.1 2020/06/14 04:57:35 rsadowski Exp $
+@comment $OpenBSD: PLIST,v 1.4 2021/02/08 20:00:46 rsadowski Exp $
 @bin bin/akonadi_notes_agent
 @bin bin/knotes
 @lib lib/libknotesprivate.so.${LIBknotesprivate_VERSION}
 @lib lib/libnotesharedprivate.so.${LIBnotesharedprivate_VERSION}
 @so lib/qt5/plugins/kcm_knote.so
 @so lib/qt5/plugins/kcm_knotessummary.so
-@so lib/qt5/plugins/kontact_knotesplugin.so
+lib/qt5/plugins/kontact5/
+@so lib/qt5/plugins/kontact5/kontact_knotesplugin.so
 share/akonadi/agents/notesagent.desktop
 share/applications/org.kde.knotes.desktop
 share/config.kcfg/knotesglobalconfig.kcfg
@@ -43,6 +44,12 @@ share/doc/HTML/et/akonadi_notes_agent/index.docbook
 share/doc/HTML/et/knotes/
 share/doc/HTML/et/knotes/index.cache.bz2
 share/doc/HTML/et/knotes/index.docbook
+share/doc/HTML/fr/akonadi_notes_agent/
+share/doc/HTML/fr/akonadi_notes_agent/index.cache.bz2
+share/doc/HTML/fr/akonadi_notes_agent/index.docbook
+share/doc/HTML/fr/knotes/
+share/doc/HTML/fr/knotes/index.cache.bz2
+share/doc/HTML/fr/knotes/index.docbook
 share/doc/HTML/it/akonadi_notes_agent/
 share/doc/HTML/it/akonadi_notes_agent/index.cache.bz2
 share/doc/HTML/it/akonadi_notes_agent/index.docbook
@@ -149,6 +156,7 @@ share/locale/de/LC_MESSAGES/knotes.mo
 share/locale/de/LC_MESSAGES/libnoteshared.mo
 share/locale/el/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/el/LC_MESSAGES/knotes.mo
+share/locale/el/LC_MESSAGES/libnoteshared.mo
 share/locale/en_GB/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/en_GB/LC_MESSAGES/knotes.mo
 share/locale/en_GB/LC_MESSAGES/libnoteshared.mo
@@ -159,7 +167,9 @@ share/locale/es/LC_MESSAGES/libnoteshared.mo
 share/locale/et/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/et/LC_MESSAGES/knotes.mo
 share/locale/et/LC_MESSAGES/libnoteshared.mo
+share/locale/eu/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/eu/LC_MESSAGES/knotes.mo
+share/locale/eu/LC_MESSAGES/libnoteshared.mo
 share/locale/fa/LC_MESSAGES/knotes.mo
 share/locale/fi/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/fi/LC_MESSAGES/knotes.mo
@@ -206,7 +216,9 @@ share/locale/nds/LC_MESSAGES/libnoteshared.mo
 share/locale/nl/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/nl/LC_MESSAGES/knotes.mo
 share/locale/nl/LC_MESSAGES/libnoteshared.mo
+share/locale/nn/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/nn/LC_MESSAGES/knotes.mo
+share/locale/nn/LC_MESSAGES/libnoteshared.mo
 share/locale/pa/LC_MESSAGES/knotes.mo
 share/locale/pl/LC_MESSAGES/akonadi_notes_agent.mo
 share/locale/pl/LC_MESSAGES/knotes.mo

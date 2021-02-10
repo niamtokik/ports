@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.25 2020/07/05 14:56:22 kn Exp $
+# $OpenBSD: Makefile,v 1.27 2020/12/30 22:27:27 sthen Exp $
 
 COMMENT=		media aggregator and podcast client
 
-MODPY_EGG_VERSION=	3.10.16
+MODPY_EGG_VERSION=	3.10.17
 
 GH_ACCOUNT=		gpodder
 GH_PROJECT=		gpodder
@@ -23,6 +23,9 @@ MODULES=		lang/python \
 
 MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
+# XXX Causes python crash
+#MODPY_PYTEST=		Yes
+
 RUN_DEPENDS=		devel/desktop-file-utils \
 			devel/gettext,-runtime \
 			devel/py-html5lib${MODPY_FLAVOR} \
@@ -33,10 +36,10 @@ RUN_DEPENDS=		devel/desktop-file-utils \
 			www/webkitgtk4 \
 			x11/dbus-python${MODPY_FLAVOR} \
 			x11/gtk+3,-guic
-TEST_DEPENDS=		devel/py-minimock${MODPY_FLAVOR} \
-			devel/py-coverage${MODPY_FLAVOR} \
-			net/mygpoclient \
-			textproc/py-podcastparser${MODPY_FLAVOR}
+TEST_DEPENDS=		devel/py-coverage${MODPY_FLAVOR} \
+			devel/py-minimock${MODPY_FLAVOR} \
+			devel/py-test${MODPY_FLAVOR} \
+			devel/py-test-cov${MODPY_FLAVOR}
 
 USE_GMAKE=		Yes
 MAKE_FILE=		makefile

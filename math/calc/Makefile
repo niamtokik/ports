@@ -1,13 +1,14 @@
-# $OpenBSD: Makefile,v 1.41 2020/07/11 22:54:36 sthen Exp $
+# $OpenBSD: Makefile,v 1.43 2021/02/09 11:50:13 sthen Exp $
 
 COMMENT=	C-style arbitrary precision calculator
 
-DISTNAME=	calc-2.12.7.2
-EXTRACT_SUFX=	.tar.bz2
+DISTNAME=	calc-2.12.7.6
 REVISION=	0
+EXTRACT_SUFX=	.tar.bz2
 
-SHARED_LIBS=	calc 0.0 \
-		custcalc 0.0
+R=		0.0
+SHARED_LIBS=	calc $R \
+		custcalc $R
 
 CATEGORIES=	math
 
@@ -23,8 +24,7 @@ WANTLIB += c curses readline
 MASTER_SITES=	http://www.isthe.com/chongo/src/calc/ \
 		${MASTER_SITE_SOURCEFORGE:=calc/}
 
-MAKE_FLAGS=\
-	Q="" LDCONFIG="" \
+MAKE_FLAGS= Q="" \
 	BINDIR='$${DESTDIR}${PREFIX}/bin' \
 	LIBDIR='$${DESTDIR}${PREFIX}/lib' \
 	INCDIR='$${DESTDIR}${PREFIX}/include' \
@@ -33,6 +33,8 @@ MAKE_FLAGS=\
 	LIB_EXT_VERSION=".so.${LIBcalc_VERSION}" \
 	USE_READLINE='-DUSE_READLINE' \
 	READLINE_LIB='-lreadline -lcurses' \
+	ARCH_CFLAGS="" \
+	LDCONFIG="" \
 	LCC="${CC}" \
 	CCOPT="${CFLAGS}"
 

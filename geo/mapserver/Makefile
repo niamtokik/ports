@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.74 2020/07/03 21:12:54 sthen Exp $
+# $OpenBSD: Makefile,v 1.77 2021/01/25 14:01:51 sthen Exp $
 
 MULTI_PACKAGES=	-utils -main -perl -php -python
 
@@ -8,9 +8,7 @@ COMMENT-php=	PHP Mapscript extension
 COMMENT-perl=	Perl Mapscript binding
 COMMENT-python=	Python Mapscript binding
 
-REVISION-python= 0
-
-V =		7.6.0
+V =		7.6.2
 DISTNAME=	mapserver-${V}
 PKGNAME-main=	${DISTNAME}
 PKGNAME-utils=	mapserver-utils-${V}
@@ -34,6 +32,7 @@ MASTER_SITES=	http://download.osgeo.org/mapserver/
 COMPILER =		base-clang ports-gcc base-gcc
 
 MODULES=	lang/php lang/python devel/cmake
+MODPHP_BUILDDEP=Yes
 MODPHP_RUNDEP=	No
 MODPY_SETUPTOOLS=	Yes
 MODPY_EGG_VERSION=	${V}

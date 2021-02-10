@@ -1,33 +1,39 @@
-# $OpenBSD: Makefile,v 1.2 2020/06/29 14:30:59 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2020/12/11 22:34:51 sthen Exp $
 
 COMMENT	=	eventing, networking & crypto for async applications
-PKGNAME =	${DISTNAME:L}
 CATEGORIES =	net
 
-SHARED_LIBS =	usockets 0.1
+VERSION =	0.6.0
+REVISION =	1
+
+DISTNAME =	usockets-${VERSION}
+PKGNAME =	${DISTNAME:L}
+
+SHARED_LIBS =	usockets 1.0
 
 GH_ACCOUNT =	uNetworking
 GH_PROJECT =	uSockets
-GH_TAGNAME =	v0.4.1
+#GH_TAGNAME =	v0.6.0
+# cstdlib include error
+GH_COMMIT =	7683672d87067cd75b854f4e36b9820f4809a4be
+
 
 MAINTAINER =	Aisha Tammy <openbsd@aisha.cc>
 
 # Apache 2.0
 PERMIT_PACKAGE =	Yes
 
-WANTLIB += crypto ssl uv
+WANTLIB += ${COMPILER_LIBCXX} crypto ssl uv
 
-# C11
+# C11 C++17
 COMPILER =	base-clang ports-gcc
 
 LIB_DEPENDS =	devel/libuv
 
 USE_GMAKE =	Yes
-ALL_TARGET =	default
-MAKE_FLAGS =	CFLAGS="${CFLAGS} -I${LOCALBASE}/include" \
-		LDFLAGS="${LDFLAGS} -L${LOCALBASE}/lib" \
-		LIBusockets_VERSION="${LIBusockets_VERSION}" \
-		WITH_OPENSSL=1 WITH_LIBUV=1
+MAKE_FLAGS =	CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" \
+		CC="${CC}" CXX="${CXX}" \
+		LIBusockets_VERSION="${LIBusockets_VERSION}"
 
 NO_TEST =	Yes
 

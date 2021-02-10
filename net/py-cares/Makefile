@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.14 2020/07/10 03:23:55 kmos Exp $
+# $OpenBSD: Makefile,v 1.16 2021/01/04 14:06:35 sthen Exp $
 
 # using bundled c-ares which is patched for TTL support
 COMMENT =		python interface for c-ares
 
 MODPY_EGG_VERSION =	3.1.1
+REVISION =		1
 DISTNAME =		pycares-${MODPY_EGG_VERSION}
 PKGNAME =		py-cares-${MODPY_EGG_VERSION}
 CATEGORIES =		net

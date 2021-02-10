@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1542 2020/06/26 11:51:16 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1546 2021/02/06 15:24:48 sthen Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -445,8 +445,10 @@ CCACHE_ENV ?=
 CCACHE_DIR ?= ${WRKOBJDIR_${PKGPATH}}/.ccache
 MAKE_ENV += CCACHE_DIR=${CCACHE_DIR} ${CCACHE_ENV}
 CONFIGURE_ENV += CCACHE_DIR=${CCACHE_DIR}
-BUILD_DEPENDS += devel/ccache
-COMPILER_WRAPPER = ccache
+COMPILER_WRAPPER += ccache
+.  if !exists(${LOCALBASE}/bin/ccache)
+ERRORS += "Fatal: USE_CCACHE is set, but ccache is not installed."
+.  endif
 .endif
 
 # by default, installation (fake) does not need -jN.
@@ -1201,7 +1203,7 @@ _pkg_cookie${_S} = ${_PACKAGE_COOKIE${_S}}
 .  if ${DEBUG_PACKAGES:M${_S}}
 _DBG_PKG_ARGS${_S} := ${PKG_ARGS${_S}}
 _DBG_PKG_ARGS${_S} += -P${FULLPKGPATH${_S}}:${FULLPKGNAME${_S}}:${FULLPKGNAME${_S}}
-_DBG_PKG_ARGS${_S} += -DCOMMENT="debug info for ${FULLPKGNAME${_S}}"
+_DBG_PKG_ARGS${_S} += -DCOMMENT="debug info for ${PKGSTEM${_S}}"
 _DBG_PKG_ARGS${_S} += -d"-debug info for ${FULLPKGNAME${_S}}"
 # XXX revisit that fullpkgpath later ?
 _DBG_PKG_ARGS${_S} += -DFULLPKGPATH=debug/${FULLPKGPATH${_S}}
@@ -1385,6 +1387,11 @@ PATCH_CASES += *.bz2) \
 	${BZIP2} -d <$$patchfile | ${PATCH} ${PATCH_DIST_ARGS};;
 .endif
 
+.if !empty(_LIST_EXTRACTED:M*.rpm)
+BUILD_DEPENDS += converters/rpm2cpio
+EXTRACT_CASES += *.rpm) \
+	cd ${WRKDIR} && rpm2cpio ${FULLDISTDIR}/$$archive | cpio -id -- ${EXTRACT_FILES};;
+.endif
 
 _PERL_FIX_SHAR ?= perl -ne 'print if $$s || ($$s = m:^\#(\!\s*/bin/sh\s*| This is a shell archive):)'
 
@@ -2650,7 +2657,7 @@ ${_WRKDIR_COOKIE}:
 .if empty(_BUILD_DEP:Mdevel/gettext,-tools) && \
 		empty(_BUILD_DEP:Mtextproc/intltool)
 	@printf '#!/bin/sh\n\
-		echo "*** $$0 was called without gettext-tools dependency ***" >&2\n\
+		echo "*** $$0 was called without devel/gettext,-tools dependency ***" >&2\n\
 		exit 1\n' ${_PREDIR} ${WRKDIR}/bin/msgfmt
 	@${_PBUILD} chmod 555 ${WRKDIR}/bin/msgfmt
 .  for name in msgcat msginit autopoint xgettext gettextize

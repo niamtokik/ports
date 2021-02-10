@@ -1,6 +1,6 @@
-@comment $OpenBSD: PLIST-main,v 1.38 2020/06/16 16:45:15 chrisz Exp $
+@comment $OpenBSD: PLIST-main,v 1.44 2021/01/24 15:20:07 sthen Exp $
 @pkgpath ${BASE_PKGPATH}
-%%gtk2%%
+%%gtk3%%
 bin/ex
 bin/rview
 bin/rvim
@@ -106,6 +106,13 @@ share/vim/${P}/compiler/context.vim
 share/vim/${P}/compiler/cs.vim
 share/vim/${P}/compiler/csslint.vim
 share/vim/${P}/compiler/cucumber.vim
+share/vim/${P}/compiler/dart.vim
+share/vim/${P}/compiler/dart2js.vim
+share/vim/${P}/compiler/dart2native.vim
+share/vim/${P}/compiler/dartanalyser.vim
+share/vim/${P}/compiler/dartdevc.vim
+share/vim/${P}/compiler/dartdoc.vim
+share/vim/${P}/compiler/dartfmt.vim
 share/vim/${P}/compiler/decada.vim
 share/vim/${P}/compiler/dot.vim
 share/vim/${P}/compiler/erlang.vim
@@ -118,9 +125,11 @@ share/vim/${P}/compiler/fortran_g77.vim
 share/vim/${P}/compiler/fortran_lf95.vim
 share/vim/${P}/compiler/fpc.vim
 share/vim/${P}/compiler/g95.vim
+share/vim/${P}/compiler/gawk.vim
 share/vim/${P}/compiler/gcc.vim
 share/vim/${P}/compiler/gfortran.vim
 share/vim/${P}/compiler/ghc.vim
+share/vim/${P}/compiler/gjs.vim
 share/vim/${P}/compiler/gnat.vim
 share/vim/${P}/compiler/go.vim
 share/vim/${P}/compiler/haml.vim
@@ -131,7 +140,11 @@ share/vim/${P}/compiler/intel.vim
 share/vim/${P}/compiler/irix5_c.vim
 share/vim/${P}/compiler/irix5_cpp.vim
 share/vim/${P}/compiler/javac.vim
+share/vim/${P}/compiler/jest.vim
 share/vim/${P}/compiler/jikes.vim
+share/vim/${P}/compiler/jjs.vim
+share/vim/${P}/compiler/jshint.vim
+share/vim/${P}/compiler/jsonlint.vim
 share/vim/${P}/compiler/mcs.vim
 share/vim/${P}/compiler/mips_c.vim
 share/vim/${P}/compiler/mipspro_c89.vim
@@ -148,22 +161,31 @@ share/vim/${P}/compiler/php.vim
 share/vim/${P}/compiler/pylint.vim
 share/vim/${P}/compiler/pyunit.vim
 share/vim/${P}/compiler/rake.vim
+share/vim/${P}/compiler/rhino.vim
 share/vim/${P}/compiler/rspec.vim
 share/vim/${P}/compiler/rst.vim
+share/vim/${P}/compiler/rubocop.vim
 share/vim/${P}/compiler/ruby.vim
 share/vim/${P}/compiler/rubyunit.vim
 share/vim/${P}/compiler/rustc.vim
 share/vim/${P}/compiler/sass.vim
 share/vim/${P}/compiler/se.vim
+share/vim/${P}/compiler/shellcheck.vim
 share/vim/${P}/compiler/splint.vim
 share/vim/${P}/compiler/stack.vim
 share/vim/${P}/compiler/standard.vim
+share/vim/${P}/compiler/stylelint.vim
 share/vim/${P}/compiler/tcl.vim
 share/vim/${P}/compiler/tex.vim
 share/vim/${P}/compiler/tidy.vim
+share/vim/${P}/compiler/ts-node.vim
+share/vim/${P}/compiler/tsc.vim
+share/vim/${P}/compiler/typedoc.vim
 share/vim/${P}/compiler/xbuild.vim
 share/vim/${P}/compiler/xmllint.vim
 share/vim/${P}/compiler/xmlwf.vim
+share/vim/${P}/compiler/xo.vim
+share/vim/${P}/compiler/zsh.vim
 share/vim/${P}/defaults.vim
 share/vim/${P}/delmenu.vim
 share/vim/${P}/doc/
@@ -381,6 +403,7 @@ share/vim/${P}/ftplugin/fetchmail.vim
 share/vim/${P}/ftplugin/flexwiki.vim
 share/vim/${P}/ftplugin/fortran.vim
 share/vim/${P}/ftplugin/framescript.vim
+share/vim/${P}/ftplugin/fstab.vim
 share/vim/${P}/ftplugin/fvwm.vim
 share/vim/${P}/ftplugin/gdb.vim
 share/vim/${P}/ftplugin/git.vim
@@ -460,6 +483,7 @@ share/vim/${P}/ftplugin/occam.vim
 share/vim/${P}/ftplugin/pamconf.vim
 share/vim/${P}/ftplugin/pascal.vim
 share/vim/${P}/ftplugin/passwd.vim
+share/vim/${P}/ftplugin/pbtxt.vim
 share/vim/${P}/ftplugin/pdf.vim
 share/vim/${P}/ftplugin/perl.vim
 share/vim/${P}/ftplugin/perl6.vim
@@ -497,6 +521,7 @@ share/vim/${P}/ftplugin/scss.vim
 share/vim/${P}/ftplugin/sensors.vim
 share/vim/${P}/ftplugin/services.vim
 share/vim/${P}/ftplugin/setserial.vim
+share/vim/${P}/ftplugin/sexplib.vim
 share/vim/${P}/ftplugin/sgml.vim
 share/vim/${P}/ftplugin/sh.vim
 share/vim/${P}/ftplugin/sieve.vim
@@ -521,6 +546,8 @@ share/vim/${P}/ftplugin/text.vim
 share/vim/${P}/ftplugin/tmux.vim
 share/vim/${P}/ftplugin/treetop.vim
 share/vim/${P}/ftplugin/tt2html.vim
+share/vim/${P}/ftplugin/typescript.vim
+share/vim/${P}/ftplugin/typescriptreact.vim
 share/vim/${P}/ftplugin/udevconf.vim
 share/vim/${P}/ftplugin/udevperm.vim
 share/vim/${P}/ftplugin/udevrules.vim
@@ -579,6 +606,7 @@ share/vim/${P}/indent/docbk.vim
 share/vim/${P}/indent/dosbatch.vim
 share/vim/${P}/indent/dtd.vim
 share/vim/${P}/indent/dtrace.vim
+share/vim/${P}/indent/dune.vim
 share/vim/${P}/indent/dylan.vim
 share/vim/${P}/indent/eiffel.vim
 share/vim/${P}/indent/elm.vim
@@ -700,6 +728,8 @@ share/vim/${P}/keymap/czech_utf-8.vim
 share/vim/${P}/keymap/dvorak.vim
 share/vim/${P}/keymap/esperanto.vim
 share/vim/${P}/keymap/esperanto_utf-8.vim
+share/vim/${P}/keymap/french-azerty.vim
+share/vim/${P}/keymap/german-qwertz.vim
 share/vim/${P}/keymap/greek.vim
 share/vim/${P}/keymap/greek_cp1253.vim
 share/vim/${P}/keymap/greek_cp737.vim
@@ -715,6 +745,8 @@ share/vim/${P}/keymap/hebrewp_iso-8859-8.vim
 share/vim/${P}/keymap/hebrewp_utf-8.vim
 share/vim/${P}/keymap/kana.vim
 share/vim/${P}/keymap/kazakh-jcuken.vim
+share/vim/${P}/keymap/korean-dubeolsik_utf-8.vim
+share/vim/${P}/keymap/korean.vim
 share/vim/${P}/keymap/lithuanian-baltic.vim
 share/vim/${P}/keymap/magyar_utf-8.vim
 share/vim/${P}/keymap/mongolian_utf-8.vim
@@ -733,6 +765,7 @@ share/vim/${P}/keymap/russian-jcuken.vim
 share/vim/${P}/keymap/russian-jcukenmac.vim
 share/vim/${P}/keymap/russian-jcukenwin.vim
 share/vim/${P}/keymap/russian-jcukenwintype.vim
+share/vim/${P}/keymap/russian-typograph.vim
 share/vim/${P}/keymap/russian-yawerty.vim
 share/vim/${P}/keymap/serbian-latin.vim
 share/vim/${P}/keymap/serbian-latin_utf-8.vim
@@ -751,6 +784,8 @@ share/vim/${P}/keymap/slovak_utf-8.vim
 share/vim/${P}/keymap/tamil_tscii.vim
 share/vim/${P}/keymap/thaana-phonetic_utf-8.vim
 share/vim/${P}/keymap/thaana.vim
+share/vim/${P}/keymap/turkish-f.vim
+share/vim/${P}/keymap/turkish-q.vim
 share/vim/${P}/keymap/ukrainian-dvorak.vim
 share/vim/${P}/keymap/ukrainian-jcuken.vim
 share/vim/${P}/keymap/vietnamese-telex_utf-8.vim
@@ -758,15 +793,6 @@ share/vim/${P}/keymap/vietnamese-viqr_utf-8.vim
 share/vim/${P}/keymap/vietnamese-vni_utf-8.vim
 share/vim/${P}/lang/
 share/vim/${P}/lang/README.txt
-share/vim/${P}/lang/menu_tr.cp1254.vim
-share/vim/${P}/lang/menu_tr.iso_8859-9.vim
-share/vim/${P}/lang/menu_tr.utf-8.vim
-share/vim/${P}/lang/menu_tr_tr.cp1254.vim
-share/vim/${P}/lang/menu_tr_tr.iso_8859-9.vim
-share/vim/${P}/lang/menu_tr_tr.utf-8.vim
-share/vim/${P}/lang/tr/
-share/vim/${P}/lang/tr/LC_MESSAGES/
-share/vim/${P}/lang/tr/LC_MESSAGES/vim.mo
 share/vim/${P}/macros/
 share/vim/${P}/macros/README.txt
 share/vim/${P}/macros/editexisting.vim
@@ -915,6 +941,7 @@ share/vim/${P}/syntax/acedb.vim
 share/vim/${P}/syntax/ada.vim
 share/vim/${P}/syntax/aflex.vim
 share/vim/${P}/syntax/ahdl.vim
+share/vim/${P}/syntax/aidl.vim
 share/vim/${P}/syntax/alsaconf.vim
 share/vim/${P}/syntax/amiga.vim
 share/vim/${P}/syntax/aml.vim
@@ -961,6 +988,8 @@ share/vim/${P}/syntax/bzl.vim
 share/vim/${P}/syntax/bzr.vim
 share/vim/${P}/syntax/c.vim
 share/vim/${P}/syntax/cabal.vim
+share/vim/${P}/syntax/cabalconfig.vim
+share/vim/${P}/syntax/cabalproject.vim
 share/vim/${P}/syntax/calendar.vim
 share/vim/${P}/syntax/catalog.vim
 share/vim/${P}/syntax/cdl.vim
@@ -1090,6 +1119,7 @@ share/vim/${P}/syntax/fvwm2m4.vim
 share/vim/${P}/syntax/gdb.vim
 share/vim/${P}/syntax/gdmo.vim
 share/vim/${P}/syntax/gedcom.vim
+share/vim/${P}/syntax/gift.vim
 share/vim/${P}/syntax/git.vim
 share/vim/${P}/syntax/gitcommit.vim
 share/vim/${P}/syntax/gitconfig.vim
@@ -1119,6 +1149,7 @@ share/vim/${P}/syntax/haste.vim
 share/vim/${P}/syntax/hastepreproc.vim
 share/vim/${P}/syntax/hb.vim
 share/vim/${P}/syntax/help.vim
+share/vim/${P}/syntax/help_ru.vim
 share/vim/${P}/syntax/hercules.vim
 share/vim/${P}/syntax/hex.vim
 share/vim/${P}/syntax/hgcommit.vim
@@ -1261,6 +1292,7 @@ share/vim/${P}/syntax/objcpp.vim
 share/vim/${P}/syntax/ocaml.vim
 share/vim/${P}/syntax/occam.vim
 share/vim/${P}/syntax/omnimark.vim
+share/vim/${P}/syntax/opam.vim
 share/vim/${P}/syntax/openroad.vim
 share/vim/${P}/syntax/opl.vim
 share/vim/${P}/syntax/ora.vim
@@ -1269,6 +1301,7 @@ share/vim/${P}/syntax/pamenv.vim
 share/vim/${P}/syntax/papp.vim
 share/vim/${P}/syntax/pascal.vim
 share/vim/${P}/syntax/passwd.vim
+share/vim/${P}/syntax/pbtxt.vim
 share/vim/${P}/syntax/pcap.vim
 share/vim/${P}/syntax/pccts.vim
 share/vim/${P}/syntax/pdf.vim
@@ -1359,6 +1392,7 @@ share/vim/${P}/syntax/sendpr.vim
 share/vim/${P}/syntax/sensors.vim
 share/vim/${P}/syntax/services.vim
 share/vim/${P}/syntax/setserial.vim
+share/vim/${P}/syntax/sexplib.vim
 share/vim/${P}/syntax/sgml.vim
 share/vim/${P}/syntax/sgmldecl.vim
 share/vim/${P}/syntax/sgmllnx.vim
@@ -1531,6 +1565,7 @@ share/vim/${P}/tools/demoserver.py
 share/vim/${P}/tools/efm_filter.pl
 share/vim/${P}/tools/efm_filter.txt
 share/vim/${P}/tools/efm_perl.pl
+share/vim/${P}/tools/emoji_list.vim
 share/vim/${P}/tools/mve.awk
 share/vim/${P}/tools/mve.txt
 share/vim/${P}/tools/pltags.pl
@@ -1547,7 +1582,6 @@ share/vim/${P}/tools/xcmdsrv_client.c
 share/vim/${P}/tutor/
 share/vim/${P}/tutor/README.txt
 share/vim/${P}/tutor/tutor
-share/vim/${P}/tutor/tutor.ko
 share/vim/${P}/tutor/tutor.utf-8
 share/vim/${P}/tutor/tutor.vim
 share/vim/${P}/vimrc_example.vim

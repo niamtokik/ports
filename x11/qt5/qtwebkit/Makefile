@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.25 2020/06/09 22:43:16 sthen Exp $
+# $OpenBSD: Makefile,v 1.28 2020/11/23 12:39:34 sthen Exp $
 
 COMMENT =		QtWebKit with a more modern WebKit code base
 
@@ -14,7 +14,7 @@ PKGNAME =		qtwebkit-${VERSION}
 PKGSPEC =		qtwebkit->=${VERSION}v0
 
 EPOCH=			0
-REVISION =		0
+REVISION =		2
 
 
 SHARED_LIBS +=  Qt5WebKit               3.1 # 5.9
@@ -118,16 +118,16 @@ CONFIGURE_ARGS +=	-DENABLE_JIT=OFF
 CONFIGURE_ARGS +=	-DENABLE_LLINT_C_LOOP=ON
 .endif
 
+.if ${MACHINE_ARCH} == "aarch64"
+# dwz fails when compressing debug symbols;
+# assertion "off == cu_size" failed: file "dwz.c", line 9607, function "recompute_abbrevs"
+DWZ = :
+.endif
+
 # ld.lld does not have this option
 # save memory on 32bit arches
 .if !${PROPERTIES:Mlld} && ${MACHINE_ARCH} != "amd64"
 LDFLAGS +=		-Wl,--no-keep-memory
-.endif
-
-# __sync_add_and_fetch_8
-.if ${MACHINE_ARCH} == "i386"
-CFLAGS +=		-march=i686
-CXXFLAGS +=		-march=i686
 .endif
 
 post-install:

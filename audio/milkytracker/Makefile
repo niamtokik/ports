@@ -1,17 +1,16 @@
-# $OpenBSD: Makefile,v 1.25 2020/04/28 22:35:24 cwen Exp $
+# $OpenBSD: Makefile,v 1.27 2020/12/10 14:12:51 fcambus Exp $
 
 COMMENT =	Fasttracker II inspired MOD tracker
 
 GH_ACCOUNT =	milkytracker
 GH_PROJECT =	MilkyTracker
-GH_TAGNAME =	v1.02.00
+GH_TAGNAME =	v1.03.00
 
 PKGNAME =	${DISTNAME:L}
-REVISION =	6
 
 CATEGORIES =	audio
 
-HOMEPAGE =	https://milkytracker.titandemo.org/
+HOMEPAGE =	https://milkytracker.org/
 
 # GPLv3+
 PERMIT_PACKAGE =	Yes

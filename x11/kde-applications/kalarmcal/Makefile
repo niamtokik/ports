@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.2 2020/06/21 18:12:53 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.6 2021/02/08 20:00:41 rsadowski Exp $
 
 COMMENT =	KAlarm client library
 DISTNAME =	kalarmcal-${VERSION}
 CATEGORIES =	devel
-REVISION =	0
 
-SHARED_LIBS +=  KF5AlarmCalendar       0.0 # 5.13.2
+SHARED_LIBS +=  KF5AlarmCalendar       1.2 # 5.13.2
 
 WANTLIB += ${COMPILER_LIBCXX} KF5AkonadiCore KF5CalendarCore KF5CalendarUtils
 WANTLIB += KF5ConfigCore KF5ConfigGui KF5CoreAddons KF5Holidays
@@ -13,8 +12,6 @@ WANTLIB += KF5I18n KF5IdentityManagement KF5ItemModels KF5PimTextEdit
 WANTLIB += Qt5Core Qt5Gui Qt5Widgets Qt5Xml m
 
 MODKDE5_TRANSLATIONS = yes
-
-MODULES +=	x11/kde-applications
 
 BUILD_DEPENDS =	devel/boost
 

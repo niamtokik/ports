@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.77 2020/03/20 16:44:27 naddy Exp $
+# $OpenBSD: Makefile,v 1.81 2021/02/01 04:09:48 kn Exp $
 
 COMMENT =		ebook management application
 
@@ -7,7 +7,7 @@ V =			2.85.1
 DISTNAME =		calibre-$V
 CATEGORIES =		textproc
 EXTRACT_SUFX =		.tar.xz
-REVISION =		12
+REVISION =		15
 
 HOMEPAGE =		https://calibre-ebook.com/
 
@@ -33,8 +33,8 @@ COMMON_DEPENDS =	databases/py-apsw \
 			devel/py-dateutil \
 			devel/xdg-utils \
 			graphics/libwmf \
-			graphics/py-Pillow \
-			net/py-dnspython \
+			graphics/py2-Pillow \
+			net/py2-dnspython \
 			graphics/png \
 			print/poppler \
 			print/poppler,-qt5 \
@@ -76,12 +76,13 @@ MODPY_DISTUTILS_BUILD =		build
 MODPY_DISTUTILS_INSTALL =	install --prefix=${LOCALBASE} \
 				--root=${PREFIX}
 
-# There are ERANGE files that hard-code the python bin name
+# Cannot use MODPY_ADJ_FILES as there are ERANGE files with hard-coded shebang
+pre-patch:
+	cd ${WRKSRC} && find . -type f -name '*.py' -exec ${MODPY_BIN_ADJ} {} +
+
 # Remove bundled cherrypy so it uses the system version
 pre-configure:
-	cd ${WRKSRC} && (rm -rf src/cherrypy ; \
-		find . -name '*.py' -exec perl -pi.beforesubst -e \
-		's,#!/usr/bin/env python(2)?,#!${MODPY_BIN},' {} + )
+	cd ${WRKSRC} && rm -rf src/cherrypy
 	cd ${WRKSRC}/setup && ${SUBST_CMD} build.py build_environment.py
 	cp ${FILESDIR}/fake-xdg ${WRKDIR}/bin; chmod +x ${WRKDIR}/bin/fake-xdg
 .for i in xdg-icon-resource xdg-desktop-menu xdg-mime

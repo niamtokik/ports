@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1216 2020/07/11 06:49:49 paco Exp $
+# $OpenBSD: Makefile,v 1.1241 2021/02/04 12:52:05 sthen Exp $
 
      SUBDIR =
      SUBDIR += adns
@@ -8,11 +8,10 @@
      SUBDIR += amule
      SUBDIR += angst
      SUBDIR += ap-utils
-     SUBDIR += apache-activemq
      SUBDIR += argus
      SUBDIR += argus-clients
-     SUBDIR += arp-scan
      SUBDIR += arouteserver
+     SUBDIR += arp-scan
      SUBDIR += arpcatch
      SUBDIR += arpd
      SUBDIR += arping
@@ -37,11 +36,13 @@
      SUBDIR += bitlbee-mastodon
      SUBDIR += blaeu
      SUBDIR += bnc
+     SUBDIR += bombadillo
      SUBDIR += bro
      SUBDIR += btpd
      SUBDIR += bwm-ng
      SUBDIR += cadaver
      SUBDIR += castget
+     SUBDIR += catgirl
      SUBDIR += cftp
      SUBDIR += cgo
      SUBDIR += cgterm
@@ -62,6 +63,7 @@
      SUBDIR += ddclient
      SUBDIR += deluge
      SUBDIR += deluge-ltconfig
+     SUBDIR += dendrite
      SUBDIR += dhcdrop
      SUBDIR += dhcpcd
      SUBDIR += dhcpdump
@@ -80,6 +82,7 @@
      SUBDIR += dnstop
      SUBDIR += dnstracer
      SUBDIR += doc
+     SUBDIR += dog
      SUBDIR += doh
      SUBDIR += dsocks
      SUBDIR += dsvpn
@@ -88,7 +91,6 @@
      SUBDIR += ekg
      SUBDIR += enet
      SUBDIR += epic4
-     SUBDIR += etherape
      SUBDIR += ettercap
      SUBDIR += ettercap,no_x11
      SUBDIR += exabgp
@@ -116,11 +118,14 @@
      SUBDIR += gnugk
      SUBDIR += go-ipfs
      SUBDIR += go-net
+     SUBDIR += gomuks
      SUBDIR += gopher
      SUBDIR += gophernicus
+     SUBDIR += gortr
      SUBDIR += gotthard
      SUBDIR += gpodder
      SUBDIR += grake
+     SUBDIR += grsync
      SUBDIR += gssdp
      SUBDIR += gtk-gnutella
      SUBDIR += gupnp
@@ -132,6 +137,7 @@
      SUBDIR += hs-HTTP
      SUBDIR += hs-hostname
      SUBDIR += httptunnel
+     SUBDIR += i2p
      SUBDIR += i2pd
      SUBDIR += icbd
      SUBDIR += icbirc
@@ -178,6 +184,7 @@
      SUBDIR += jftpgw
      SUBDIR += jnettop
      SUBDIR += kdeconnect-kde
+     SUBDIR += kdsoap
      SUBDIR += kea
      SUBDIR += kea,mysql
      SUBDIR += kea,postgresql
@@ -185,9 +192,11 @@
      SUBDIR += kissd
      SUBDIR += knot
      SUBDIR += konversation
+     SUBDIR += kristall
      SUBDIR += ktorrent
      SUBDIR += kurly
      SUBDIR += ladvd
+     SUBDIR += lagrange
      SUBDIR += ldns
      SUBDIR += lftp
      SUBDIR += libbgpdump
@@ -251,6 +260,7 @@
      SUBDIR += mfi
      SUBDIR += microblog-purple
      SUBDIR += minbif
+     SUBDIR += miniflux
      SUBDIR += mininet
      SUBDIR += minio
      SUBDIR += miniupnp
@@ -277,7 +287,6 @@
      SUBDIR += natpmpd
      SUBDIR += nbtscan
      SUBDIR += ncftp
-     SUBDIR += nemesis
      SUBDIR += neon
      SUBDIR += nepim
      SUBDIR += net-snmp
@@ -481,7 +490,6 @@
      SUBDIR += p5-Zonemaster
      SUBDIR += p5-flowd
      SUBDIR += packetq
-     SUBDIR += packit
      SUBDIR += pavuk
      SUBDIR += pavuk,no_x11
      SUBDIR += pbgpp
@@ -546,16 +554,10 @@
      SUBDIR += py-IP
      SUBDIR += py-IP,python3
      SUBDIR += py-aiodns,python3
-     SUBDIR += py-ripe.atlas.cousteau
-     SUBDIR += py-ripe.atlas.cousteau,python3
-     SUBDIR += py-ripe.atlas.sagan
-     SUBDIR += py-ripe.atlas.sagan,python3
-     SUBDIR += py-ripe.atlas.tools
      SUBDIR += py-boto
      SUBDIR += py-boto,python3
      SUBDIR += py-boto3,python3
      SUBDIR += py-botocore,python3
-     SUBDIR += py-cares
      SUBDIR += py-cares,python3
      SUBDIR += py-curl
      SUBDIR += py-curl,python3
@@ -564,7 +566,7 @@
      SUBDIR += py-dns
      SUBDIR += py-dnslib
      SUBDIR += py-dnslib,python3
-     SUBDIR += py-dnspython
+     SUBDIR += py2-dnspython
      SUBDIR += py-dnspython,python3
      SUBDIR += py-dpkt
      SUBDIR += py-eapi
@@ -609,6 +611,13 @@
      SUBDIR += py-pf,python3
      SUBDIR += py-portend
      SUBDIR += py-portend,python3
+     SUBDIR += py-ripe.atlas.cousteau
+     SUBDIR += py-ripe.atlas.cousteau,python3
+     SUBDIR += py-ripe.atlas.sagan
+     SUBDIR += py-ripe.atlas.sagan,python3
+     SUBDIR += py-ripe.atlas.tools
+     SUBDIR += py-rrdtool
+     SUBDIR += py-rrdtool,python3
      SUBDIR += py-s3transfer,python3
      SUBDIR += py-simplesoap
      SUBDIR += py-simplesoap,python3
@@ -631,7 +640,6 @@
      SUBDIR += py-websocket-client,python3
      SUBDIR += py-xmpppy
      SUBDIR += py-zeroconf,python3
-     SUBDIR += py-zmq
      SUBDIR += py-zmq,python3
      SUBDIR += py-zsi
      SUBDIR += qbittorrent
@@ -655,12 +663,15 @@
      SUBDIR += ruby-agcaldav
      SUBDIR += ruby-cbor,ruby26
      SUBDIR += ruby-cbor,ruby27
+     SUBDIR += ruby-cbor,ruby30
      SUBDIR += ruby-eventmachine,ruby26
      SUBDIR += ruby-eventmachine,ruby27
+     SUBDIR += ruby-eventmachine,ruby30
      SUBDIR += ruby-macaddr
      SUBDIR += ruby-mfi
      SUBDIR += ruby-msgpack,ruby26
      SUBDIR += ruby-msgpack,ruby27
+     SUBDIR += ruby-msgpack,ruby30
      SUBDIR += ruby-net-dns
      SUBDIR += ruby-net-http-digest_auth
      SUBDIR += ruby-net-scp
@@ -772,7 +783,6 @@
      SUBDIR += whatweb
      SUBDIR += wide-dhcpv6
      SUBDIR += wifind
-     SUBDIR += wireguard-go
      SUBDIR += wireguard-tools
      SUBDIR += wireshark
      SUBDIR += wmnetload
@@ -785,6 +795,7 @@
      SUBDIR += yafc
      SUBDIR += yaz
      SUBDIR += yersinia
+     SUBDIR += yggdrasil-go
      SUBDIR += ysmv7
      SUBDIR += ytalk
      SUBDIR += ytalk,no_x11

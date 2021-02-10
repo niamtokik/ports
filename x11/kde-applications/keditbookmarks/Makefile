@@ -1,12 +1,10 @@
-# $OpenBSD: Makefile,v 1.7 2020/06/05 05:40:26 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.9 2020/11/03 16:12:35 rsadowski Exp $
 
 COMMENT =	KDE bookmarks editor
 DISTNAME =	keditbookmarks-${VERSION}
 CATEGORIES =	x11
-REVISION =	1
 
-
-SHARED_LIBS +=  kbookmarkmodel_private    1.0 # 5.97
+SHARED_LIBS +=  kbookmarkmodel_private    2.0 # 5.97
 
 WANTLIB += ${COMPILER_LIBCXX} KF5Auth KF5AuthCore KF5Bookmarks
 WANTLIB += KF5Codecs KF5Completion KF5ConfigCore KF5ConfigGui
@@ -21,8 +19,6 @@ MODKDE5_TRANSLATIONS = yes
 MODKF5_I18N_CONFLICT = yes
 MODKF5_L10N_CONFLICT = yes
 MODKDE5_DOCS = yes
-
-MODULES +=	x11/kde-applications
 
 LIB_DEPENDS =	devel/kf5/kauth \
 		devel/kf5/kbookmarks \

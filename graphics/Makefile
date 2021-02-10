@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.512 2020/07/03 14:00:18 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.541 2021/02/01 14:45:33 fcambus Exp $
 
      SUBDIR =
      SUBDIR += DevIL
@@ -6,6 +6,7 @@
      SUBDIR += ImageMagick
      SUBDIR += aalib
      SUBDIR += agg
+     SUBDIR += alembic
      SUBDIR += allegropng
      SUBDIR += animorph
      SUBDIR += ansilove
@@ -21,11 +22,11 @@
      SUBDIR += cadubi
      SUBDIR += cairo
      SUBDIR += cairomm
+     SUBDIR += cairomm16
      SUBDIR += cal3d
      SUBDIR += cfdg
+     SUBDIR += chafa
      SUBDIR += clutter
-     SUBDIR += colord
-     SUBDIR += colord-gtk
      SUBDIR += colorexplorer
      SUBDIR += comix
      SUBDIR += cstitch
@@ -56,6 +57,7 @@
      SUBDIR += ffmpeg
      SUBDIR += ffmpegthumbnailer
      SUBDIR += flameshot
+     SUBDIR += fna3d
      SUBDIR += fotowall
      SUBDIR += freeglut
      SUBDIR += freeimage
@@ -65,6 +67,7 @@
      SUBDIR += gd
      SUBDIR += gdcm
      SUBDIR += gdk-pixbuf2
+     SUBDIR += gdk-pixbuf-xlib
      SUBDIR += geeqie
      SUBDIR += gegl04
      SUBDIR += geomview
@@ -83,7 +86,6 @@
      SUBDIR += gmt
      SUBDIR += gnofract4d
      SUBDIR += gocr
-     SUBDIR += goocanvas2
      SUBDIR += gphoto2
      SUBDIR += gpicview
      SUBDIR += gprof2dot
@@ -114,11 +116,14 @@
      SUBDIR += jpeg
      SUBDIR += jpeg2ps
      SUBDIR += jpegdump
+     SUBDIR += jpeginfo
      SUBDIR += jpegoptim
      SUBDIR += jpegpixi
-     SUBDIR += k3dsurf
+     SUBDIR += kcolorpicker
      SUBDIR += kdiagram
+     SUBDIR += kimageannotator
      SUBDIR += krita
+     SUBDIR += ksnip
      SUBDIR += l2p
      SUBDIR += lcms
      SUBDIR += lcms2
@@ -135,6 +140,7 @@
      SUBDIR += libgexiv2
      SUBDIR += libgphoto2
      SUBDIR += libgxps
+     SUBDIR += libimagequant
      SUBDIR += libiptcdata
      SUBDIR += liblqr
      SUBDIR += libmng
@@ -146,6 +152,7 @@
      SUBDIR += libqrencode
      SUBDIR += libraw
      SUBDIR += libsixel
+     SUBDIR += libspiro
      SUBDIR += libvidcap
      SUBDIR += libvips
      SUBDIR += libwebp
@@ -165,7 +172,9 @@
      SUBDIR += mpeg_encode
      SUBDIR += mscgen
      SUBDIR += mtpaint
+     SUBDIR += mypaint
      SUBDIR += mypaint-brushes
+     SUBDIR += mypaint-brushes2
      SUBDIR += netpbm
      SUBDIR += nomacs
      SUBDIR += ocaml-cairo
@@ -178,8 +187,9 @@
      SUBDIR += openexr
      SUBDIR += openimageio
      SUBDIR += openjp2
-     SUBDIR += openjpeg
      SUBDIR += openscenegraph
+     SUBDIR += opensubdiv
+     SUBDIR += openvdb
      SUBDIR += optipng
      SUBDIR += orthanc
      SUBDIR += p5-Barcode-DataMatrix
@@ -218,7 +228,6 @@
      SUBDIR += p5-SVG-Graph
      SUBDIR += p5-Sane
      SUBDIR += pdf2djvu
-     SUBDIR += pdfmod
      SUBDIR += pdfsandwich
      SUBDIR += pecl-imagick,php72
      SUBDIR += pecl-imagick,php73
@@ -234,9 +243,10 @@
      SUBDIR += povray
      SUBDIR += pqiv
      SUBDIR += pstoedit
-     SUBDIR += py-Pillow
+     SUBDIR += py-blurhash
+     SUBDIR += py2-Pillow
      SUBDIR += py-Pillow,python3
-     SUBDIR += py-cairo
+     SUBDIR += py-cairo,python3
      SUBDIR += py-cycler
      SUBDIR += py-cycler,python3
      SUBDIR += py-dot
@@ -246,17 +256,15 @@
      SUBDIR += py-imageio,python3
      SUBDIR += py-imagesize
      SUBDIR += py-imagesize,python3
-     SUBDIR += py-matplotlib
      SUBDIR += py-matplotlib,python3
      SUBDIR += py-opengl
      SUBDIR += py-opengl,python3
-     SUBDIR += py-pyx
-     SUBDIR += py-qrcode
+     SUBDIR += py-pyx,python3
      SUBDIR += py-qrcode,python3
-     SUBDIR += py-sane
      SUBDIR += py-sane,python3
-     SUBDIR += py-seaborn
-     SUBDIR += pycha
+     SUBDIR += py-seaborn,python3
+     SUBDIR += pycha,python3
+     SUBDIR += py2-cairo
      SUBDIR += qiv
      SUBDIR += quesoglc
      SUBDIR += quirc
@@ -266,6 +274,7 @@
      SUBDIR += ruby-gruff
      SUBDIR += ruby-rmagick,ruby26
      SUBDIR += ruby-rmagick,ruby27
+     SUBDIR += ruby-rmagick,ruby30
      SUBDIR += s10sh
      SUBDIR += sane-backends
      SUBDIR += sane-backends,snmp

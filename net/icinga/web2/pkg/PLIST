@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.23 2020/06/10 13:14:24 sthen Exp $
+@comment $OpenBSD: PLIST,v 1.25 2021/02/10 12:47:07 sthen Exp $
 @newgroup _icingaweb2:762
 @newuser _icingaweb2:762:_icingaweb2:daemon:Icinga-web2 user:${PREFIX}/icinga-web2:/sbin/nologin
 @extraunexec rm -rf %D/etc/icingaweb2/*
