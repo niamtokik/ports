@@ -56,46 +56,46 @@ MODGNU_CONFIG_GUESS_DIRS ?=     ${WRKSRC}/erts/autoconf \
 
 # Use the target 'gen-versions' to update this list
 ERL_VERSIONS=	\
-ASN1_VSN        5.0.13 \
-COMMON_TEST_VSN 1.19 \
-COMPILER_VSN    7.6 \
-CRYPTO_VSN      4.7 \
+ASN1_VSN        5.0.14 \
+COMMON_TEST_VSN 1.19.1 \
+COMPILER_VSN    7.6.6 \
+CRYPTO_VSN      4.8.3 \
 DEBUGGER_VSN    5.0 \
-DIALYZER_VSN    4.2 \
+DIALYZER_VSN    4.3 \
 DIAMETER_VSN    2.2.3 \
 EDOC_VSN        0.12 \
-EI_VSN  4.0 \
+EI_VSN  4.0.2 \
 ELDAP_VSN       1.2.8 \
 EMACS_VSN       2.7.0 \
-ERL_DOCGEN_VSN  1.0 \
-ERL_INTERFACE_VSN       4.0 \
+ERL_DOCGEN_VSN  1.0.2 \
+ERL_INTERFACE_VSN       $(EI_VSN) \
 ET_VSN  1.6.4 \
-EUNIT_VSN       2.5 \
-FTP_VSN 1.0.4 \
-HIPE_VSN        4.0 \
-INETS_VSN       7.2 \
+EUNIT_VSN       2.6 \
+FTP_VSN 1.0.5 \
+HIPE_VSN        4.0.1 \
+INETS_VSN       7.3.1 \
 JINTERFACE_VSN  1.11 \
-KERNEL_VSN      7.0 \
-MEGACO_VSN      3.19 \
-MNESIA_VSN      4.17 \
-OBSERVER_VSN    2.9.4 \
-ODBC_VSN        2.13 \
-OS_MON_VSN      2.5.2 \
+KERNEL_VSN      7.2 \
+MEGACO_VSN      3.19.5 \
+MNESIA_VSN      4.18.1 \
+OBSERVER_VSN    2.9.5 \
+ODBC_VSN        2.13.2 \
+OS_MON_VSN      2.6.1 \
 PARSETOOLS_VSN  2.2 \
-PUBLIC_KEY_VSN  1.8 \
+PUBLIC_KEY_VSN  1.9.2 \
 RELTOOL_VSN     0.8 \
-RUNTIME_TOOLS_VSN       1.15 \
-SASL_VSN        4.0 \
-SNMP_VSN        5.6 \
-SSH_VSN 4.10 \
-SSL_VSN 10.0 \
-STDLIB_VSN      3.13 \
-SYNTAX_TOOLS_VSN        2.3 \
+RUNTIME_TOOLS_VSN       1.15.1 \
+SASL_VSN        4.0.1 \
+SNMP_VSN        5.7.3 \
+SSH_VSN 4.10.7 \
+SSL_VSN 10.2.2 \
+STDLIB_VSN      3.14 \
+SYNTAX_TOOLS_VSN        2.4 \
 TFTP_VSN        1.0.2 \
-TOOLS_VSN       3.4 \
-WX_VSN  1.9.1 \
-XMERL_VSN       1.3.25 \
-ERTS_VSN        11.0
+TOOLS_VSN       3.4.2 \
+WX_VSN  1.9.2 \
+XMERL_VSN       1.3.26 \
+ERTS_VSN        11.1.7
 SYSTEM_VSN=	${V:R}
 
 pre-configure:
