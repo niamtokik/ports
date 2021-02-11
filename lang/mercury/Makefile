@@ -4,7 +4,7 @@ COMMENT-main =		Mercury is a pure logic programming language
 COMMENT-minimal =	Mercury is a pure logic programming language
 
 CATEGORIES =		lang
-V =			20.06
+V =			20.06.1
 DISTNAME =		mercury-srcdist-$V
 PKGNAME =		mercury-$V
 PKGNAME-main =		mercury-$V
