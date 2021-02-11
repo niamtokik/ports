@@ -1,11 +1,9 @@
 # $OpenBSD: Makefile,v 1.5 2020/05/04 08:45:15 kmos Exp $
 
-BROKEN-alpha=	beam/erl_process.c:6692: internal compiler error: in final_scan_insn, at final.c:2449
-
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		23.0
+V=		23.2.4
 MAJ_V=		23
 EPOCH=		0
 DISTNAME=	otp_src_$V

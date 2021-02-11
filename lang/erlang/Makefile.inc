@@ -8,7 +8,7 @@ CATEGORIES =	lang
 PERMIT_PACKAGE =	Yes
 
 HOMEPAGE =	http://www.erlang.org/
-MASTER_SITES ?=	${HOMEPAGE}download/
+MASTER_SITES ?=	https://github.com/erlang/otp/releases/download/OTP-$(V)/
 
 DISTFILES ?=	${DISTNAME}.tar.gz \
 		otp_doc_man_${V}.tar.gz
