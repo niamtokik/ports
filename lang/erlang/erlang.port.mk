@@ -13,9 +13,9 @@ MODERL_DEFAULT_VERSION =21
 # If the port already has flavors, append ours to it unless the port requires
 # a specific version of Erlang.
 .if !defined(MODERL_VERSION) && !defined(FLAVORS)
-FLAVORS ?=		erlang19 erlang21
+FLAVORS ?=		erlang19 erlang21 erlang22 erlang23
 .else
-FLAVORS +=		erlang19 erlang21
+FLAVORS +=		erlang19 erlang21 erlang22 erlang23
 .endif
 
 FLAVOR?=		# empty

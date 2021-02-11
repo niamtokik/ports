@@ -13,6 +13,8 @@ PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V
 PKGNAME-wx=	erlang-wx-$V
 
+MASTER_SITES ?= https://erlang.org/download/
+
 REVISION-main=	7
 REVISION-wx=	4
 
