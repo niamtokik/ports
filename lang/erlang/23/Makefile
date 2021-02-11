@@ -68,7 +68,7 @@ EI_VSN  4.0.2 \
 ELDAP_VSN       1.2.8 \
 EMACS_VSN       2.7.0 \
 ERL_DOCGEN_VSN  1.0.2 \
-ERL_INTERFACE_VSN       $(EI_VSN) \
+ERL_INTERFACE_VSN       4.0.2 \
 ET_VSN  1.6.4 \
 EUNIT_VSN       2.6 \
 FTP_VSN 1.0.5 \
