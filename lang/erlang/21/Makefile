@@ -89,6 +89,6 @@ TOOLS_VSN	3.1.0.1 \
 WX_VSN	1.8.7 \
 XMERL_VSN	1.3.20.1 \
 ERTS_VSN	10.3.5.15
-SYSTEM_VSN=	${V:R}
+SYSTEM_VSN=	${V}
 
 .include <bsd.port.mk>

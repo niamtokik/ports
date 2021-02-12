@@ -97,7 +97,7 @@ TOOLS_VSN       3.3.1 \
 WX_VSN  1.9 \
 XMERL_VSN       1.3.24 \
 ERTS_VSN        10.7.2.7
-SYSTEM_VSN=	${V:R}
+SYSTEM_VSN=	${V}
 
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/make/install_bin \
