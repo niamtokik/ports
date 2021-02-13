@@ -112,4 +112,10 @@ pre-configure:
 do-configure:
 	cd ${WRKSRC} && ./configure ${CONFIGURE_ARGS}
 
+post-install:
+	cd ${WRKSRC} && ${GMAKE} release_docs
+	${INSTALL_DATA} ${WRKSRC}/AUTHORS lib/erlang${SYSTEM_VSN}/
+	${INSTALL_DATA} ${WRKSRC}/LICENSE.txt lib/erlang${SYSTEM_VSN}/
+	${INSTALL_DATA} ${WRKSRC}/system/COPYRIGHT lib/erlang/${SYSTEM_VSN}/
+
 .include <bsd.port.mk>
