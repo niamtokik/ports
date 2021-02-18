@@ -1,21 +1,18 @@
---- make/otp.mk.in.orig	Sat Feb 13 15:16:56 2021
-+++ make/otp.mk.in	Sat Feb 13 15:26:26 2021
-@@ -294,9 +294,9 @@
- SPECS_EXTRACTOR=$(DOCGEN)/priv/bin/specs_gen.escript
+--- make/otp.mk.in.orig	Thu Feb 18 07:41:14 2021
++++ make/otp.mk.in	Thu Feb 18 07:42:25 2021
+@@ -291,12 +291,12 @@
+ ifneq (,$(findstring $(origin SPECS_ESRC),$(DUBIOUS_ORIGINS)))
+ SPECS_ESRC = ../../src
+ endif
+-SPECS_EXTRACTOR=$(DOCGEN)/priv/bin/specs_gen.escript
++SPECS_EXTRACTOR=$(DOCGEN)/priv/bin/specs_gen.escript23
  # Extract specifications and types from Erlang source files (-spec, -type)
  $(SPECDIR)/specs_%.xml: $(SPECS_ESRC)/%.erl $(TOP_SPECS_FILE)
 -	$(gen_verbose)escript $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
-<<<<<<< HEAD
-+	$(gen_verbose)escript${MAJ_V} $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
- $(SPECDIR)/specs_%.xml: $(SPECS_ESRC)/gen/%.erl $(TOP_SPECS_FILE)
--	$(gen_verbose)escript $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
-+	$(gen_verbose)escript${MAJ_V} $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
-=======
 +	$(gen_verbose)escript23 $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
  $(SPECDIR)/specs_%.xml: $(SPECS_ESRC)/gen/%.erl $(TOP_SPECS_FILE)
 -	$(gen_verbose)escript $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
 +	$(gen_verbose)escript23 $(SPECS_EXTRACTOR) $(SPECS_FLAGS) -o$(dir $@) $<
->>>>>>> 45d23a3feb4f9affeb168b08647f8058540d33d5
  
  MANXSLTARGS=--stringparam company "Ericsson AB" --stringparam docgen "$(DOCGEN)" --stringparam gendate "$$date" --stringparam appname "$(APPLICATION)" --stringparam appver "$(VSN)" --xinclude -path $(DOCGEN)/priv/dtd  -path $(DOCGEN)/priv/dtd_man_entities -path .
  
@@ -24,28 +21,13 @@
  
  $(XMLDIR)/%.xml: $(XMLDIR)/%.xmlsrc
 -	$(gen_verbose)escript $(DOCGEN)/priv/bin/codeline_preprocessing.escript $(shell pwd) $< $@
-<<<<<<< HEAD
-+	$(gen_verbose)escript${MAJ_V} $(DOCGEN)/priv/bin/codeline_preprocessing.escript $(shell pwd) $< $@
-=======
 +	$(gen_verbose)escript23 $(DOCGEN)/priv/bin/codeline_preprocessing.escript $(shell pwd) $< $@
->>>>>>> 45d23a3feb4f9affeb168b08647f8058540d33d5
  
  $(PDFDIR)/%.pdf: %.fo
  	$(FOP) -c $(FOP_CONFIG) -cache $(ERL_TOP)/make/$(TARGET)/fop-fonts.cache -fo $< -pdf $@
  
  $(CHUNKSDIR)/%.chunk: $(XMLDIR)/%.xml ../../ebin/%.beam $(DOCGEN)/ebin/docgen_xml_to_chunk.beam
 -	$(gen_verbose)escript $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
-<<<<<<< HEAD
-+	$(gen_verbose)escript${MAJ_V} $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
- 
- $(CHUNKSDIR)/%.chunk: $(XMLDIR)/%.xml ../../preloaded/ebin/%.beam $(DOCGEN)/ebin/docgen_xml_to_chunk.beam
--	$(gen_verbose)escript $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
-+	$(gen_verbose)escript${MAJ_V} $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
- 
- $(CHUNKSDIR)/%.chunk: ../../ebin/%.beam $(DOCGEN)/ebin/docgen_xml_to_chunk.beam
--	$(gen_verbose)escript $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
-+	$(gen_verbose)escript${MAJ_V} $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
-=======
 +	$(gen_verbose)escript23 $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
  
  $(CHUNKSDIR)/%.chunk: $(XMLDIR)/%.xml ../../preloaded/ebin/%.beam $(DOCGEN)/ebin/docgen_xml_to_chunk.beam
@@ -55,4 +37,3 @@
  $(CHUNKSDIR)/%.chunk: ../../ebin/%.beam $(DOCGEN)/ebin/docgen_xml_to_chunk.beam
 -	$(gen_verbose)escript $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
 +	$(gen_verbose)escript23 $(DOCGEN)/priv/bin/chunk.escript $(APPLICATION) $^ $@
->>>>>>> 45d23a3feb4f9affeb168b08647f8058540d33d5
