@@ -107,7 +107,7 @@ _MODERL_LINKS +=	erl${MODERL_VERSION} erl \
 
 .if !empty(_MODERL_LINKS)
 .  for _src _dest in ${_MODERL_LINKS}
-MODERLANG_post-patch += ln -sf ${LOCALBASE}/bin/${_src} ${WRKDIR}/bin/${_dest};
+# MODERLANG_post-patch += ln -sf ${LOCALBASE}/bin/${_src} ${WRKDIR}/bin/${_dest};
 .  endfor
 .endif
 
