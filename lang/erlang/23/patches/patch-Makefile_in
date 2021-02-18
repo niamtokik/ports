@@ -1,0 +1,22 @@
+--- Makefile.in.orig	Thu Feb 18 13:10:06 2021
++++ Makefile.in	Thu Feb 18 13:11:13 2021
+@@ -576,16 +576,19 @@
+ 	        $(ERL_TOP)/erts/etc/unix/erl.src.src > \
+ 			$(BOOTSTRAP_ROOT)/bootstrap/bin/erl
+ 	@chmod 755 $(BOOTSTRAP_ROOT)/bootstrap/bin/erl
++	@(cd $(BOOTSTRAP_ROOT)/bootstrap/bin && $(LN_S) ./erl erl${MAJ_V})
+ 
+ $(BOOTSTRAP_ROOT)/bootstrap/bin/erlc: $(ERL_TOP)/bin/$(TARGET)/erlc $(BOOTSTRAP_ROOT)/bootstrap/target
+ 	@rm -f $(BOOTSTRAP_ROOT)/bootstrap/bin/erlc
+ 	@cp $(ERL_TOP)/bin/$(TARGET)/erlc $(BOOTSTRAP_ROOT)/bootstrap/bin/erlc
+ 	@chmod 755 $(BOOTSTRAP_ROOT)/bootstrap/bin/erlc
++	@(cd $(BOOTSTRAP_ROOT)/bootstrap/bin && $(LN_S) ./erlc erlc${MAJ_V})
+ 
+ $(BOOTSTRAP_ROOT)/bootstrap/bin/escript: $(ERL_TOP)/bin/$(TARGET)/escript $(BOOTSTRAP_ROOT)/bootstrap/target
+ 	@rm -f $(BOOTSTRAP_ROOT)/bootstrap/bin/escript
+ 	@cp $(ERL_TOP)/bin/$(TARGET)/escript $(BOOTSTRAP_ROOT)/bootstrap/bin/escript
+ 	@chmod 755 $(BOOTSTRAP_ROOT)/bootstrap/bin/escript
++	@(cd $(BOOTSTRAP_ROOT)/bootstrap/bin && $(LN_S) ./escript escript${MAJ_V})
+ 
+ $(BOOTSTRAP_ROOT)/bootstrap/bin/yielding_c_fun: $(ERL_TOP)/bin/$(TARGET)/escript $(BOOTSTRAP_ROOT)/bootstrap/target
+ 	@rm -f $(BOOTSTRAP_ROOT)/bootstrap/bin/yielding_c_fun
