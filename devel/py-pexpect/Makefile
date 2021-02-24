@@ -1,12 +1,13 @@
-# $OpenBSD: Makefile,v 1.35 2020/12/10 02:20:30 daniel Exp $
+# $OpenBSD: Makefile,v 1.40 2021/02/22 15:29:48 naddy Exp $
 
 COMMENT=		pure Python Expect-like module
 
+# XXX 4.8.0 has (random?) timeouts in various tests
 MODPY_EGG_VERSION=	4.7.0
 DISTNAME=		pexpect-${MODPY_EGG_VERSION}
 PKGNAME=		py-${DISTNAME}
 CATEGORIES=		devel
-REVISION=		3
+REVISION=		5
 
 HOMEPAGE=		https://pexpect.readthedocs.io/
 
@@ -21,10 +22,11 @@ MODULES=		lang/python
 RUN_DEPENDS =		devel/py-ptyprocess${MODPY_FLAVOR}
 BUILD_DEPENDS =		${RUN_DEPENDS} \
 			textproc/py-sphinx${MODPY_FLAVOR}>=1.5
-TEST_DEPENDS =		shells/bash
+TEST_DEPENDS =		shells/bash \
+			sysutils/coreutils
 
 FLAVORS =		python3
-FLAVOR ?=
+FLAVOR =		python3
 
 MODPY_ADJ_FILES =	tests/fakessh/ssh
 
@@ -41,18 +43,15 @@ pre-build:
 	${SUBST_CMD} ${WRKSRC}/tests/test_run.py
 
 post-build:
-	cd ${WRKSRC}/doc && ${SETENV} ${MAKE_ENV} ${MAKE_PROGRAM} html \
-	    SPHINXBUILD=${LOCALBASE}/bin/sphinx-build${MODPY_BIN_SUFFIX}
-
-# py2: pexpect/_async.py doesn't compile on py2, however it is not used there
-# either. upstream won't fix (https://github.com/pexpect/pexpect/issues/290)
-# so MODPY_COMMENT is used in the PLIST to avoid installing this file (and
-# especially the related pyc file which is not produced due to the failure).
+	cd ${WRKSRC}/doc && ${SETENV} ${MAKE_ENV} ${MAKE_PROGRAM} html
 
 post-install:
 	${INSTALL_DATA_DIR} ${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/examples/* ${EXAMPLESDIR}
 	${INSTALL_DATA_DIR} ${DOCDIR}
 	cd ${WRKSRC}/doc/_build/html && pax -rw * ${DOCDIR}
+
+pre-test:
+	ln -fs ${MODPY_BIN} ${WRKDIR}/bin/python
 
 .include <bsd.port.mk>

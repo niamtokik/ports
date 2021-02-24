@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.43 2020/09/09 09:39:13 edd Exp $
+# $OpenBSD: Makefile,v 1.45 2021/02/23 19:39:27 sthen Exp $
 
 ONLY_FOR_ARCHS =	aarch64 amd64
 
@@ -60,6 +60,7 @@ DISTFILES +=		${BOOTSTRAP-${MACHINE_ARCH}}:0
 .endif
 
 MODULES +=		lang/python x11/tk
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 MODPY_VERSION =		2.7
 UPDATE_PLIST_ARGS =	-i MODPY_PY_PREFIX \
 			-i MODPY_PY0EXTENSION \
@@ -67,7 +68,7 @@ UPDATE_PLIST_ARGS =	-i MODPY_PY_PREFIX \
 			-i MACHINE_ARCH
 
 USE_GMAKE =		Yes
-BUILD_DEPENDS =		textproc/py-sphinx \
+BUILD_DEPENDS =		textproc/py-sphinx,python3 \
 			databases/gdbm \
 			${MODTK_BUILD_DEPENDS}
 .if ${FLAVOR:Mno_bootstrap}

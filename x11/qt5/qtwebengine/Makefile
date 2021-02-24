@@ -1,9 +1,8 @@
-# $OpenBSD: Makefile,v 1.13 2021/01/28 11:51:25 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.15 2021/02/23 19:39:52 sthen Exp $
 
 USE_WXNEEDED =		Yes
 
 ONLY_FOR_ARCHS =	amd64 aarch64 i386
-BROKEN-i386 = 		long hangs; uses too much RAM to build
 
 DPB_PROPERTIES=		parallel parallel2
 .if ${MACHINE_ARCH} == "i386"
@@ -42,6 +41,7 @@ WANTLIB += xkbcommon xml2 xslt z
 
 MODULES =	lang/python \
 		devel/qmake
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 
 MODPY_RUNDEP =	No
 

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.609 2021/02/02 20:11:44 jeremy Exp $
+# $OpenBSD: Makefile,v 1.614 2021/02/23 10:46:18 kn Exp $
 
      SUBDIR =
      SUBDIR += ADMsnmp
@@ -54,7 +54,6 @@
      SUBDIR += exploitdb
      SUBDIR += fcrackzip
      SUBDIR += fierce
-     SUBDIR += flasm
      SUBDIR += floss
      SUBDIR += foremost
      SUBDIR += fragroute
@@ -81,11 +80,8 @@
      SUBDIR += hs-SHA
      SUBDIR += hs-crypto-api
      SUBDIR += hs-cryptohash
-     SUBDIR += hs-cryptohash-sha256
      SUBDIR += hs-digest
-     SUBDIR += hs-ed25519
      SUBDIR += hs-entropy
-     SUBDIR += hs-hackage-security
      SUBDIR += hydra
      SUBDIR += ikeman
      SUBDIR += integrit
@@ -300,7 +296,6 @@
      SUBDIR += py-ecdsa,python3
      SUBDIR += py-elfesteem
      SUBDIR += py-fido2,python3
-     SUBDIR += py-gnupg
      SUBDIR += py-gnupg,python3
      SUBDIR += py-josepy,python3
      SUBDIR += py-keyring,python3
@@ -335,7 +330,6 @@
      SUBDIR += py-service_identity
      SUBDIR += py-service_identity,python3
      SUBDIR += py-tlsfuzzer,python3
-     SUBDIR += py-trustme
      SUBDIR += py-trustme,python3
      SUBDIR += py-vivisect
      SUBDIR += py-viv_utils
@@ -407,7 +401,6 @@
      SUBDIR += swatch
      SUBDIR += tclgpg
      SUBDIR += tcltls
-     SUBDIR += tempwatch
      SUBDIR += theharvester
      SUBDIR += tls-attacker
      SUBDIR += towitoko

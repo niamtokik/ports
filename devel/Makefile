@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2062 2021/02/02 19:29:18 jeremy Exp $
+# $OpenBSD: Makefile,v 1.2074 2021/02/23 12:48:54 kn Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -314,6 +314,7 @@
      SUBDIR += libbfio
      SUBDIR += libbinio
      SUBDIR += libbio
+     SUBDIR += libcdada
      SUBDIR += libcoap
      SUBDIR += libconfig
      SUBDIR += libconfuse
@@ -474,7 +475,6 @@
      SUBDIR += meson
      SUBDIR += metaauto
      SUBDIR += mingw
-     SUBDIR += mk
      SUBDIR += mkspiffs
      SUBDIR += mm
      SUBDIR += mm-common
@@ -1360,7 +1360,6 @@
      SUBDIR += py-argh,python3
      SUBDIR += py-asn1
      SUBDIR += py-asn1,python3
-     SUBDIR += py-asn1-modules
      SUBDIR += py-asn1-modules,python3
      SUBDIR += py-astroid,python3
      SUBDIR += py-async-timeout
@@ -1368,9 +1367,7 @@
      SUBDIR += py-atomicwrites,python3
      SUBDIR += py-attrs
      SUBDIR += py-attrs,python3
-     SUBDIR += py-automat
      SUBDIR += py-automat,python3
-     SUBDIR += py-babel
      SUBDIR += py-babel,python3
      SUBDIR += py-backcall
      SUBDIR += py-backcall,python3
@@ -1420,7 +1417,6 @@
      SUBDIR += py-clint
      SUBDIR += py-clint,python3
      SUBDIR += py-cloudpickle,python3
-     SUBDIR += py-codestyle
      SUBDIR += py-codestyle,python3
      SUBDIR += py-colorama
      SUBDIR += py-colorama,python3
@@ -1428,7 +1424,6 @@
      SUBDIR += py-configobj
      SUBDIR += py-configobj,python3
      SUBDIR += py-configparser
-     SUBDIR += py-constantly
      SUBDIR += py-constantly,python3
      SUBDIR += py-construct,python3
      SUBDIR += py-contextlib2
@@ -1468,6 +1463,7 @@
      SUBDIR += py-editdist
      SUBDIR += py-efilter
      SUBDIR += py-elftools,python3
+     SUBDIR += py-enrich,python3
      SUBDIR += py-entrypoints
      SUBDIR += py-entrypoints,python3
      SUBDIR += py-enum34
@@ -1518,7 +1514,6 @@
      SUBDIR += py-hachoir-core
      SUBDIR += py-hachoir-metadata
      SUBDIR += py-hachoir-parser
-     SUBDIR += py-hamcrest
      SUBDIR += py-hamcrest,python3
      SUBDIR += py-html5lib
      SUBDIR += py-html5lib,python3
@@ -1526,8 +1521,8 @@
      SUBDIR += py-hypothesis,python3
      SUBDIR += py-icalendar
      SUBDIR += py-icalendar,python3
+     SUBDIR += py-importlib_resources,python3
      SUBDIR += py-importlib-metadata,python3
-     SUBDIR += py-incremental
      SUBDIR += py-incremental,python3
      SUBDIR += py-intervaltree
      SUBDIR += py-intervaltree,python3
@@ -1615,7 +1610,6 @@
      SUBDIR += py-pbr
      SUBDIR += py-pbr,python3
      SUBDIR += py-pebble,python3
-     SUBDIR += py-pexpect
      SUBDIR += py-pexpect,python3
      SUBDIR += py-pip
      SUBDIR += py-pip,python3
@@ -1645,15 +1639,18 @@
      SUBDIR += py-pyte
      SUBDIR += py-pyte,python3
      SUBDIR += py-python2-pythondialog
+     SUBDIR += py-qt-builder,python3
      SUBDIR += py-r2pipe,python3
      SUBDIR += py-radix
      SUBDIR += py-radix,python3
      SUBDIR += py-rcsparse
      SUBDIR += py-rcsparse,python3
+     SUBDIR += py-regex,python3 
      SUBDIR += py-rencode
      SUBDIR += py-rencode,python3
      SUBDIR += py-rfc6555
      SUBDIR += py-rfc6555,python3
+     SUBDIR += py-rich,python3
      SUBDIR += py-robotframework
      SUBDIR += py-robotframework,python3
      SUBDIR += py-rope,python3
@@ -1684,7 +1681,6 @@
      SUBDIR += py-simplejson
      SUBDIR += py-simplejson,python3
      SUBDIR += py-singledispatch
-     SUBDIR += py-sip
      SUBDIR += py-sip,python3
      SUBDIR += py-six
      SUBDIR += py-six,python3
@@ -1739,12 +1735,12 @@
      SUBDIR += py-testtools
      SUBDIR += py-testtools,python3
      SUBDIR += py-texscythe
+     SUBDIR += py-toolz,python3
      SUBDIR += py-tox
      SUBDIR += py-tox,python3
      SUBDIR += py-tqdm,python3
      SUBDIR += py-traceback2
      SUBDIR += py-traitlets,python3
-     SUBDIR += py-twisted
      SUBDIR += py-twisted,python3
      SUBDIR += py-txaio,python3
      SUBDIR += py-typing
@@ -1767,6 +1763,7 @@
      SUBDIR += py-voluptuous,python3
      SUBDIR += py-vulture,python3
      SUBDIR += py-wbem,python3
+     SUBDIR += py-wcmatch,python3
      SUBDIR += py-wcwidth,python3
      SUBDIR += py-wheel
      SUBDIR += py-wheel,python3
@@ -1787,14 +1784,10 @@
      SUBDIR += py-yapf,python3
      SUBDIR += py-zc-lockfile
      SUBDIR += py-zc-lockfile,python3
-     SUBDIR += py-zopecomponent
      SUBDIR += py-zopecomponent,python3
-     SUBDIR += py-zopeevent
      SUBDIR += py-zopeevent,python3
-     SUBDIR += py-zopeinterface
      SUBDIR += py-zopeinterface,python3
-     SUBDIR += py-zopetesting
-     SUBDIR += pyflakes
+     SUBDIR += py-zopetesting,python3
      SUBDIR += pyflakes,python3
      SUBDIR += pygame
      SUBDIR += pygame,python3

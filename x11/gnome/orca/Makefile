@@ -1,11 +1,10 @@
-# $OpenBSD: Makefile,v 1.119 2020/12/23 07:51:25 ajacoutot Exp $
-
-# XXX could use brltty and brlapi (with python bindinds) -- not ported yet
+# $OpenBSD: Makefile,v 1.121 2021/02/23 19:39:50 sthen Exp $
 
 COMMENT=		assistive screen reader
 
 GNOME_PROJECT=		orca
 GNOME_VERSION=		3.38.2
+REVISION=		0
 
 # LGPLv2
 PERMIT_PACKAGE=		Yes
@@ -32,7 +31,6 @@ RUN_DEPENDS +=		multimedia/gstreamer1/plugins-base \
 # pygobject GTK3 introspection (not provided by indirect dependencies)
 RUN_DEPENDS +=		x11/gtk+3
 
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 MODGNOME_TOOLS= 	gtk-update-icon-cache yelp
 FAKE_FLAGS=		sysconfdir=${PREFIX}/share/examples/orca/
 

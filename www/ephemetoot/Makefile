@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.6 2020/10/03 08:37:39 paco Exp $
+# $OpenBSD: Makefile,v 1.8 2021/02/23 19:39:46 sthen Exp $
 
 COMMENT =		tool for deleting old Mastodon toots
 
 MODPY_EGG_VERSION =	3.1.0
 DISTNAME =		ephemetoot-${MODPY_EGG_VERSION}
+REVISION =		0
 
 CATEGORIES =		www
 
@@ -16,9 +17,8 @@ MODULES =		lang/python
 
 MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
-RUN_DEPENDS =		textproc/py-pyaml${MODPY_FLAVOR} \
+RUN_DEPENDS =		textproc/py-yaml${MODPY_FLAVOR}>=5.0 \
 			www/py-mastodon.py${MODPY_FLAVOR} \
 			www/py-requests${MODPY_FLAVOR}
 

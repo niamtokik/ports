@@ -1,4 +1,6 @@
-# $OpenBSD: Makefile,v 1.81 2021/02/01 04:09:48 kn Exp $
+# $OpenBSD: Makefile,v 1.83 2021/02/23 19:39:44 sthen Exp $
+
+BROKEN =	disabled pending update to py3
 
 COMMENT =		ebook management application
 
@@ -23,6 +25,7 @@ MASTER_SITES =	https://github.com/kovidgoyal/calibre/releases/download/v$V/
 
 MODULES =		lang/python \
 			x11/qt5
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 
 LIB_DEPENDS=		devel/chmlib \
 			devel/gettext,-runtime \

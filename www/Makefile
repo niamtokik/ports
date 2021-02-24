@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.998 2021/02/10 00:45:31 kn Exp $
+# $OpenBSD: Makefile,v 1.1005 2021/02/23 06:17:54 daniel Exp $
 
      SUBDIR =
      SUBDIR += analog
@@ -20,7 +20,6 @@
      SUBDIR += calamaris
      SUBDIR += canto
      SUBDIR += castor
-     SUBDIR += cclive
      SUBDIR += cgicc
      SUBDIR += cgiparse
      SUBDIR += cgit
@@ -445,7 +444,7 @@
      SUBDIR += py-flask-cors
      SUBDIR += py-flask-login
      SUBDIR += py-flask-login,python3
-     SUBDIR += py-flask-principal
+     SUBDIR += py-flask-principal,python3
      SUBDIR += py-flask-wtf
      SUBDIR += py-flask-wtf,python3
      SUBDIR += py-flup
@@ -456,6 +455,7 @@
      SUBDIR += py-genshi
      SUBDIR += py-genshi,python3
      SUBDIR += py-gunicorn,python3
+     SUBDIR += py-html5-parser
      SUBDIR += py-http_ece
      SUBDIR += py-http_ece,python3
      SUBDIR += py-httpbin
@@ -463,7 +463,6 @@
      SUBDIR += py-httpie
      SUBDIR += py-httplib2
      SUBDIR += py-httplib2,python3
-     SUBDIR += py-hyperlink
      SUBDIR += py-hyperlink,python3
      SUBDIR += py-itsdangerous
      SUBDIR += py-itsdangerous,python3
@@ -476,13 +475,11 @@
      SUBDIR += py-mako
      SUBDIR += py-mako,python3
      SUBDIR += py-mastodon.py
-     SUBDIR += py-mechanize
      SUBDIR += py-mechanize,python3
      SUBDIR += py-meld3
      SUBDIR += py-meld3,python3
      SUBDIR += py-metallum,python3
      SUBDIR += py-multidict,python3
-     SUBDIR += py-ndg-httpsclient
      SUBDIR += py-ndg-httpsclient,python3
      SUBDIR += py-paste
      SUBDIR += py-paste-deploy
@@ -528,7 +525,6 @@
      SUBDIR += py-webob
      SUBDIR += py-webob,python3
      SUBDIR += py-webpy,python3
-     SUBDIR += py-webtest
      SUBDIR += py-webtest,python3
      SUBDIR += py-werkzeug
      SUBDIR += py-werkzeug,python3
@@ -626,8 +622,6 @@
      SUBDIR += tootstream
      SUBDIR += tor-browser
      SUBDIR += trac
-     SUBDIR += trac-ldapplugin
-     SUBDIR += tracnav
      SUBDIR += ttyd
      SUBDIR += tuir
      SUBDIR += twill

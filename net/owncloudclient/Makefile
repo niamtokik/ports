@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.49 2021/02/03 16:28:21 kirby Exp $
+# $OpenBSD: Makefile,v 1.51 2021/02/19 07:38:49 kirby Exp $
 
 COMMENT =		owncloud sync client
 
-V = 			2.7.5.3180
+V = 			2.7.6.3261
 DISTNAME =		ownCloud-${V}
 PKGNAME =  		owncloudclient-${V}
 
@@ -56,6 +56,7 @@ CONFIGURE_ARGS +=	-Wno-dev \
 				-linotify \
 				-Wl,-rpath=${LOCALBASE}/lib/inotify" \
 			-DCMAKE_DISABLE_FIND_PACKAGE_KF5=TRUE \
+			-DCMAKE_DISABLE_FIND_PACKAGE_CMocka=TRUE \
 			-DInotify_INCLUDE_DIRS=${LOCALBASE}/include/inotify \
 			-DInotify_LIBRARIES=${LOCALBASE}/lib/inotify \
 			-DCSYNC_REQUIRED_LIBRARIES=c

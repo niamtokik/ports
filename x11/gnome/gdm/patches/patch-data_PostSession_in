@@ -1,4 +1,4 @@
-$OpenBSD: patch-data_PostSession_in,v 1.5 2019/05/12 21:28:50 ajacoutot Exp $
+$OpenBSD: patch-data_PostSession_in,v 1.7 2021/02/19 17:22:29 ajacoutot Exp $
 
 Index: data/PostSession.in
 --- data/PostSession.in.orig
@@ -7,11 +7,11 @@ Index: data/PostSession.in
  #!/bin/sh
  
 +# /etc/X11/xenodm/TakeConsole, fbtab(5)
-+if [ -c /dev/drm0 ]; then
-+    /sbin/chown root /dev/drm0
++if [ -c /dev/dri/card0 ]; then
++    /sbin/chown root /dev/dri/card0
 +fi
-+if [ -c /dev/drmR128 ]; then
-+    /sbin/chown root /dev/drmR128
++if [ -c /dev/dri/renderD128 ]; then
++    /sbin/chown root /dev/dri/renderD128
 +fi
 +
  exit 0

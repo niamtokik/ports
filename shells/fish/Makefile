@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.17 2020/12/10 02:20:31 daniel Exp $
+# $OpenBSD: Makefile,v 1.20 2021/02/23 19:39:40 sthen Exp $
 
 COMMENT =		friendly interactive shell
 
 V =			3.1.2
 DISTNAME =		fish-$V
-REVISION =		1
+REVISION =		2
 
 CATEGORIES =		shells
 
@@ -26,14 +26,13 @@ MODULES =		devel/cmake \
 			lang/python
 
 BUILD_DEPENDS =		devel/gettext,-tools \
-			textproc/py-sphinx>=1.5
+			textproc/py-sphinx,python3>=1.5
 
 LIB_DEPENDS =		devel/pcre2 \
 			devel/gettext,-runtime
 
 RUN_DEPENDS =		misc/gnugetopt
 
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 MODPY_ADJ_FILES =	share/tools/create_manpage_completions.py \
 			share/tools/deroff.py \
 			share/tools/web_config/webconfig.py

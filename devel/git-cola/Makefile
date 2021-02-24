@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.37 2020/10/04 14:34:48 bket Exp $
+# $OpenBSD: Makefile,v 1.39 2021/02/23 19:39:15 sthen Exp $
 
 COMMENT =	python powered git gui
 
-MODPY_EGG_VERSION=	3.8
+MODPY_EGG_VERSION=	3.9
 
 GH_ACCOUNT =	git-cola
 GH_PROJECT =	git-cola
@@ -19,7 +19,6 @@ PERMIT_PACKAGE =	Yes
 
 MODULES =	lang/python
 MODPY_PYTEST =	Yes
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS =	devel/gettext,-tools \
 		devel/git \

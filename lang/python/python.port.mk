@@ -1,4 +1,4 @@
-# $OpenBSD: python.port.mk,v 1.126 2021/02/04 17:13:52 kn Exp $
+# $OpenBSD: python.port.mk,v 1.131 2021/02/23 22:04:35 sthen Exp $
 #
 #	python.port.mk - Xavier Santolaria <xavier@santolaria.net>
 #	This file is in the public domain.
@@ -36,31 +36,39 @@ MODPY_DEFAULT_VERSION_3 = 3.8
 #   moving between subpackages in the past.
 
 .if !defined(MODPY_VERSION)
-
 FLAVOR ?=
 
-.  if ${FLAVOR:Mpython3}
-# define default version 3
+.  if !defined(FLAVORS) || !${FLAVORS:Mpython3} || ${FLAVOR:Mpython3}
+# for standard "python3-flavoured" ports (normal for py-* modules),
+# set the default MODPY_VERSION for the usual py3 version
 MODPY_VERSION ?=	${MODPY_DEFAULT_VERSION_3}
 .  else
-# without flavor, assume we use the default version 2
+# for unflavoured "py2+py3" ports (again normal for py-* modules),
+# set the default MODPY_VERSION for the usual py2 version
+.    if defined(FLAVORS) && ${FLAVORS:Mpython3}
 MODPY_VERSION ?=	${MODPY_DEFAULT_VERSION_2}
+.    else
+# ports which don't have a python3 FLAVOR are either old py2-only py-*
+# modules, or are other ports which use Python (e.g. those which are
+# intended as a standalone program rather than a py-* module).
+# in that case, use the usual py3 version; old py2-only modules
+# will set MODPY_VERSION themselves.
+.    endif
 .  endif
+.endif
 
-# verify if MODPY_VERSION forced is correct
-.else
-.  if ${MODPY_VERSION} != "2.7" && \
+# verify if MODPY_VERSION found is correct
+.if ${MODPY_VERSION} != "2.7" && \
       ${MODPY_VERSION} != "3.8" && \
       ${MODPY_VERSION} != "3.9"
 ERRORS += "Fatal: unknown or unsupported MODPY_VERSION: ${MODPY_VERSION}"
-.  endif
 .endif
 
 MODPY_MAJOR_VERSION =	${MODPY_VERSION:R}
 
 .if ${MODPY_MAJOR_VERSION} == 2
 MODPY_FLAVOR =
-MODPY_BIN_SUFFIX =
+MODPY_BIN_SUFFIX =	-2
 MODPY_PY_PREFIX =	py-
 MODPY_PYCACHE =
 MODPY_PYC_MAGIC_TAG =
@@ -71,8 +79,8 @@ MODPY_PYOEXTENSION =	pyo
 # replace py- prefix by py3-
 FULLPKGNAME ?=	${PKGNAME:S/^py-/py3-/}${FLAVOR_EXT:S/-python3//}
 MODPY_FLAVOR =	,python3
-# use MODPY_SUFFIX for binaries to avoid conflict
-MODPY_BIN_SUFFIX =	-3
+# use MODPY_BIN_SUFFIX for binaries to avoid conflict
+MODPY_BIN_SUFFIX =
 MODPY_PY_PREFIX =	py3-
 MODPY_PYCACHE =	"__pycache__/"
 MODPY_MAJORMINOR =	${MODPY_VERSION:C/\.//g}

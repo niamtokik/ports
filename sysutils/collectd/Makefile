@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.63 2021/01/29 15:57:20 sthen Exp $
+# $OpenBSD: Makefile,v 1.65 2021/02/23 19:39:40 sthen Exp $
 
 COMMENT-main =		system metrics collection engine
 COMMENT-mysql =		collectd mysql plugin
@@ -45,7 +45,7 @@ REVISION-redis =	0
 REVISION-riemann =	2
 REVISION-rrdtool =	2
 REVISION-snmp =		0
-REVISION-virt =		2
+REVISION-virt =		3
 
 HOMEPAGE =		http://www.collectd.org/
 SHARED_LIBS +=		collectdclient 1.0
@@ -57,6 +57,7 @@ MASTER_SITES =		${HOMEPAGE}/files/
 EXTRACT_SUFX =		.tar.bz2
 
 MODULES =		lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 MODPY_RUNDEP =		No
 
 MULTI_PACKAGES =	-main -mysql -pgsql -rrdtool -snmp -virt -python -memcachec -mqtt -nut -riemann -redis -prometheus -ping
@@ -83,10 +84,7 @@ WANTLIB-snmp =		crypto netsnmp pthread c kvm m netsnmpagent perl
 RUN_DEPENDS-snmp =	collectd-$V:${BASE_PKGPATH},-main
 
 LIB_DEPENDS-virt =	sysutils/libvirt
-WANTLIB-virt =		dbus-1 gmp gnutls hogweed gio-2.0 glib-2.0 gobject-2.0 \
-			nettle p11-kit ssh2 tasn1 util virt crypto curl iconv \
-			idn2 intl lzma m nghttp2 pthread ssl unistring xml2 z \
-			sasl2 yajl
+WANTLIB-virt =		iconv lzma m pthread virt xml2 z
 RUN_DEPENDS-virt =	collectd-$V:${BASE_PKGPATH},-main
 
 LIB_DEPENDS-python =	${MODPY_LIB_DEPENDS}

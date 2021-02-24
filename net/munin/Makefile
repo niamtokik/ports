@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.100 2021/01/10 19:51:38 kirby Exp $
+# $OpenBSD: Makefile,v 1.102 2021/02/23 19:39:33 sthen Exp $
 
 PORTROACH = 	limitw:1,even
 
 COMMENT-main =	flexible network host monitoring, client
 COMMENT-server =flexible network host monitoring, server
 
-V =		2.0.66
+V =		2.0.67
 DISTNAME =	munin-$V
 PKGNAME-main =	munin-node-$V
 PKGNAME-server =munin-server-$V
@@ -26,6 +26,7 @@ MULTI_PACKAGES =	-main -server
 # Only very minor optional munin plugins use these languages so they
 # aren't forced as dependencies (same for bash).
 MODULES =		lang/python lang/ruby
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 # No need for MODx_RUNDEP as we already override RUN_DEPENDS-{main,server}
 MODPY_BUILDDEP =	No
 MODRUBY_BUILDDEP =	No

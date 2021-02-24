@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.4 2020/09/28 11:49:57 rpointel Exp $
+# $OpenBSD: Makefile,v 1.6 2021/02/23 19:39:53 sthen Exp $
 
 BROKEN-sparc64 = "error[E0412]: cannot find type c_char in this scope"
 
@@ -25,7 +25,6 @@ MODULES =		devel/cargo \
 			lang/python
 
 MODPY_RUNDEP =		No
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 DISTFILES +=		${DISTNAME}${EXTRACT_SUFX}
 
@@ -76,7 +75,6 @@ USE_GMAKE =		Yes
 MODCARGO_RUSTFLAGS =	-L${X11BASE}/lib
 
 post-install:
-	rm -f ${PREFIX}/.crates2.json
 	${INSTALL_MAN} ${WRKSRC}/man/xcolor.1 ${PREFIX}/man/man1/
 
 .include <bsd.port.mk>

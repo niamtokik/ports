@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.691 2021/02/08 20:48:32 naddy Exp $
+# $OpenBSD: Makefile,v 1.695 2021/02/15 09:20:33 kn Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -47,7 +47,6 @@
      SUBDIR += dbusmenu-qt
      SUBDIR += dmenu
      SUBDIR += driconf
-     SUBDIR += driftnet
      SUBDIR += dstat
      SUBDIR += dunst
      SUBDIR += dwm
@@ -235,11 +234,8 @@
      SUBDIR += py-gtk2
      SUBDIR += py-pyglet
      SUBDIR += py-pyglet,python3
-     SUBDIR += py-qt5
      SUBDIR += py-qt5,python3
-     SUBDIR += py-qtawesome
      SUBDIR += py-qtawesome,python3
-     SUBDIR += py-qtpy
      SUBDIR += py-qtpy,python3
      SUBDIR += py-sip-qt5
      SUBDIR += py-sip-qt5,python3

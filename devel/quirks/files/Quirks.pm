@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1173 2021/02/10 12:49:31 sthen Exp $
+# $OpenBSD: Quirks.pm,v 1.1207 2021/02/23 12:48:54 kn Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -539,6 +539,51 @@ my $stem_extensions = {
 	'py-sphinx-intl' => 'py3-sphinx-intl',
 	'stegcracker' => 'stegseek',
 	'py-ldap3' => 'py3-ldap3',
+	'py-qtpy' => 'py3-qtpy',
+	'py-sip' => 'py3-sip',
+	'py-sip-qt5' => 'py3-pyqt5_sip',
+	'py3-sip-qt5' => 'py3-pyqt5_sip',
+	'py-qt5' => 'py3-qt5',
+	'py-ndg_httpsclient' => 'py3-ndg_httpsclient',
+	'py-trustme' => 'py3-trustme',
+	'py-mechanize' => 'py3-mechanize',
+	'py-ripe.atlas.cousteau' => 'py3-ripe.atlas.cousteau',
+	'py-ripe.atlas.sagan' => 'py3-ripe.atlas.sagan',
+	'py-qtawesome' => 'py3-qtawesome',
+	'py-twisted' => 'py3-twisted',
+	'py-hamcrest' => 'py3-hamcrest',
+	'py-automat' => 'py3-automat',
+	'py-constantly' => 'py3-constantly',
+	'py-incremental' => 'py3-incremental',
+	'py-zopeevent' => 'py3-zopeevent',
+	'py-zopeinterface' => 'py3-zopeinterface',
+	'py-zopetesting' => 'py3-zopetesting',
+	'py-zopecomponent' => 'py3-zopecomponent',
+	'py-service_identity' => 'py3-service_identity',
+	'py-hyperlink' => 'py3-hyperlink',
+	'py-asn1-modules' => 'py3-asn1-modules',
+	'py-ldap' => 'py3-ldap',
+	'py-ldap-examples' => 'py3-ldap-examples',
+	'py-pexpect' => 'py3-pexpect',
+	'py-gevent' => 'py3-gevent',
+	'py-statgrab' => 'py3-statgrab',
+	'py-parallel-ssh' => 'py3-parallel-ssh',
+	'py-geventhttpclient' => 'py3-geventhttpclient',
+	'py-gnupg' => 'py3-gnupg',
+	'py-babel' => 'py3-babel',
+	'py-imagesize' => 'py3-imagesize',
+	'py-alabaster' => 'py3-alabaster',
+	'py-docutils' => 'py3-docutils',
+	'py-pygments' => 'py3-pygments',
+	'py-snowballstemmer' => 'py3-snowballstemmer',
+	'py-stemmer' => 'py3-stemmer',
+	'py-sphinx' => 'py3-sphinx',
+	'py-sphinx_rtd_theme' => 'py3-sphinx_rtd_theme',
+	'py-codestyle' => 'py3-codestyle',
+	'pyflakes3' => 'pyflakes',
+	'py-dot' => 'py3-dot',
+	'py-last' => 'py3-last',
+	'py-flask-principal' => 'py3-flask-principal',
 };
 
 my $obsolete_reason = {
@@ -2077,6 +2122,32 @@ my $obsolete_reason = {
 	'icinga-web' => 38,
 	'icinga-cgi' => 38,
 	'icinga-idoutils' => 38,
+	'swftools' => 39,
+	'swfmill' => 39,
+	'ming' => 39,
+	'quvi' => 39,
+	'libquvi' => 39,
+	'libquvi-scripts' => 39,
+	'cclive' => 6,
+	'viz' => 4,
+	'drifntet' => 40,
+	'enjoympeg' => 6,
+	'trac-ldapplugin' => 6,
+	'xboing' => 0,
+	'beaver' => 3,
+	'tracnav' => 3,
+	'flasm' => 39,
+	'mpd-add-similar' => 31,
+	'py-mpd' => 31,
+	'abs' => 3,
+	'arena' => 3,
+	'teagtk' => 3,
+	'hs-cryptohash-sha256' => 5,
+	'hs-ed25519' => 5,
+	'hs-hackage-security' => 5,
+	'tempwatch' => 5,
+	'avenger' => 29,
+	'mk' => 41,
 };
 
 # reasons for obsolete packages
@@ -2120,6 +2191,9 @@ my @msg = (
 	"ancient software, use pf.conf(5) 'af-to'", #36
 	"upstream is dead, default settings cause crash when connecting to mpd", #37
 	"icinga 1 is end-of-life, migrate to icinga 2 (needs config rewrite)", #38
+	"Flash/SWF is end-of-life", #39
+	"ancient software that often crashes and relies on single HTTP (no TLS) connections, use wireshark" #40
+	"Upstrem moved to unversioned tarballs, use the plan9port (same upstream) package instead" #41
 );
 
 # ->is_base_system($handle, $state):
@@ -2239,12 +2313,15 @@ my $cve = {
 	'lang/php/7.3,-main' => 'php->7.3,<7.3.5',
 	'lang/python/2.7,-main' => 'python->2.7,<2.7.16',
 	'lang/python/3.7,-main' => 'python->3.7,<3.7.9',
+	'lang/python/3.8,-main' => 'python->3.8,<3.8.8',
+	'lang/python/3.9,-main' => 'python->3.9,<3.9.2',
 	'lang/ruby/2.3,-main' => 'ruby-<2.3.8',
 	'lang/ruby/2.4,-main' => 'ruby->2.4,<2.4.5p2',
 	'lang/ruby/2.5,-main' => 'ruby->2.5,<2.5.5',
 	'lang/ruby/2.6,-main' => 'ruby->2.6,<2.6.2',
 	'mail/dovecot,-server' => 'dovecot-<2.3.10.1',
 	'mail/exim' => 'exim-<4.83',
+	'mail/isync' => 'isync-<1.3.5',
 	'mail/mailman' => 'mailman-<2.1.30',
 	'mail/p5-Mail-SpamAssassin' => 'p5-Mail-SpamAssassin-<3.4.4',
 	'mail/roundcubemail' => 'roundcubemail-<1.3.8',
@@ -2256,6 +2333,7 @@ my $cve = {
 	'net/icecast' => 'icecast-<2.4.4',
 	'net/irssi' => 'irssi-<1.2.1',
 	'net/isc-bind' => 'isc-bind-<9.16.3',
+	'net/libssh' => 'libssh-<0.9.5',
 	'net/libssh2' => 'libssh2-<1.8.2',
 	'net/lldpd' => 'lldpd-<0.7.18p0',
 	'net/mosquitto' => 'mosquitto-<1.5.6',
@@ -2276,6 +2354,7 @@ my $cve = {
 	'net/wireshark,-gtk' => 'wireshark-gtk-<2.6.3',
 	'net/wireshark,-main' => 'wireshark-<2.6.3',
 	'net/wireshark,-text' => 'tshark-<2.6.3',
+	'net/zeromq' => 'zeromq-<4.3.3',
 	'net/znc' => 'znc-<1.7.3',
 	'print/cups,-main' => 'cups-<1.7.4',
 	'security/clamav' => 'clamav-<0.100.2',
@@ -2291,6 +2370,7 @@ my $cve = {
 	'sysutils/salt' => 'salt-<3002',
 	'telephony/asterisk,-main' => 'asterisk-<13.23.1',
 	'telephony/coturn' => 'turnserver-<4.5.1.2',
+	'textproc/mdbook' => 'mdbook-<0.4.6',
 	'www/apache-httpd,-main' => 'apache-httpd-<2.4.35',
 	'www/bozohttpd' => 'bozohttpd-<20130711p0',
 	'www/chromium' => 'chromium-<69.0.3497.100',
@@ -2320,8 +2400,6 @@ my $cve = {
 	'www/webkitgtk4' => 'webkitgtk4-<2.20.5',
 	'x11/gnome/gdm' => 'gdm-<3.28.3',
 	'x11/rdesktop' => 'rdesktop-<1.8.4',
-	'net/zeromq' => 'zeromq-<4.3.3',
-	'net/libssh' => 'libssh-<0.9.5',
 };
 # please maintain sort order in above $cve list, future updates need to
 # replace existing entries

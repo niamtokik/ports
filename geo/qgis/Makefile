@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.140 2021/01/18 15:45:39 landry Exp $
+# $OpenBSD: Makefile,v 1.144 2021/02/23 19:39:24 sthen Exp $
 
 BROKEN-powerpc =	does not build: "operand out of range"
 BROKEN-sparc64 =	undefined reference to QOpenGLExtension_ARB_tessellation_shader::QOpenGLExtension_ARB_tessellation_shader() in libQt53DRender.so.2.0 when linking qgis_3drenderingtest
@@ -7,18 +7,19 @@ COMMENT =	desktop geographical information system
 
 DPB_PROPERTIES =	parallel
 
-DISTNAME =	qgis-3.16.3
+DISTNAME =	qgis-3.18.0
+REVISION =	0
 EXTRACT_SUFX =	.tar.bz2
 CATEGORIES =	geo x11
 DEBUG_PACKAGES =${BUILD_PACKAGES}
 
-SHARED_LIBS =	qgis_core	48.0 \
-		qgis_app	31.2 \
-		qgis_gui	38.0 \
-		qgis_analysis	17.0 \
-		qgis_server	15.0 \
+SHARED_LIBS =	qgis_core	49.0 \
+		qgis_app	32.0 \
+		qgis_gui	39.0 \
+		qgis_analysis	17.1 \
+		qgis_server	16.0 \
 		qgispython	6.0 \
-		qgis_3d		8.1 \
+		qgis_3d		9.0 \
 		qgis_native	0.3
 
 HOMEPAGE =	http://www.qgis.org/
@@ -36,15 +37,12 @@ MODULES =	devel/cmake \
 
 COMPILER =	base-clang ports-gcc
 
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
-
 BUILD_DEPENDS =	x11/py-qt5${MODPY_FLAVOR} \
 		devel/py-sip${MODPY_FLAVOR}>=4.19.4v0 \
 		geo/gdal,-python${MODPY_FLAVOR} \
 		devel/py-six${MODPY_FLAVOR} \
 		editors/py-qscintilla${MODPY_FLAVOR} \
 		devel/bison>=2.4
-
 
 RUN_DEPENDS =	x11/py-qt5${MODPY_FLAVOR} \
 		geo/gdal,-python${MODPY_FLAVOR} \
@@ -73,6 +71,7 @@ LIB_DEPENDS =	${MODPY_LIB_DEPENDS} \
 		x11/qwt \
 		geo/gdal \
 		geo/mdal>=0.5 \
+		geo/pdal \
 		geo/geos \
 		geo/spatialite/libspatialite \
 		geo/spatialindex \
@@ -89,13 +88,13 @@ WANTLIB += spatialite sqlite3 util zip hdf5 xml2 z GL
 WANTLIB += Qt53DCore Qt53DExtras Qt53DInput Qt53DLogic
 WANTLIB += Qt53DRender Qt5Gamepad protobuf-lite
 WANTLIB += Qt5DBus Qt5Qml Qt5Quick Qt5QuickWidgets Qt5SerialPort
+WANTLIB += Qt5QmlModels pdal_base pdal_util zstd
 
 CONFIGURE_ENV+=	VERBOSE=1
 CONFIGURE_ARGS =-DPYTHON_EXECUTABLE=${MODPY_BIN} \
-		-DPYUIC_PROGRAM=${LOCALBASE}/bin/pyuic5-3 \
-		-DPYRCC_PROGRAM=${LOCALBASE}/bin/pyrcc5-3 \
 		-DWITH_INTERNAL_MDAL=FALSE \
 		-DWITH_3D=TRUE \
+		-DWITH_PDAL=TRUE \
 		-DWITH_SERVER=TRUE -DWITH_SERVER_PLUGINS=TRUE -DWITH_QSPATIALITE=TRUE
 
 # does more than just debug pkgs

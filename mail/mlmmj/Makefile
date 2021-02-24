@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.21 2019/07/12 20:47:30 sthen Exp $
+# $OpenBSD: Makefile,v 1.23 2021/02/14 13:23:56 kn Exp $
 
 COMMENT=	mailing list manager
 
 DISTNAME=	mlmmj-1.3.0
-CATEGORIES=    	mail
+REVISION=	0
+CATEGORIES=	mail
 
 HOMEPAGE=	http://mlmmj.org/
 
@@ -15,6 +16,10 @@ WANTLIB += c iconv
 MASTER_SITES=	http://mlmmj.org/releases/
 
 LIB_DEPENDS=	converters/libiconv
+
+# ./contrib/web/php-admin/htdocs/index.php.orig
+# ./contrib/web/php-user/mlmmj.php.orig
+PATCHORIG=	.pat.orig
 
 CONFIGURE_STYLE=gnu
 CONFIGURE_ARGS+=--enable-receive-strip=yes

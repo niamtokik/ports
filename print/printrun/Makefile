@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.6 2021/01/07 14:47:07 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.8 2021/02/23 19:39:36 sthen Exp $
 
 COMMENT =		3D printing host suite
 
@@ -9,11 +9,11 @@ GH_ACCOUNT=	kliment
 GH_PROJECT=	Printrun
 GH_TAGNAME=	${DISTNAME}
 EPOCH=		0
-REVISION=	0
+REVISION=	1
 
 CATEGORIES=	print
 
-HOMEPAGE=	http://www.pronterface.com/
+HOMEPAGE=	https://www.pronterface.com/
 
 # GPLv3
 PERMIT_PACKAGE=	Yes
@@ -21,6 +21,7 @@ PERMIT_PACKAGE=	Yes
 WANTLIB += pthread ${MODPY_WANTLIB}
 
 MODULES=	lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 
 RUN_DEPENDS=	devel/desktop-file-utils \
 		devel/py-gobject \

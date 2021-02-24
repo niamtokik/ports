@@ -1,0 +1,26 @@
+@comment $OpenBSD: PLIST,v 1.1 2021/02/18 20:54:29 sthen Exp $
+@pkgpath devel/libplist,-python
+@bin bin/plistutil
+include/plist/
+include/plist/Array.h
+include/plist/Boolean.h
+include/plist/Data.h
+include/plist/Date.h
+include/plist/Dictionary.h
+include/plist/Integer.h
+include/plist/Key.h
+include/plist/Node.h
+include/plist/Real.h
+include/plist/String.h
+include/plist/Structure.h
+include/plist/Uid.h
+include/plist/plist++.h
+include/plist/plist.h
+@static-lib lib/libplist++.a
+lib/libplist++.la
+@lib lib/libplist++.so.${LIBplist++_VERSION}
+@static-lib lib/libplist.a
+lib/libplist.la
+@lib lib/libplist.so.${LIBplist_VERSION}
+lib/pkgconfig/libplist++.pc
+lib/pkgconfig/libplist.pc

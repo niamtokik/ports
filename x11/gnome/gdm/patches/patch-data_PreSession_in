@@ -1,4 +1,4 @@
-$OpenBSD: patch-data_PreSession_in,v 1.7 2019/05/12 21:28:50 ajacoutot Exp $
+$OpenBSD: patch-data_PreSession_in,v 1.9 2021/02/19 17:22:29 ajacoutot Exp $
 
 Index: data/PreSession.in
 --- data/PreSession.in.orig
@@ -9,9 +9,9 @@ Index: data/PreSession.in
  PATH="@X_PATH@:$PATH"
 +
 +# /etc/X11/xenodm/GiveConsole, fbtab(5)
-+if [ -c /dev/drm0 ]; then
-+    /sbin/chown $USER /dev/drm0
++if [ -c /dev/dri/card0 ]; then
++    /sbin/chown $USER /dev/dri/card0
 +fi
-+if [ -c /dev/drmR128 ]; then
-+    /sbin/chown $USER /dev/drmR128
++if [ -c /dev/dri/renderD128 ]; then
++    /sbin/chown $USER /dev/dri/renderD128
 +fi

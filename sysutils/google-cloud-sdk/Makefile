@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.202 2021/02/03 12:37:47 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.205 2021/02/23 19:39:41 sthen Exp $
 
 COMMENT=		manage resources on Google Cloud Platform
 
-V=			326.0.0
+V=			328.0.0
 DISTNAME=		google-cloud-sdk-${V}-linux-x86
 PKGNAME=		google-cloud-sdk-${V}
 WRKDIST=		${WRKDIR}/google-cloud-sdk
@@ -21,7 +21,6 @@ MASTER_SITES=		https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/
 MODULES=		lang/python
 
 MODPY_BUILDDEP=		Yes
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 MODPY_ADJ_FILES=	bin/dev_appserver.py \
 			bin/endpointscfg.py \

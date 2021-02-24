@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.12 2021/02/09 20:04:10 jeremy Exp $
+# $OpenBSD: Makefile,v 1.14 2021/02/23 19:39:12 sthen Exp $
 
 COMMENT=	PostgreSQL RDBMS (previous version, for pg_upgrade)
 
-VERSION=	12.5
+VERSION=	12.6
 DISTNAME=	postgresql-${VERSION}
 PKGNAME=	postgresql-previous-${VERSION}
 
@@ -33,6 +33,7 @@ USE_GMAKE=	Yes
 CONFIGURE_STYLE=gnu
 
 MODULES=	lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 MODPY_RUNDEP=	No
 POSTGRESQL_DIR=	postgresql-${VERSION:C/.[0-9]+$//}
 
@@ -70,6 +71,7 @@ CONFIGURE_ARGS+=--disable-spinlocks
 # If clang gains "-fexcess-precision=standard" support then this
 # should be removed.
 MODULES+=	gcc4
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 MODGCC4_ARCHS=	i386
 MODGCC4_LANGS=	c
 
@@ -107,5 +109,8 @@ post-install:
 	cd ${WRKSRC}/contrib && gmake install
 	perl -i -pe ${INSTALL_REPLACE} \
 		${PREFIX}/lib/${POSTGRESQL_DIR}/pgxs/src/Makefile.global
+	# avoid conflict between extension example files and
+	# databases/postgresql,-docs
+	rm -R ${PREFIX}/share/doc/postgresql
 
 .include <bsd.port.mk>

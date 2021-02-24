@@ -1,4 +1,4 @@
-# $OpenBSD: go.port.mk,v 1.37 2021/01/16 23:38:13 abieber Exp $
+# $OpenBSD: go.port.mk,v 1.39 2021/02/20 14:56:34 abieber Exp $
 
 ONLY_FOR_ARCHS ?=	${GO_ARCHS}
 
@@ -47,7 +47,7 @@ MODGO_GOPATH ?=		${MODGO_WORKSPACE}:${MODGO_PACKAGE_PATH}
 # We cannot assume that the maching running the built code will have SSE,
 # even though the machine building the package has SSE. As such, we need
 # to explicitly disable SSE on i386 builds.
-MAKE_ENV +=		GO386=387
+MAKE_ENV +=		GO386=softfloat
 MAKE_ENV +=		GOCACHE="${MODGO_GOCACHE}"
 
 MODGO_CMD ?=		${SETENV} ${MAKE_ENV} go
@@ -70,7 +70,7 @@ EXTRACT_SUFX ?=		.zip
 PKGNAME ?=		${DISTNAME:S/-v/-/}
 ALL_TARGET ?=		${MODGO_MODNAME}
 MODGO_FLAGS +=		-modcacherw
-DISTFILES =		${DISTNAME_ESC}${EXTRACT_SUFX}{${MODGO_VERSION}${EXTRACT_SUFX}}
+DISTFILES +=		${DISTNAME_ESC}${EXTRACT_SUFX}{${MODGO_VERSION}${EXTRACT_SUFX}}
 EXTRACT_ONLY =		${DISTNAME_ESC}${EXTRACT_SUFX}
 MASTER_SITES ?=		${MASTER_SITE_ATHENS}${MODGO_MODNAME_ESC}/@v/
 .  for _modpath _modver in ${MODGO_MODULES}

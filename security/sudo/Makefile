@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.52 2021/01/26 21:18:35 sthen Exp $
+# $OpenBSD: Makefile,v 1.55 2021/02/23 22:04:35 sthen Exp $
 
 COMMENT-main=	execute a command as another user
 COMMENT-python=	sudo Python plugin
@@ -42,7 +42,6 @@ FLAVOR_STRING=	${FLAVOR_EXT:S/-/,/g}
 SUBST_VARS=	FLAVOR_STRING
 
 MULTI_PACKAGES=		-main -python
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 MODPY_RUNDEP=		No
 
 # All sub-packages depend on these libraries

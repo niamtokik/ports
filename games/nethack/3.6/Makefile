@@ -1,15 +1,15 @@
-# $OpenBSD: Makefile,v 1.7 2020/09/15 04:21:49 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.10 2021/02/16 08:45:02 espie Exp $
 
 COMMENT =	dungeon explorin', hackin', game.  Piece of cake
-V =		3.6.2
+V =		3.6.6
 # what we have compatible with
 BASEV =		3.6.0
 DISTNAME =	nethack-$V
 PKGNAME =	${DISTNAME}
 CATEGORIES =	games
-MASTER_SITES =	https://www.nethack.org/download/3.6.2/
+MASTER_SITES =	https://www.nethack.org/download/$V/
 DISTFILES =	nethack-${V:S/.//g}-src.tgz
-REVISION =	1
+REVISION =	0
 
 HOMEPAGE =	http://nethack.org/
 
@@ -28,6 +28,7 @@ CONFIG =		x-config
 WANTLIB += X11 Xaw Xext Xmu Xt
 .endif
 RUN_DEPENDS = games/hackdata
+WRKDIST =	${WRKDIR}/NetHack-NetHack-$V_Released
 
 # GPL
 PERMIT_PACKAGE =	Yes

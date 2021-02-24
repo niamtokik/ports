@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.42 2021/01/19 03:36:18 daniel Exp $
+# $OpenBSD: Makefile,v 1.44 2021/02/23 19:39:46 sthen Exp $
 
 COMMENT=	convert memos written in XML to the RFC format
 
-MODPY_EGG_VERSION =	2.11.1
+MODPY_EGG_VERSION=	2.11.1
+REVISION=	0
 DISTNAME=	xml2rfc-${MODPY_EGG_VERSION}
 
 CATEGORIES=	textproc
@@ -14,7 +15,6 @@ MODULES =		lang/python
 
 MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 RUN_DEPENDS =		devel/py-intervaltree${MODPY_FLAVOR} \
 			devel/py-six${MODPY_FLAVOR} \

@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.268 2021/01/08 15:08:54 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.270 2021/02/23 19:39:11 sthen Exp $
 
 # XXX add libphonenumber support when a cpp release is out
 
 COMMENT=		unified backend for PIM programs
 
 GNOME_PROJECT=		evolution-data-server
-GNOME_VERSION=		3.38.3
+GNOME_VERSION=		3.38.4
 
 CATEGORIES=		databases productivity
 
@@ -56,6 +56,7 @@ LIB_DEPENDS= 		audio/libcanberra,-gtk3 \
 			x11/gnome/online-accounts
 
 MODPY_RUNDEP=		No
+
 MODGNOME_TOOLS=		desktop-file-utils gobject-introspection vala
 
 MODGNOME_LDFLAGS=	-L${X11BASE}/lib

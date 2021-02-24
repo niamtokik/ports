@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.541 2021/02/01 14:45:33 fcambus Exp $
+# $OpenBSD: Makefile,v 1.544 2021/02/20 17:17:10 ajacoutot Exp $
 
      SUBDIR =
      SUBDIR += DevIL
@@ -47,7 +47,6 @@
      SUBDIR += dumpmpeg
      SUBDIR += dvdrip
      SUBDIR += enblend-enfuse
-     SUBDIR += enjoympeg
      SUBDIR += evince
      SUBDIR += evince,light
      SUBDIR += exiftran
@@ -249,12 +248,10 @@
      SUBDIR += py-cairo,python3
      SUBDIR += py-cycler
      SUBDIR += py-cycler,python3
-     SUBDIR += py-dot
      SUBDIR += py-dot,python3
      SUBDIR += py-pygal
      SUBDIR += py-pygal,python3
      SUBDIR += py-imageio,python3
-     SUBDIR += py-imagesize
      SUBDIR += py-imagesize,python3
      SUBDIR += py-matplotlib,python3
      SUBDIR += py-opengl

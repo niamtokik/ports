@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.178 2020/12/10 21:41:39 sthen Exp $
+# $OpenBSD: Makefile,v 1.180 2021/02/23 19:39:27 sthen Exp $
 
 COMMENT =		compiler for the functional language Haskell
 
@@ -12,7 +12,7 @@ COMMENT =		compiler for the functional language Haskell
 NO_CCACHE =		Yes
 
 DISTNAME =		ghc-${MODGHC_VER}
-REVISION =		8
+REVISION =		9
 CATEGORIES =		lang devel
 HOMEPAGE =		https://www.haskell.org/ghc/
 
@@ -25,7 +25,6 @@ MODULES =		lang/ghc lang/python
 
 MODPY_BUILDDEP =	No
 MODPY_RUNDEP =		No
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 # BSD w/o advertising clause.
 # Distfile is bundled with other stuff like libffi, mingw
@@ -120,8 +119,6 @@ CONFIGURE_ARGS +=	--with-ffi-includes=${LOCALBASE}/include \
 # Don't autodetect ld.lld. It fails at some point during the build
 # with /usr/bin/ld.lld: error: cannot preempt symbol: memcpy
 CONFIGURE_ARGS +=	--disable-ld-override
-
-CONFIGURE_ENV +=	SPHINXBUILD=${LOCALBASE}/bin/sphinx-build${MODPY_BIN_SUFFIX}
 
 # Do not pick up gpatch
 CONFIGURE_ENV +=	ac_cv_path_PatchCmd=/usr/bin/patch

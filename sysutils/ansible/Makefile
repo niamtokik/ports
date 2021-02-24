@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.132 2021/01/30 15:34:20 pvk Exp $
+# $OpenBSD: Makefile,v 1.134 2021/02/23 19:39:40 sthen Exp $
 
 COMMENT-main =		ssh based config management framework
 COMMENT-html =		offline Ansible documentation in HTML format
 
 MODPY_EGG_VERSION =	2.9.17
+REVISION-html =		0
 DISTNAME =		ansible-${MODPY_EGG_VERSION}
 PKGNAME-main =		${PKGNAME}
 PKGNAME-html =		ansible-html-${MODPY_EGG_VERSION}
@@ -23,7 +24,6 @@ MASTER_SITES =		https://releases.ansible.com/ansible/
 
 MODULES =		lang/python
 MODPY_SETUPTOOLS =	Yes
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS =		devel/py-straight.plugin${MODPY_FLAVOR} \
 			textproc/py-sphinx${MODPY_FLAVOR} \
@@ -56,10 +56,6 @@ pre-configure:
 		${WRKSRC}/lib/ansible/constants.py \
 		${WRKSRC}/examples/ansible.cfg \
 		${WRKSRC}/docs/man/man1/*.1
-
-pre-build:
-	ln -sf ${LOCALBASE}/bin/sphinx-build${MODPY_BIN_SUFFIX} \
-		${WRKDIR}/bin/sphinx-build
 
 # "_build" to be revisited in case SEPARATE_BUILD is changed
 post-build:

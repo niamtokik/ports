@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/03/12 17:18:09 bcallah Exp $
+# $OpenBSD: Makefile,v 1.4 2021/02/23 19:39:23 sthen Exp $
 
 # Keep in sync with games/renpy!!!
 V =		7.3.5.606
@@ -23,9 +23,10 @@ WANTLIB += SDL2 SDL2_image SDL2_mixer SDL2_ttf jpeg png pthread
 WANTLIB += ${MODPY_WANTLIB}
 
 MODULES =	lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 MODPY_SETUPTOOLS =	Yes
 
-BUILD_DEPENDS =	lang/cython
+BUILD_DEPENDS =	lang/cython,python3
 
 LIB_DEPENDS =	devel/sdl2-image \
 		devel/sdl2-mixer \

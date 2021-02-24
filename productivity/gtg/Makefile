@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.36 2020/10/03 15:39:59 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.38 2021/02/23 19:39:36 sthen Exp $
 
 COMMENT=		GTD organizer for GNOME
 
@@ -7,7 +7,7 @@ GH_ACCOUNT =		getting-things-gnome
 GH_COMMIT =		54b2793be236da41549360c5aeb0da5e33a7ff60
 MODPY_EGG_VERSION =	0.4.0
 DISTNAME =		gtg-${MODPY_EGG_VERSION}
-REVISION =		1
+REVISION =		2
 
 CATEGORIES=		productivity
 
@@ -17,8 +17,6 @@ HOMEPAGE=		https://wiki.gnome.org/Apps/GTG
 PERMIT_PACKAGE=	Yes
 
 MODULES=		lang/python
-
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS=		devel/gettext,-tools \
 			textproc/py-sphinx${MODPY_FLAVOR}

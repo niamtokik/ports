@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.48 2021/01/02 09:59:09 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.50 2021/02/23 19:39:26 sthen Exp $
 
 COMMENT-main=		high dynamic range image format
 COMMENT-tools=		image viewing tools for OpenEXR
 COMMENT-doc=		developer documentation for OpenEXR
 
-V=			2.5.4
+V=			2.5.5
 GH_ACCOUNT=		AcademySoftwareFoundation
 GH_PROJECT=		openexr
 GH_TAGNAME=		v${V}
@@ -36,8 +36,6 @@ COMPILER=		base-clang ports-gcc base-gcc
 
 MODULES=		devel/cmake \
 			lang/python
-
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 .if ${MACHINE_ARCH} == "mips64" || ${MACHINE_ARCH} == "mips64el"
 CXXFLAGS +=		-mxgot

@@ -1,18 +1,18 @@
-# $OpenBSD: Makefile,v 1.451 2021/02/09 09:44:30 landry Exp $
+# $OpenBSD: Makefile,v 1.454 2021/02/23 19:39:47 sthen Exp $
 
 COMMENT =	Firefox web browser
 ONLY_FOR_ARCHS =	amd64 i386 aarch64
 
 # Don't forget to bump www/firefox-i18n after updates.
 
-MOZILLA_VERSION =	85.0.2
+MOZILLA_VERSION =	86.0
 MOZILLA_BRANCH =	release
 MOZILLA_PROJECT =	firefox
 MOZILLA_CODENAME =	browser
 
 WRKDIST =	${WRKDIR}/${MOZILLA_DIST}-${MOZILLA_DIST_VERSION:C/b[0-9]*//}
 HOMEPAGE =	https://www.mozilla.org/firefox/
-SO_VERSION =	99.0
+SO_VERSION =	100.0
 # NOTE: Must bump minor version if any shlib's are removed from the
 # components dir to avoid pkg_add -r issues.
 MOZILLA_LIBS =	mozavcodec mozavutil mozgtk xul clearkey lgpllibs mozsqlite3
@@ -26,7 +26,6 @@ PERMIT_PACKAGE=	Yes
 MODULES =	www/mozilla lang/python
 
 MODPY_RUNDEP =	No
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
 COMPILER =	ports-clang
 MODCLANG_ARCHS =	amd64 i386

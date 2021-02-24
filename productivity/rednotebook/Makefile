@@ -1,12 +1,11 @@
-# $OpenBSD: Makefile,v 1.38 2020/10/03 15:39:59 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.40 2021/02/23 19:39:37 sthen Exp $
 
 COMMENT=		diary and journal application
 
-MODPY_EGG_VERSION=	2.15
+MODPY_EGG_VERSION=	2.21
 GH_TAGNAME=		v${MODPY_EGG_VERSION}
 GH_ACCOUNT=		jendrikseipp
 GH_PROJECT=		rednotebook
-REVISION=		2
 
 CATEGORIES=		productivity
 
@@ -14,8 +13,6 @@ CATEGORIES=		productivity
 PERMIT_PACKAGE=	Yes
 
 MODULES=		lang/python
-
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 # msgfmt(1)
 BUILD_DEPENDS=		devel/gettext,-tools

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.15 2020/03/12 17:47:08 bcallah Exp $
+# $OpenBSD: Makefile,v 1.17 2021/02/23 19:39:23 sthen Exp $
 
 COMMENT =		visual novel engine
 
@@ -21,10 +21,11 @@ MASTER_SITES =		https://www.renpy.org/dl/${V}/
 EXTRACT_SUFX =		.tar.bz2
 
 MODULES =		lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 
 BUILD_DEPENDS =		devel/pygame \
 			games/pygame_sdl2 \
-			lang/cython
+			lang/cython,python3
 
 RUN_DEPENDS =		games/pygame_sdl2 \
 			x11/gnome/zenity

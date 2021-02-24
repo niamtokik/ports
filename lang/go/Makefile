@@ -1,13 +1,14 @@
-# $OpenBSD: Makefile,v 1.91 2021/01/21 14:47:15 abieber Exp $
+# $OpenBSD: Makefile,v 1.97 2021/02/23 17:32:57 jsing Exp $
 
 ONLY_FOR_ARCHS =	${GO_ARCHS}
 
-BIN_BOOTSTRAP_GOARCHS =	arm arm64
-BIN_BOOTSTRAP_VERSION = 1.13.9
+BIN_BOOTSTRAP_GOARCHS =	386 arm arm64 mips64
+BIN_BOOTSTRAP_VERSION = 1.16
 
 COMMENT =		Go programming language
 
-VERSION =		1.15.7
+VERSION =		1.16
+REVISION =		1
 DISTNAME =		go${VERSION}.src
 PKGNAME =		go-${VERSION}
 PKGSPEC =		${FULLPKGNAME:S/go-/go-=/}
@@ -34,6 +35,9 @@ SEPARATE_BUILD =	Yes
 CONFIGURE_STYLE =	None
 SUBST_VARS =		GOCFG
 
+PSEUDO_FLAVORS =	native_bootstrap
+FLAVOR ?=
+
 WRKDIST =		${WRKDIR}/go
 WRKSRC =		${WRKDIST}/src
 
@@ -53,21 +57,31 @@ GOARCH =		arm
 GOARCH =		arm64
 .elif ${MACHINE_ARCH} == "i386"
 GOARCH =		386
+.elif ${MACHINE_ARCH} == "octeon"
+GOARCH =		mips64
 .endif
 
-# We cannot assume that the maching running the built code will have SSE,
+# We cannot assume that the machine running the built code will have SSE,
 # even though the machine building the package has SSE. As such, we need
 # to explicitly disable SSE on i386 builds.
-MAKE_ENV +=		GO386=387
+MAKE_ENV +=		GO386=softfloat
 
 .for arch in ${BIN_BOOTSTRAP_GOARCHS}
 SUPDISTFILES +=		go-openbsd-${arch}-bootstrap-${BIN_BOOTSTRAP_VERSION}${EXTRACT_SUFX}:0
 
-.if ${GOARCH} == ${arch}
+.if ${GOARCH} == ${arch} && !${FLAVOR:Mnative_bootstrap}
 DISTFILES +=		go-openbsd-${GOARCH}-bootstrap-${BIN_BOOTSTRAP_VERSION}${EXTRACT_SUFX}:0
 GOROOT_BOOTSTRAP =	${WRKDIR}/go-openbsd-${GOARCH}-bootstrap
 .endif
 .endfor
+
+.if ${FLAVOR:Mnative_bootstrap}
+GOROOT_BOOTSTRAP =	${LOCALBASE}/go
+INSTALLED != (pkg_info -qe "go-*" && echo yes) || echo no
+.  if ${INSTALLED:L} != "yes"
+ERRORS += "Fatal: This flavor requires an installed go package"
+.  endif
+.endif
 
 .if empty(GOROOT_BOOTSTRAP)
 BUILD_DEPENDS +=	lang/go-bootstrap

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.662 2021/02/08 09:57:23 sthen Exp $
+# $OpenBSD: Makefile,v 1.668 2021/02/20 15:51:11 sthen Exp $
 
      SUBDIR =
      SUBDIR += TclXML
@@ -376,9 +376,9 @@
      SUBDIR += py-PEG2,python3
      SUBDIR += py-PyPDF2
      SUBDIR += py-PyPDF2,python3
-     SUBDIR += py-alabaster
      SUBDIR += py-alabaster,python3
      SUBDIR += py-black
+     SUBDIR += py-bracex,python3
      SUBDIR += py-canonicaljson,python3
      SUBDIR += py-chardet
      SUBDIR += py-chardet,python3
@@ -396,7 +396,6 @@
      SUBDIR += py-demjson,python3
      SUBDIR += py-dicttoxml
      SUBDIR += py-dicttoxml,python3
-     SUBDIR += py-docutils
      SUBDIR += py-docutils,python3
      SUBDIR += py-elasticsearch,python3
      SUBDIR += py-emoji
@@ -414,7 +413,6 @@
      SUBDIR += py-lxml,python3
      SUBDIR += py-markdown
      SUBDIR += py-markdown,python3
-     SUBDIR += py-m2r
      SUBDIR += py-m2r,python3
      SUBDIR += py-mistune
      SUBDIR += py-mistune,python3
@@ -442,7 +440,6 @@
      SUBDIR += py-pyaml
      SUBDIR += py-pyaml,python3
      SUBDIR += py-pygfm,python3
-     SUBDIR += py-pygments
      SUBDIR += py-pygments,python3
      SUBDIR += py-pykwalify
      SUBDIR += py-pykwalify,python3
@@ -451,21 +448,17 @@
      SUBDIR += py-ruamel.yaml,python3
      SUBDIR += py-signedjson,python3
      SUBDIR += py-semver
-     SUBDIR += py-snowballstemmer
      SUBDIR += py-snowballstemmer,python3
      SUBDIR += py-spdx
      SUBDIR += py-spdx,python3
      SUBDIR += py-spdx-lookup
      SUBDIR += py-spdx-lookup,python3
-     SUBDIR += py-sphinx
      SUBDIR += py-sphinx,python3
-     SUBDIR += py-sphinx-intl
      SUBDIR += py-sphinx-intl,python3
      SUBDIR += py-sphinx-notfound-page,python3
      SUBDIR += py-sphinx_guzzle_theme,python3
-     SUBDIR += py-sphinx_rtd_theme
      SUBDIR += py-sphinx_rtd_theme,python3
-     SUBDIR += py-stemmer
+     SUBDIR += py-sphinxcontrib
      SUBDIR += py-stemmer,python3
      SUBDIR += py-textfsm,python3
      SUBDIR += py-toml,python3

@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.142 2021/02/05 14:42:14 landry Exp $
+# $OpenBSD: Makefile,v 1.145 2021/02/23 19:39:47 sthen Exp $
 
 COMMENT =	Firefox web browser, Extended Support Release
 ONLY_FOR_ARCHS =	amd64 i386 aarch64
 
-MOZILLA_VERSION =	78.7.1esr
+MOZILLA_VERSION =	78.8.0esr
 MOZILLA_BRANCH =	release
 MOZILLA_PROJECT =	firefox-esr
 MOZILLA_CODENAME =	browser
@@ -24,7 +24,6 @@ PERMIT_PACKAGE=	Yes
 MODULES =	www/mozilla lang/python
 
 MODPY_RUNDEP =	No
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
 COMPILER =	base-clang ports-clang
 MODCLANG_ARCHS =	amd64 i386

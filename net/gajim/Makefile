@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.91 2021/01/06 09:56:15 paco Exp $
+# $OpenBSD: Makefile,v 1.93 2021/02/23 19:39:32 sthen Exp $
 
 COMMENT=	jabber client written in pygtk
 MODPY_EGG_VERSION=	1.2.2
 DISTNAME=	gajim-${MODPY_EGG_VERSION}
 CATEGORIES=	net x11
+REVISION=	0
 
 HOMEPAGE=	https://www.gajim.org
 
@@ -15,7 +16,6 @@ MASTER_SITES=	${HOMEPAGE}/downloads/1.2/
 PERMIT_PACKAGE=	Yes
 
 MODULES=	lang/python
-MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 MODPY_SETUPTOOLS=	Yes
 
 BUILD_DEPENDS=	devel/gettext,-tools
@@ -33,7 +33,7 @@ RUN_DEPENDS=	devel/desktop-file-utils \
 		sysutils/py-packaging${MODPY_FLAVOR} \
 		textproc/gspell \
 		textproc/py-css-parser${MODPY_FLAVOR} \
-		textproc/py-precis_i18n \
+		textproc/py-precis_i18n${MODPY_FLAVOR} \
 		x11/dbus-python${MODPY_FLAVOR} \
 		x11/gtk+3,-guic
 

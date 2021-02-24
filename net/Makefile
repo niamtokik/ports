@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1241 2021/02/04 12:52:05 sthen Exp $
+# $OpenBSD: Makefile,v 1.1244 2021/02/22 13:31:43 sthen Exp $
 
      SUBDIR =
      SUBDIR += adns
@@ -310,7 +310,6 @@
      SUBDIR += noVNC
      SUBDIR += ns
      SUBDIR += nslint
-     SUBDIR += nslint,static
      SUBDIR += nsping
      SUBDIR += nssl
      SUBDIR += ntopng
@@ -611,9 +610,7 @@
      SUBDIR += py-pf,python3
      SUBDIR += py-portend
      SUBDIR += py-portend,python3
-     SUBDIR += py-ripe.atlas.cousteau
      SUBDIR += py-ripe.atlas.cousteau,python3
-     SUBDIR += py-ripe.atlas.sagan
      SUBDIR += py-ripe.atlas.sagan,python3
      SUBDIR += py-ripe.atlas.tools
      SUBDIR += py-rrdtool
@@ -647,7 +644,6 @@
      SUBDIR += quagga
      SUBDIR += queryperf
      SUBDIR += queso
-     SUBDIR += quvi
      SUBDIR += rabbitmq
      SUBDIR += rabbitmq-c
      SUBDIR += radcli

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.546 2021/02/06 07:33:27 robert Exp $
+# $OpenBSD: Makefile,v 1.548 2021/02/23 19:39:46 sthen Exp $
 
 # /usr/local/bin/chrome[60]: /usr/local/chrome/chrome: Cannot allocate memory
 BROKEN-i386=   runtime fails, cannot execve the built binary, immediate ENOMEM even with high limits
@@ -18,6 +18,7 @@ COMMENT=		Chromium browser
 V=			88.0.4324.150
 
 DISTNAME=		chromium-${V}
+REVISION=		0
 
 DISTFILES+=		chromium-${V}${EXTRACT_SUFX}
 
@@ -40,6 +41,7 @@ MASTER_SITES=	https://commondatastorage.googleapis.com/chromium-browser-official
 MASTER_SITES0=	http://nerd.hu/distfiles/
 
 MODULES=	lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 
 COMPILER =	base-clang ports-clang ports-gcc
 

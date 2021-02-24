@@ -1,11 +1,12 @@
-# $OpenBSD: Makefile,v 1.190 2020/12/30 07:17:34 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.193 2021/02/23 19:39:13 sthen Exp $
 
 DPB_PROPERTIES =	parallel
 
 COMMENT =	portable build system
 
-VER =		3.19.1
+VER =		3.19.4
 EPOCH =		0
+REVISION =	0
 DISTNAME =	cmake-${VER}
 CATEGORIES =	devel
 
@@ -22,7 +23,6 @@ WANTLIB += jsoncpp m rhash uv z
 COMPILER =		base-clang ports-gcc
 
 MODULES =		lang/python
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 MODPY_RUNDEP =		No
 
 BUILD_DEPENDS =		textproc/py-sphinx${MODPY_FLAVOR}>=1.5
@@ -41,7 +41,6 @@ CONFIGURE_ARGS =	--datadir=share/cmake \
 			--no-qt-gui \
 			--parallel=${MAKE_JOBS} \
 			--prefix=${PREFIX} \
-			--sphinx-build=${LOCALBASE}/bin/sphinx-build${MODPY_BIN_SUFFIX} \
 			--sphinx-html \
 			--sphinx-man \
 			--system-libs \

@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.44 2020/10/03 15:39:58 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.46 2021/02/23 19:39:25 sthen Exp $
 
 COMMENT=		GObject wrapper around exiv2
 
-GNOME_VERSION=		0.12.1
+GNOME_VERSION=		0.12.2
 GNOME_PROJECT=		gexiv2
 PKGNAME=		lib${DISTNAME}
-REVISION=		2
 
 CATEGORIES=		graphics
 
-SHARED_LIBS +=  gexiv2               3.2      # 2.0.0
+SHARED_LIBS +=  gexiv2               3.3      # 2.0.0
 
 MAINTAINER=		Jasper Lievisse Adriaanse <jasper@openbsd.org>, \
 			Antoine Jacoutot <ajacoutot@openbsd.org>
@@ -24,7 +23,6 @@ MODULES=		devel/meson \
 			x11/gnome
 
 MODGNOME_TOOLS=		gobject-introspection vala
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 # C++11
 COMPILER =		base-clang ports-gcc

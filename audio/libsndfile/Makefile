@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.34 2021/01/16 12:53:12 sthen Exp $
+# $OpenBSD: Makefile,v 1.36 2021/02/23 19:39:09 sthen Exp $
 
 COMMENT=	library to handle various audio file formats
 
 DISTNAME=	libsndfile-1.0.30
+REVISION=	0
 CATEGORIES=	audio
 GH_ACCOUNT=	libsndfile
 GH_PROJECT=	libsndfile
@@ -21,7 +22,6 @@ WANTLIB=	c m sndio FLAC ogg opus vorbis vorbisenc
 
 MODULES=	devel/cmake \
 		lang/python
-MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 MODPY_RUNDEP=	No
 
 CONFIGURE_ARGS=	-DBUILD_SHARED_LIBS:BOOL=ON \

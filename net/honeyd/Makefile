@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.43 2019/07/12 20:48:27 sthen Exp $
+# $OpenBSD: Makefile,v 1.45 2021/02/23 19:39:32 sthen Exp $
 
 COMMENT=	utility to create virtual hosts on a network
 DISTNAME=	honeyd-1.5c
-REVISION=	12
+REVISION=	13
 CATEGORIES=	net
 MASTER_SITES=	http://www.citi.umich.edu/u/provos/honeyd/ \
 		http://niels.xtdnet.nl/honeyd/
@@ -20,6 +20,7 @@ PATCH_LIST=	patch-* align-*
 .endif
 
 MODULES=	lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 LIB_DEPENDS=	${MODPY_LIB_DEPENDS} \
 		devel/libeventextra \
 		devel/pcre \

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.7 2020/11/16 15:53:10 bket Exp $
+# $OpenBSD: Makefile,v 1.10 2021/02/23 19:39:28 sthen Exp $
 
 COMMENT-main =		mail indexer, tagger and threader
 COMMENT-emacs =		Emacs bindings for notmuch
@@ -42,7 +42,6 @@ TEST_DEPENDS =		archivers/gtar \
 MODULES =		lang/python
 MODPY_RUNDEP =		No
 MODPY_PYTEST =		Yes
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 USE_GMAKE =		Yes
 CONFIGURE_STYLE =	simple
 CONFIGURE_ARGS =	--mandir=${PREFIX}/man \
@@ -51,10 +50,8 @@ CONFIGURE_ARGS =	--mandir=${PREFIX}/man \
 			--bashcompletiondir=${PREFIX}/share/notmuch/bash_completion.d
 CONFIGURE_ENV =		PYTHON=${MODPY_BIN}
 MAKE_FLAGS =		V=1
-
-LIBnotmuch_MAJOR =	${LIBnotmuch_VERSION:R}
-LIBnotmuch_MINOR =	${LIBnotmuch_VERSION:E}
-SUBST_VARS =		LIBnotmuch_MAJOR LIBnotmuch_MINOR
+MAKE_ENV =		LIBnotmuch_MAJOR=${LIBnotmuch_VERSION:R} \
+			LIBnotmuch_MINOR=${LIBnotmuch_VERSION:E}
 
 # the --gzip option of notmuch dump is disabled so skip the relevant tests
 TEST_FLAGS =	V=1 \
@@ -66,10 +63,6 @@ TEST_TARGET =	test
 post-extract:
 	cd ${WRKSRC}/test; [ -r test-lib-OPENBSD.sh ] || \
 	    cp test-lib-FREEBSD.sh test-lib-OPENBSD.sh
-
-pre-configure:
-	cd ${WRKSRC}; ${SUBST_CMD} lib/Makefile.local
-	ln -s ${PREFIX}/bin/sphinx-build${MODPY_BIN_SUFFIX} ${WRKDIR}/bin/sphinx-build
 
 post-install:
 	rm ${PREFIX}/man/man1/notmuch-setup.1.gz

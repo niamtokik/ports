@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.16 2021/01/28 18:35:52 solene Exp $
+# $OpenBSD: Makefile,v 1.18 2021/02/23 19:39:35 sthen Exp $
 
 COMMENT =	open network for secure, decentralized communication
 
-MODPY_EGG_VERSION =	1.26.0
+MODPY_EGG_VERSION =	1.27.0
 
 GH_ACCOUNT =	matrix-org
 GH_PROJECT =	synapse
@@ -18,7 +18,6 @@ PERMIT_PACKAGE =	Yes
 
 MODULES =		lang/python
 
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 MODPY_SETUPTOOLS =	Yes
 
 MODPY_DISTUTILS_INSTALLARGS = --install-scripts ${LOCALBASE}/share/synapse

@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.8 2019/07/12 20:45:57 sthen Exp $
+# $OpenBSD: Makefile,v 1.12 2021/02/23 19:39:20 sthen Exp $
 
 COMMENT=	tool for editing version-control repository history
 
 DISTNAME=	reposurgeon-3.42
-REVISION=	0
+REVISION=	1
 EXTRACT_SUFX=	.tar.xz
 
 CATEGORIES=	devel
@@ -19,8 +19,9 @@ MASTER_SITES=	http://www.catb.org/esr/reposurgeon/
 
 USE_GMAKE=	Yes
 MODULES=	lang/python
+MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 CONFIGURE_STYLE= x	# bad python.port.mk
-BUILD_DEPENDS=	lang/cython \
+BUILD_DEPENDS=	lang/cython,python3 \
 		textproc/asciidoc \
 		textproc/xmlto
 

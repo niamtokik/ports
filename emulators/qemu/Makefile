@@ -1,11 +1,12 @@
-# $OpenBSD: Makefile,v 1.199 2020/10/07 19:55:57 cwen Exp $
+# $OpenBSD: Makefile,v 1.205 2021/02/23 22:04:35 sthen Exp $
 
 ONLY_FOR_ARCHS=	aarch64 amd64 arm i386 powerpc powerpc64 sparc64
+DPB_PROPERTIES=	parallel
 
 COMMENT=	multi system emulator
 
 DISTNAME=	qemu-5.1.0
-REVISION=	0
+REVISION=	2
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.qemu.org/
 EXTRACT_SUFX=	.tar.xz
@@ -18,28 +19,26 @@ MAINTAINER=	Brad Smith <brad@comstyle.com>
 PERMIT_PACKAGE=	Yes
 
 WANTLIB=	SDL2 X11 atk-1.0 bz2 c cairo cairo-gobject capstone curl \
-		curses epoxy fdt>=4.1 gbm gdk-3 gdk_pixbuf-2.0 gio-2.0 \
-		glib-2.0 gnutls gobject-2.0 gthread-2.0 gtk-3 harfbuzz \
-		iconv intl iscsi jpeg lzo2 m nettle nfs pango-1.0 \
-		pangocairo-1.0 pixman-1 png sndio ssh usb-1.0 util \
-		vte-2.91 xkbcommon xml2 z zstd ${COMPILER_LIBCXX}
+		curses epoxy fdt gbm gdk-3 gdk_pixbuf-2.0 gio-2.0 glib-2.0 \
+		gnutls gobject-2.0 gthread-2.0 gtk-3 harfbuzz iconv intl \
+		iscsi jpeg lzo2 m nettle nfs pango-1.0 pangocairo-1.0 \
+		pixman-1 png sndio ssh usb-1.0 util vte-2.91 xkbcommon \
+		xml2 z zstd ${COMPILER_LIBCXX}
 
 # Using TLS emulation layer
 COMPILER=	base-clang ports-gcc
 
 MODULES=	lang/python
-
 MODPY_RUNDEP=	No
-MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS=	devel/gettext,-tools \
-		textproc/py-sphinx${MODPY_FLAVOR}
+		textproc/py-sphinx${MODPY_FLAVOR}>=3.5.1
 LIB_DEPENDS=	archivers/bzip2 \
 		archivers/lzo2 \
 		archivers/zstd \
 		converters/libiconv \
 		devel/capstone/main \
-		devel/dtc>=1.5.0p0 \
+		devel/dtc \
 		devel/gettext,-runtime \
 		devel/glib2 \
 		devel/libiscsi \

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.31 2021/02/06 21:42:49 sthen Exp $
+# $OpenBSD: Makefile,v 1.33 2021/02/23 19:39:12 sthen Exp $
 
 COMMENT-main=	perl bindings for Xapian
 COMMENT-python=	python bindings for Xapian
@@ -6,6 +6,7 @@ COMMENT-ruby=	ruby bindings for Xapian
 
 V=		1.4.18
 DISTNAME=	xapian-bindings-${V}
+REVISION-python= 0
 
 PKGNAME-main=	xapian-bindings-perl-${V}
 PKGNAME-python=	xapian-bindings-python-${V}
@@ -36,8 +37,6 @@ BUILD_DEPENDS=		textproc/py-sphinx${MODPY_FLAVOR}>=1.5
 
 MODULES=	lang/python \
 		lang/ruby
-
-MODPY_VERSION ?=	${MODPY_DEFAULT_VERSION_3}
 
 MULTI_PACKAGES=	-main -python -ruby
 

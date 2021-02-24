@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.86 2021/01/16 08:45:02 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.89 2021/02/23 19:39:17 sthen Exp $
 
 COMMENT=		next-generation build system
 
 MODPY_EGG_VERSION=	${GH_TAGNAME}
 GH_ACCOUNT=		mesonbuild
 GH_PROJECT=		meson
-GH_TAGNAME=		0.56.2
+GH_TAGNAME=		0.57.1
 EPOCH=			0
 
 CATEGORIES=		devel
@@ -20,7 +20,6 @@ PERMIT_PACKAGE=		Yes
 MODULES=		lang/python
 
 MODPY_SETUPTOOLS=	Yes
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 RUN_DEPENDS=		devel/ninja
 

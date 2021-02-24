@@ -1,10 +1,9 @@
-# $OpenBSD: Makefile,v 1.144 2021/02/10 08:25:46 kn Exp $
+# $OpenBSD: Makefile,v 1.146 2021/02/22 22:37:46 naddy Exp $
 
      SUBDIR =
      SUBDIR += abiword
      SUBDIR += axe
      SUBDIR += beav
-     SUBDIR += beaver
      SUBDIR += bvi
      SUBDIR += calligra
      SUBDIR += cooledit
@@ -57,7 +56,6 @@
      SUBDIR += se
      SUBDIR += sigil
      SUBDIR += subtitleeditor
-     SUBDIR += tea
      SUBDIR += teaqt
      SUBDIR += ted
      SUBDIR += TeXmacs

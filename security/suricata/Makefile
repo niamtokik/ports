@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.39 2021/02/03 00:33:47 sthen Exp $
+# $OpenBSD: Makefile,v 1.41 2021/02/23 19:39:39 sthen Exp $
 
 COMMENT =	high performance network IDS, IPS and security monitoring
 
@@ -26,7 +26,6 @@ WANTLIB +=  maxminddb net nspr4 nss3 nssutil3 pcap pcre plc4 plds4
 WANTLIB +=  smime3 ssl3 yaml-0 z
 
 MODULES =	lang/python
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_3}
 
 BUILD_DEPENDS =	textproc/py-sphinx${MODPY_FLAVOR} \
 		textproc/py-yaml${MODPY_FLAVOR} \
@@ -69,8 +68,6 @@ pre-configure:
 		${WRKSRC}/suricata-update/doc/Makefile \
 		${WRKSRC}/suricata-update/suricata/update/config.py \
 		${WRKSRC}/suricata-update/suricata/update/parsers.py
-	ln -fs ${PREFIX}/bin/sphinx-build${MODPY_BIN_SUFFIX} \
-		${WRKDIR}/bin/sphinx-build
 	# prevent generating revision.py
 	rm -rf ${WRKSRC}/suricata-update/.git
 

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.29 2020/12/26 20:48:53 bluhm Exp $
+# $OpenBSD: Makefile,v 1.31 2021/02/23 19:39:38 sthen Exp $
 
 COMMENT =	crypto and TLS for C++11
 
@@ -26,11 +26,10 @@ EXTRACT_SUFX =		.tar.xz
 
 MODULES =		lang/python
 MODPY_RUNDEP =		No
-MODPY_VERSION =		${MODPY_DEFAULT_VERSION_3}
 
 # C++11
 COMPILER =		base-clang ports-gcc
-BUILD_DEPENDS =		textproc/py-docutils
+BUILD_DEPENDS =		textproc/py-docutils,python3
 LIB_DEPENDS =		archivers/bzip2 \
 			archivers/xz
 

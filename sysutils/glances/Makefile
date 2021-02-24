@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.1.1.1 2020/12/05 20:43:50 solene Exp $
+# $OpenBSD: Makefile,v 1.3 2021/02/23 19:39:41 sthen Exp $
 
 COMMENT =		cross-platform curses-based monitoring tool
 
-MODPY_EGG_VERSION =	3.1.5
+MODPY_EGG_VERSION =	3.1.6.2
 
 DISTNAME =		Glances-${MODPY_EGG_VERSION}
 PKGNAME =		${DISTNAME:L}
@@ -17,7 +17,6 @@ MAINTAINER =		Ashton Fagg <ashton@fagg.id.au>
 PERMIT_PACKAGE =	Yes
 
 MODULES =		lang/python
-MODPY_VERSION=		${MODPY_DEFAULT_VERSION_3}
 
 MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes
