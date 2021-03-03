@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1207 2021/02/23 12:48:54 kn Exp $
+# $OpenBSD: Quirks.pm,v 1.1228 2021/03/03 12:55:36 kn Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -584,6 +584,23 @@ my $stem_extensions = {
 	'py-dot' => 'py3-dot',
 	'py-last' => 'py3-last',
 	'py-flask-principal' => 'py3-flask-principal',
+	'py-flask-sqlalchemy' => 'py3-flask-sqlalchemy',
+	'py-flask-login' => 'py3-flask-login',
+	'py-flask-wtf' => 'py3-flask-wtf',
+	'py-pygal' => 'py3-pygal',
+	'py-wtforms' => 'py3-wtforms',
+	'py-apsw' => 'py3-apsw',
+	'cdiff' => 'ydiff',
+	'xmonad-lib' => 'xmonad',
+	'py-test-httpbin' => 'py3-test-httpbin',
+	'py-test-localserver' => 'py3-test-localserver',
+	'py-test-vcr' => 'py3-test-vcr',
+	'py-flask' => 'py3-flask',
+	'py-httpbin' => 'py3-httpbin',
+	'py-itsdangerous' => 'py3-itsdangerous',
+	'py-vcrpy' => 'py3-vcrpy',
+	'py-werkzeug' => 'py3-werkzeug',
+	'py-blinker' => 'py3-blinker',
 };
 
 my $obsolete_reason = {
@@ -1044,7 +1061,7 @@ my $obsolete_reason = {
 	'xmms-fmradio' => 5,
 	'xmms-kj' => 5,
 	'xmms-mad' => 5,
-	'xmms-mikmod', => 5,
+	'xmms-mikmod' => 5,
 	'xmms-mp3' => 5,
 	'xmms-shn' => 5,
 	'xmms-sid' => 5,
@@ -2130,7 +2147,7 @@ my $obsolete_reason = {
 	'libquvi-scripts' => 39,
 	'cclive' => 6,
 	'viz' => 4,
-	'drifntet' => 40,
+	'driftnet' => 40,
 	'enjoympeg' => 6,
 	'trac-ldapplugin' => 6,
 	'xboing' => 0,
@@ -2148,6 +2165,23 @@ my $obsolete_reason = {
 	'tempwatch' => 5,
 	'avenger' => 29,
 	'mk' => 41,
+	'sabredav' => 1,
+	'mollify' => 3,
+	'seyon' => 3,
+	'mingw' => 6,
+	'bsd-airtools' => 3,
+	'gtkpod' => 3,
+	'golem' => 0,
+	'py-beautifulsoup' => 14,
+	'wmmultipop3' => 3,
+	'wmpop3' => 3,
+	'angst' => 3,
+	'audiopreview' => 3,
+	'pcsxr' => 3,
+	'libbio' => 41,
+	'libfmt' => 41,
+	'libregexp9' => 41,
+	'libutf' => 41,
 };
 
 # reasons for obsolete packages
@@ -2192,8 +2226,8 @@ my @msg = (
 	"upstream is dead, default settings cause crash when connecting to mpd", #37
 	"icinga 1 is end-of-life, migrate to icinga 2 (needs config rewrite)", #38
 	"Flash/SWF is end-of-life", #39
-	"ancient software that often crashes and relies on single HTTP (no TLS) connections, use wireshark" #40
-	"Upstrem moved to unversioned tarballs, use the plan9port (same upstream) package instead" #41
+	"ancient software that often crashes and relies on single HTTP (no TLS) connections, use wireshark", #40
+	"upstream moved to unversioned tarballs, use the plan9port (same upstream) package instead", #41
 );
 
 # ->is_base_system($handle, $state):

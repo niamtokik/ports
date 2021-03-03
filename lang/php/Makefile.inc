@@ -1,11 +1,15 @@
-# $OpenBSD: Makefile.inc,v 1.154 2020/07/21 15:58:41 sthen Exp $
+# $OpenBSD: Makefile.inc,v 1.157 2021/02/24 19:14:11 sthen Exp $
 
 BROKEN-hppa=	no __sync_bool_compare_and_swap support nor asm fallback
 
 COMMENT-main=		server-side HTML-embedded scripting language
 
 PV=		${PHP_VERSION:R}
+.if ${PHP_VERSION:M7*}
 MV=		${PV:R}
+.else
+MV=
+.endif
 SV=		${PV:S/.//}
 
 PKGNAME-main?=		php-${PHP_VERSION}
@@ -13,7 +17,6 @@ PKGSTEM=		php-${PV}
 PKGSTEM-main=		php-${PV}
 
 DISTNAME?=		php-${PHP_VERSION}
-#PGPSIGFILES?=		php-${PHP_VERSION}${EXTRACT_SUFX}.asc
 EXTRACT_SUFX?=		.tar.xz
 
 CATEGORIES=		lang www
@@ -119,7 +122,7 @@ ZEND_EXTENSIONS+=	-opcache
 PHP_EXTENSIONS+=	-bz2 -curl -dba -enchant -gd -gmp -intl -imap -ldap \
 			-mysqli -odbc -pcntl -pdo_mysql -pdo_odbc -pdo_pgsql \
 			-pdo_sqlite -pgsql -pspell -shmop -soap -snmp \
-			-sqlite3 -pdo_dblib -tidy -xmlrpc -xsl -zip
+			-sqlite3 -pdo_dblib -tidy -xsl -zip
 
 SAPI+=			-main -apache -cgi -dbg
 MULTI_PACKAGES=		${SAPI} ${PHP_EXTENSIONS}
@@ -166,6 +169,9 @@ LIB_DEPENDS$i +=	devel/gettext,-runtime \
 WANTLIB$i +=		pcre2-8
 LIB_DEPENDS$i +=	devel/pcre2
 .  endif
+.  if !${PV:M7*}
+WANTLIB$i +=		util
+.  endif
 .endfor
 
 #
@@ -203,9 +209,15 @@ CONFIGURE_ARGS+=	--enable-dba=shared \
 # enchant
 COMMENT-enchant=	enchant library extensions for php
 HOMEPAGE-enchant=	https://www.php.net/enchant
+.if ${PV:M7*}
 LIB_DEPENDS-enchant=	textproc/enchant
 WANTLIB-enchant=	${COMPILER_LIBCXX} enchant glib-2.0 gmodule-2.0 \
 			iconv intl
+.else
+LIB_DEPENDS-enchant=	textproc/enchant2
+WANTLIB-enchant=	${COMPILER_LIBCXX} aspell enchant-2 glib-2.0 \
+			gmodule-2.0 iconv intl
+.endif
 .if ${BUILD_PACKAGES:M-enchant}
 CONFIGURE_ARGS+=	--with-enchant=shared,${LOCALBASE}
 .endif
@@ -217,13 +229,9 @@ LIB_DEPENDS-gd=		graphics/jpeg \
 			graphics/libwebp \
 			graphics/png
 WANTLIB-gd+=		freetype jpeg m png pthread webp z
-# for bundled gd
-WANTLIB-gd+=		X11 Xpm xcb
-# for standalone gd (needs more testing, defer to post 6.7)
-#WANTLIB-gd+=		expat fontconfig iconv lzma tiff zstd
-#LIB_DEPENDS-gd=	graphics/gd
-.if ${BUILD_PACKAGES:M-gd}
-.  if ${PV:M7.2} || ${PV:M7.3}
+.if ${PV:M7.2} || ${PV:M7.3}
+# bundled gd in 7.2/7.3
+.  if ${BUILD_PACKAGES:M-gd}
 CONFIGURE_ARGS+=	--with-gd=shared \
 			--with-freetype-dir=${X11BASE} \
 			--with-jpeg-dir=${LOCALBASE} \
@@ -231,13 +239,21 @@ CONFIGURE_ARGS+=	--with-gd=shared \
 			--with-webp-dir=${LOCALBASE} \
 			--with-xpm-dir=${X11BASE} \
 			--with-zlib-dir=/usr
-.  else
-CONFIGURE_ARGS+=	--enable-gd=shared \
+.  endif
+WANTLIB-gd+=		X11 Xpm xcb
+.else
+# standalone gd in 7.4/8
+.  if ${BUILD_PACKAGES:M-gd}
+CONFIGURE_ARGS+=	--with-external-gd \
+			--enable-gd=shared \
 			--with-freetype=${X11BASE} \
 			--with-jpeg=${LOCALBASE} \
 			--with-webp=${LOCALBASE} \
 			--with-xpm=${X11BASE}
 .  endif
+WANTLIB-gd+=		${COMPILER_LIBCXX} \
+			expat fontconfig gd iconv lzma tiff zstd
+LIB_DEPENDS-gd=		graphics/gd
 .endif
 
 # gmp
@@ -448,7 +464,7 @@ LIB_DEPENDS-zip=	archivers/bzip2 \
 WANTLIB-zip=		bz2 crypto lzma pthread ssl z zip
 
 # some variables to substitute
-SUBST_VARS+=	CHROOT_DIR MODPHP_CONFIG_PATH SV PV MV
+SUBST_VARS+=	CHROOT_DIR MODPHP_CONFIG_PATH SV PV MV PHP_PKGSPEC
 UPDATE_PLIST_ARGS+= -i MV
 DEFAULT_PHP?=	No
 

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.544 2021/02/20 17:17:10 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.546 2021/02/24 21:23:15 sthen Exp $
 
      SUBDIR =
      SUBDIR += DevIL
@@ -231,6 +231,7 @@
      SUBDIR += pecl-imagick,php72
      SUBDIR += pecl-imagick,php73
      SUBDIR += pecl-imagick,php74
+     #SUBDIR += pecl-imagick,php80 not yet
      SUBDIR += pho
      SUBDIR += piglit
      SUBDIR += pinta
@@ -249,7 +250,6 @@
      SUBDIR += py-cycler
      SUBDIR += py-cycler,python3
      SUBDIR += py-dot,python3
-     SUBDIR += py-pygal
      SUBDIR += py-pygal,python3
      SUBDIR += py-imageio,python3
      SUBDIR += py-imagesize,python3

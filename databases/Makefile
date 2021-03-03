@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.417 2021/02/16 22:58:13 sthen Exp $
+# $OpenBSD: Makefile,v 1.420 2021/02/24 21:23:16 sthen Exp $
 
      SUBDIR =
      SUBDIR += architect
@@ -129,6 +129,7 @@
      SUBDIR += pecl-redis,php72
      SUBDIR += pecl-redis,php73
      SUBDIR += pecl-redis,php74
+     SUBDIR += pecl-redis,php80
      SUBDIR += percona-toolkit
      SUBDIR += pg-toolbox
      SUBDIR += pg_stats_reporter
@@ -153,12 +154,10 @@
      SUBDIR += postgresql-plr
      SUBDIR += postgresql_autodoc
      SUBDIR += puppetdb5
-     SUBDIR += py-apsw
      SUBDIR += py-apsw,python3
      SUBDIR += py-bsddb3
      SUBDIR += py-bsddb3,python3
      SUBDIR += py-carbon
-     SUBDIR += py-flask-sqlalchemy
      SUBDIR += py-flask-sqlalchemy,python3
      SUBDIR += py-influxdb,python3
      SUBDIR += py-ldap,python3

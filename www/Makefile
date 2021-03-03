@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1005 2021/02/23 06:17:54 daniel Exp $
+# $OpenBSD: Makefile,v 1.1016 2021/03/02 16:31:41 sthen Exp $
 
      SUBDIR =
      SUBDIR += analog
@@ -102,7 +102,6 @@
      SUBDIR += mimetex
      SUBDIR += minitube
      SUBDIR += moinmoin
-     SUBDIR += mollify
      SUBDIR += mozilla-firefox
      SUBDIR += netsurf
      SUBDIR += newsboat
@@ -382,27 +381,35 @@
      SUBDIR += pecl-chroot,php72
      SUBDIR += pecl-chroot,php73
      SUBDIR += pecl-chroot,php74
+     #SUBDIR += pecl-chroot,php80 not yet
      SUBDIR += pecl-memcached,php72
      SUBDIR += pecl-memcached,php73
      SUBDIR += pecl-memcached,php74
+     SUBDIR += pecl-memcached,php80
      SUBDIR += pecl-pecl_http,php72
      SUBDIR += pecl-pecl_http,php73
      SUBDIR += pecl-pecl_http,php74
+     #SUBDIR += pecl-pecl_http,php80 not yet, and not until pecl-propro has php80
      SUBDIR += pecl-pledge,php72
      SUBDIR += pecl-pledge,php73
      SUBDIR += pecl-pledge,php74
+     SUBDIR += pecl-pledge,php80
      SUBDIR += pecl-proctitle,php72
      SUBDIR += pecl-proctitle,php73
      SUBDIR += pecl-proctitle,php74
+     #SUBDIR += pecl-proctitle,php80 not yet
      SUBDIR += pecl-propro,php72
      SUBDIR += pecl-propro,php73
      SUBDIR += pecl-propro,php74
+     #SUBDIR += pecl-propro,php80 not yet
      SUBDIR += pecl-raphf,php72
      SUBDIR += pecl-raphf,php73
      SUBDIR += pecl-raphf,php74
+     SUBDIR += pecl-raphf,php80
      SUBDIR += pecl-ssh2,php72
      SUBDIR += pecl-ssh2,php73
      SUBDIR += pecl-ssh2,php74
+     SUBDIR += pecl-ssh2,php80
      SUBDIR += pelican
      SUBDIR += perlbal
      SUBDIR += php-markdown
@@ -419,11 +426,10 @@
      SUBDIR += purritobin
      SUBDIR += py-CherryPy
      SUBDIR += py-CherryPy,python3
-     SUBDIR += py-aiohttp
+     SUBDIR += py-aiohttp,python3
      SUBDIR += py-autobahn,python3
      SUBDIR += py-beaker
      SUBDIR += py-beaker,python3
-     SUBDIR += py-beautifulsoup
      SUBDIR += py-beautifulsoup4
      SUBDIR += py-beautifulsoup4,python3
      SUBDIR += py-betamax
@@ -439,13 +445,10 @@
      SUBDIR += py-cookies,python3
      SUBDIR += py-feedgenerator
      SUBDIR += py-feedgenerator,python3
-     SUBDIR += py-flask
      SUBDIR += py-flask,python3
      SUBDIR += py-flask-cors
-     SUBDIR += py-flask-login
      SUBDIR += py-flask-login,python3
      SUBDIR += py-flask-principal,python3
-     SUBDIR += py-flask-wtf
      SUBDIR += py-flask-wtf,python3
      SUBDIR += py-flup
      SUBDIR += py-flup,python3
@@ -458,13 +461,11 @@
      SUBDIR += py-html5-parser
      SUBDIR += py-http_ece
      SUBDIR += py-http_ece,python3
-     SUBDIR += py-httpbin
      SUBDIR += py-httpbin,python3
      SUBDIR += py-httpie
      SUBDIR += py-httplib2
      SUBDIR += py-httplib2,python3
      SUBDIR += py-hyperlink,python3
-     SUBDIR += py-itsdangerous
      SUBDIR += py-itsdangerous,python3
      SUBDIR += py-jinja2
      SUBDIR += py-jinja2,python3
@@ -490,8 +491,11 @@
      SUBDIR += py-quixote
      SUBDIR += py-recaptcha-client
      SUBDIR += py-repoze-lru
+     SUBDIR += py-repoze-lru,python3
      SUBDIR += py-repoze-profile
+     SUBDIR += py-repoze-profile,python3
      SUBDIR += py-repoze-who
+     SUBDIR += py-repoze-who,python3
      SUBDIR += py-requests
      SUBDIR += py-requests,python3
      SUBDIR += py-requests-cache,python3
@@ -518,7 +522,6 @@
      SUBDIR += py-urlgrabber
      SUBDIR += py-urllib3
      SUBDIR += py-urllib3,python3
-     SUBDIR += py-vcrpy
      SUBDIR += py-vcrpy,python3
      SUBDIR += py-waitress
      SUBDIR += py-waitress,python3
@@ -526,14 +529,12 @@
      SUBDIR += py-webob,python3
      SUBDIR += py-webpy,python3
      SUBDIR += py-webtest,python3
-     SUBDIR += py-werkzeug
      SUBDIR += py-werkzeug,python3
      SUBDIR += py-wsgiproxy
-     SUBDIR += py-wtforms
      SUBDIR += py-wtforms,python3
      SUBDIR += py-wstools
      SUBDIR += py-wstools,python3
-     SUBDIR += py-yarl
+     SUBDIR += py-yarl,python3
      SUBDIR += qutebrowser
      SUBDIR += racktables
      SUBDIR += ratproxy
@@ -589,7 +590,6 @@
      SUBDIR += ruby-websocket-driver,ruby30
      SUBDIR += ruby-websocket-extensions
      SUBDIR += ruby-xpath
-     SUBDIR += sabredav
      SUBDIR += sarg
      SUBDIR += sarg,ldap
      SUBDIR += sass

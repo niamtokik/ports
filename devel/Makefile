@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2074 2021/02/23 12:48:54 kn Exp $
+# $OpenBSD: Makefile,v 1.2080 2021/03/03 12:55:35 kn Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -136,6 +136,7 @@
      SUBDIR += ectags
      SUBDIR += electron
      SUBDIR += elftoolchain
+     SUBDIR += epoll-shim
      SUBDIR += esptool-ck
      SUBDIR += etl
      SUBDIR += expect-lite
@@ -313,7 +314,6 @@
      SUBDIR += libaudiofile
      SUBDIR += libbfio
      SUBDIR += libbinio
-     SUBDIR += libbio
      SUBDIR += libcdada
      SUBDIR += libcoap
      SUBDIR += libconfig
@@ -334,7 +334,6 @@
      SUBDIR += libfastjson
      SUBDIR += libffi
      SUBDIR += libfirm
-     SUBDIR += libfmt
      SUBDIR += libftdi
      SUBDIR += libftdi1
      SUBDIR += libgcroots
@@ -371,7 +370,6 @@
      SUBDIR += libpeas
      SUBDIR += libplist
      SUBDIR += libproplist
-     SUBDIR += libregexp9
      SUBDIR += libsigc++-2
      SUBDIR += libsigc++30
      SUBDIR += libsigsegv
@@ -387,7 +385,6 @@
      SUBDIR += libusb-compat
      SUBDIR += libusb1
      SUBDIR += libusb1,debug
-     SUBDIR += libutf
      SUBDIR += libuv
      SUBDIR += libvirt-glib
      SUBDIR += libvmime
@@ -474,7 +471,6 @@
      SUBDIR += mercurial
      SUBDIR += meson
      SUBDIR += metaauto
-     SUBDIR += mingw
      SUBDIR += mkspiffs
      SUBDIR += mm
      SUBDIR += mm-common
@@ -1385,7 +1381,6 @@
      SUBDIR += py-bitstring,python3
      SUBDIR += py-blessings
      SUBDIR += py-blessings,python3
-     SUBDIR += py-blinker
      SUBDIR += py-blinker,python3
      SUBDIR += py-blist
      SUBDIR += py-blist,python3
@@ -1622,6 +1617,7 @@
      SUBDIR += py-pretend
      SUBDIR += py-pretend,python3
      SUBDIR += py-progress
+     SUBDIR += py-progress,python3
      SUBDIR += py-progressbar
      SUBDIR += py-progressbar,python3
      SUBDIR += py-prompt_toolkit,python3
@@ -1635,6 +1631,7 @@
      SUBDIR += py-pyinotify
      SUBDIR += py-pyinotify,python3
      SUBDIR += py-pyprof2calltree
+     SUBDIR += py-pyprof2calltree,python3
      SUBDIR += py-pyro
      SUBDIR += py-pyte
      SUBDIR += py-pyte,python3
@@ -1712,9 +1709,7 @@
      SUBDIR += py-test-expect,python3
      SUBDIR += py-test-forked
      SUBDIR += py-test-forked,python3
-     SUBDIR += py-test-httpbin
      SUBDIR += py-test-httpbin,python3
-     SUBDIR += py-test-localserver
      SUBDIR += py-test-localserver,python3
      SUBDIR += py-test-mock
      SUBDIR += py-test-mock,python3
@@ -1726,7 +1721,6 @@
      SUBDIR += py-test-subtesthack,python3
      SUBDIR += py-test-timeout
      SUBDIR += py-test-timeout,python3
-     SUBDIR += py-test-vcr
      SUBDIR += py-test-vcr,python3
      SUBDIR += py-test-xdist
      SUBDIR += py-test-xdist,python3
@@ -1794,6 +1788,7 @@
      SUBDIR += pylint,python3
      SUBDIR += pyrex
      SUBDIR += pyusb
+     SUBDIR += pyusb,python3
      SUBDIR += qbs
      SUBDIR += qgit
      SUBDIR += qjson
@@ -1815,6 +1810,7 @@
      SUBDIR += rgbds
      SUBDIR += riscv-elf
      SUBDIR += rlog
+     SUBDIR += robin-map
      SUBDIR += rttr
      SUBDIR += ruby-abstract
      SUBDIR += ruby-activesupport

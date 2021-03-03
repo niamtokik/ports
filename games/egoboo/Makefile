@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.8 2019/07/12 20:46:16 sthen Exp $
+# $OpenBSD: Makefile,v 1.10 2021/03/02 00:23:18 naddy Exp $
 
 COMMENT =		dungeon-crawling action-RPG adventure
 
 DISTNAME =		egoboo-2.7.4
-REVISION =		1
+REVISION =		2
 CATEGORIES =		games
 
 HOMEPAGE =		http://egoboo.sourceforge.net
@@ -19,9 +19,11 @@ LIB_DEPENDS =		devel/sdl-net \
 			devel/sdl-mixer \
 			devel/sdl-ttf
 
+FIX_CRLF_FILES =	game/Makefile.unix game/egoboo_setup.h \
+			game/file_linux.c game/graphic.c
 USE_GMAKE =		Yes
 MAKE_FILE =		Makefile.unix
-WRKSRC =		${WRKDIR}/${DISTNAME}/game
+WRKSRC =		${WRKDIST}/game
 EGOBOO_PREFIX =		${PREFIX}
 EGOBOO_SHARED =		${PREFIX}/share/egoboo
 
@@ -32,8 +34,7 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/egoboo ${PREFIX}/libexec/
 	${INSTALL_SCRIPT} ${WRKSRC}/egoboo.sh ${PREFIX}/bin/egoboo
 	${INSTALL_DATA_DIR} ${EGOBOO_SHARED}
-	@cd ${WRKDIR}/${DISTNAME} && pax -rw *.* basicdat modules players \
+	@cd ${WRKDIST} && pax -rw *.* basicdat modules players \
 	    ${EGOBOO_SHARED}
-
 
 .include <bsd.port.mk>

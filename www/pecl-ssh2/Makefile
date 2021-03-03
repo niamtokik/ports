@@ -1,26 +1,21 @@
-# $OpenBSD: Makefile,v 1.25 2019/12/11 16:08:30 sthen Exp $
+# $OpenBSD: Makefile,v 1.29 2021/03/02 16:32:02 sthen Exp $
 
 COMMENT=	PHP bindings for the libssh2 library
 
-DISTNAME=	ssh2-1.2
-REVISION=	0
+DISTNAME=	ssh2-1.3
 
 # PHP
 PERMIT_PACKAGE=	Yes
 
 WANTLIB += c crypto ssh2 ssl z
 
-MODULES=		lang/php/pecl
-CONFIGURE_STYLE=	gnu
+MODULES=	lang/php/pecl
+CONFIGURE_STYLE= gnu
 
-LIB_DEPENDS=		security/libssh2
+LIB_DEPENDS=	security/libssh2
 
-# 500 Internal Server Error on https://pecl.php.net/get/ssh2-1.2.tgz as of 20190925
-# Delete entire block below when fixed
-MASTER_SITES=		https://spacehopper.org/mirrors/
-PORTROACH=		site:https://pecl.php.net/get/
-HOMEPAGE=		https://pecl.php.net/package/ssh2
-EXTRACT_SUFX=		.tgz
-####
+# various TEST_SSH2_* can be passed to tests in TEST_ENV (username, host, etc)
+# - see tests/ssh2_test.inc. Needs allow_url_fopen=on and may need sshd ciphers/
+# kex/hmac opening up if you have restrictive settings.
 
 .include <bsd.port.mk>

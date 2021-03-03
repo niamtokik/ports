@@ -1,6 +1,6 @@
-# $OpenBSD: Makefile,v 1.50 2021/02/23 19:39:41 sthen Exp $
+# $OpenBSD: Makefile,v 1.53 2021/02/27 11:21:34 sthen Exp $
 
-MODPY_EGG_VERSION =	166
+MODPY_EGG_VERSION =	167
 COMMENT =	in-depth comparison of files, archives, and directories
 DISTNAME =	diffoscope-${MODPY_EGG_VERSION}
 CATEGORIES =	sysutils devel
@@ -25,7 +25,7 @@ RUN_DEPENDS =	archivers/py-libarchive-c${MODPY_FLAVOR} \
 TEST_DEPENDS =	devel/py-argcomplete${MODPY_FLAVOR} \
 		devel/py-progressbar${MODPY_FLAVOR} \
 		sysutils/binwalk \
-		sysutils/py-distro \
+		sysutils/py-distro${MODPY_FLAVOR} \
 		textproc/py-defusedxml${MODPY_FLAVOR}
 
 .include <bsd.port.mk>

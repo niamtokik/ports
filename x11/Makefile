@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.695 2021/02/15 09:20:33 kn Exp $
+# $OpenBSD: Makefile,v 1.697 2021/03/01 04:20:28 gnezdo Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -87,7 +87,6 @@
      SUBDIR += gnustep
      SUBDIR += gob2
      SUBDIR += goggles
-     SUBDIR += golem
      SUBDIR += grantlee-qt5
      SUBDIR += greybird
      SUBDIR += gromit-mpx
@@ -122,7 +121,6 @@
      SUBDIR += hs-X11
      SUBDIR += hs-X11-xft
      SUBDIR += hs-dbus
-     SUBDIR += hs-xmonad-contrib
      SUBDIR += hsetroot
      SUBDIR += human-icon-theme
      SUBDIR += i3

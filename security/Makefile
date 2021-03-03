@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.614 2021/02/23 10:46:18 kn Exp $
+# $OpenBSD: Makefile,v 1.616 2021/02/26 12:53:38 sthen Exp $
 
      SUBDIR =
      SUBDIR += ADMsnmp
@@ -17,7 +17,6 @@
      SUBDIR += botan
      SUBDIR += botan2
      SUBDIR += bounix
-     SUBDIR += bsd-airtools
      SUBDIR += burpsuite
      SUBDIR += ccid
      SUBDIR += ccrypt
@@ -253,6 +252,7 @@
      SUBDIR += pecl-mcrypt,php72
      SUBDIR += pecl-mcrypt,php73
      SUBDIR += pecl-mcrypt,php74
+     SUBDIR += pecl-mcrypt,php80
      SUBDIR += pgp5
      SUBDIR += pgpdump
      SUBDIR += pidgin-otr

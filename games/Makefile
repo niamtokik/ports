@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.435 2021/02/16 22:22:49 kn Exp $
+# $OpenBSD: Makefile,v 1.437 2021/02/25 19:40:07 solene Exp $
 
      SUBDIR =
      SUBDIR += 0ad
@@ -173,6 +173,7 @@
      SUBDIR += lgeneral
      SUBDIR += liberalcrimesquad
      SUBDIR += liblcf 
+     SUBDIR += libgdx
      SUBDIR += life
      SUBDIR += lincity
      SUBDIR += lincity-ng
@@ -194,6 +195,7 @@
      SUBDIR += moon-buggy
      SUBDIR += moonlander
      SUBDIR += moonlander,no_sound
+     SUBDIR += moonlight-qt
      SUBDIR += moria
      SUBDIR += multimc
      SUBDIR += mvdsv

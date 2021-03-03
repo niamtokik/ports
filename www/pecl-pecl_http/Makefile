@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.10 2019/12/11 16:08:29 sthen Exp $
+# $OpenBSD: Makefile,v 1.13 2021/02/26 13:38:05 sthen Exp $
 
 BROKEN= builds, but has problems picking up libcurl
 
 COMMENT=	extended HTTP support
 
 DISTNAME=	pecl_http-3.2.0
-REVISION=	1
+REVISION=	2
 
 HOMEPAGE=	http://pecl.php.net/package/pecl_http
 
@@ -19,6 +19,7 @@ WANTLIB += iconv icudata icui18n icuuc idn intl m z
 COMPILER =		base-clang ports-gcc base-gcc
 
 MODULES=	lang/php/pecl
+FLAVORS=	php72 php73 php74
 
 CONFIGURE_STYLE= gnu
 CONFIGURE_ARGS=	 --with-http-libcurl-dir=${LOCALBASE}

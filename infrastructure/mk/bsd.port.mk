@@ -1,6 +1,6 @@
 #-*- mode: Makefile; tab-width: 4; -*-
 # ex:ts=4 sw=4 filetype=make:
-#	$OpenBSD: bsd.port.mk,v 1.1549 2021/02/20 18:05:04 espie Exp $
+#	$OpenBSD: bsd.port.mk,v 1.1553 2021/02/28 14:01:11 espie Exp $
 #
 #	bsd.port.mk - 940820 Jordan K. Hubbard.
 #	This file is in the public domain.
@@ -139,7 +139,8 @@ _ALL_VARIABLES += BROKEN COMES_WITH \
 	GH_ACCOUNT GH_COMMIT GH_PROJECT GH_TAGNAME \
 	MAKEFILE_LIST USE_LLD USE_WXNEEDED COMPILER \
 	COMPILER_LANGS COMPILER_LINKS SUBST_VARS UPDATE_PLIST_ARGS \
-	PKGPATHS DEBUG_PACKAGES DEBUG_CONFIGURE_ARGS
+	PKGPATHS DEBUG_PACKAGES DEBUG_CONFIGURE_ARGS \
+	FIX_CRLF_FILES
 _ALL_VARIABLES_PER_ARCH += BROKEN
 # and stuff needing to be MULTI_PACKAGE'd
 _ALL_VARIABLES_INDEXED += COMMENT PKGNAME \
@@ -167,6 +168,7 @@ _PLIST_DB = ${PLIST_REPOSITORY}/${MACHINE_ARCH}
 .endif
 PACKAGE_REPOSITORY ?= ${PORTSDIR}/packages
 
+FIX_CRLF_FILES ?=
 FIX_EXTRACT_PERMISSIONS ?= No
 FIX_CLEANUP_PERMISSIONS ?= No
 
@@ -215,7 +217,7 @@ PKG_TMPDIR ?= /var/tmp
 
 PKG_ADD ?= /usr/sbin/pkg_add
 PKG_INFO ?= /usr/sbin/pkg_info
-PKG_CREATE ?= /usr/sbin/pkg_create
+PKG_CREATE ?= perl /usr/sbin/pkg_create
 PKG_DELETE ?= /usr/sbin/pkg_delete
 
 _PKG_ADD = ${PKG_ADD} ${_PROGRESS} -I
@@ -1892,7 +1894,7 @@ _list_port_libs = \
 .if empty(_PLIST_DB)
 _register_plist =:
 .else
-_register_plist = ${_PBUILD} install -d ${PLISTDIR_MODE} ${_PLIST_DB} && ${_PBUILD} ${_PERLSCRIPT}/register-plist ${REGISTER_PLIST_OPTS} ${_PLIST_DB}
+_register_plist = ${_PBUILD} install -d ${PLISTDIR_MODE} ${_PLIST_DB} && ${_PBUILD} ${_PERLSCRIPT}/register-plist ${REGISTER_PLIST_OPTS} -DSAVEMAN=${PACKAGE_REPOSITORY}/mandir -DFAKEDIR=${WRKINST} ${_PLIST_DB}
 .endif
 .if ${CHECK_LIB_DEPENDS:L} == "yes"
 _check_lib_depends = ${_CHECK_LIB_DEPENDS}
@@ -2717,26 +2719,10 @@ ${_PREPATCH_COOKIE}:
 .endif
 
 
-
-# The real distpatch
-
-${_DISTPATCH_COOKIE}: ${_EXTRACT_COOKIE}
-.if target(pre-patch)
-	@${_PMAKE} ${_PREPATCH_COOKIE}
-.endif
-	@${_PMAKE} do-distpatch
-.if target(post-distpatch)
-	@${_PMAKE} post-distpatch
-.endif
-.if ${PATCH_CHECK_ONLY:L} != "yes"
-	@${_PMAKE_COOKIE} $@
-.endif
-
 # run as _pbuild
-.if !target(do-distpatch)
+.if !target(do-distpatch) && !empty(_LIST_PATCHFILES)
 do-distpatch:
 # What DISTPATCH normally does
-.  if !empty(_LIST_PATCHFILES)
 	@${ECHO_MSG} "===>  Applying distribution patches for ${FULLPKGNAME}${_MASTER}"
 	@cd ${FULLDISTDIR}; \
 	  for patchfile in ${_LIST_PATCHFILES}; do \
@@ -2748,8 +2734,27 @@ do-distpatch:
 			${PATCH_CASES} \
 		esac; \
 	  done
-.  endif
 # End of DISTPATCH.
+.endif
+
+
+# The real distpatch
+
+${_DISTPATCH_COOKIE}: ${_EXTRACT_COOKIE}
+.if target(pre-patch)
+	@${_PMAKE} ${_PREPATCH_COOKIE}
+.endif
+.if target(do-distpatch)
+	@${_PMAKE} do-distpatch
+.endif
+.if target(post-distpatch)
+	@${_PMAKE} post-distpatch
+.endif
+.if !empty(FIX_CRLF_FILES)
+	@cd ${WRKDIST} && exec ${_PBUILD} perl -i -pe 's/\r$$//' -- ${FIX_CRLF_FILES}
+.endif
+.if ${PATCH_CHECK_ONLY:L} != "yes"
+	@${_PMAKE_COOKIE} $@
 .endif
 
 # The real patch
@@ -2764,7 +2769,8 @@ ${_PATCH_COOKIE}: ${_EXTRACT_COOKIE}
 .else
 # What PATCH normally does:
 # XXX test for efficiency, don't bother with distpatch if it's not needed
-.  if target(do-distpatch) || target(post-distpatch) || !empty(PATCHFILES)
+.  if target(do-distpatch) || target(post-distpatch) || !empty(PATCHFILES) \
+	|| !empty(FIX_CRLF_FILES)
 	@${_MAKE} _internal-distpatch
 .  endif
 	@if cd ${PATCHDIR} 2>/dev/null || [ x"${PATCH_LIST:M/*}" != x"" ]; then \
@@ -3291,6 +3297,9 @@ _internal-clean:
 .endif
 .if ${_clean:Mtest}
 	${_PBUILD} rm -f ${_TEST_COOKIE}
+.endif
+.if ${_clean:Mlock}
+	exec ${MAKE} unlock
 .endif
 
 print-build-depends:

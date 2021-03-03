@@ -1,15 +1,14 @@
-# $OpenBSD: Makefile,v 1.50 2021/02/10 13:35:27 sthen Exp $
+# $OpenBSD: Makefile,v 1.52 2021/02/26 11:17:05 sthen Exp $
 
 COMMENT =	next-generation web UI for icinga
 
 GH_ACCOUNT =	Icinga
 GH_PROJECT =	icingaweb2
 GH_TAGNAME =	v2.8.2
-REVISION =	4
+REVISION =	6
 PKGNAME =	icinga-web2-${GH_TAGNAME:S/v//}
 
 MAINTAINER =	Stuart Henderson <stu.ports@spacehopper.org>
-
 MODULES=	lang/php
 
 # XXX as of 2.8.2, php7.3 is ok for most things but not initial install

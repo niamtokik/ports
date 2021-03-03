@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.3 2021/02/23 19:39:19 sthen Exp $
+# $OpenBSD: Makefile,v 1.5 2021/02/27 11:13:35 ajacoutot Exp $
 
 COMMENT =	library to instrument executable formats
 
-MODPY_EGG_VERSION =	0.11.0
+MODPY_EGG_VERSION =	0.11.2
 
 DISTNAME =	lief-${MODPY_EGG_VERSION}
 PKGNAME =	${MODPY_PY_PREFIX}${DISTNAME}
@@ -23,7 +23,7 @@ WANTLIB += ${COMPILER_LIBCXX} m
 MODULES =		lang/python
 
 FLAVORS =		python3
-FLAVOR ?=		python3
+FLAVOR =		python3
 
 MODPY_PI =		Yes
 MODPY_SETUPTOOLS =	Yes

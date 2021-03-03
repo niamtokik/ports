@@ -1,13 +1,13 @@
-# $OpenBSD: Makefile,v 1.134 2021/02/23 22:04:35 sthen Exp $
+# $OpenBSD: Makefile,v 1.136 2021/02/27 20:56:03 sthen Exp $
 
 COMMENT=	Berkeley Internet Name Daemon: DNS server and tools
 
 # Second digits: odd numbers devel, even numbers stable,
 # ESV branched occasionally.  9.16.x is ESV.
-V=		9.16.11
+V=		9.16.10
 PORTROACH=	limitw:1,even
 EXTRACT_SUFX=	.tar.xz
-EPOCH=		1
+EPOCH=		2
 
 DISTNAME=	bind-$V
 PKGNAME=	isc-bind-${V:S/-P/pl/}
@@ -35,6 +35,7 @@ WANTLIB += c crypto iconv idn2 json-c lzma m pthread ssl unistring uv xml2 z
 MASTER_SITES=	${MASTER_SITE_ISC:=bind9/$V/}
 
 MODULES=	lang/python
+MODPY_VERSION=	${MODPY_DEFAULT_VERSION_3}
 # used for dnssec-checkds/dnssec-coverage, but don't want to force the run dep.
 MODPY_RUNDEP=	No
 BUILD_DEPENDS=	devel/py-ply${MODPY_FLAVOR}

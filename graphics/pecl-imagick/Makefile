@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.39 2019/12/11 16:08:29 sthen Exp $
+# $OpenBSD: Makefile,v 1.41 2021/02/24 21:23:16 sthen Exp $
 
 COMMENT=	PHP support for the ImageMagick library
 
 DISTNAME=	imagick-3.4.4
-REVISION=	0
+REVISION=	1
 CATEGORIES=	graphics
 
 # PHP
@@ -15,6 +15,7 @@ WANTLIB += freetype iconv jasper jbig jpeg lcms2 lzma m openjp2
 WANTLIB += png raw_r tiff webp webpmux xcb xml2 z
 
 MODULES=	lang/php/pecl
+FLAVORS=	php72 php73 php74
 CONFIGURE_STYLE= gnu
 
 LIB_DEPENDS=	converters/libiconv \

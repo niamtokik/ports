@@ -1,13 +1,13 @@
-# $OpenBSD: Makefile,v 1.5 2020/10/25 20:47:53 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.7 2021/02/27 07:47:09 ajacoutot Exp $
 
 # MASTER_SITES changes at each version; when looking for updates, try searching
 # ${HOMEPAGE} for a linux driver, for e.g. sx200
-PORTROACH=		ignore
-MASTER_SITES=		https://download3.ebz.epson.net/dsc/f/03/00/12/04/32/1a455ef8618def65700ca4e446311c2fb43cd839/
+PORTROACH=		ignore:1
+MASTER_SITES=		https://download3.ebz.epson.net/dsc/f/03/00/12/50/95/322b8d6b915ab85add33d41f04ba5130866aadbe/
 
 COMMENT=		printer driver for Epson ESC/P-R inkjets
 
-DISTNAME=		epson-inkjet-printer-escpr-1.7.8
+DISTNAME=		epson-inkjet-printer-escpr-1.7.9
 EXTRACT_SUFX=		-1lsb3.2.tar.gz
 
 SHARED_LIBS +=	escpr                     0.0 # 1.0
@@ -21,9 +21,9 @@ MAINTAINER=		Antoine Jacoutot <ajacoutot@openbsd.org>
 # GPLv2+
 PERMIT_PACKAGE=		Yes
 
-WANTLIB += avahi-client avahi-common c cups cupsimage dbus-1 ffi
-WANTLIB += gmp gnutls hogweed iconv idn2 intl m nettle p11-kit
-WANTLIB += pthread tasn1 unistring z
+WANTLIB += avahi-client avahi-common c cups cupsimage dbus-1 gmp
+WANTLIB += gnutls hogweed iconv idn2 intl m nettle p11-kit pthread
+WANTLIB += tasn1 unistring z
 
 LIB_DEPENDS=		devel/gettext,-runtime \
 			print/cups,-libs
@@ -41,9 +41,7 @@ CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 
 DEBUG_PACKAGES=		${BUILD_PACKAGES}
 
-# dos line-endings in files needing patch
-post-extract:
-	cd ${WRKSRC} && perl -i -pe 's/\r$$//' src/linux_cmn.c \
-		lib/epson-escpr-api.c lib/epson-typedefs.h lib/epson-usb.c
+FIX_CRLF_FILES=		src/linux_cmn.c lib/epson-escpr-api.c \
+			lib/epson-typedefs.h lib/epson-usb.c
 
 .include <bsd.port.mk>

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.27 2020/10/03 13:30:11 kn Exp $
+# $OpenBSD: Makefile,v 1.29 2021/02/26 18:20:35 naddy Exp $
 
 COMMENT =	Tcl/Tk-based manual browser
 
@@ -19,8 +19,7 @@ RUN_DEPENDS =	${MODTK_RUN_DEPENDS} \
 
 NO_TEST =	Yes
 
-pre-patch:
-	perl -pi -e 's!\r\n$$!\n!g;' ${WRKSRC}/Makefile
+FIX_CRLF_FILES = Makefile gui.tcl
 
 do-install:
 	@${MODTCL_WISH_ADJ} ${WRKSRC}/tkman ${WRKSRC}/retkman
