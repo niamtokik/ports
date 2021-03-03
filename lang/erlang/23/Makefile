@@ -75,7 +75,7 @@ FTP_VSN	1.0.5 \
 HIPE_VSN	4.0.1 \
 INETS_VSN	7.3.2 \
 JINTERFACE_VSN	1.11 \
-KERNEL_VSN	7.2 \
+KERNEL_VSN	7.2.1 \
 MEGACO_VSN	3.19.5 \
 MNESIA_VSN	4.18.1 \
 OBSERVER_VSN	2.9.5 \
@@ -88,7 +88,7 @@ RUNTIME_TOOLS_VSN	1.15.1 \
 SASL_VSN	4.0.1 \
 SNMP_VSN	5.7.3 \
 SSH_VSN	4.10.8 \
-SSL_VSN	10.2.3 \
+SSL_VSN	10.2.4 \
 STDLIB_VSN	3.14 \
 SYNTAX_TOOLS_VSN	2.4 \
 TFTP_VSN	1.0.2 \
@@ -97,6 +97,8 @@ WX_VSN	1.9.2 \
 XMERL_VSN	1.3.26 \
 ERTS_VSN	11.1.8
 SYSTEM_VSN=	${MAJ_V}
+
+.include <bsd.port.mk>
 
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/make/install_bin \
@@ -117,4 +119,3 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/LICENSE.txt ${PREFIX}/lib/erlang${SYSTEM_VSN}/
 	${INSTALL_DATA} ${WRKSRC}/system/COPYRIGHT ${PREFIX}/lib/erlang${SYSTEM_VSN}/
 
-.include <bsd.port.mk>
