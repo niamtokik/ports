@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.48 2021/02/28 17:21:40 pvk Exp $
+# $OpenBSD: Makefile,v 1.50 2021/03/08 13:59:29 sthen Exp $
 
 COMMENT =		compact self-hosted Git service
 
-VERSION =		1.13.2
+VERSION =		1.13.3
 DISTNAME =		gitea-src-${VERSION}
 PKGNAME =		gitea-${VERSION}
-REVISION=		1
+REVISION =		0
 
 MASTER_SITES =		https://github.com/go-gitea/gitea/releases/download/v${VERSION}/
 
@@ -14,7 +14,6 @@ CATEGORIES =		www devel
 HOMEPAGE =		https://gitea.io/
 
 MAINTAINER =		Pavel Korovin <pvk@openbsd.org>
-
 # MIT
 PERMIT_PACKAGE =	Yes
 

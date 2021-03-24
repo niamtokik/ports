@@ -1,24 +1,25 @@
-# $OpenBSD: Makefile,v 1.5 2021/02/23 19:39:17 sthen Exp $
+# $OpenBSD: Makefile,v 1.7 2021/03/06 08:18:20 daniel Exp $
 
 COMMENT =		6502-series cross-assembler
 
-MODPY_EGG_VERSION =	2.1
+MODPY_EGG_VERSION =	2.1.20190413
 DISTNAME =		Ophis-${MODPY_EGG_VERSION}
 PKGNAME =		${DISTNAME:L}
+REVISION =		0
 
 CATEGORIES =		devel
 
 HOMEPAGE =		https://michaelcmartin.github.io/Ophis/
 
-# BSD
+# MIT
 PERMIT_PACKAGE =	Yes
 
 GH_ACCOUNT =		michaelcmartin
 GH_PROJECT =		Ophis
-GH_TAGNAME =		v${MODPY_EGG_VERSION}
+#GH_TAGNAME =		v${MODPY_EGG_VERSION}
+GH_COMMIT =		99f074da278d4ec80689c0e22e20c5552ea12512
 
 MODULES =		lang/python
-MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 
 WRKSRC =		${WRKDIST}/src
 

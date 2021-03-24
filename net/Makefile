@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1245 2021/03/01 17:34:34 tracey Exp $
+# $OpenBSD: Makefile,v 1.1247 2021/03/05 12:56:05 ajacoutot Exp $
 
      SUBDIR =
      SUBDIR += adns
@@ -133,8 +133,6 @@
      SUBDIR += hexchat
      SUBDIR += honeyd
      SUBDIR += hping
-     SUBDIR += hs-HTTP
-     SUBDIR += hs-hostname
      SUBDIR += httptunnel
      SUBDIR += i2p
      SUBDIR += i2pd
@@ -575,7 +573,6 @@
      SUBDIR += py-geventhttpclient,python3
      SUBDIR += py-idna
      SUBDIR += py-idna,python3
-     SUBDIR += py-ifaddr
      SUBDIR += py-ifaddr,python3
      SUBDIR += py-impacket
      SUBDIR += py-ipaddr

@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1228 2021/03/03 12:55:36 kn Exp $
+# $OpenBSD: Quirks.pm,v 1.1232 2021/03/07 19:30:40 gnezdo Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -601,6 +601,7 @@ my $stem_extensions = {
 	'py-vcrpy' => 'py3-vcrpy',
 	'py-werkzeug' => 'py3-werkzeug',
 	'py-blinker' => 'py3-blinker',
+	'py-ifaddr' => 'py3-ifaddr',
 };
 
 my $obsolete_reason = {
@@ -2182,6 +2183,109 @@ my $obsolete_reason = {
 	'libfmt' => 41,
 	'libregexp9' => 41,
 	'libutf' => 41,
+	'hs-FindBin' => 5,
+	'hs-HTTP' => 5,
+	'hs-HUnit' => 5,
+	'hs-QuickCheck' => 5,
+	'hs-SHA' => 5,
+	'hs-X11' => 5,
+	'hs-X11-xft' => 5,
+	'hs-ansi-terminal' => 5,
+	'hs-ansi-wl-pprint' => 5,
+	'hs-async' => 5,
+	'hs-attoparsec' => 5,
+	'hs-base-compat' => 5,
+	'hs-base16-bytestring' => 5,
+	'hs-base64-bytestring' => 5,
+	'hs-byteable' => 5,
+	'hs-bytestring-show' => 5,
+	'hs-cereal' => 5,
+	'hs-cmdargs' => 5,
+	'hs-colour' => 5,
+	'hs-conduit' => 5,
+	'hs-constraints' => 5,
+	'hs-convertible' => 5,
+	'hs-crypto-api' => 5,
+	'hs-cryptohash' => 5,
+	'hs-data-default' => 5,
+	'hs-data-ordlist' => 5,
+	'hs-dbus' => 5,
+	'hs-digest' => 5,
+	'hs-dlist' => 5,
+	'hs-echo' => 5,
+	'hs-edit-distance' => 5,
+	'hs-enclosed-exceptions' => 5,
+	'hs-entropy' => 5,
+	'hs-exceptions' => 5,
+	'hs-extensible-exceptions' => 5,
+	'hs-fgl' => 5,
+	'hs-graphviz' => 5,
+	'hs-hashable' => 5,
+	'hs-hinotify' => 5,
+	'hs-hostname' => 5,
+	'hs-hslogger' => 5,
+	'hs-html' => 5,
+	'hs-json' => 5,
+	'hs-libmpd' => 5,
+	'hs-libxml-sax' => 5,
+	'hs-lifted-async' => 5,
+	'hs-lifted-base' => 5,
+	'hs-mmap' => 5,
+	'hs-mmorph' => 5,
+	'hs-monad-control' => 5,
+	'hs-mono-traversable' => 5,
+	'hs-nats' => 5,
+	'hs-network' => 5,
+	'hs-network-uri' => 5,
+	'hs-old-locale' => 5,
+	'hs-old-time' => 5,
+	'hs-polyparse' => 5,
+	'hs-primitive' => 5,
+	'hs-random' => 5,
+	'hs-regex-applicative' => 5,
+	'hs-regex-base' => 5,
+	'hs-regex-compat' => 5,
+	'hs-regex-compat-tdfa' => 5,
+	'hs-regex-posix' => 5,
+	'hs-regex-tdfa' => 5,
+	'hs-resourcet' => 5,
+	'hs-sandi' => 5,
+	'hs-scientific' => 5,
+	'hs-semigroups' => 5,
+	'hs-shelly' => 5,
+	'hs-split' => 5,
+	'hs-syb' => 5,
+	'hs-system-fileio' => 5,
+	'hs-system-filepath' => 5,
+	'hs-tagged' => 5,
+	'hs-tar' => 5,
+	'hs-temporary' => 5,
+	'hs-test-framework' => 5,
+	'hs-test-framework-hunit' => 5,
+	'hs-test-framework-quickcheck2' => 5,
+	'hs-tf-random' => 5,
+	'hs-transformers-base' => 5,
+	'hs-transformers-compat' => 5,
+	'hs-unix-compat' => 5,
+	'hs-unliftio-core' => 5,
+	'hs-unordered-containers' => 5,
+	'hs-utf8-string' => 5,
+	'hs-vector' => 5,
+	'hs-vector-algorithms' => 5,
+	'hs-void' => 5,
+	'hs-wl-pprint-text' => 5,
+	'hs-xml' => 5,
+	'hs-xml-types' => 5,
+	'hs-xmonad-contrib' => 5,
+	'hs-zip-archive' => 5,
+	'hs-zlib' => 5,
+	'gstreamer' => 6,
+	'gstreamer-ffmpeg' => 6,
+	'gstreamer-plugins-bad' => 6,
+	'gstreamer-plugins-base' => 6,
+	'gstreamer-plugins-gl' => 6,
+	'gstreamer-plugins-good' => 6,
+	'gstreamer-plugins-ugly' => 6,
 };
 
 # reasons for obsolete packages
@@ -2240,15 +2344,6 @@ sub is_base_system
 
 	my $pkgname = $handle->pkgname;
 	my $stem = OpenBSD::PackageName::splitstem($pkgname);
-
-	if ($stem eq 'ghc') {
-		require OpenBSD::PkgSpec;
-		my $spec = OpenBSD::PkgSpec->new('ghc-<8.2.2p5');
-		if ($spec->match_ref([$pkgname])) {
-			require OpenBSD::Quirks::ghc;
-			OpenBSD::Quirks::ghc::unfuck($handle, $state);
-		}
-	}
 
 	my $test = $base_exceptions->{$stem};
 	if (defined $test) {

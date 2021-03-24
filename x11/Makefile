@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.697 2021/03/01 04:20:28 gnezdo Exp $
+# $OpenBSD: Makefile,v 1.701 2021/03/07 05:06:34 rsadowski Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -6,6 +6,7 @@
      SUBDIR += XawMu
      SUBDIR += Xdialog
      SUBDIR += abclock
+     SUBDIR += adwaita-qt
      SUBDIR += aewm
      SUBDIR += afterstep
      SUBDIR += agar
@@ -118,9 +119,6 @@
      SUBDIR += gxmessage
      SUBDIR += herbstluftwm
      SUBDIR += hicolor-icon-theme
-     SUBDIR += hs-X11
-     SUBDIR += hs-X11-xft
-     SUBDIR += hs-dbus
      SUBDIR += hsetroot
      SUBDIR += human-icon-theme
      SUBDIR += i3
@@ -141,6 +139,7 @@
      SUBDIR += jgmenu
      SUBDIR += jwm
      SUBDIR += kde-applications
+     SUBDIR += kde-plasma
      SUBDIR += keybinder3
      SUBDIR += keynav
      SUBDIR += kitty
@@ -161,6 +160,7 @@
      #SUBDIR += libappindicator
      SUBDIR += libqaccessibilityclient
      SUBDIR += libxdg-basedir
+     SUBDIR += lightly
      SUBDIR += lsw
      SUBDIR += lumina
      SUBDIR += lupe
@@ -225,6 +225,7 @@
      SUBDIR += pidgin-guifications
      SUBDIR += pidgin-libnotify
      SUBDIR += piewm
+     SUBDIR += pmenu
      SUBDIR += podbrowser
      SUBDIR += polkit-qt5
      SUBDIR += polybar
