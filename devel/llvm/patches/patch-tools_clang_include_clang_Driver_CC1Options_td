@@ -1,4 +1,4 @@
-$OpenBSD: patch-tools_clang_include_clang_Driver_CC1Options_td,v 1.4 2020/08/05 06:49:48 jca Exp $
+$OpenBSD: patch-tools_clang_include_clang_Driver_CC1Options_td,v 1.6 2021/03/15 21:02:10 sthen Exp $
 
 Add RETGUARD to clang for amd64. This security mechanism uses per-function
 random cookies to protect access to function return instructions, with the

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.595 2021/03/04 04:30:27 bket Exp $
+# $OpenBSD: Makefile,v 1.598 2021/03/21 14:05:12 danj Exp $
 
      SUBDIR =
      SUBDIR += accountsservice
@@ -258,6 +258,7 @@
      SUBDIR += pv
      SUBDIR += py-analyzemft
      SUBDIR += py-augeas,python3
+     SUBDIR += py-blessed,python3
      SUBDIR += py-consul,python3
      SUBDIR += py-croniter,python3
      SUBDIR += py-daemon,python3
@@ -274,7 +275,6 @@
      SUBDIR += py-lockfile,python3
      SUBDIR += py-packaging
      SUBDIR += py-packaging,python3
-     SUBDIR += py-parallel-ssh
      SUBDIR += py-parallel-ssh,python3
      SUBDIR += py-prometheus_client,python3
      SUBDIR += py-psutil
@@ -284,7 +284,6 @@
      SUBDIR += py-scandir
      SUBDIR += py-scandir,python3
      SUBDIR += py-schedule
-     SUBDIR += py-statgrab
      SUBDIR += py-statgrab,python3
      SUBDIR += py-threadpoolctl,python3
      SUBDIR += py-tsk,python3
@@ -405,7 +404,6 @@
      SUBDIR += unionfs-fuse
      SUBDIR += upobsd
      SUBDIR += upower
-     SUBDIR += upt
      SUBDIR += uptimed
      SUBDIR += usbutil
      SUBDIR += usbutils

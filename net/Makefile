@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1247 2021/03/05 12:56:05 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.1250 2021/03/29 12:18:32 sthen Exp $
 
      SUBDIR =
      SUBDIR += adns
@@ -518,6 +518,7 @@
      SUBDIR += pidgin,gtkspell
      SUBDIR += pidgin-icb
      SUBDIR += pidgin-sipe
+     SUBDIR += pidgin-skypeweb
      SUBDIR += pidgin-window-merge
      SUBDIR += pktstat
      SUBDIR += plushs
@@ -569,7 +570,6 @@
      SUBDIR += py-eapi,python3
      SUBDIR += py-ftpdlib
      SUBDIR += py-ftpdlib,python3
-     SUBDIR += py-geventhttpclient
      SUBDIR += py-geventhttpclient,python3
      SUBDIR += py-idna
      SUBDIR += py-idna,python3
@@ -578,7 +578,6 @@
      SUBDIR += py-ipaddr
      SUBDIR += py-ipaddress
      SUBDIR += py-irclib,python3
-     SUBDIR += py-junos-eznc
      SUBDIR += py-junos-eznc,python3
      SUBDIR += py-libcloud,python3
      SUBDIR += py-libpcap
@@ -586,9 +585,7 @@
      SUBDIR += py-minimalmodbus,python3
      SUBDIR += py-msgpack
      SUBDIR += py-msgpack,python3
-     SUBDIR += py-nbxmpp
      SUBDIR += py-nbxmpp,python3
-     SUBDIR += py-ncclient
      SUBDIR += py-ncclient,python3
      SUBDIR += py-netaddr
      SUBDIR += py-netaddr,python3

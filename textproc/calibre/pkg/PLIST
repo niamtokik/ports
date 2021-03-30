@@ -1,4 +1,4 @@
-@comment $OpenBSD: PLIST,v 1.37 2021/02/28 21:01:59 sthen Exp $
+@comment $OpenBSD: PLIST,v 1.39 2021/03/27 14:35:12 sthen Exp $
 bin/calibre
 bin/calibre-complete
 bin/calibre-customize
@@ -2564,6 +2564,7 @@ lib/calibre/calibre/plugins/
 @so lib/calibre/calibre/plugins/bzzdec.so
 @so lib/calibre/calibre/plugins/cPalmdoc.so
 @so lib/calibre/calibre/plugins/certgen.so
+@so lib/calibre/calibre/plugins/fast_css_transform.so
 @so lib/calibre/calibre/plugins/freetype.so
 @so lib/calibre/calibre/plugins/html_as_json.so
 @so lib/calibre/calibre/plugins/html_syntax_highlighter.so
@@ -2667,6 +2668,7 @@ lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}ajax.${MODPY_PYC_MAGIC_TAG}pyc
 lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}auth.${MODPY_PYC_MAGIC_TAG}pyc
 lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}base.${MODPY_PYC_MAGIC_TAG}pyc
 lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}content.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}fast_css_transform.${MODPY_PYC_MAGIC_TAG}pyc
 lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}http.${MODPY_PYC_MAGIC_TAG}pyc
 lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}loop.${MODPY_PYC_MAGIC_TAG}pyc
 lib/calibre/calibre/srv/tests/${MODPY_PYCACHE}main.${MODPY_PYC_MAGIC_TAG}pyc
@@ -2676,6 +2678,7 @@ lib/calibre/calibre/srv/tests/ajax.py
 lib/calibre/calibre/srv/tests/auth.py
 lib/calibre/calibre/srv/tests/base.py
 lib/calibre/calibre/srv/tests/content.py
+lib/calibre/calibre/srv/tests/fast_css_transform.py
 lib/calibre/calibre/srv/tests/http.py
 lib/calibre/calibre/srv/tests/loop.py
 lib/calibre/calibre/srv/tests/main.py
@@ -3117,6 +3120,22 @@ lib/calibre/polyglot/reprlib.py
 lib/calibre/polyglot/smtplib.py
 lib/calibre/polyglot/socketserver.py
 lib/calibre/polyglot/urllib.py
+lib/calibre/qt/
+lib/calibre/qt/__init__.py
+lib/calibre/qt/__main__.py
+${MODPY_COMMENT}lib/calibre/qt/${MODPY_PYCACHE}/
+lib/calibre/qt/${MODPY_PYCACHE}__init__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/${MODPY_PYCACHE}__main__.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/${MODPY_PYCACHE}core.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/${MODPY_PYCACHE}core_name_map.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/${MODPY_PYCACHE}loader.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/${MODPY_PYCACHE}webengine.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/${MODPY_PYCACHE}webengine_name_map.${MODPY_PYC_MAGIC_TAG}pyc
+lib/calibre/qt/core.py
+lib/calibre/qt/core_name_map.py
+lib/calibre/qt/loader.py
+lib/calibre/qt/webengine.py
+lib/calibre/qt/webengine_name_map.py
 lib/calibre/sgmllib.py
 lib/calibre/templite/
 lib/calibre/templite/__init__.py
@@ -3498,7 +3517,6 @@ share/calibre/images/wizard.png
 share/calibre/jacket/
 share/calibre/jacket/stylesheet.css
 share/calibre/jacket/template.xhtml
-share/calibre/jquery.simulate.js
 share/calibre/localization/
 share/calibre/localization/iso3166.calibre_msgpack
 share/calibre/localization/iso639.calibre_msgpack
@@ -6057,6 +6075,7 @@ share/calibre/recipes/ynet.recipe
 share/calibre/recipes/yomiuri.png
 share/calibre/recipes/yomiuri.recipe
 share/calibre/recipes/yomiuri_world.recipe
+share/calibre/recipes/zackzack.recipe
 share/calibre/recipes/zadolba_li.png
 share/calibre/recipes/zadolba_li.recipe
 share/calibre/recipes/zaman.png

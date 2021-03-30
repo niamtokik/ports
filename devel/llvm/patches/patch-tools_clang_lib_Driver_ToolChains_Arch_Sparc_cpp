@@ -1,4 +1,4 @@
-$OpenBSD: patch-tools_clang_lib_Driver_ToolChains_Arch_Sparc_cpp,v 1.2 2020/08/05 06:49:49 jca Exp $
+$OpenBSD: patch-tools_clang_lib_Driver_ToolChains_Arch_Sparc_cpp,v 1.4 2021/03/15 21:02:10 sthen Exp $
 
 Select proper SPARCv9 variant for the external assembler.
 

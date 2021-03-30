@@ -1,9 +1,9 @@
-# $OpenBSD: Makefile,v 1.22 2021/02/23 19:39:32 sthen Exp $
+# $OpenBSD: Makefile,v 1.24 2021/03/15 06:28:05 rsadowski Exp $
 
 COMMENT =	IRC client for KDE
 
-V =		20.12.2
-DISTNAME =	konversation-$V
+DISTNAME =	konversation-${MODKDE_VERSION}
+REVISION =	0
 
 CATEGORIES =	net
 
@@ -20,13 +20,15 @@ WANTLIB += KF5TextWidgets KF5Wallet KF5WidgetsAddons KF5WindowSystem
 WANTLIB += KF5XmlGui Qt5Concurrent Qt5Core Qt5DBus Qt5Gui Qt5Network
 WANTLIB += Qt5Widgets Qt5Xml c m phonon4qt5 qca-qt5
 
-# GPLv2+
+# usual KDE rules:
+# LGPLv2.1+, GPLv2+, GPLv3
 PERMIT_PACKAGE =	Yes
 
-MASTER_SITES =	${MASTER_SITE_KDE:=stable/release-service/${V}/src/}
+MASTER_SITES =	${MASTER_SITE_KDE:=stable/release-service/${MODKDE_VERSION}/src/}
 
-MODULES =		devel/kf5 \
-			lang/python
+MODULES =	x11/kde-applications \
+		devel/kf5 \
+		lang/python
 
 BUILD_DEPENDS +=	devel/kf5/kdoctools \
 			devel/kf5/kitemmodels \

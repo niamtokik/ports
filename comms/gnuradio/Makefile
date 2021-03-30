@@ -1,10 +1,14 @@
-# $OpenBSD: Makefile,v 1.9 2021/02/23 19:39:10 sthen Exp $
+# $OpenBSD: Makefile,v 1.11 2021/03/19 17:06:35 sthen Exp $
+
+BROKEN-i386 =	frequent cmake-related build failures
+# INSTALL stage looks for libgnuradio-runtime.so.3.8.2.0 but the file is
+# really named libgnuradio-runtime.so.0.0
 
 COMMENT =	signal-processing toolkit for SDR (software-defined radio)
 
 V =		3.8.2.0
 DISTNAME =	gnuradio-$V
-REVISION =	1
+REVISION =	2
 
 SHARED_LIBS +=  gnuradio-analog           0.0 # 3.7
 SHARED_LIBS +=  gnuradio-atsc             0.0 # 3.7
@@ -82,10 +86,8 @@ LIB_DEPENDS =	audio/jack \
 		audio/gsm \
 		audio/portaudio-svn \
 		devel/boost \
-		devel/boost,-md \
 		devel/gmp,-cxx \
 		devel/gsl \
-		devel/libusb1 \
 		devel/log4cpp \
 		devel/orc \
 		devel/sdl \

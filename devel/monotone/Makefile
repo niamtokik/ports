@@ -1,18 +1,18 @@
-# $OpenBSD: Makefile,v 1.18 2019/07/12 20:44:42 sthen Exp $
+# $OpenBSD: Makefile,v 1.20 2021/03/29 06:20:55 rsadowski Exp $
 
 COMMENT=	distributed version control system
 
 VERSION=	1.1
 DISTNAME=	monotone-${VERSION}
 CATEGORIES=	devel
-REVISION=	3
+REVISION=	5
 
 HOMEPAGE=	http://monotone.ca/
 
 # GPLv2
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += botan-1.10 c iconv idn intl m pcre pthread sqlite3 z
+WANTLIB += botan-1.10 c idn intl m pcre pthread sqlite3 z
 WANTLIB += ${COMPILER_LIBCXX} ${MODLUA_WANTLIB}
 
 COMPILER =		base-clang ports-gcc base-gcc

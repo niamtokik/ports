@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.672 2021/03/07 14:16:30 sthen Exp $
+# $OpenBSD: Makefile,v 1.676 2021/03/20 15:57:03 daniel Exp $
 
      SUBDIR =
      SUBDIR += TclXML
@@ -59,6 +59,7 @@
      SUBDIR += gpresent
      SUBDIR += grepcidr
      SUBDIR += groff
+     SUBDIR += gron
      SUBDIR += gsed
      SUBDIR += gspell
      SUBDIR += gtk-doc
@@ -343,6 +344,7 @@
      SUBDIR += p5-sdf
      SUBDIR += p5-tkispell
      SUBDIR += palm-bookmarks
+     SUBDIR += pandoc
      SUBDIR += par
      SUBDIR += patchutils
      SUBDIR += pdf4tcl
@@ -395,7 +397,6 @@
      SUBDIR += py-dicttoxml,python3
      SUBDIR += py-docutils,python3
      SUBDIR += py-elasticsearch,python3
-     SUBDIR += py-emoji
      SUBDIR += py-emoji,python3
      SUBDIR += py-enchant,python3
      SUBDIR += py-et_xmlfile,python3
@@ -417,7 +418,6 @@
      SUBDIR += py-nltk,python3
      SUBDIR += py-numpydoc,python3
      SUBDIR += py-odfpy
-     SUBDIR += py-ofxparse
      SUBDIR += py-ofxparse,python3
      SUBDIR += py-openpyxl,python3
      SUBDIR += py-pandocfilters
@@ -425,7 +425,6 @@
      SUBDIR += py-patiencediff,python3
      SUBDIR += py-pdf
      SUBDIR += py-pdfminer
-     SUBDIR += py-podcastparser
      SUBDIR += py-podcastparser,python3
      SUBDIR += py-polib
      SUBDIR += py-polib,python3
@@ -477,6 +476,7 @@
      SUBDIR += py-yaml,python3
      SUBDIR += raptor
      SUBDIR += rasqal
+     SUBDIR += recutils
      SUBDIR += redland
      SUBDIR += redland-bindings
      SUBDIR += ripgrep

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.701 2021/03/07 05:06:34 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.704 2021/03/29 19:52:37 sthen Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -179,6 +179,7 @@
      SUBDIR += mouseclock
      SUBDIR += mowitz
      SUBDIR += mplayer
+     SUBDIR += mruby-zest
      SUBDIR += mterm
      SUBDIR += mxconns
      SUBDIR += nagstamon
@@ -236,7 +237,6 @@
      SUBDIR += py-qt5,python3
      SUBDIR += py-qtawesome,python3
      SUBDIR += py-qtpy,python3
-     SUBDIR += py-sip-qt5
      SUBDIR += py-sip-qt5,python3
      SUBDIR += py-virtualdisplay
      SUBDIR += py-virtualdisplay,python3
@@ -388,6 +388,7 @@
      SUBDIR += xkeycaps
      SUBDIR += xli
      SUBDIR += xloadimage
+     SUBDIR += xmenu
      SUBDIR += xmobar
      SUBDIR += xmonad
      SUBDIR += xosd

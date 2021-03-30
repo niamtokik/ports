@@ -1,4 +1,4 @@
-$OpenBSD: patch-tools_lld_ELF_InputSection_cpp,v 1.3 2020/11/24 22:44:12 jca Exp $
+$OpenBSD: patch-tools_lld_ELF_InputSection_cpp,v 1.5 2021/03/15 21:02:10 sthen Exp $
 
 [ELF][PPC32] Don't report "relocation refers to a discarded section" for .got2.
 

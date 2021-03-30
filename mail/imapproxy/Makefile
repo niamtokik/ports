@@ -1,14 +1,16 @@
-# $OpenBSD: Makefile,v 1.11 2019/07/17 14:46:33 danj Exp $
+# $OpenBSD: Makefile,v 1.16 2021/03/22 21:40:06 sthen Exp $
 
 COMMENT=	caching IMAP proxy to be used with webmail clients
 
-VER=		1.2.7
-DISTNAME=	squirrelmail-imap_proxy-${VER}
-PKGNAME=	imapproxy-${VER}
+DISTNAME=	squirrelmail-20210316_0200-SVN.imap_proxy
+PKGNAME=	imapproxy-1.2.8pre2021.02
+REVISION=	2
+WRKDIST=	${WRKDIR}/squirrelmail.imap_proxy
+
 CATEGORIES=	mail
-MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=squirrelmail/}
-EXTRACT_SUFX=	.tar.bz2
-REVISION=	0
+# old svn tgz are removed
+#MASTER_SITES=	http://snapshots.squirrelmail.org/
+MASTER_SITES=	https://spacehopper.org/mirrors/
 
 HOMEPAGE=	http://www.imapproxy.org/
 
@@ -18,6 +20,7 @@ PERMIT_PACKAGE=	Yes
 WANTLIB=	c crypto curses pthread ssl
 
 CONFIGURE_STYLE= gnu
+DEBUG_PACKAGES=	${BUILD_PACKAGES}
 
 NO_TEST=	Yes
 

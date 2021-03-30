@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.21 2020/07/03 21:45:05 sthen Exp $
+# $OpenBSD: Makefile,v 1.23 2021/03/15 21:02:11 sthen Exp $
 
 COMMENT =	simple parallel processing fork manager
 

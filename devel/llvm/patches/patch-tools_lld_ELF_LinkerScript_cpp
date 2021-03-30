@@ -1,4 +1,4 @@
-$OpenBSD: patch-tools_lld_ELF_LinkerScript_cpp,v 1.4 2020/08/05 06:49:49 jca Exp $
+$OpenBSD: patch-tools_lld_ELF_LinkerScript_cpp,v 1.6 2021/03/15 21:02:10 sthen Exp $
 
 - XXX no comment
 

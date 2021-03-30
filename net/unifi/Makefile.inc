@@ -1,29 +1,33 @@
-# $OpenBSD: Makefile.inc,v 1.20 2021/01/26 18:17:40 sthen Exp $
+# $OpenBSD: Makefile.inc,v 1.24 2021/03/20 18:49:09 sthen Exp $
 
+.if defined(V)
 COMMENT=	controller for Ubiquiti uniFi (wifi/routing/switching/voip)
 
 _BV=		${BUILD_V:C/^http[^-]*-([0-9a-f]{10}).*/-\1/}
-MASTER_SITES?=	http://dl.ubnt.com/unifi/${V}${_BV}/
+MASTER_SITES?=	https://dl.ui.com/unifi/${V}${_BV}/
 
 JAF=		1.1.1
 DISTFILES=	unifi-$V{UniFi.unix}.zip \
 		unifi_sh_api-$V{unifi_sh_api} \
 		UBNT-MIB:1 \
 		UBNT-UniFi-MIB:1
-.if defined(SNAPPY_V)
+
+# unifi requires the native library component of snappy-java,
+# upstream doesn't include an openbsd version; use a locally built
+# one to replace.
+#
+# typical symptom of failure: APs stuck in "adopting".
 DISTFILES+=	snappy-java-${SNAPPY_V}${SNAPPY_S}.jar:0
-.endif
+
 EXTRACT_ONLY=	unifi-$V.zip
 PKGNAME=	unifi-$V
 
-# newer unifi uses newer snappy-java, but upstream stopped distributing
-# openbsd .so's. use a locally built one to replace.
-MASTER_SITES0?=	https://spacehopper.org/mirrors/
-MASTER_SITES1=	http://dl.ubnt-ut.com/snmp/
+MASTER_SITES0=	https://spacehopper.org/mirrors/
+MASTER_SITES1=	https://dl.ubnt-ut.com/snmp/
 
 CATEGORIES=	net
 
-HOMEPAGE=	http://wiki.ubnt.com/UniFi_FAQ
+HOMEPAGE=	https://wiki.ubnt.com/UniFi_FAQ
 
 MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 
@@ -66,11 +70,12 @@ pre-extract:
 post-extract:
 	@cp ${FULLDISTDIR}/unifi_sh_api-$V ${WRKSRC}/unifi_sh_api
 
-.if defined(SNAPPY_V)
 do-configure:
-	@if ! [ -r ${WRKSRC}/lib/snappy-java-${SNAPPY_V}.jar ]; then echo "** Version mismatch in snappy-java"; ls -l ${WRKSRC}/lib/snappy-java*; fi
-	cp ${FULLDISTDIR}/snappy-java-${SNAPPY_V}${SNAPPY_S}.jar ${WRKSRC}/lib/snappy-java-${SNAPPY_V}.jar
-.endif
+	@if ! [ -r ${WRKSRC}/lib/snappy-java-${SNAPPY_V}.jar ]; then \
+	    echo "** Overriding snappy-java from upstream with ${SNAPPY_V}"; \
+	    ls -l ${WRKSRC}/lib/snappy-java*; fi
+	cp ${FULLDISTDIR}/snappy-java-${SNAPPY_V}${SNAPPY_S}.jar \
+	    ${WRKSRC}/lib/snappy-java-*.jar
 
 do-install:
 	${INSTALL_DATA_DIR} ${INSTDIR}{,/backup,/data,/run,/work}
@@ -88,4 +93,5 @@ do-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/snmp/mibs/
 	${INSTALL_DATA} ${FULLDISTDIR}/UBNT-{UniFi-,}MIB \
 		${PREFIX}/share/snmp/mibs/
-
+	@echo;echo 'Note: ignore the "symlink(s) point to non-existent" warnings during packaging.';echo
+.endif

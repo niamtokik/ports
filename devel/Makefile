@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2084 2021/03/06 16:55:51 gnezdo Exp $
+# $OpenBSD: Makefile,v 1.2093 2021/03/30 01:16:32 afresh1 Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -499,7 +499,6 @@
      SUBDIR += p5-Carp-Clan
      SUBDIR += p5-Carp-Datum
      SUBDIR += p5-Carp-REPL
-     SUBDIR += p5-Catalyst-Manual
      SUBDIR += p5-Catalyst-Manual
      SUBDIR += p5-Catalyst-Plugin-C3
      SUBDIR += p5-Catalyst-Plugin-StackTrace
@@ -1200,7 +1199,6 @@
      SUBDIR += p5-Universal-moniker
      SUBDIR += p5-Universal-require
      SUBDIR += p5-Unix-Mknod
-     SUBDIR += p5-VCP-autrijus
      SUBDIR += p5-Variable-Magic
      SUBDIR += p5-Want
      SUBDIR += p5-WeakRef
@@ -1289,6 +1287,7 @@
      SUBDIR += py-asn1,python3
      SUBDIR += py-asn1-modules,python3
      SUBDIR += py-astroid,python3
+     SUBDIR += py-astunparse,python3
      SUBDIR += py-async-timeout
      SUBDIR += py-atomicwrites
      SUBDIR += py-atomicwrites,python3
@@ -1344,7 +1343,6 @@
      SUBDIR += py-clint,python3
      SUBDIR += py-cloudpickle,python3
      SUBDIR += py-codestyle,python3
-     SUBDIR += py-colorama
      SUBDIR += py-colorama,python3
      SUBDIR += py-configargparse,python3
      SUBDIR += py-configobj
@@ -1427,7 +1425,6 @@
      SUBDIR += py-future,python3
      SUBDIR += py-futures
      SUBDIR += py-gdata
-     SUBDIR += py-gevent
      SUBDIR += py-gevent,python3
      SUBDIR += py-gitdb
      SUBDIR += py-gitdb,python3
@@ -1488,7 +1485,7 @@
      SUBDIR += py-magic,python3
      SUBDIR += py-mccabe
      SUBDIR += py-mccabe,python3
-     SUBDIR += py-minidump
+     SUBDIR += py-minidump,python3
      SUBDIR += py-minimock
      SUBDIR += py-minimock,python3
      SUBDIR += py-mock
@@ -1553,9 +1550,7 @@
      SUBDIR += py-progressbar
      SUBDIR += py-progressbar,python3
      SUBDIR += py-prompt_toolkit,python3
-     SUBDIR += py-protobuf
      SUBDIR += py-protobuf,python3
-     SUBDIR += py-ptyprocess
      SUBDIR += py-ptyprocess,python3
      SUBDIR += py-py
      SUBDIR += py-py,python3
@@ -1589,7 +1584,6 @@
      SUBDIR += py-send2trash,python3
      SUBDIR += py-serial
      SUBDIR += py-serial,python3
-     SUBDIR += py-setproctitle
      SUBDIR += py-setproctitle,python3
      SUBDIR += py-setuptools
      SUBDIR += py-setuptools,python3
@@ -1651,7 +1645,6 @@
      SUBDIR += py-test-runner,python3
      SUBDIR += py-test-subtesthack
      SUBDIR += py-test-subtesthack,python3
-     SUBDIR += py-test-timeout
      SUBDIR += py-test-timeout,python3
      SUBDIR += py-test-vcr,python3
      SUBDIR += py-test-xdist

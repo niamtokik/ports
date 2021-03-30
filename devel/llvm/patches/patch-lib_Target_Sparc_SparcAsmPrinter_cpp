@@ -1,4 +1,4 @@
-$OpenBSD: patch-lib_Target_Sparc_SparcAsmPrinter_cpp,v 1.2 2020/08/05 06:49:48 jca Exp $
+$OpenBSD: patch-lib_Target_Sparc_SparcAsmPrinter_cpp,v 1.4 2021/03/15 21:02:10 sthen Exp $
 
 - Remove cast that truncates immediate operands to 32 bits.  This fixes
   genassym.sh on sparc64 when using clang as the compiler.

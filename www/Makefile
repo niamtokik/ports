@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1017 2021/03/04 02:45:50 gnezdo Exp $
+# $OpenBSD: Makefile,v 1.1026 2021/03/23 08:23:18 sebastia Exp $
 
      SUBDIR =
      SUBDIR += analog
@@ -163,7 +163,6 @@
      SUBDIR += p5-Catalyst-Helper-Controller-Scaffold
      SUBDIR += p5-Catalyst-Log-Log4perl
      SUBDIR += p5-Catalyst-Model-Adaptor
-     SUBDIR += p5-Catalyst-Plugin-Cache
      SUBDIR += p5-Catalyst-Plugin-Cache
      SUBDIR += p5-Catalyst-Plugin-Cache-FileCache
      SUBDIR += p5-Catalyst-Plugin-Cache-Memcached
@@ -454,11 +453,9 @@
      SUBDIR += py-formencode
      SUBDIR += py-formencode,python3
      SUBDIR += py-frozen-flask,python3
-     SUBDIR += py-genshi
      SUBDIR += py-genshi,python3
      SUBDIR += py-gunicorn,python3
-     SUBDIR += py-html5-parser
-     SUBDIR += py-http_ece
+     SUBDIR += py-html5-parser,python3
      SUBDIR += py-http_ece,python3
      SUBDIR += py-httpbin,python3
      SUBDIR += py-httpie
@@ -469,7 +466,6 @@
      SUBDIR += py-jinja2
      SUBDIR += py-jinja2,python3
      SUBDIR += py-jonpy
-     SUBDIR += py-jwt
      SUBDIR += py-jwt,python3
      SUBDIR += py-macaroons,python3
      SUBDIR += py-mako
@@ -485,7 +481,6 @@
      SUBDIR += py-paste-deploy
      SUBDIR += py-paste-script
      SUBDIR += py-qtwebengine,python3
-     SUBDIR += py-query
      SUBDIR += py-query,python3
      SUBDIR += py-quixote
      SUBDIR += py-recaptcha-client
@@ -518,18 +513,16 @@
      SUBDIR += py-treq,python3
      SUBDIR += py-uritemplate
      SUBDIR += py-uritemplate,python3
-     SUBDIR += py-urlgrabber
+     SUBDIR += py-urlgrabber,python3
      SUBDIR += py-urllib3
      SUBDIR += py-urllib3,python3
      SUBDIR += py-vcrpy,python3
      SUBDIR += py-waitress
      SUBDIR += py-waitress,python3
-     SUBDIR += py-webob
      SUBDIR += py-webob,python3
      SUBDIR += py-webpy,python3
      SUBDIR += py-webtest,python3
      SUBDIR += py-werkzeug,python3
-     SUBDIR += py-wsgiproxy
      SUBDIR += py-wtforms,python3
      SUBDIR += py-wstools
      SUBDIR += py-wstools,python3

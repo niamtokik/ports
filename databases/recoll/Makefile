@@ -1,9 +1,14 @@
-# $OpenBSD: Makefile,v 1.7 2021/03/06 09:43:13 sthen Exp $
+# $OpenBSD: Makefile,v 1.9 2021/03/11 13:34:05 sthen Exp $
 
-COMMENT= 	full text search application
+COMMENT-main= 	full text search application
+COMMENT-gui= 	X user interface to recoll
 
-V=		1.28.6
+MULTI_PACKAGES=	-main -gui
+
+V=		1.29.1
 DISTNAME= 	recoll-${V}
+PKGNAME-main=	${DISTNAME}
+PKGNAME-gui=	recoll-gui-${V}
 
 SHARED_LIBS +=	recoll-${V}            0.0 # 0.0
 SHARED_LIBS +=  recoll                 0.0 # 0.0
@@ -20,28 +25,40 @@ MASTER_SITES=		https://www.lesbonscomptes.com/recoll/
 # C++11
 COMPILER=	base-clang ports-gcc
 
-WANTLIB += ${COMPILER_LIBCXX} c iconv lzma m xapian xml2
-WANTLIB += xslt z
+WANTLIB=	${COMPILER_LIBCXX} c iconv m xapian z
+WANTLIB-main=	${WANTLIB} c iconv lzma m xapian xml2 xslt z
+WANTLIB-gui=	${WANTLIB} GL Qt5Core Qt5Gui Qt5Network \
+		Qt5PrintSupport Qt5WebKit Qt5WebKitWidgets \
+		Qt5Widgets Qt5Xml lib/recoll/recoll-${V}
 
-MODULES=		lang/python
+# otherwise dependency check during build fails when updating
+RECOLL_LIB=	librecoll-${V}.so.${LIBrecoll-${V}_VERSION}
+SUBST_VARS+=	RECOLL_LIB
+
+MODULES=		lang/python \
+			x11/qt5
 
 USE_GMAKE=		Yes
+DPB_PROPERTIES=		parallel
 
 BUILD_DEPENDS=		devel/py-setuptools${MODPY_FLAVOR} \
 			textproc/aspell/core
 
-LIB_DEPENDS= 		databases/xapian-core \
+LIB_DEPENDS-main=	databases/xapian-core \
 			textproc/libxslt
+
+LIB_DEPENDS-gui=	${MODQT5_LIB_DEPENDS} \
+			databases/recoll \
+			x11/qt5/qtwebkit
 
 CONFIGURE_STYLE= 	gnu
 
 CONFIGURE_ENV=		CPPFLAGS="-I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib" \
+			QMAKE="${MODQT_QMAKE}"
 
 CONFIGURE_ARGS=		--disable-python-chm \
-			--disable-qtgui \
 			--disable-userdoc \
-			--disable-x11mon \
 			--without-inotify \
 			--without-fam \
 			--without-qzeitgeist \

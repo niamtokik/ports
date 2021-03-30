@@ -1,11 +1,11 @@
-# $OpenBSD: Makefile,v 1.202 2021/02/23 19:39:51 sthen Exp $
+# $OpenBSD: Makefile,v 1.206 2021/03/27 00:37:24 jca Exp $
 
 USE_WXNEEDED=		Yes
 
 COMMENT=		next generation GNOME shell
 
 GNOME_PROJECT=		gnome-shell
-GNOME_VERSION=		3.38.3
+GNOME_VERSION=		3.38.4
 
 # GPLv2+
 PERMIT_PACKAGE=		Yes
@@ -25,7 +25,6 @@ MODULES=		devel/dconf \
 			lang/python \
 			x11/gnome
 
-# sync with x11/gnome/gjs
 COMPILER=		base-clang ports-gcc
 
 MODGNOME_TOOLS +=	desktop-file-utils docbook gobject-introspection gtk-update-icon-cache

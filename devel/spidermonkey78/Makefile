@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.10 2021/03/04 08:12:58 jasper Exp $
+# $OpenBSD: Makefile,v 1.12 2021/03/28 14:14:33 jasper Exp $
 
 # see patch-js_src_old-configure_in
 USE_WXNEEDED =		Yes
@@ -10,7 +10,7 @@ COMMENT =		C/C++ Mozilla's JavaScript engine implementation #'
 MOZILLA_VERSION =	78
 SUBST_VARS =		MOZILLA_VERSION
 
-V =			${MOZILLA_VERSION}.8.0
+V =			${MOZILLA_VERSION}.9.0
 DISTNAME =		firefox-${V}esr.source
 EXTRACT_SUFX =		.tar.bz2
 PKGNAME =		spidermonkey${MOZILLA_VERSION}-${V}
@@ -37,8 +37,7 @@ MODPY_VERSION =	${MODPY_DEFAULT_VERSION_2}
 MODPY_RUNDEP =		No
 
 # C++11
-# sync with SHARED_LIBS consumers: x11/gnome/gjs
-COMPILER =		base-clang ports-clang
+COMPILER =		base-clang ports-gcc
 
 USE_GMAKE =		yes
 

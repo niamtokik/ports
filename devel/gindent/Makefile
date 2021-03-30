@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.36 2019/07/12 20:44:09 sthen Exp $
+# $OpenBSD: Makefile,v 1.38 2021/03/15 21:02:10 sthen Exp $
 
 COMMENT=	GNU utility to indent C source files
 

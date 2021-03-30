@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1232 2021/03/07 19:30:40 gnezdo Exp $
+# $OpenBSD: Quirks.pm,v 1.1256 2021/03/30 01:16:33 afresh1 Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -602,6 +602,27 @@ my $stem_extensions = {
 	'py-werkzeug' => 'py3-werkzeug',
 	'py-blinker' => 'py3-blinker',
 	'py-ifaddr' => 'py3-ifaddr',
+	'py-colorama' => 'py3-colorama',
+	'py-emoji' => 'py3-emoji',
+	'py-query' => 'py3-query',
+	'py-ofxparse' => 'py3-ofxparse',
+	'py-puppetboard' => 'py3-puppetboard',
+	'py-urlgrabber' => 'py3-urlgrabber',
+	'py-webob' => 'py3-webob',
+	'py-webtest' => 'py3-webtest',
+	'py-genshi' => 'py3-genshi',
+	'py-musicbrainzngs' => 'py3-musicbrainzngs',
+	'py-setproctitle' => 'py3-setproctitle',
+	'py-ptyprocess' => 'py3-ptyprocess',
+	'py-jwt' => 'py3-jwt',
+	'py-pg_activity' => 'pg_activity', # intentionally removing py- prefix
+	'py-axolotl' => 'py3-axolotl',
+	'py-protobuf' => 'py3-protobuf',
+	'py-http_ece' => 'py3-http_ece',
+	'yubiserve' => 'yubikeyedup',
+	'py-openssl' => 'py3-openssl',
+	'py-junos-eznc' => 'py3-junos-eznc',
+	'py-ncclient' => 'py3-ncclient',
 };
 
 my $obsolete_reason = {
@@ -2286,6 +2307,15 @@ my $obsolete_reason = {
 	'gstreamer-plugins-gl' => 6,
 	'gstreamer-plugins-good' => 6,
 	'gstreamer-plugins-ugly' => 6,
+	'lives' => 42,
+	'py-wsgiproxy' => 5,
+	'py-sqlite' => 5,
+	'upt' => 43,
+	'upt-cpan' => 43,
+	'upt-openbsd' => 43,
+	'upt-pypi' => 43,
+	'upt-rubygems' => 43,
+	'p5-VCP-autrijus' => 3,
 };
 
 # reasons for obsolete packages
@@ -2332,6 +2362,8 @@ my @msg = (
 	"Flash/SWF is end-of-life", #39
 	"ancient software that often crashes and relies on single HTTP (no TLS) connections, use wireshark", #40
 	"upstream moved to unversioned tarballs, use the plan9port (same upstream) package instead", #41
+	"unmaintained port that was blocking other changes in ports, suggest kdenlive or shotcut", #42
+	"using portgen instead is recommended", #43
 );
 
 # ->is_base_system($handle, $state):
@@ -2424,9 +2456,9 @@ my $cve = {
 	'databases/postgresql,-server' => 'postgresql-server-<10.6',
 	'databases/sqlite3' => 'sqlite3-<3.25.3',
 	'devel/apache-ant' => 'apache-ant-<1.10.9',
-	'devel/git,-main' => 'git-<2.26.2',
-	'devel/git,-svn' => 'git-svn-<2.26.2',
-	'devel/git,-x11' => 'git-x11-<2.26.2',
+	'devel/git,-main' => 'git-<2.30.2',
+	'devel/git,-svn' => 'git-svn-<2.30.2',
+	'devel/git,-x11' => 'git-x11-<2.30.2',
 	'devel/jenkins/devel' => 'jenkins-<2.154',
 	'devel/jenkins/stable' => 'jenkins-<2.138.4',
 	'devel/libgit2/libgit2' => 'libgit2-<0.27.7',

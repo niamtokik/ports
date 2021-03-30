@@ -1,4 +1,4 @@
-$OpenBSD: patch-configure,v 1.6 2019/03/04 12:51:12 chrisz Exp $
+$OpenBSD: patch-configure,v 1.8 2021/03/15 21:02:10 sthen Exp $
 
 This does not set a default options as suggested in configure.ac,
 but overrides the user-provided setting.

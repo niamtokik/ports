@@ -1,4 +1,4 @@
-$OpenBSD: patch-commons_common_ml,v 1.7 2019/03/04 12:51:12 chrisz Exp $
+$OpenBSD: patch-commons_common_ml,v 1.9 2021/03/15 21:02:10 sthen Exp $
 Index: commons/common.ml
 --- commons/common.ml.orig
 +++ commons/common.ml

@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.199 2021/02/17 07:01:14 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.203 2021/03/24 07:31:13 ajacoutot Exp $
 
 COMMENT-main=		GNOME desktop meta-package (core installation)
 COMMENT-extras=		GNOME desktop meta-package (world installation)
 
 # sync with gnome-desktop GNOME_VERSION
-V=			3.38.4
+V=			3.38.5
 PKGNAME=		gnome-${V}
 
 PKGNAME-main=		gnome-${V}
@@ -71,7 +71,6 @@ RUN_DEPENDS-main +=	x11/gnome/calculator \
 			x11/gnome/contacts \
 			x11/gnome/eog \
 			evince-*-!light:graphics/evince \
-			x11/gnome/file-roller \
 			x11/gnome/font-viewer \
 			x11/gnome/gedit \
 			x11/gnome/maps \
@@ -112,14 +111,20 @@ RUN_DEPENDS-extras +=	inputmethods/ibus-anthy \
 			x11/gnome/devel-docs \
 			x11/gnome/dictionary \
 			x11/gnome/documents \
+			x11/gnome/file-roller \
 			x11/gnome/todo \
 			x11/gnome/tweaks
 
 
 # gtk+2
 RUN_DEPENDS-extras +=	audio/libcanberra,-gtk \
+			inputmethods/ibus,-gtk2 \
+			x11/gnome/caribou,-gtk2 \
 			x11/gnome/themes-extra \
 			x11/gtk+2,-cups
+
+# gtk+4
+#RUN_DEPENDS-extras +=	inputmethods/ibus,-gtk4
 
 # depends on -main
 RUN_DEPENDS-extras +=	STEM-=${V}:${BASE_PKGPATH},-main

@@ -1,4 +1,4 @@
-$OpenBSD: patch-lib_Target_X86_X86TargetMachine_cpp,v 1.6 2020/08/10 11:38:43 jca Exp $
+$OpenBSD: patch-lib_Target_X86_X86TargetMachine_cpp,v 1.8 2021/03/15 21:02:10 sthen Exp $
 
 Add a clang pass that identifies potential ROP gadgets and replaces ROP
 friendly instructions with safe alternatives. This initial commit fixes

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.76 2021/01/22 16:38:41 jturner Exp $
+# $OpenBSD: Makefile,v 1.78 2021/03/15 21:02:10 sthen Exp $
 
 COMMENT =		simple distributed software configuration management
 

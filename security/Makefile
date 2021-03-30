@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.617 2021/03/04 02:45:50 gnezdo Exp $
+# $OpenBSD: Makefile,v 1.621 2021/03/29 12:13:52 sthen Exp $
 
      SUBDIR =
      SUBDIR += ADMsnmp
@@ -272,7 +272,6 @@
      SUBDIR += py-artifacts,python3
      SUBDIR += py-asn1crypto
      SUBDIR += py-asn1crypto,python3
-     SUBDIR += py-axolotl
      SUBDIR += py-axolotl,python3
      SUBDIR += py-axolotl-curve25519
      SUBDIR += py-axolotl-curve25519,python3
@@ -290,13 +289,13 @@
      SUBDIR += py-ecdsa
      SUBDIR += py-ecdsa,python3
      SUBDIR += py-elfesteem
+     SUBDIR += py-fickling,python3
      SUBDIR += py-fido2,python3
      SUBDIR += py-gnupg,python3
      SUBDIR += py-josepy,python3
      SUBDIR += py-keyring,python3
      SUBDIR += py-libnacl,python3
      SUBDIR += py-miasm
-     SUBDIR += py-openssl
      SUBDIR += py-openssl,python3
      SUBDIR += py-oauthlib,python3
      SUBDIR += py-paramiko
@@ -315,14 +314,12 @@
      SUBDIR += py-requests-aws4auth
      SUBDIR += py-requests-aws4auth,python3
      SUBDIR += py-ropper,python3
-     SUBDIR += py-rsa
      SUBDIR += py-rsa,python3
      SUBDIR += py-scp
      SUBDIR += py-scp,python3
      SUBDIR += py-scrypt
      SUBDIR += py-scrypt,python3
      SUBDIR += py-secretstorage,python3
-     SUBDIR += py-service_identity
      SUBDIR += py-service_identity,python3
      SUBDIR += py-tlsfuzzer,python3
      SUBDIR += py-trustme,python3

@@ -1,4 +1,4 @@
-$OpenBSD: patch-tools_clang_include_clang_Driver_Options_td,v 1.25 2021/02/16 23:47:40 jca Exp $
+$OpenBSD: patch-tools_clang_include_clang_Driver_Options_td,v 1.27 2021/03/15 21:02:10 sthen Exp $
 
 - Switch clang to -fno-common by default.
 - Disable strict floating point if not X86.

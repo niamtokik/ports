@@ -1,4 +1,4 @@
-$OpenBSD: patch-lib_Target_X86_X86AsmPrinter_h,v 1.5 2020/08/05 06:49:48 jca Exp $
+$OpenBSD: patch-lib_Target_X86_X86AsmPrinter_h,v 1.7 2021/03/15 21:02:10 sthen Exp $
 
 Use int3 trap padding between functions instead of trapsleds with a leading jump.
 

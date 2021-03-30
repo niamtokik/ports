@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.21 2021/02/23 19:39:17 sthen Exp $
+# $OpenBSD: Makefile,v 1.23 2021/03/15 21:02:11 sthen Exp $
 
 COMMENT=	Python API for SOAP HTTP/RPC
 
