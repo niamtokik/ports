@@ -5,7 +5,7 @@ BROKEN-alpha=	beam/erl_process.c:6692: internal compiler error: in final_scan_in
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		21.3.8.21
+V=		21.3.8.22
 MAJ_V=		21
 EPOCH=		0
 DISTNAME=	otp_src_$V

@@ -3,7 +3,7 @@
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		23.3
+V=		23.3.1
 MAJ_V=		23
 EPOCH=		0
 DISTNAME=	otp_src_$V

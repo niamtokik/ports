@@ -46,6 +46,8 @@ _MODERL_FLAVOR =	erlang21
 _MODERL_FLAVOR =	erlang22
 .elif ${MODERL_VERSION} == 23
 _MODERL_FLAVOR =	erlang23
+.elif ${MODERL_VERSION} == 24
+_MODERL_FLAVOR =	erlang24
 .else
 ERRORS +=		"Invalid MODERL_VERSION set: ${MODERL_VERSION}."
 .endif
