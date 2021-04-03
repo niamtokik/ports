@@ -1,6 +1,6 @@
 # $OpenBSD: Makefile,v 1.38 2021/02/23 19:39:34 sthen Exp $
 
-BROKEN =	builds but not yet working.
+# BROKEN =	builds but not yet working.
 # we had rabbitmq-3.6.15 which used erlang 19, which was removed due to
 # not building with -fno-commons, leaving only erlang 21 in ports.
 # 3.8.8 is the newest version that officially supports erlang 21;
@@ -10,7 +10,7 @@ BROKEN =	builds but not yet working.
 
 COMMENT =	highly reliable Enterprise Messaging System
 
-V =		3.8.8
+V =		3.8.14
 DISTNAME =	rabbitmq-server-$V
 PKGNAME =	rabbitmq-$V
 CATEGORIES =	net
@@ -20,12 +20,12 @@ HOMEPAGE =	https://www.rabbitmq.com/
 # MPL
 PERMIT_PACKAGE= Yes
 
-MASTER_SITES =	https://github.com/rabbitmq/rabbitmq-server/releases/download/v$V/
+MASTER_SITES =	https://github.com/rabbitmq/rabbitmq-server/archive/refs/tags/v$(V).tar.gz
 EXTRACT_SUFX =	.tar.xz
 
 MODULES =	lang/erlang \
 		lang/python
-MODERL_VERSION = 21
+MODERL_VERSION ?= 21
 
 USE_GMAKE =	Yes
 CONFIGURE_STYLE = none

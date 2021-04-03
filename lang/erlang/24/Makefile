@@ -3,20 +3,26 @@
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		24.0-rc2
+V=		24.0
+RC=		rc2
 MAJ_V=		24
 EPOCH=		0
-DISTNAME=	otp_src_$V
+DISTNAME=	otp_src_$V-$(RC)
+DISTFILES =    ${DISTNAME}.tar.gz \
+                otp_doc_man_$(V)-$(RC).tar.gz
 PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V
 PKGNAME-wx=	erlang-wx-$V
 
-REVISION-main=	0
-REVISION-wx=	0
+REVISION-main=	1
+REVISION-wx=	1
 
 VERSION_SPEC=	>=24v0,<25v0
 PKGSPEC-main=	erlang-${VERSION_SPEC}
 PKGSPEC-wx=	erlang-wx-${VERSION_SPEC}
+
+# Only for release candidate
+MASTER_SITES = https://github.com/erlang/otp/releases/download/OTP-$(V)-$(RC)/
 
 BUILD_DEPENDS+=	textproc/libxslt
 
@@ -97,8 +103,6 @@ XMERL_VSN	1.4 \
 ERTS_VSN	12.0
 SYSTEM_VSN=	${MAJ_V}
 
-.include <bsd.port.mk>
-
 pre-configure:
 	${SUBST_CMD} ${WRKSRC}/make/install_bin \
 		${WRKSRC}/Makefile.in \
@@ -114,7 +118,15 @@ do-configure:
 	cd ${WRKSRC} && ./configure ${CONFIGURE_ARGS}
 
 post-install:
+	ln -sf ../lib/erlang${MAJ_V}/lib/${ERL_EI}/bin/erl_call ${PREFIX}/bin/erl_call${MAJ_V}
+	tar zxf ${FULLDISTDIR}/otp_doc_man_${V}-${RC}.tar.gz -C ${DOC_DIR}
+	rm -r ${DOC_DIR}/man/man7/*MIB.7
+	rm -r ${DOC_DIR}/man/man7/*TM.7
+	if [ ! -x ${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam.smp ]; then \
+		cp -v ${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam \
+		${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam.smp; fi
 	${INSTALL_DATA} ${WRKSRC}/AUTHORS ${PREFIX}/lib/erlang${SYSTEM_VSN}/
 	${INSTALL_DATA} ${WRKSRC}/LICENSE.txt ${PREFIX}/lib/erlang${SYSTEM_VSN}/
 	${INSTALL_DATA} ${WRKSRC}/system/COPYRIGHT ${PREFIX}/lib/erlang${SYSTEM_VSN}/
 
+.include <bsd.port.mk>

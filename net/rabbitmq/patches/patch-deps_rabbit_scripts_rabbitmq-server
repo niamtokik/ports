@@ -1,18 +1,6 @@
-$OpenBSD: patch-deps_rabbit_scripts_rabbitmq-server,v 1.1 2021/02/19 13:38:33 sthen Exp $
-
-Index: deps/rabbit/scripts/rabbitmq-server
---- deps/rabbit/scripts/rabbitmq-server.orig
-+++ deps/rabbit/scripts/rabbitmq-server
-@@ -39,7 +39,7 @@ fi
- ensure_thread_pool_size() {
-     if [ -z "${RABBITMQ_IO_THREAD_POOL_SIZE}" ]; then
-         RABBITMQ_IO_THREAD_POOL_SIZE=$(
--            erl \
-+            ${MODERL_ERL} \
-                 -noinput \
-                 -boot "${CLEAN_BOOT_FILE}" \
-                 -s rabbit_misc report_default_thread_pool_size
-@@ -96,7 +96,7 @@ start_rabbitmq_server() {
+--- deps/rabbit/scripts/rabbitmq-server.orig	Sat Apr  3 14:08:57 2021
++++ deps/rabbit/scripts/rabbitmq-server	Sat Apr  3 14:09:23 2021
+@@ -79,7 +79,7 @@
  
      check_start_params
  
