@@ -1,0 +1,13 @@
+--- make/otp.mk.in.orig      Sat Apr  3 14:43:50 2021
++++ make/otp.mk.in           Sat Apr  3 14:42:13 2021
+@@ -110,8 +110,8 @@
+ endif
+
+ ERLC_WFLAGS = -W
+-ERLC = erlc $(ERLC_WFLAGS) $(ERLC_FLAGS)
+-ERL = erl -boot start_clean
++ERLC = erlc${MAJ_V} $(ERLC_WFLAGS) $(ERLC_FLAGS)
++ERL = erl${MAJ_V} -boot start_clean
+
+ ifneq (,$(findstring $(origin EBIN),$(DUBIOUS_ORIGINS)))
+ EBIN = ../ebin
