@@ -13,10 +13,7 @@ bin/run_erl${SYSTEM_VSN}
 bin/to_erl${SYSTEM_VSN}
 bin/typer${SYSTEM_VSN}
 lib/erlang${SYSTEM_VSN}/
-lib/erlang${SYSTEM_VSN}/COPYRIGHT
 lib/erlang${SYSTEM_VSN}/Install
-lib/erlang${SYSTEM_VSN}/PR.template
-lib/erlang${SYSTEM_VSN}/README.md
 lib/erlang${SYSTEM_VSN}/bin/
 @bin lib/erlang${SYSTEM_VSN}/bin/ct_run
 @bin lib/erlang${SYSTEM_VSN}/bin/dialyzer
@@ -1185,6 +1182,7 @@ lib/erlang21/lib/${ERL_INETS}/ebin/httpd_example.beam
 lib/erlang21/lib/${ERL_INETS}/ebin/httpd_file.beam
 lib/erlang21/lib/${ERL_INETS}/ebin/httpd_instance_sup.beam
 lib/erlang21/lib/${ERL_INETS}/ebin/httpd_log.beam
+lib/erlang21/lib/${ERL_INETS}/ebin/httpd_logger.beam
 lib/erlang21/lib/${ERL_INETS}/ebin/httpd_manager.beam
 lib/erlang21/lib/${ERL_INETS}/ebin/httpd_misc_sup.beam
 lib/erlang21/lib/${ERL_INETS}/ebin/httpd_request.beam
@@ -1417,6 +1415,7 @@ lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_file.erl
 lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_instance_sup.erl
 lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_internal.hrl
 lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_log.erl
+lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_logger.erl
 lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_manager.erl
 lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_misc_sup.erl
 lib/erlang21/lib/${ERL_INETS}/src/http_server/httpd_request.erl
@@ -2116,6 +2115,7 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_PARSETOOLS}/src/yeccparser.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_PARSETOOLS}/src/yeccscan.erl
 lib/erlang21/lib/${ERL_PUBLIC_KEY}/
 lib/erlang21/lib/${ERL_PUBLIC_KEY}/asn1/
+lib/erlang21/lib/${ERL_PUBLIC_KEY}/asn1/CMSAesRsaesOaep.asn1
 lib/erlang21/lib/${ERL_PUBLIC_KEY}/asn1/InformationFramework.asn1
 lib/erlang21/lib/${ERL_PUBLIC_KEY}/asn1/OTP-PKIX.asn1
 lib/erlang21/lib/${ERL_PUBLIC_KEY}/asn1/OTP-PUB-KEY.asn1config

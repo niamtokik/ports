@@ -47,7 +47,7 @@ FAKE_FLAGS =	libdir_suffix="/erlang${MAJ_V}"
 AUTOCONF_VERSION =2.69
 
 # Use the target 'gen-versions' to update this list
-ERL_VERSIONS=	\
+ERL_VERSIONS=   \
 ASN1_VSN	5.0.8 \
 COMMON_TEST_VSN	1.17.2.1 \
 COMPILER_VSN	7.3.2 \
@@ -80,7 +80,7 @@ RELTOOL_VSN	0.7.8 \
 RUNTIME_TOOLS_VSN	1.13.2 \
 SASL_VSN	3.3 \
 SNMP_VSN	5.2.12 \
-SSH_VSN	4.7.6.5 \
+SSH_VSN	4.7.6.6 \
 SSL_VSN	9.2.3.7 \
 STDLIB_VSN	3.8.2.4 \
 SYNTAX_TOOLS_VSN	2.1.7.1 \
@@ -88,7 +88,8 @@ TFTP_VSN	1.0.1 \
 TOOLS_VSN	3.1.0.1 \
 WX_VSN	1.8.7 \
 XMERL_VSN	1.3.20.1 \
-ERTS_VSN	10.3.5.15
-SYSTEM_VSN=	${V}
+ERTS_VSN	10.3.5.17
+
+SYSTEM_VSN=	${MAJ_V}
 
 .include <bsd.port.mk>

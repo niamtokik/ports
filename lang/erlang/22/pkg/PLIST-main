@@ -13,10 +13,7 @@ bin/run_erl${SYSTEM_VSN}
 bin/to_erl${SYSTEM_VSN}
 bin/typer${SYSTEM_VSN}
 lib/erlang${SYSTEM_VSN}/
-lib/erlang${SYSTEM_VSN}/COPYRIGHT
 lib/erlang${SYSTEM_VSN}/Install
-lib/erlang${SYSTEM_VSN}/PR.template
-lib/erlang${SYSTEM_VSN}/README.md
 lib/erlang${SYSTEM_VSN}/bin/
 @bin lib/erlang${SYSTEM_VSN}/bin/ct_run
 @bin lib/erlang${SYSTEM_VSN}/bin/dialyzer
@@ -153,6 +150,7 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_func.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_gen.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_gen_ber_bin_v2.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_gen_check.beam
+lib/erlang22/lib/${ERL_ASN1}/ebin/asn1ct_gen_jer.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_gen_per.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_imm.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/ebin/asn1ct_name.beam
@@ -182,6 +180,7 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_func.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_gen.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_gen_ber_bin_v2.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_gen_check.erl
+lib/erlang22/lib/${ERL_ASN1}/src/asn1ct_gen_jer.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_gen_per.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_imm.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_ASN1}/src/asn1ct_name.erl
@@ -3547,21 +3546,21 @@ lib/erlang${SYSTEM_VSN}/misc/
 lib/erlang${SYSTEM_VSN}/misc/format_man_pages
 lib/erlang${SYSTEM_VSN}/misc/makewhatis
 lib/erlang${SYSTEM_VSN}/releases/
-lib/erlang${SYSTEM_VSN}/releases/22/
-lib/erlang${SYSTEM_VSN}/releases/22/OTP_VERSION
-lib/erlang${SYSTEM_VSN}/releases/22/installed_application_versions
-lib/erlang${SYSTEM_VSN}/releases/22/no_dot_erlang.boot
-lib/erlang${SYSTEM_VSN}/releases/22/no_dot_erlang.rel
-lib/erlang${SYSTEM_VSN}/releases/22/no_dot_erlang.script
-lib/erlang${SYSTEM_VSN}/releases/22/start.boot
-lib/erlang${SYSTEM_VSN}/releases/22/start.script
-lib/erlang${SYSTEM_VSN}/releases/22/start_all_example.rel
-lib/erlang${SYSTEM_VSN}/releases/22/start_clean.boot
-lib/erlang${SYSTEM_VSN}/releases/22/start_clean.rel
-lib/erlang${SYSTEM_VSN}/releases/22/start_clean.script
-lib/erlang${SYSTEM_VSN}/releases/22/start_sasl.boot
-lib/erlang${SYSTEM_VSN}/releases/22/start_sasl.rel
-lib/erlang${SYSTEM_VSN}/releases/22/start_sasl.script
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/OTP_VERSION
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/installed_application_versions
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/no_dot_erlang.boot
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/no_dot_erlang.rel
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/no_dot_erlang.script
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start.boot
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start.script
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_all_example.rel
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_clean.boot
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_clean.rel
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_clean.script
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_sasl.boot
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_sasl.rel
+lib/erlang${SYSTEM_VSN}/releases/${SYSTEM_VSN}/start_sasl.script
 lib/erlang${SYSTEM_VSN}/releases/RELEASES
 lib/erlang${SYSTEM_VSN}/releases/RELEASES.src
 lib/erlang${SYSTEM_VSN}/releases/start_erl.data
