@@ -14,8 +14,8 @@ PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V
 PKGNAME-wx=	erlang-wx-$V
 
-REVISION-main=	1
-REVISION-wx=	1
+REVISION-main=	2
+REVISION-wx=	2
 
 VERSION_SPEC=	>=24v0,<25v0
 PKGSPEC-main=	erlang-${VERSION_SPEC}
@@ -125,8 +125,5 @@ post-install:
 	if [ ! -x ${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam.smp ]; then \
 		cp -v ${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam \
 		${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam.smp; fi
-	${INSTALL_DATA} ${WRKSRC}/AUTHORS ${PREFIX}/lib/erlang${SYSTEM_VSN}/
-	${INSTALL_DATA} ${WRKSRC}/LICENSE.txt ${PREFIX}/lib/erlang${SYSTEM_VSN}/
-	${INSTALL_DATA} ${WRKSRC}/system/COPYRIGHT ${PREFIX}/lib/erlang${SYSTEM_VSN}/
 
 .include <bsd.port.mk>
