@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.15 2021/01/17 19:50:44 jasper Exp $
+# $OpenBSD: Makefile,v 1.17 2021/03/31 18:13:11 jasper Exp $
 
 COMMENT =	multi-architecture binary analysis toolkit
 
 ANGR_PYTHON_MODULE =	angr
+REVISION =		0
 
 HOMEPAGE =	https://angr.io/
 
@@ -50,9 +51,7 @@ RUN_DEPENDS +=	devel/py-unicorn${MODPY_FLAVOR}>=1.0.2rc2
 
 USE_GMAKE =	Yes
 
-MAKE_ENV =	CXX=${CXX}
-
-CFLAGS +=	-I${LOCALBASE}/include/angr-vex/
+MAKE_ENV =	CXX=${CXX} CXXFLAGS="${CXXFLAGS} -I${LOCALBASE}/include/angr-vex/"
 
 DOCDIR =	${PREFIX}/share/doc/py-${ANGR_PYTHON_MODULE}
 

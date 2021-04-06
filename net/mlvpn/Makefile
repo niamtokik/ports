@@ -1,10 +1,10 @@
-# $OpenBSD: Makefile,v 1.11 2021/02/01 19:54:19 sthen Exp $
+# $OpenBSD: Makefile,v 1.13 2021/04/06 12:36:25 sthen Exp $
 
 COMMENT =		link-aggregation VPN software
 
 V =			2.3.5
 DISTNAME =		mlvpn-$V
-REVISION =		0
+REVISION =		1
 
 CATEGORIES =		net
 
@@ -13,6 +13,7 @@ HOMEPAGE =		https://zehome.github.io/MLVPN/
 # BSD
 PERMIT_PACKAGE =	Yes
 
+# uses pledge()
 WANTLIB += c ev m sodium
 
 MASTER_SITES =		https://github.com/zehome/MLVPN/releases/download/$V/

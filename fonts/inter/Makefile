@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.7 2021/03/11 10:35:15 bentley Exp $
+# $OpenBSD: Makefile,v 1.9 2021/04/03 11:11:52 fcambus Exp $
 
 COMMENT =	typeface carefully crafted & designed for computer screens
 
-V =		3.15
+V =		3.18
 DISTNAME =	Inter-$V
 PKGNAME =	inter-$V
 

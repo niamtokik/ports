@@ -1,13 +1,16 @@
-# $OpenBSD: Makefile,v 1.7 2020/06/17 21:48:16 kurt Exp $
+# $OpenBSD: Makefile,v 1.9 2021/04/05 14:30:04 sthen Exp $
 
 FW_DRIVER=	bwfm
 LINUX_VER=	20200316
 SUP_VER=	1.2
+REVISION=	0
 FW_VER=		${LINUX_VER}.${SUP_VER}
 DISTNAME=	linux-firmware-${LINUX_VER}
 EXTRACT_SUFX=	.tar.xz
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
 		brcm-supplemental-${SUP_VER}.tar.gz:1
+# broad enough to reduce WRKSRC size but specific enough to match both DISTFILES
+EXTRACT_FILES=	\*/{brcm\*.{bin,txt},LICEN[CS]E\*}
 
 MAINTAINER=	Patrick Wildt <patrick@blueri.se>
 
@@ -23,6 +26,8 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/brcm/*txt ${PREFIX}/firmware/
 	${INSTALL_DATA} ${SUP_DIR}/*bin ${PREFIX}/firmware/
 	${INSTALL_DATA} ${SUP_DIR}/*txt ${PREFIX}/firmware/
+	${INSTALL_DATA} ${SUP_DIR}/brcmfmac4356-sdio.vamrs,rock960.txt \
+		${PREFIX}/firmware/brcmfmac4356-sdio.friendlyarm,nanopc-t4.txt
 	${INSTALL_DATA} ${WRKSRC}/LICENCE.broadcom_bcm43xx \
 	    ${PREFIX}/firmware/bwfm-license
 
