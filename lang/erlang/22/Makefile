@@ -47,7 +47,7 @@ RUN_DEPENDS-wx =${BASE_PKGPATH},-main>=${MAJ_V}
 DOC_DIR=	${PREFIX}/lib/erlang${MAJ_V}/
 FAKE_FLAGS =	libdir_suffix="/erlang${MAJ_V}"
 
-AUTOCONF_VERSION =	2.69
+AUTOCONF_VERSION =	2.59
 CONFIGURE_ENV =		LDFLAGS="${LDFLAGS} -pthread"
 AUTOCONF_DIR =		${WRKSRC}/erts \
 			${WRKSRC}/lib/wx/

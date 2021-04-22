@@ -17,7 +17,7 @@ EXTRACT_ONLY ?=	${DISTNAME}.tar.gz
 
 CONFIGURE_STYLE ?=	autoconf no-autoheader
 CONFIGURE_ENV ?=	LDFLAGS="${LDFLAGS} -pthread"
-AUTOCONF_VERSION ?=	2.59
+AUTOCONF_VERSION ?=	2.69
 AUTOCONF_DIR ?=		${WRKSRC} \
 			${WRKSRC}/erts \
 			${WRKSRC}/lib/wx/
