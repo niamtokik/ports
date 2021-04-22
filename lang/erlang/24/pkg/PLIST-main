@@ -969,8 +969,6 @@ lib/erlang24/lib/erl_interface-5.0/src/misc/show_msg.h
 lib/erlang24/lib/erl_interface-5.0/src/prog/
 lib/erlang24/lib/erl_interface-5.0/src/prog/ei_fake_prog.c
 lib/erlang24/lib/erl_interface-5.0/src/prog/erl_call.c
-lib/erlang24/lib/erl_interface-5.0/src/prog/erl_start.c
-lib/erlang24/lib/erl_interface-5.0/src/prog/erl_start.h
 lib/erlang24/lib/${ERL_ERTS}/
 lib/erlang24/lib/${ERL_ERTS}/ebin/
 lib/erlang24/lib/${ERL_ERTS}/ebin/atomics.beam
@@ -2571,8 +2569,6 @@ lib/erlang24/lib/${ERL_SSH}/ebin/ssh_client_channel.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_client_key_api.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_connection.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_connection_handler.beam
-lib/erlang24/lib/${ERL_SSH}/ebin/ssh_connection_sup.beam
-lib/erlang24/lib/${ERL_SSH}/ebin/ssh_controller.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_daemon_channel.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_dbg.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_file.beam
@@ -2593,7 +2589,6 @@ lib/erlang24/lib/${ERL_SSH}/ebin/ssh_sftpd_file.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_sftpd_file_api.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_shell.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_subsystem_sup.beam
-lib/erlang24/lib/${ERL_SSH}/ebin/ssh_sup.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_system_sup.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_tcpip_forward_acceptor.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_tcpip_forward_acceptor_sup.beam
@@ -2601,8 +2596,6 @@ lib/erlang24/lib/${ERL_SSH}/ebin/ssh_tcpip_forward_client.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_tcpip_forward_srv.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_transport.beam
 lib/erlang24/lib/${ERL_SSH}/ebin/ssh_xfer.beam
-lib/erlang24/lib/${ERL_SSH}/ebin/sshc_sup.beam
-lib/erlang24/lib/${ERL_SSH}/ebin/sshd_sup.beam
 lib/erlang24/lib/${ERL_SSH}/include/
 lib/erlang24/lib/${ERL_SSH}/src/
 lib/erlang24/lib/${ERL_SSH}/src/ssh.erl
@@ -2623,8 +2616,6 @@ lib/erlang24/lib/${ERL_SSH}/src/ssh_client_key_api.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_connect.hrl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_connection.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_connection_handler.erl
-lib/erlang24/lib/${ERL_SSH}/src/ssh_connection_sup.erl
-lib/erlang24/lib/${ERL_SSH}/src/ssh_controller.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_daemon_channel.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_dbg.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_file.erl
@@ -2646,7 +2637,6 @@ lib/erlang24/lib/${ERL_SSH}/src/ssh_sftpd_file.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_sftpd_file_api.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_shell.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_subsystem_sup.erl
-lib/erlang24/lib/${ERL_SSH}/src/ssh_sup.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_system_sup.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_tcpip_forward_acceptor.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_tcpip_forward_acceptor_sup.erl
@@ -2656,8 +2646,6 @@ lib/erlang24/lib/${ERL_SSH}/src/ssh_transport.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_transport.hrl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_xfer.erl
 lib/erlang24/lib/${ERL_SSH}/src/ssh_xfer.hrl
-lib/erlang24/lib/${ERL_SSH}/src/sshc_sup.erl
-lib/erlang24/lib/${ERL_SSH}/src/sshd_sup.erl
 lib/erlang24/lib/${ERL_SSL}/
 lib/erlang24/lib/${ERL_SSL}/ebin/
 lib/erlang24/lib/${ERL_SSL}/ebin/dtls_connection.beam
