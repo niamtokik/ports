@@ -1,14 +1,13 @@
-#	$OpenBSD: Makefile,v 1.81 2021/04/16 06:40:44 jsg Exp $
+#	$OpenBSD: Makefile,v 1.83 2021/04/28 04:03:28 jsg Exp $
 
 BROKEN-sparc64=	Error: the specified option is not accepted in ISB at operand 1 -- isb sy
 BROKEN-arm=	lib/time.c:187:1: internal compiler error: Bus error
 
-FLAVORS=	aarch64 arm
+FLAVORS=	aarch64 arm riscv64
 FLAVOR?=	arm
 
 COMMENT=	U-Boot firmware
-VERSION=	2021.01
-REVISION=	1
+VERSION=	2021.04
 DISTNAME=	u-boot-${VERSION}
 PKGNAME=	u-boot-${FLAVOR}-${VERSION:S/-//}
 FULLPKGNAME=	${PKGNAME}
@@ -25,8 +24,7 @@ PKG_ARCH=	*
 
 BUILD_DEPENDS=	devel/bison \
 		devel/dtc \
-		devel/swig \
-		textproc/gsed
+		devel/swig
 
 MODULES=	lang/python
 MODPY_RUNDEP=	No
@@ -49,6 +47,9 @@ SUNXI_BL31=	"${LOCALBASE}/share/arm-trusted-firmware/sun50i_a64-bl31.bin"
 .elif "${FLAVOR}" == "arm"
 BUILD_DEPENDS+=	devel/arm-none-eabi/gcc-linaro>=7.4.2019.02
 MAKE_ENV+=	CROSS_COMPILE="arm-none-eabi-"
+.elif "${FLAVOR}" == "riscv64"
+BUILD_DEPENDS+= devel/riscv-elf/gcc
+MAKE_ENV+=	CROSS_COMPILE="riscv64-unknown-elf-"
 .endif
 
 USE_GMAKE=	Yes
@@ -141,6 +142,9 @@ BOARDS=\
 	tinker-rk3288 \
 	turris_omnia \
 	vexpress_ca15_tc2
+.elif "${FLAVOR}" == "riscv64"
+BOARDS=\
+	qemu-riscv64_smode
 .endif
 
 FILES=\

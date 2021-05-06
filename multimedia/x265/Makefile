@@ -1,16 +1,16 @@
-# $OpenBSD: Makefile,v 1.49 2020/06/20 10:45:09 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.52 2021/04/27 04:42:09 rsadowski Exp $
 
 COMMENT=	free H.265/HEVC encoder
 
-VER=		3.4
+VER=		3.5
 DISTNAME=	x265_${VER}
 PKGNAME=	x265-${VER}
 CATEGORIES=	multimedia
-MASTER_SITES=	https://bitbucket.org/multicoreware/x265/downloads/
+MASTER_SITES=	https://bitbucket.org/multicoreware/x265_git/downloads/
 
-SHARED_LIBS=	x265	22.0
+SHARED_LIBS=	x265	23.0
 
-HOMEPAGE=	http://x265.org/
+HOMEPAGE=	https://x265.org/
 
 MAINTAINER=	Brad Smith <brad@comstyle.com>
 
@@ -33,6 +33,9 @@ BUILD_DEPENDS+=	devel/nasm
 CONFIGURE_ARGS+=-DCMAKE_ASM_YASM_FLAGS_DEBUG="-g dwarf2" \
 		-DENABLE_PIC=On \
 		-DENABLE_TESTS=On
+
+CONFIGURE_ARGS+=-DX265_VERSION=${VER} \
+		-DX265_LATEST_TAG=${VER}
 
 .if ${MACHINE_ARCH} == "aarch64" || ${MACHINE_ARCH} == "i386"
 CONFIGURE_ARGS+=-DENABLE_ASSEMBLY=Off

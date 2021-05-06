@@ -1,11 +1,15 @@
-# $OpenBSD: Makefile,v 1.3 2019/09/27 21:28:14 jasper Exp $
+# $OpenBSD: Makefile,v 1.5 2021/05/04 15:29:54 sthen Exp $
 
 COMMENT=	library and milter for DMARC
 
-DISTNAME=	opendmarc-1.3.2
-REVISION =	0
+V=		1.4.1.1
+GH_ACCOUNT=	trusteddomainproject
+GH_PROJECT=	OpenDMARC
+GH_TAGNAME=	rel-opendmarc-${V:C/\./-/g}
+DISTNAME=	opendmarc-$V
+REVISION=	0
 
-SHARED_LIBS +=	opendmarc             0.0
+SHARED_LIBS +=	opendmarc             1.0
 
 CATEGORIES=	mail
 
@@ -16,16 +20,17 @@ MAINTAINER =	Renaud Allard <renaud@allard.it>
 # BSD, Sendmail
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c iconv idn intl milter pthread spf2
-
-MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=opendmarc/}
+WANTLIB += c iconv idn intl m milter pthread spf2
 
 LIB_DEPENDS=	devel/libidn \
 		mail/libspf2 \
 		mail/sendmail,-libmilter
 
 SEPARATE_BUILD= Yes
-CONFIGURE_STYLE= gnu
+
+CONFIGURE_STYLE=  autoreconf
+AUTOCONF_VERSION= 2.69
+AUTOMAKE_VERSION= 1.16
 
 CONFIGURE_ENV=	CPPFLAGS="-I${LOCALBASE}/include" \
 		LDFLAGS="-L${LOCALBASE}/lib"

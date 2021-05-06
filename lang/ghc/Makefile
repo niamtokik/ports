@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.183 2021/03/17 01:39:22 gnezdo Exp $
+# $OpenBSD: Makefile,v 1.185 2021/05/02 21:45:24 gnezdo Exp $
 
 # Not yet ported to other architectures
 ONLY_FOR_ARCHS =	i386 amd64
@@ -18,9 +18,10 @@ GHC_VERSION =		8.10.3
 DISTNAME =		ghc-${GHC_VERSION}
 CATEGORIES =		lang devel
 HOMEPAGE =		https://www.haskell.org/ghc/
+REVISION =		0
 
 # Version of the precompiled binaries
-BIN_VER =		8.6.4.20200921
+BIN_VER =		8.10.3.20210429
 
 # lang/python needed for regression tests.
 MODULES =		lang/python
@@ -191,7 +192,7 @@ do-test:
 # It doesn't matter whether this is the actual date of the bootstrapper
 # build. It's just used to get different distfiles whenever new
 # bootstrappers have to be built.
-BOOTSTRAP_DATE =	20200921
+BOOTSTRAP_DATE =	20210429
 
 # Create a bootstrapper. This compiles a stripped-down version of
 # ghc and creates a `bindist', i.e. a tarball with binaries that

@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.15 2021/02/20 06:57:51 rsadowski Exp $ #
+# $OpenBSD: Makefile,v 1.17 2021/05/02 14:59:45 rsadowski Exp $ #
 
 COMMENT =	desktop sync client for Nextcloud
 
-V =		3.1.3
+V =		3.2.1
 DISTNAME =	nextcloudclient-${V}
 
 GH_ACCOUNT =	nextcloud
@@ -13,8 +13,8 @@ CATEGORIES =	net
 
 HOMEPAGE =	https://nextcloud.com
 
-SHARED_LIBS +=  nextcloudsync   0.1 # 3.0.3
-SHARED_LIBS +=  ocsync          0.0 # 3.0.3
+SHARED_LIBS +=  nextcloudsync    0.1 # 3.2.1
+SHARED_LIBS +=  nextcloud_csync  0.0 # 3.2.1
 
 MAINTAINER =	Adriano Barbosa <barbosa.aob@gmail.com>
 
@@ -22,10 +22,11 @@ MAINTAINER =	Adriano Barbosa <barbosa.aob@gmail.com>
 PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} Qt5Concurrent Qt5Core Qt5DBus Qt5Gui
-WANTLIB += Qt5Network Qt5Qml Qt5QmlModels Qt5Quick Qt5QuickControls2
-WANTLIB += Qt5Svg Qt5WebSockets Qt5Widgets Qt5Xml c crypto gio-2.0
-WANTLIB += glib-2.0 gobject-2.0 intl m qt5keychain secret-1 sqlite3
-WANTLIB += ssl z lib/inotify/inotify
+WANTLIB += Qt5Network Qt5Positioning Qt5PrintSupport Qt5Qml Qt5QmlModels
+WANTLIB += Qt5Quick Qt5QuickControls2 Qt5Svg Qt5WebChannel Qt5WebEngineCore
+WANTLIB += Qt5WebEngineWidgets Qt5WebSockets Qt5Widgets Qt5Xml
+WANTLIB += c crypto gio-2.0 glib-2.0 gobject-2.0 intl m qt5keychain
+WANTLIB += secret-1 sqlite3 ssl z lib/inotify/inotify
 
 MODULES =		devel/cmake \
 			x11/qt5
@@ -36,6 +37,7 @@ BUILD_DEPENDS =		devel/gettext,-tools
 BUILD_DEPENDS +=	devel/cmocka
 
 RUN_DEPENDS =		devel/desktop-file-utils \
+			misc/shared-mime-info \
 			x11/gtk+3,-guic \
 			x11/qt5/qtgraphicaleffects
 
@@ -44,14 +46,20 @@ LIB_DEPENDS =		databases/sqlite3 \
 			security/qtkeychain \
 			x11/qt5/qtsvg \
 			x11/qt5/qtquickcontrols2 \
+			x11/qt5/qtwebengine \
 			x11/qt5/qtwebsockets
 
 CONFIGURE_ARGS =	-DBUILD_SHELL_INTEGRATION_NAUTILUS=OFF \
 			-DBUILD_SHELL_INTEGRATION_DOLPHIN=OFF \
 			-DBUILD_SHELL_INTEGRATION=OFF \
 			-DUNIT_TESTING=ON \
-			-DWITH_CRASHREPORTER=OFF \
-			-DNO_SHIBBOLETH=ON
+			-DWITH_CRASHREPORTER=OFF
+
+# Disable Doxygen
+CONFIGURE_ARGS +=	-DCMAKE_DISABLE_FIND_PACKAGE_Doxygen=ON
+
+# Disable SharedMime
+CONFIGURE_ARGS +=	-DCMAKE_DISABLE_FIND_PACKAGE_SharedMimeInfo=ON
 
 # Do not install under /etc/Nextcloud
 CONFIGURE_ARGS +=	-DSYSCONF_INSTALL_DIR=${SYSCONFDIR}

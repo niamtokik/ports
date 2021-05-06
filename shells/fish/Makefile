@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.22 2021/04/07 20:08:53 solene Exp $
+# $OpenBSD: Makefile,v 1.24 2021/04/24 13:58:52 rsadowski Exp $
 
 COMMENT =		friendly interactive shell
 
-V =			3.2.1
+V =			3.2.2
 DISTNAME =		fish-$V
 
 CATEGORIES =		shells
@@ -41,9 +41,10 @@ MODPY_ADJ_FILES =	share/tools/create_manpage_completions.py \
 
 MAKE_FLAGS =		V=1
 
-CONFIGURE_ARGS =	--without-included-pcre2
 CONFIGURE_ENV =		CPPFLAGS="-I${LOCALBASE}/include" \
 			LDFLAGS="-L${LOCALBASE}/lib"
+
+PORTHOME =		${WRKDIR}
 
 post-install:
 	${MODPY_BIN} ${MODPY_LIBDIR}/compileall.py \

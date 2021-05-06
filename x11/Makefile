@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.705 2021/04/02 09:29:09 jasper Exp $
+# $OpenBSD: Makefile,v 1.707 2021/05/03 16:41:36 rsadowski Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -248,6 +248,7 @@
      SUBDIR += py-xlib,python3
      SUBDIR += qt4
      SUBDIR += qt5
+     SUBDIR += qt6
      SUBDIR += qt5ct
      SUBDIR += qtfm
      SUBDIR += qwt
@@ -263,7 +264,6 @@
      SUBDIR += rox-filer
      SUBDIR += roxterm
      SUBDIR += ruby-dbus
-     SUBDIR += ruby-tk,ruby26
      SUBDIR += ruby-tk,ruby27
      SUBDIR += ruby-tk,ruby30
      SUBDIR += rxvt-unicode

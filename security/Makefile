@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.621 2021/03/29 12:13:52 sthen Exp $
+# $OpenBSD: Makefile,v 1.625 2021/05/03 17:48:04 tb Exp $
 
      SUBDIR =
      SUBDIR += ADMsnmp
@@ -144,6 +144,7 @@
      SUBDIR += openpam
      SUBDIR += opensc
      SUBDIR += openssl
+     SUBDIR += openssl-ruby-tests
      SUBDIR += ophcrack
      SUBDIR += opm
      SUBDIR += opmsg
@@ -244,7 +245,6 @@
      SUBDIR += pear-Auth
      SUBDIR += pear-Auth-HTTP
      SUBDIR += pear-Auth-SASL
-     SUBDIR += pecl-mcrypt,php72
      SUBDIR += pecl-mcrypt,php73
      SUBDIR += pecl-mcrypt,php74
      SUBDIR += pecl-mcrypt,php80
@@ -289,6 +289,7 @@
      SUBDIR += py-ecdsa
      SUBDIR += py-ecdsa,python3
      SUBDIR += py-elfesteem
+     SUBDIR += py-fastecdsa,python3
      SUBDIR += py-fickling,python3
      SUBDIR += py-fido2,python3
      SUBDIR += py-gnupg,python3
@@ -339,17 +340,13 @@
      SUBDIR += reop
      SUBDIR += rhash
      SUBDIR += routersploit
-     SUBDIR += ruby-argon2,ruby26
      SUBDIR += ruby-argon2,ruby27
      SUBDIR += ruby-argon2,ruby30
-     SUBDIR += ruby-bcrypt,ruby26
      SUBDIR += ruby-bcrypt,ruby27
      SUBDIR += ruby-bcrypt,ruby30
      SUBDIR += ruby-cms_scanner
-     SUBDIR += ruby-gpgme,ruby26
      SUBDIR += ruby-gpgme,ruby27
      SUBDIR += ruby-gpgme,ruby30
-     SUBDIR += ruby-pledge,ruby26
      SUBDIR += ruby-pledge,ruby27
      SUBDIR += ruby-pledge,ruby30
      SUBDIR += ruby-hmac

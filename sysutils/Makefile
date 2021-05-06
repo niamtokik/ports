@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.598 2021/03/21 14:05:12 danj Exp $
+# $OpenBSD: Makefile,v 1.602 2021/05/04 17:49:37 rsadowski Exp $
 
      SUBDIR =
      SUBDIR += accountsservice
@@ -211,10 +211,14 @@
      SUBDIR += nomad
      SUBDIR += ntfs-3g
      SUBDIR += nut
+     SUBDIR += oc
      SUBDIR += od1000_firmware
      SUBDIR += opam
+     SUBDIR += openbsdisks2
      SUBDIR += openpoppassd
      SUBDIR += p5-Capture-Tiny
+     SUBDIR += p5-Data-Float
+     SUBDIR += p5-Data-Entropy
      SUBDIR += p5-File-Monitor
      SUBDIR += p5-File-NFSLock
      SUBDIR += p5-File-Rename
@@ -224,6 +228,7 @@
      SUBDIR += p5-Filesys-Notify-Simple
      SUBDIR += p5-Filesys-Virtual
      SUBDIR += p5-Filesys-Virtual-Plain
+     SUBDIR += p5-Number-Bytes-Human
      SUBDIR += p5-Parse-DMIDecode
      SUBDIR += p5-Proc-ProcessTable
      SUBDIR += p5-Proc-Queue
@@ -313,22 +318,18 @@
      SUBDIR += rpl
      SUBDIR += rsyslog
      SUBDIR += rtty
-     SUBDIR += ruby-augeas,ruby26
      SUBDIR += ruby-augeas,ruby27
      SUBDIR += ruby-augeas,ruby30
      SUBDIR += ruby-capistrano
      SUBDIR += ruby-directory_watcher
-     SUBDIR += ruby-libvirt,ruby26
      SUBDIR += ruby-libvirt,ruby27
      SUBDIR += ruby-libvirt,ruby30
-     SUBDIR += ruby-posix-spawn,ruby26
      SUBDIR += ruby-posix-spawn,ruby27
      SUBDIR += ruby-posix-spawn,ruby30
      SUBDIR += ruby-puppet
      SUBDIR += ruby-puppet-lint
      SUBDIR += ruby-puppet-syntax
      SUBDIR += ruby-r10k
-     SUBDIR += ruby-shadow,ruby26
      SUBDIR += ruby-shadow,ruby27
      SUBDIR += ruby-shadow,ruby30
      SUBDIR += ruby-tzinfo

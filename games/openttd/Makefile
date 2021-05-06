@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.70 2020/08/10 21:10:35 solene Exp $
+# $OpenBSD: Makefile,v 1.72 2021/05/04 21:33:46 solene Exp $
 
 COMMENT=	open source clone of the game Transport Tycoon Deluxe
 
-V =		1.10.3
+V =		1.11.2
 DISTNAME =	openttd-$V-source
 PKGNAME =	openttd-$V
 
@@ -10,13 +10,14 @@ CATEGORIES=	games
 
 HOMEPAGE=	https://www.openttd.org/en/
 
-MAINTAINER =	Anthony J. Bentley <anthony@anjbe.name>
+MAINTAINER =	Solene Rapenne <solene@perso.pw>
 
 # GPLv2 only
 PERMIT_PACKAGE=	Yes
 
+WANTLIB += ${COMPILER_LIBCXX} 
 WANTLIB += SDL2 c fluidsynth fontconfig freetype icudata icui18n icuuc
-WANTLIB += lzma lzo2 m png pthread ${COMPILER_LIBCXX} xdg-basedir z
+WANTLIB += lzma lzo2 m png pthread z
 
 COMPILER =		base-clang ports-gcc base-gcc
 
@@ -25,13 +26,14 @@ EXTRACT_SUFX =		.tar.xz
 
 DIST_SUBDIR =		openttd
 
+MODULES =		devel/cmake
+
 LIB_DEPENDS=		archivers/lzo2 \
 			audio/fluidsynth \
 			devel/sdl2 \
 			graphics/png \
 			textproc/icu4c \
-			archivers/xz \
-			x11/libxdg-basedir
+			archivers/xz
 
 RUN_DEPENDS =		audio/timidity \
 			devel/desktop-file-utils \
@@ -40,36 +42,21 @@ RUN_DEPENDS =		audio/timidity \
 			games/openttd-data/opensfx \
 			x11/gtk+3,-guic
 
-CONFIGURE_STYLE=	simple
-CONFIGURE_ARGS+=	--prefix-dir=${PREFIX} \
-			--binary-dir=bin \
-			--data-dir=share/openttd \
-			--icon-dir=share/pixmaps \
-			--man-dir=man/man6 \
-			--personal-dir=.openttd \
-			--install-dir=${WRKINST} \
-			--with-png \
-			--with-zlib \
-			--without-allegro \
-			--CFLAGS_BUILD="${CFLAGS}" \
-			--disable-strip
+CONFIGURE_ARGS =	-DCMAKE_INSTALL_BINDIR=bin \
+			-DCMAKE_INSTALL_DATADIR=share
 
-MAKE_ENV+=		VERBOSE=1
-
-USE_GMAKE=		Yes
 NO_TEST=		Yes
 
 DOCSDIR=		${PREFIX}/share/doc/openttd
 EXAMPLESDIR=		${PREFIX}/share/examples/openttd
 GAMEDIR=		${PREFIX}/share/openttd
 
-FAKE_FLAGS=BUNDLE_DIR=${WRKINST}/bundle BUNDLES_DIR=${WRKINST}/bundle
-
 WRKDIST =		${WRKDIR}/openttd-$V
 
 DEBUG_PACKAGES =	${BUILD_PACKAGES}
 
 post-install:
+	gunzip ${PREFIX}/man/man6/openttd.6.gz
 	${INSTALL_DATA_DIR} ${GAMEDIR}/media
 	cd ${WRKSRC}/media/ && umask 022 && pax -rw . ${GAMEDIR}/media
 	${INSTALL_DATA_DIR} ${EXAMPLESDIR}
@@ -77,6 +64,5 @@ post-install:
 	${INSTALL_DATA_DIR} ${DOCSDIR}
 	cd ${WRKSRC}/docs/ && umask 022 && pax -rw . ${DOCSDIR}
 	rm -rf ${WRKINST}/bundle
-	rm -rf ${GAMEDIR}/media/openttd.desktop*
 
 .include <bsd.port.mk>

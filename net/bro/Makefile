@@ -1,9 +1,10 @@
-# $OpenBSD: Makefile,v 1.73 2021/03/06 09:35:09 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.75 2021/05/02 17:57:18 ajacoutot Exp $
 
 COMMENT=		network analysis and security monitoring framework
 
-V=			4.0.0
+V=			4.0.1
 DISTNAME=		zeek-${V}
+REVISION=		0
 
 SHARED_LIBS +=	binpac                    2.0
 SHARED_LIBS +=  broccoli                  9.0
@@ -31,7 +32,9 @@ FIX_EXTRACT_PERMISSIONS=Yes
 MODULES=		lang/python
 
 # c++11
-COMPILER =		base-clang ports-gcc
+#COMPILER=		base-clang ports-gcc
+# XXX src/modp_numtoa.c:174:30: error: use of undeclared identifier 'DBL_DECIMAL_DIG'
+COMPILER=		ports-clang
 
 MODPY_ADJ_FILES=	auxil/btest/btest \
 			auxil/zeekctl/bin/stats-to-csv \

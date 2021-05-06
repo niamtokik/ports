@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.547 2021/03/04 02:45:50 gnezdo Exp $
+# $OpenBSD: Makefile,v 1.551 2021/04/30 16:38:46 sthen Exp $
 
      SUBDIR =
      SUBDIR += DevIL
@@ -226,7 +226,6 @@
      SUBDIR += p5-Sane
      SUBDIR += pdf2djvu
      SUBDIR += pdfsandwich
-     SUBDIR += pecl-imagick,php72
      SUBDIR += pecl-imagick,php73
      SUBDIR += pecl-imagick,php74
      #SUBDIR += pecl-imagick,php80 not yet
@@ -236,6 +235,7 @@
      SUBDIR += png
      SUBDIR += png2ico
      SUBDIR += pngcrush
+     SUBDIR += pngquant
      SUBDIR += posterazor
      SUBDIR += potrace
      SUBDIR += povray
@@ -267,11 +267,11 @@
      SUBDIR += rawtherapee
      SUBDIR += ruby-color
      SUBDIR += ruby-gruff
-     SUBDIR += ruby-rmagick,ruby26
      SUBDIR += ruby-rmagick,ruby27
      SUBDIR += ruby-rmagick,ruby30
      SUBDIR += s10sh
      SUBDIR += sane-backends
+     SUBDIR += sane-backends,escl
      SUBDIR += sane-backends,snmp
      SUBDIR += scour
      SUBDIR += scratch
