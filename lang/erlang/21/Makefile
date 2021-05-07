@@ -7,7 +7,7 @@ COMMENT-wx=	WxWidgets bindings for Erlang
 
 V=		21.3.8.23
 MAJ_V=		21
-EPOCH=		0
+EPOCH=		1
 DISTNAME=	otp_src_$V
 PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V

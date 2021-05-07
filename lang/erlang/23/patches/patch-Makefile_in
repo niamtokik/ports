@@ -1,0 +1,16 @@
+$OpenBSD: Makefile.in,v 1.1 2021/05/07 08:41:23 niamtokik Exp $
+
+When compiling Hipe, Makefile crash trying to execute erl23
+instead of erl from the bootstrap. This patch fix this issue
+by creating a symlink directly in the bootstrap bin directory.
+
+Index: Makefile.in
+--- Makefile.in.orig
++++ Makefile.in
+@@ -576,6 +576,7 @@ $(ERL_TOP)/erts/etc/unix/erl.src.src > \
+                        $(BOOTSTRAP_ROOT)/bootstrap/bin/erl
+        @chmod 755 $(BOOTSTRAP_ROOT)/bootstrap/bin/erl
++	@ln -sf $(BOOTSTRAP_ROOT)/bootstrap/bin/erl $(BOOTSTRAP_ROOT)/bootstrap/bin/erl${MAJ_V}
+
+ $(BOOTSTRAP_ROOT)/bootstrap/bin/erlc: $(ERL_TOP)/bin/$(TARGET)/erlc $(BOOTSTRAP_ROOT)/bootstrap/target
+        @rm -f $(BOOTSTRAP_ROOT)/bootstrap/bin/erlc
