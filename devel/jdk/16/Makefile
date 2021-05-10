@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2 2021/05/05 12:30:42 kurt Exp $
+# $OpenBSD: Makefile,v 1.4 2021/05/08 19:22:32 kurt Exp $
 
 ONLY_FOR_ARCHS=	i386 amd64 aarch64
 USE_WXNEEDED=	Yes
@@ -13,12 +13,13 @@ PACKAGE_VER=	${BASE_VER}.${PATCH_VER}.${BSD_PORT_REL}
 PKGNAME=	jdk-${PACKAGE_VER}
 PKGSTEM=	jdk-16
 EPOCH=		0
+REVISION=	0
 
 DIST_SUBDIR=	jdk
 DISTNAME=	jdk-${VERSION_STR}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 WRKDIST=	${WRKDIR}/jdk16u-jdk-${BASE_VER}-${PATCH_VER}-${BSD_PORT_REL}
-BOOTJDK_DATE=	20210317
+BOOTJDK_DATE=	20210508
 
 CATEGORIES=	devel/jdk java
 
@@ -90,9 +91,8 @@ GMAKE=		${LOCALBASE}/bin/gmake
 PARALLEL_MAKE_FLAGS=
 
 CONFIGURE_STYLE=gnu
-CONFIGURE_ENV+= AUTOCONF_VERSION=${AUTOCONF_VERSION} \
-		ac_cv_path_NAWK=awk
-CONFIGURE_ARGS=	MAKE=${GMAKE} \
+CONFIGURE_ENV+= AUTOCONF_VERSION=${AUTOCONF_VERSION}
+CONFIGURE_ARGS=	MAKE=${GMAKE} MKDIR=mkdir AWK=awk \
 		--with-boot-jdk=${BOOT_JDK} \
 		--with-jobs=${MAKE_JOBS} \
 		--with-debug-level=release \
@@ -192,7 +192,7 @@ build-bootjdk: build
 		-exec sh -c 'file {} | grep -q ELF && \
 		${_PBUILD} strip -S {}' \;
 	@LD_LIBRARY_PATH="${WRKTMP}/bootjdk/lib" \
-		find ${WRKTMP}/bootjdk -type f -perm -500 -exec ldd {} + 2>/dev/null | \
+		find ${WRKTMP}/bootjdk -type f -exec ldd {} + 2>/dev/null | \
 		grep rlib | cut -d"/" -f 2-20 | sort -u | grep -v "\.so$$" | \
 		xargs -I % ${_PBUILD} cp /% ${WRKTMP}/bootjdk-libs
 	@cd ${WRKTMP} && \

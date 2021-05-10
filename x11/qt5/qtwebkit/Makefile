@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.29 2021/02/23 19:39:52 sthen Exp $
+# $OpenBSD: Makefile,v 1.31 2021/05/08 14:58:43 sthen Exp $
 
 COMMENT =		QtWebKit with a more modern WebKit code base
 
 USE_WXNEEDED =		Yes
+FIX_EXTRACT_PERMISSIONS = Yes
 
 CATEGORIES =		www
 
@@ -13,8 +14,8 @@ DISTNAME =		qtwebkit-${VERSION:C/alpha/-alpha/}
 PKGNAME =		qtwebkit-${VERSION}
 PKGSPEC =		qtwebkit->=${VERSION}v0
 
-EPOCH=			0
-REVISION =		2
+EPOCH =			0
+REVISION =		3
 
 
 SHARED_LIBS +=  Qt5WebKit               3.1 # 5.9
