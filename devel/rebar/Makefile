@@ -7,6 +7,7 @@ GH_ACCOUNT=		rebar
 GH_PROJECT=		rebar
 FULLPKGNAME =		rebar${ERL_VERSION}-${GH_TAGNAME}
 REVISION =		2
+ERL_VERSION=		22
 
 CATEGORIES=		devel lang/erlang
 
@@ -17,16 +18,8 @@ PERMIT_PACKAGE=	Yes
 
 # This port cannot use the erlang module for the module depends on this port.
 # Keep in sync with erlang.port.mk
-FLAVORS =		erlang21
-FLAVOR ?=		erlang21
-
-.if ${FLAVOR:Merlang21}}
-_EV =			${FLAVOR:C/.*([0-9][0-9]+\$)/\1/}
-RUN_DEPENDS =		lang/erlang/${_EV}
-ERL_VERSION =		${_EV}
-.else
-ERRORS +=		"Invalid FLAVOR set: ${FLAVOR}"
-.endif
+# FLAVORS =		erlang21
+# FLAVOR ?=		erlang21
 
 BUILD_DEPENDS +=	${RUN_DEPENDS}
 
@@ -38,6 +31,6 @@ pre-configure:
 	${SUBST_CMD} ${WRKSRC}/bootstrap ${WRKSRC}/src/rebar_escripter.erl
 
 do-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/rebar ${PREFIX}/bin/rebar${ERL_VERSION}
+	${INSTALL_SCRIPT} ${WRKSRC}/rebar ${PREFIX}/bin/rebar
 
 .include <bsd.port.mk>
