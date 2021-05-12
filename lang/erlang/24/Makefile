@@ -5,7 +5,7 @@ COMMENT-wx=	WxWidgets bindings for Erlang
 
 V=		24.0
 MAJ_V=		24
-EPOCH=		0
+EPOCH=		1
 DISTNAME=	otp_src_$V
 DISTFILES =    ${DISTNAME}.tar.gz \
                 otp_doc_man_$(V).tar.gz
@@ -118,7 +118,7 @@ do-configure:
 
 post-install:
 	ln -sf ../lib/erlang${MAJ_V}/lib/${ERL_EI}/bin/erl_call ${PREFIX}/bin/erl_call${MAJ_V}
-	tar zxf ${FULLDISTDIR}/otp_doc_man_${V}-${RC}.tar.gz -C ${DOC_DIR}
+	tar zxf ${FULLDISTDIR}/otp_doc_man_${V}.tar.gz -C ${DOC_DIR}
 	rm -r ${DOC_DIR}/man/man7/*MIB.7
 	rm -r ${DOC_DIR}/man/man7/*TM.7
 	if [ ! -x ${PREFIX}/lib/erlang${MAJ_V}/${ERL_ERTS}/bin/beam.smp ]; then \
