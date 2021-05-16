@@ -5,7 +5,7 @@ COMMENT-wx=	WxWidgets bindings for Erlang
 
 V=		24.0
 MAJ_V=		24
-EPOCH=		1
+EPOCH=		2
 DISTNAME=	otp_src_$V
 DISTFILES =    ${DISTNAME}.tar.gz \
                 otp_doc_man_$(V).tar.gz

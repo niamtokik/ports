@@ -1,5 +1,7 @@
 @comment $OpenBSD: PLIST-wx,v$
 @option is-branch
+lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/
+lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/dbg_debugged.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/dbg_icmd.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/dbg_idb.beam
@@ -26,9 +28,11 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/debugger.appup
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/debugger.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/i.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/ebin/int.beam
+lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/priv/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/priv/debugger.gif
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/priv/debugger.tool
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/priv/erlang_bug.png
+lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/dbg_debugged.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/dbg_icmd.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/dbg_idb.erl
@@ -55,6 +59,8 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/dbg_wx_winman.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/debugger.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/i.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_DEBUGGER}/src/int.erl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/cdv_atom_cb.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/cdv_bin_cb.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/cdv_detail_wx.beam
@@ -100,11 +106,16 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/observer_tv_wx.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/observer_wx.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/ttb.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/ebin/ttb_et.beam
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/examples/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/examples/multitrace.erl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/include/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/include/etop.hrl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/priv/
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/priv/bin/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/priv/bin/cdv
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/priv/bin/etop
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/priv/erlang_observer.png
+lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/cdv_atom_cb.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/cdv_bin_cb.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/cdv_detail_wx.erl
@@ -152,6 +163,8 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/observer_tv_wx.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/observer_wx.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/ttb.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_OBSERVER}/src/ttb_et.erl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/gl.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/glu.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/wx.app
@@ -388,6 +401,8 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/wx_object.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/wxe_master.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/wxe_server.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/ebin/wxe_util.beam
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/demo.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/demo.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/demo_html_tagger.beam
@@ -445,10 +460,12 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/ex_textCtrl.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/ex_treeCtrl.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/ex_treeCtrl.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/demo/image.jpg
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/simple/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/simple/hello.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/simple/hello2.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/simple/menu.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/simple/minimal.erl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku.hrl
@@ -458,14 +475,18 @@ lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku_game.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku_game.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku_gui.beam
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/examples/sudoku/sudoku_gui.erl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/include/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/include/gl.hrl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/include/glu.hrl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/include/wx.hrl
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/priv/
 @so lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/priv/erl_gl.so
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/priv/erlang-logo128.png
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/priv/erlang-logo32.png
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/priv/erlang-logo64.png
 @so lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/priv/wxe_driver.so
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/src/
+lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/src/gen/
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/src/gen/gl.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/src/gen/glu.erl
 lib/erlang${SYSTEM_VSN}/lib/${ERL_WX}/src/gen/wxAcceleratorEntry.erl
