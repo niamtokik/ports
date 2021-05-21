@@ -3,9 +3,9 @@
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		24.0
+V=		24.0.1
 MAJ_V=		24
-EPOCH=		2
+EPOCH=		3
 DISTNAME=	otp_src_$V
 DISTFILES =    ${DISTNAME}.tar.gz \
                 otp_doc_man_$(V).tar.gz
@@ -62,44 +62,44 @@ MODGNU_CONFIG_GUESS_DIRS ?=     ${WRKSRC}/erts/autoconf \
 # Use the target 'gen-versions' to update this list
 ERL_VERSIONS=	\
 ASN1_VSN        5.0.16 \
-COMMON_TEST_VSN 1.20.3 \
+COMMON_TEST_VSN 1.20.4 \
 COMPILER_VSN    8.0 \
-CRYPTO_VSN      5.0 \
+CRYPTO_VSN      5.0.1 \
 DEBUGGER_VSN    5.1 \
 DIALYZER_VSN    4.4 \
 DIAMETER_VSN    2.2.4 \
 EDOC_VSN        1.0 \
-EI_VSN  5.0 \
+EI_VSN  5.0.1 \
 ELDAP_VSN       1.2.9 \
 EMACS_VSN       2.7.0 \
 ERL_DOCGEN_VSN  1.1 \
-ERL_INTERFACE_VSN	5.0 \
+ERL_INTERFACE_VSN       5.0.1 \
 ET_VSN  1.6.5 \
 EUNIT_VSN       2.6.1 \
 FTP_VSN 1.1 \
 INETS_VSN       7.4 \
 JINTERFACE_VSN  1.12 \
 KERNEL_VSN      8.0 \
-MEGACO_VSN      4.0 \
+MEGACO_VSN      4.0.1 \
 MNESIA_VSN      4.19.1 \
 OBSERVER_VSN    2.9.6 \
-ODBC_VSN        2.13.4 \
+ODBC_VSN        2.13.5 \
 OS_MON_VSN      2.7 \
 PARSETOOLS_VSN  2.3 \
 PUBLIC_KEY_VSN  1.11 \
 RELTOOL_VSN     0.9 \
 RUNTIME_TOOLS_VSN       1.16.2 \
 SASL_VSN        4.1 \
-SNMP_VSN        5.9 \
-SSH_VSN 4.12 \
+SNMP_VSN        5.9.1 \
+SSH_VSN 4.12.1 \
 SSL_VSN 10.4 \
 STDLIB_VSN      3.15 \
 SYNTAX_TOOLS_VSN        2.6 \
 TFTP_VSN        1.0.3 \
 TOOLS_VSN       3.5 \
-WX_VSN  2.0 \
+WX_VSN  2.0.1 \
 XMERL_VSN       1.3.28 \
-ERTS_VSN        12.0
+ERTS_VSN        12.0.1
 SYSTEM_VSN=	${MAJ_V}
 
 pre-configure:
