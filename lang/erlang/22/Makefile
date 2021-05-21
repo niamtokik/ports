@@ -5,9 +5,9 @@ BROKEN-alpha=	beam/erl_process.c:6692: internal compiler error: in final_scan_in
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		22.3.4.18
+V=		22.3.4.19
 MAJ_V=		22
-EPOCH=		1
+EPOCH=		2
 DISTNAME=	otp_src_$V
 PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V
@@ -23,7 +23,7 @@ PKGSPEC-wx=	erlang-wx-${VERSION_SPEC}
 BUILD_DEPENDS+=	textproc/libxslt
 
 COMPILER= base-clang
-CONFIGURE_STYLE = configure autoconf
+CONFIGURE_STYLE = configure 
 CONFIGURE_ARGS+=--without-jinterface	\
 		--without-odbc		\
 		--enable-threads	\
@@ -57,46 +57,46 @@ MODGNU_CONFIG_GUESS_DIRS ?=	${WRKSRC}/erts/autoconf \
 
 # Use the target 'gen-versions' to update this list
 ERL_VERSIONS=	\
-ASN1_VSN	5.0.12 \
-COMMON_TEST_VSN	1.18.2 \
-COMPILER_VSN	7.5.4.3 \
-CRYPTO_VSN	4.6.5.2 \
-DEBUGGER_VSN	4.2.8 \
-DIALYZER_VSN	4.1.1 \
-DIAMETER_VSN	2.2.3 \
-EDOC_VSN	0.11 \
-EI_VSN	3.13.2.1 \
-ELDAP_VSN	1.2.8 \
-EMACS_VSN	2.7.0 \
-ERL_DOCGEN_VSN	0.11 \
-ERL_INTERFACE_VSN	3.13.2.1 \
-ET_VSN	1.6.4 \
-EUNIT_VSN	2.4.1 \
-FTP_VSN	1.0.4.1 \
-HIPE_VSN	3.19.3 \
-INETS_VSN	7.1.3.3 \
-JINTERFACE_VSN	1.10.1 \
-KERNEL_VSN	6.5.2.2 \
-MEGACO_VSN	3.18.8.3 \
-MNESIA_VSN	4.16.3.1 \
-OBSERVER_VSN	2.9.3 \
-ODBC_VSN	2.12.4 \
-OS_MON_VSN	2.5.1.1 \
-PARSETOOLS_VSN	2.1.8 \
-PUBLIC_KEY_VSN	1.7.2 \
-RELTOOL_VSN	0.8 \
-RUNTIME_TOOLS_VSN	1.14.0.1 \
-SASL_VSN	3.4.2 \
-SNMP_VSN	5.5.0.4 \
-SSH_VSN	4.9.1.3 \
-SSL_VSN	9.6.2.3 \
-STDLIB_VSN	3.12.1 \
-SYNTAX_TOOLS_VSN	2.2.1 \
-TFTP_VSN	1.0.2 \
-TOOLS_VSN	3.3.1.1 \
-WX_VSN	1.9 \
-XMERL_VSN	1.3.24 \
-ERTS_VSN	10.7.2.10
+ASN1_VSN        5.0.12 \
+COMMON_TEST_VSN 1.18.2.1 \
+COMPILER_VSN    7.5.4.3 \
+CRYPTO_VSN      4.6.5.3 \
+DEBUGGER_VSN    4.2.8 \
+DIALYZER_VSN    4.1.1 \
+DIAMETER_VSN    2.2.3 \
+EDOC_VSN        0.11 \
+EI_VSN  3.13.2.2 \
+ELDAP_VSN       1.2.8 \
+EMACS_VSN       2.7.0 \
+ERL_DOCGEN_VSN  0.11 \
+ERL_INTERFACE_VSN       3.13.2.2 \
+ET_VSN  1.6.4 \
+EUNIT_VSN       2.4.1 \
+FTP_VSN 1.0.4.1 \
+HIPE_VSN        3.19.3 \
+INETS_VSN       7.1.3.3 \
+JINTERFACE_VSN  1.10.1 \
+KERNEL_VSN      6.5.2.2 \
+MEGACO_VSN      3.18.8.4 \
+MNESIA_VSN      4.16.3.1 \
+OBSERVER_VSN    2.9.3 \
+ODBC_VSN        2.12.4.1 \
+OS_MON_VSN      2.5.1.1 \
+PARSETOOLS_VSN  2.1.8 \
+PUBLIC_KEY_VSN  1.7.2 \
+RELTOOL_VSN     0.8 \
+RUNTIME_TOOLS_VSN       1.14.0.1 \
+SASL_VSN        3.4.2 \
+SNMP_VSN        5.5.0.5 \
+SSH_VSN 4.9.1.3 \
+SSL_VSN 9.6.2.3 \
+STDLIB_VSN      3.12.1 \
+SYNTAX_TOOLS_VSN        2.2.1 \
+TFTP_VSN        1.0.2 \
+TOOLS_VSN       3.3.1.1 \
+WX_VSN  1.9.0.1 \
+XMERL_VSN       1.3.24 \
+ERTS_VSN        10.7.2.11
 
 SYSTEM_VSN=	${MAJ_V}
 
