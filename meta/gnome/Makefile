@@ -1,11 +1,14 @@
-# $OpenBSD: Makefile,v 1.204 2021/05/05 20:32:26 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.208 2021/05/16 09:17:25 ajacoutot Exp $
 
 COMMENT-main=		GNOME desktop meta-package (core installation)
 COMMENT-extras=		GNOME desktop meta-package (world installation)
 
 # sync with gnome-desktop GNOME_VERSION
-V=			3.38.6
+V=			40.1
 PKGNAME=		gnome-${V}
+
+REVISION-main =		1
+REVISION-extras =	1
 
 PKGNAME-main=		gnome-${V}
 PKGNAME-extras=		gnome-extras-${V}
@@ -39,7 +42,8 @@ RUN_DEPENDS-extras +=	x11/gnome/builder \
 			x11/gnome/devhelp
 
 # https://gitlab.gnome.org/GNOME/gnome-build-meta/blob/master/elements/core/meta-gnome-core-os-services.bst
-RUN_DEPENDS-main +=	sysutils/upower
+RUN_DEPENDS-main +=	sysutils/accountsservice \
+			sysutils/upower
 
 # https://gitlab.gnome.org/GNOME/gnome-build-meta/blob/master/elements/core/meta-gnome-core-shell.bst
 RUN_DEPENDS-main +=	devel/gsettings-desktop-schemas \
@@ -53,15 +57,15 @@ RUN_DEPENDS-main +=	devel/gsettings-desktop-schemas \
 			x11/gnome/initial-setup \
 			x11/gnome/keyring \
 			x11/gnome/menus \
+			x11/gnome/mutter \
+			x11/gnome/orca \
 			x11/gnome/session \
 			x11/gnome/settings-daemon \
 			x11/gnome/shell \
 			x11/gnome/shell-extensions \
+			x11/gnome/sushi \
 			x11/gnome/tour \
-			x11/gnome/user-docs \
-			x11/gnome/mutter \
-			x11/gnome/orca \
-			x11/gnome/sushi
+			x11/gnome/user-docs
 
 # https://gitlab.gnome.org/GNOME/gnome-build-meta/blob/master/elements/core/meta-gnome-core-utilities.bst
 RUN_DEPENDS-main +=	x11/gnome/calculator \
@@ -96,7 +100,6 @@ RUN_DEPENDS-extras +=	graphics/simple-scan \
 
 RUN_DEPENDS-main +=	x11/gnome/grilo-plugins \
 			x11/gnome/online-accounts \
-			x11/gnome/online-miners \
 			x11/gnome/tracker3-miners
 
 ################################################################################
@@ -112,9 +115,9 @@ RUN_DEPENDS-extras +=	inputmethods/ibus-anthy \
 			x11/gnome/dictionary \
 			x11/gnome/documents \
 			x11/gnome/file-roller \
+			x11/gnome/notes \
 			x11/gnome/todo \
 			x11/gnome/tweaks
-
 
 # gtk+2
 RUN_DEPENDS-extras +=	audio/libcanberra,-gtk \
@@ -124,7 +127,7 @@ RUN_DEPENDS-extras +=	audio/libcanberra,-gtk \
 			x11/gtk+2,-cups
 
 # gtk+4
-#RUN_DEPENDS-extras +=	inputmethods/ibus,-gtk4
+RUN_DEPENDS-extras +=	inputmethods/ibus,-gtk4
 
 # depends on -main
 RUN_DEPENDS-extras +=	STEM-=${V}:${BASE_PKGPATH},-main

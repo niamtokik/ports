@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2097 2021/05/04 18:54:22 tb Exp $
+# $OpenBSD: Makefile,v 1.2100 2021/05/15 20:18:12 bluhm Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -486,6 +486,7 @@
      SUBDIR += p5-C-Scan
      SUBDIR += p5-CLASS
      SUBDIR += p5-CLI-Framework
+     SUBDIR += p5-CLI-Osprey
      SUBDIR += p5-CPAN-Meta-Check
      SUBDIR += p5-Cache-Cache
      SUBDIR += p5-Cache-FastMmap
@@ -647,6 +648,7 @@
      SUBDIR += p5-Devel-Cycle
      SUBDIR += p5-Devel-Declare
      SUBDIR += p5-Devel-FastProf
+     SUBDIR += p5-Devel-FindPerl
      SUBDIR += p5-Devel-FindRef
      SUBDIR += p5-Devel-Gladiator
      SUBDIR += p5-Devel-GlobalDestruction
@@ -1105,6 +1107,7 @@
      SUBDIR += p5-Test-JSON
      SUBDIR += p5-Test-LeakTrace
      SUBDIR += p5-Test-LectroTest
+     SUBDIR += p5-Test-Lib
      SUBDIR += p5-Test-LongString
      SUBDIR += p5-Test-Manifest
      SUBDIR += p5-Test-Memory-Cycle

@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1272 2021/05/05 11:55:59 landry Exp $
+# $OpenBSD: Quirks.pm,v 1.1278 2021/05/17 20:42:20 daniel Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -455,9 +455,15 @@ my $stem_extensions = {
 	'py-junos-eznc' => 'py3-junos-eznc',
 	'py-ncclient' => 'py3-ncclient',
 	'py-beautifulsoup4' => 'py3-beautifulsoup4',
-	'py-beautifulsoup' => 'py3-beautifulsoup4', 
+	'py-beautifulsoup' => 'py3-beautifulsoup4',
 # 7.0
 	'weboob' => 'woob',
+	'py-talloc' => 'py3-talloc',
+	'py-tdb' => 'py3-tdb',
+	'bijiben' => 'gnome-notes',
+	'connections' => 'gnome-connections',
+	'py-socketio-client' => 'py3-socketio-client',
+	'py-cycler' => 'py3-cycler',
 };
 
 my $obsolete_reason = {};
@@ -1201,6 +1207,7 @@ setup_obsolete_reason(
 # 7.0
 	3 => 'mailpile',
 	7 => 'p5-Geo-GDAL',
+	3 => 'gnome-latex',
 );
 
 # though it's not yet used, these should be pkgnames, so that eventually

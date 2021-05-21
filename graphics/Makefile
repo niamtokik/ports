@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.551 2021/04/30 16:38:46 sthen Exp $
+# $OpenBSD: Makefile,v 1.555 2021/05/17 20:42:20 daniel Exp $
 
      SUBDIR =
      SUBDIR += DevIL
@@ -82,6 +82,8 @@
      SUBDIR += glm
      SUBDIR += glpng
      SUBDIR += glslang
+     SUBDIR += gmic
+     SUBDIR += gmic-qt
      SUBDIR += gmt
      SUBDIR += gnofract4d
      SUBDIR += gocr
@@ -245,13 +247,13 @@
      SUBDIR += py2-Pillow
      SUBDIR += py-Pillow,python3
      SUBDIR += py-cairo,python3
-     SUBDIR += py-cycler
      SUBDIR += py-cycler,python3
      SUBDIR += py-dot,python3
      SUBDIR += py-pygal,python3
      SUBDIR += py-imageio,python3
      SUBDIR += py-imagesize,python3
      SUBDIR += py-matplotlib,python3
+     SUBDIR += py-matplotlib-inline,python3
      SUBDIR += py-opengl
      SUBDIR += py-opengl,python3
      SUBDIR += py-pyx,python3

@@ -1,8 +1,9 @@
-# $OpenBSD: Makefile,v 1.2 2021/05/06 08:36:15 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.4 2021/05/15 12:25:26 rsadowski Exp $
 
 QT6NAME =		QtTools
 
 COMMENT =		Qt6 development tools
+REVISION =		0
 
 SHARED_LIBS +=  Qt6Designer             0.0 # 6.0
 SHARED_LIBS +=  Qt6DesignerComponents   0.0 # 6.0
@@ -13,6 +14,9 @@ WANTLIB += ${COMPILER_LIBCXX} GL Qt6Core Qt6DBus Qt6Gui Qt6Network
 WANTLIB += Qt6OpenGL Qt6OpenGLWidgets Qt6PrintSupport Qt6Qml Qt6QmlModels
 WANTLIB += Qt6Quick Qt6QuickWidgets Qt6Sql Qt6Widgets Qt6Xml c
 WANTLIB += clang clang-cpp m
+
+# avoid BDEP on ourselves
+MODQT6_DEPS =	No
 
 LIB_DEPENDS =	x11/qt6/qtbase>=${VERSION},<${NEXT_VERSION} \
 		x11/qt6/qtdeclarative>=${VERSION},<${NEXT_VERSION} \

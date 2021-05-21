@@ -1,8 +1,8 @@
-# $OpenBSD: Makefile,v 1.20 2021/04/02 07:35:56 solene Exp $
+# $OpenBSD: Makefile,v 1.22 2021/05/17 01:54:15 kmos Exp $
 
 COMMENT =	open network for secure, decentralized communication
 
-MODPY_EGG_VERSION =	1.30.0
+MODPY_EGG_VERSION =	1.33.2
 
 GH_ACCOUNT =	matrix-org
 GH_PROJECT =	synapse
@@ -65,6 +65,6 @@ TEST_DEPENDS =	${RUN_DEPENDS} \
 		www/py-jwt${MODPY_FLAVOR}
 
 do-test:
-	cd ${WRKSRC} && ${SETENV} PYTHONPATH=. ${LOCALBASE}/bin/trial-3 tests
+	cd ${WRKSRC} && ${SETENV} PYTHONPATH=. ${LOCALBASE}/bin/trial tests
 
 .include <bsd.port.mk>
