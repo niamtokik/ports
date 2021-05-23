@@ -1,0 +1,13 @@
+$$
+
+modify escript with erlang version
+
+Index: lib/elixir/generate_app.escript
+--- lib/elixir/generate_app.escript.orig
++++ lib/elixir/generate_app.escript
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env escript
++#!/usr/bin/env escript${MODERL_VERSION}
+ %% -*- erlang -*-
+ 
+ main([Source, Target, Version]) ->
