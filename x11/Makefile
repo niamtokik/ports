@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.707 2021/05/03 16:41:36 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.709 2021/05/25 23:03:09 abieber Exp $
 
      SUBDIR =
      SUBDIR += 2bwm
@@ -160,6 +160,8 @@
      #SUBDIR += libindicator
      #SUBDIR += libappindicator
      SUBDIR += libqaccessibilityclient
+     SUBDIR += libqtolm
+     SUBDIR += libquotient
      SUBDIR += libxdg-basedir
      SUBDIR += lightly
      SUBDIR += lsw

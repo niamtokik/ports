@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2100 2021/05/15 20:18:12 bluhm Exp $
+# $OpenBSD: Makefile,v 1.2104 2021/05/25 08:28:57 ajacoutot Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -55,6 +55,7 @@
      SUBDIR += bullet
      SUBDIR += bzr
      SUBDIR += bzr-svn
+     SUBDIR += cabal-bundler
      SUBDIR += cabal-install
      SUBDIR += capstone
      SUBDIR += cargo-generate-vendor
@@ -307,6 +308,7 @@
      SUBDIR += libslang
      SUBDIR += libsmb2
      SUBDIR += libsoup
+     SUBDIR += libsoup3
      SUBDIR += libspectrum
      SUBDIR += libtalloc
      SUBDIR += libtermkey
@@ -1589,7 +1591,7 @@
      SUBDIR += py-serial
      SUBDIR += py-serial,python3
      SUBDIR += py-setproctitle,python3
-     SUBDIR += py-setuptools
+     SUBDIR += py2-setuptools
      SUBDIR += py-setuptools,python3
      SUBDIR += py-setuptools_git
      SUBDIR += py-setuptools_git,python3
@@ -1852,6 +1854,7 @@
      SUBDIR += sdl2-net
      SUBDIR += sdl2-ttf
      SUBDIR += sdlmm
+     SUBDIR += serd
      SUBDIR += sfio
      SUBDIR += shapelib
      SUBDIR += sharness
@@ -1864,6 +1867,7 @@
      SUBDIR += smpeg
      SUBDIR += smpeg2
      SUBDIR += snare
+     SUBDIR += sord
      SUBDIR += sparsehash
      SUBDIR += spe
      SUBDIR += spice-protocol

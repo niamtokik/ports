@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.1253 2021/05/16 18:38:37 kmos Exp $
+# $OpenBSD: Makefile,v 1.1255 2021/05/25 23:18:38 abieber Exp $
 
      SUBDIR =
      SUBDIR += adns
@@ -284,6 +284,7 @@
      SUBDIR += natpmpd
      SUBDIR += nbtscan
      SUBDIR += ncftp
+     SUBDIR += neochat
      SUBDIR += neon
      SUBDIR += nepim
      SUBDIR += net-snmp
@@ -620,6 +621,7 @@
      SUBDIR += py-socks,python3
      SUBDIR += py-stem
      SUBDIR += py-stem,python3
+     SUBDIR += py-tinytuya,python3
      SUBDIR += py-tld
      SUBDIR += py-tld,python3
      SUBDIR += py-tlslite-ng,python3

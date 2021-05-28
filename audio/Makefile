@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.456 2021/04/24 00:31:55 jeremy Exp $
+# $OpenBSD: Makefile,v 1.460 2021/05/25 22:19:58 abieber Exp $
 
      SUBDIR =
      SUBDIR += abcde
@@ -98,7 +98,9 @@
      SUBDIR += libvorbis
      SUBDIR += libworkman
      SUBDIR += libxmp
+     SUBDIR += lilv
      SUBDIR += lmms
+     SUBDIR += lv2
      SUBDIR += mac
      SUBDIR += madplay
      SUBDIR += mcp-plugins
@@ -129,6 +131,7 @@
      SUBDIR += mumble
      SUBDIR += musepack
      SUBDIR += musique
+     SUBDIR += navidrome
      SUBDIR += ncmpc
      SUBDIR += ncmpcpp
      SUBDIR += ncspot
@@ -224,6 +227,7 @@
      SUBDIR += speexdsp
      SUBDIR += squeezecenter
      SUBDIR += squeezelite
+     SUBDIR += sratom
      SUBDIR += streamripper
      SUBDIR += swh-plugins
      SUBDIR += taglib

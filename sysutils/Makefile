@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.605 2021/05/16 15:14:28 naddy Exp $
+# $OpenBSD: Makefile,v 1.607 2021/05/27 16:14:27 kn Exp $
 
      SUBDIR =
      SUBDIR += accountsservice
@@ -125,6 +125,7 @@
      SUBDIR += grafana
      SUBDIR += grive2
      SUBDIR += gsmartcontrol
+     SUBDIR += hcloud
      SUBDIR += hotplug-diskmount
      SUBDIR += htop
      SUBDIR += hw-probe
@@ -252,6 +253,7 @@
      SUBDIR += packer
      SUBDIR += packer-vmm
      SUBDIR += parallel
+     SUBDIR += patchelf
      SUBDIR += pciutils
      SUBDIR += perp
      SUBDIR += pftop
