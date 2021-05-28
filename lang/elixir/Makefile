@@ -3,6 +3,7 @@
 COMMENT=		functional language for building scalable applications
 
 V=			1.11.4
+EPOCH=			2
 GH_ACCOUNT=		elixir-lang
 GH_PROJECT=		elixir
 GH_TAGNAME=		v$V
@@ -16,9 +17,7 @@ MAINTAINER=		Jasper Lievisse Adriaanse <jasper@openbsd.org>
 # Apache2
 PERMIT_PACKAGE=	Yes
 
-# BUILD_DEPENDS+=		lang/erlang/23
 MODULES=		lang/erlang
-MODERL_VERSION=		23
 
 ALL_TARGET=		# empty
 
@@ -27,7 +26,6 @@ PORTHOME=		${WRKDIR}
 
 MAKE_FLAGS=		PREFIX="${PREFIX}" \
 			MAN_PREFIX="${PREFIX}/man" \
-			MODERL_VERSION="${MODERL_VERSION}" \
 			Q=""
 
 pre-configure:

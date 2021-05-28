@@ -7,7 +7,7 @@ GH_ACCOUNT=		rebar
 GH_PROJECT=		rebar
 FULLPKGNAME =		rebar${ERL_VERSION}-${GH_TAGNAME}
 REVISION =		2
-ERL_VERSION=		22
+ERL_VERSION=		23
 
 CATEGORIES=		devel lang/erlang
 
@@ -18,8 +18,8 @@ PERMIT_PACKAGE=	Yes
 
 # This port cannot use the erlang module for the module depends on this port.
 # Keep in sync with erlang.port.mk
-# FLAVORS =		erlang21
-# FLAVOR ?=		erlang21
+FLAVORS =		erlang23
+FLAVOR ?=		erlang23
 
 BUILD_DEPENDS +=	${RUN_DEPENDS}
 

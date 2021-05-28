@@ -14,7 +14,7 @@ PKGNAME-wx=	erlang-wx-$V
 REVISION-main=	2
 REVISION-wx=	2
 
-VERSION_SPEC=	>=23v0,<24v0
+VERSION_SPEC=	>=23v0 # ,<24v0 todebug
 PKGSPEC-main=	erlang-${VERSION_SPEC}
 PKGSPEC-wx=	erlang-wx-${VERSION_SPEC}
 

@@ -25,7 +25,6 @@ EXTRACT_SUFX =	.tar.xz
 
 MODULES =	lang/erlang \
 		lang/python
-MODERL_VERSION ?= 21
 
 USE_GMAKE =	Yes
 CONFIGURE_STYLE = none
