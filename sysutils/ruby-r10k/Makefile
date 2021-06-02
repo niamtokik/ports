@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.31 2021/05/23 18:34:29 sebastia Exp $
+# $OpenBSD: Makefile,v 1.33 2021/06/01 05:59:18 sebastia Exp $
 
 COMMENT =	Puppet module management
 
