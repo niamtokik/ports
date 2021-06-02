@@ -3,7 +3,7 @@
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		23.3.4.1
+V=		23.3.4.2
 MAJ_V=		23
 EPOCH=		4
 DISTNAME=	otp_src_$V
@@ -58,8 +58,8 @@ MODGNU_CONFIG_GUESS_DIRS ?=     ${WRKSRC}/erts/autoconf \
 ERL_VERSIONS=	\
 ASN1_VSN        5.0.15 \
 COMMON_TEST_VSN 1.20.2.1 \
-COMPILER_VSN    7.6.9 \
-CRYPTO_VSN      4.9.0.1 \
+COMPILER_VSN    7.6.9.1 \
+CRYPTO_VSN      4.9.0.2 \
 DEBUGGER_VSN    5.0 \
 DIALYZER_VSN    4.3.1 \
 DIAMETER_VSN    2.2.4 \
@@ -75,7 +75,7 @@ FTP_VSN 1.0.5 \
 HIPE_VSN        4.0.1 \
 INETS_VSN       7.3.2 \
 JINTERFACE_VSN  1.11.1 \
-KERNEL_VSN      7.3.1 \
+KERNEL_VSN      7.3.1.1 \
 MEGACO_VSN      3.19.5.1 \
 MNESIA_VSN      4.19 \
 OBSERVER_VSN    2.9.5 \
@@ -87,15 +87,16 @@ RELTOOL_VSN     0.8 \
 RUNTIME_TOOLS_VSN       1.16.1 \
 SASL_VSN        4.0.2 \
 SNMP_VSN        5.8.0.1 \
-SSH_VSN 4.11.1.1 \
-SSL_VSN 10.3.1 \
-STDLIB_VSN      3.14.2 \
+SSH_VSN 4.11.1.2 \
+SSL_VSN 10.3.1.1 \
+STDLIB_VSN      3.14.2.1 \
 SYNTAX_TOOLS_VSN        2.5 \
 TFTP_VSN        1.0.2 \
 TOOLS_VSN       3.4.4 \
 WX_VSN  1.9.3.1 \
 XMERL_VSN       1.3.27 \
-ERTS_VSN        11.2.2.1
+ERTS_VSN        11.2.2.2
+
 SYSTEM_VSN=	${MAJ_V}
 
 .include <bsd.port.mk>

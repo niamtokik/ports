@@ -5,9 +5,9 @@ BROKEN-alpha=	beam/erl_process.c:6692: internal compiler error: in final_scan_in
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		22.3.4.19
+V=		22.3.4.20
 MAJ_V=		22
-EPOCH=		2
+EPOCH=		3
 DISTNAME=	otp_src_$V
 PKGNAME=	erlang-$V
 PKGNAME-main=	erlang-$V
@@ -60,7 +60,7 @@ ERL_VERSIONS=	\
 ASN1_VSN        5.0.12 \
 COMMON_TEST_VSN 1.18.2.1 \
 COMPILER_VSN    7.5.4.3 \
-CRYPTO_VSN      4.6.5.3 \
+CRYPTO_VSN      4.6.5.4 \
 DEBUGGER_VSN    4.2.8 \
 DIALYZER_VSN    4.1.1 \
 DIAMETER_VSN    2.2.3 \
@@ -76,7 +76,7 @@ FTP_VSN 1.0.4.1 \
 HIPE_VSN        3.19.3 \
 INETS_VSN       7.1.3.3 \
 JINTERFACE_VSN  1.10.1 \
-KERNEL_VSN      6.5.2.2 \
+KERNEL_VSN      6.5.2.3 \
 MEGACO_VSN      3.18.8.4 \
 MNESIA_VSN      4.16.3.1 \
 OBSERVER_VSN    2.9.3 \
@@ -90,13 +90,13 @@ SASL_VSN        3.4.2 \
 SNMP_VSN        5.5.0.5 \
 SSH_VSN 4.9.1.3 \
 SSL_VSN 9.6.2.3 \
-STDLIB_VSN      3.12.1 \
+STDLIB_VSN      3.12.1.1 \
 SYNTAX_TOOLS_VSN        2.2.1 \
 TFTP_VSN        1.0.2 \
 TOOLS_VSN       3.3.1.1 \
 WX_VSN  1.9.0.1 \
 XMERL_VSN       1.3.24 \
-ERTS_VSN        10.7.2.11
+ERTS_VSN        10.7.2.12
 
 SYSTEM_VSN=	${MAJ_V}
 
