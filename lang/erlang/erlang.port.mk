@@ -8,23 +8,20 @@ USE_GMAKE ?=		Yes
 
 # Default Erlang version to use if MODERL_VERSION is not set.
 # XXX: Keep in sync with devel/rebar/Makefile
-MODERL_DEFAULT_VERSION =21
+MODERL_DEFAULT_VERSION =23
 
 # If the port already has flavors, append ours to it unless the port requires
 # a specific version of Erlang.
 .if !defined(MODERL_VERSION) && !defined(FLAVORS)
-FLAVORS ?=		erlang19 erlang21 erlang22 erlang23 erlang24
+FLAVORS ?=		erlang21 erlang22 erlang23 erlang24
 .else
-FLAVORS +=		erlang19 erlang21 erlang22 erlang23 erlang24
+FLAVORS +=		erlang21 erlang22 erlang23 erlang24
 .endif
 
 FLAVOR?=		# empty
 
 # When no flavor is explicitly set, assume MODERL_DEFAULT_VERSION
-.if ${FLAVOR:Merlang19}
-MODERL_VERSION =	19
-_MODERL_FLAVOR =	${FLAVOR}
-.elif ${FLAVOR:Merlang21}
+.if ${FLAVOR:Merlang21}
 MODERL_VERSION =	21
 _MODERL_FLAVOR =	${FLAVOR}
 .elif ${FLAVOR:Merlang22}
@@ -41,9 +38,7 @@ MODERL_VERSION ?=	${MODERL_DEFAULT_VERSION}
 _MODERL_FLAVOR ?=	# empty
 .endif
 
-.if ${MODERL_VERSION} == 19
-_MODERL_FLAVOR =	erlang19
-.elif ${MODERL_VERSION} == 21
+.if ${MODERL_VERSION} == 21
 _MODERL_FLAVOR =	erlang21
 .elif ${MODERL_VERSION} == 22
 _MODERL_FLAVOR =	erlang22
@@ -53,16 +48,6 @@ _MODERL_FLAVOR =	erlang23
 _MODERL_FLAVOR =	erlang24
 .else
 ERRORS +=		"Invalid MODERL_VERSION set: ${MODERL_VERSION}."
-.endif
-
-# If no configure style is set, then assume "rebar"
-.if ${CONFIGURE_STYLE} == ""
-CONFIGURE_STYLE =	rebar
-MODERL_BUILD_DEPENDS +=	devel/rebar
-REBAR_BIN ?=		${LOCALBASE}/bin/rebar${MODERL_VERSION}
-# Make sure rebar gets called as 'rebar', otherwise escript tries to call the
-# binary name (e.g. rebar21) as the script entrypoint.
-_MODERL_LINKS +=	rebar${MODERL_VERSION} rebar
 .endif
 
 # Append the flavor to all the Erlang dependencies

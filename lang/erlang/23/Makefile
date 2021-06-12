@@ -3,7 +3,7 @@
 COMMENT-main=	${COMMENT}
 COMMENT-wx=	WxWidgets bindings for Erlang
 
-V=		23.3.4.2
+V=		23.3.4.3
 MAJ_V=		23
 EPOCH=		4
 DISTNAME=	otp_src_$V
@@ -14,7 +14,7 @@ PKGNAME-wx=	erlang-wx-$V
 REVISION-main=	2
 REVISION-wx=	2
 
-VERSION_SPEC=	>=23v0,<24v0
+VERSION_SPEC=	>=23
 PKGSPEC-main=	erlang-${VERSION_SPEC}
 PKGSPEC-wx=	erlang-wx-${VERSION_SPEC}
 
@@ -75,7 +75,7 @@ FTP_VSN 1.0.5 \
 HIPE_VSN        4.0.1 \
 INETS_VSN       7.3.2 \
 JINTERFACE_VSN  1.11.1 \
-KERNEL_VSN      7.3.1.1 \
+KERNEL_VSN      7.3.1.2 \
 MEGACO_VSN      3.19.5.1 \
 MNESIA_VSN      4.19 \
 OBSERVER_VSN    2.9.5 \
@@ -87,7 +87,7 @@ RELTOOL_VSN     0.8 \
 RUNTIME_TOOLS_VSN       1.16.1 \
 SASL_VSN        4.0.2 \
 SNMP_VSN        5.8.0.1 \
-SSH_VSN 4.11.1.2 \
+SSH_VSN 4.11.1.3 \
 SSL_VSN 10.3.1.1 \
 STDLIB_VSN      3.14.2.1 \
 SYNTAX_TOOLS_VSN        2.5 \
@@ -95,7 +95,7 @@ TFTP_VSN        1.0.2 \
 TOOLS_VSN       3.4.4 \
 WX_VSN  1.9.3.1 \
 XMERL_VSN       1.3.27 \
-ERTS_VSN        11.2.2.2
+ERTS_VSN        11.2.2.3
 
 SYSTEM_VSN=	${MAJ_V}
 
