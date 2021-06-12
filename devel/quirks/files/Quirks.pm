@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1280 2021/05/27 23:02:22 sthen Exp $
+# $OpenBSD: Quirks.pm,v 1.1283 2021/06/12 05:40:15 daniel Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -61,6 +61,7 @@ my $base_exceptions = {
 	'libelf' => '/usr/lib/libelf.so.*',
 # 6.9
 	'acme-client' => '/usr/sbin/acme-client',
+	'libexecinfo' => '/usr/include/execinfo.h',
 };
 
 my $stem_extensions = {
@@ -465,6 +466,8 @@ my $stem_extensions = {
 	'py-socketio-client' => 'py3-socketio-client',
 	'py-cycler' => 'py3-cycler',
 	'py-pyRFC3339' => 'py3-pyRFC3339',
+	'py-libarchive-c' => 'py3-libarchive-c',
+	'py-minimalmodbus' => 'py3-minimalmodbus',
 };
 
 my $obsolete_reason = {};
@@ -1209,6 +1212,7 @@ setup_obsolete_reason(
 	3 => 'mailpile',
 	7 => 'p5-Geo-GDAL',
 	3 => 'gnome-latex',
+	3 => 'p5-Puppet-Tidy',
 );
 
 # though it's not yet used, these should be pkgnames, so that eventually

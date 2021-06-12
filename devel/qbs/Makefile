@@ -1,11 +1,12 @@
-# $OpenBSD: Makefile,v 1.14 2020/11/02 17:27:44 rsadowski Exp $
+# $OpenBSD: Makefile,v 1.16 2021/06/05 05:01:36 rsadowski Exp $
 
 COMMENT =	declarative cross-platform build tool
-V =		1.17.0
+V =		1.19.0
 DISTNAME =	qbs-src-${V}
 PKGNAME =	qbs-${V}
+REVISION =	0
 
-SHARED_LIBS =	qbscore			7.0
+SHARED_LIBS =	qbscore			8.0
 SHARED_LIBS +=	qbsqtprofilesetup	4.0
 
 CATEGORIES =	devel
@@ -16,7 +17,7 @@ HOMEPAGE =	https://doc.qt.io/qbs/
 PERMIT_PACKAGE =	Yes
 
 WANTLIB += ${COMPILER_LIBCXX} GL Qt5Core Qt5Gui Qt5Network Qt5Script
-WANTLIB += Qt5Widgets Qt5Xml c kvm m
+WANTLIB += Qt5Widgets Qt5Xml c m
 
 MASTER_SITES =		https://download.qt.io/official_releases/qbs/${V}/
 

@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.120 2021/04/23 21:15:46 sthen Exp $
+# $OpenBSD: Makefile,v 1.122 2021/06/03 10:51:05 sthen Exp $
 
 BROKEN-alpha =	.got subsegment exceeds 64K (size 101480)
 
@@ -6,7 +6,7 @@ COMMENT-main =	graphical network protocol analyzer, Qt user-interface
 COMMENT-text =	network protocol analyzer
 
 DPB_PROPERTIES =	parallel
-V =		3.4.5
+V =		3.4.6
 PORTROACH =	limitw:1,even
 DISTNAME =	wireshark-$V
 PKGNAME-main =	wireshark-$V
@@ -27,18 +27,11 @@ EXTRACT_SUFX =	.tar.xz
 # tools/pidl is GPLv3 or later. See COPYING.
 PERMIT_PACKAGE = Yes
 
-cWANTLIB +=	${COMPILER_LIBCXX} c gcrypt glib-2.0 gmodule-2.0 m pcap z
+cWANTLIB +=	c gcrypt glib-2.0 gmodule-2.0 m pcap z
 
 MAINTAINER =	Stuart Henderson <stu.ports@spacehopper.org>
 
 MULTI_PACKAGES = -text -main
-
-#DEBUG_PACKAGES = ${BUILD_PACKAGES}
-# XXX Disabled for now:
-#
-# ld: error: ui/qt/CMakeFiles/qtui.dir/widgets/drag_drop_toolbar.cpp.o: unknown file type
-# ld: error: ui/qt/CMakeFiles/qtui.dir/utils/frame_information.cpp.o: section header table goes past the end of the file: e_shoff = 0x5eb20
-# c++: error: linker command failed with exit code 1 (use -v to see invocation)
 
 PSEUDO_FLAVORS = no_x11
 
@@ -62,7 +55,7 @@ WANTLIB-text =	${cWANTLIB} ${MODLUA_WANTLIB}
 WANTLIB-text += bcg729 brotlidec cares gnutls lz4 maxminddb nghttp2
 WANTLIB-text += opus smi snappy spandsp speexdsp ssh xml2 zstd
 
-WANTLIB-main =	${cWANTLIB}
+WANTLIB-main =	${cWANTLIB} ${COMPILER_LIBCXX}
 WANTLIB-main += minizip speexdsp wireshark wiretap wsutil
 WANTLIB-main += Qt5Core Qt5Gui Qt5Multimedia Qt5PrintSupport Qt5Widgets
 

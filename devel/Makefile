@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2104 2021/05/25 08:28:57 ajacoutot Exp $
+# $OpenBSD: Makefile,v 1.2106 2021/06/09 19:50:07 sthen Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -262,7 +262,6 @@
      SUBDIR += libev
      SUBDIR += libevent2
      SUBDIR += libeventextra
-     SUBDIR += libexecinfo
      SUBDIR += libfastjson
      SUBDIR += libffi
      SUBDIR += libfirm
@@ -400,6 +399,7 @@
      SUBDIR += lutok
      SUBDIR += m4
      SUBDIR += makeesparduino
+     SUBDIR += maturin
      SUBDIR += maven
      SUBDIR += mcs
      SUBDIR += mercurial

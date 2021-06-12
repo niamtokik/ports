@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.271 2021/03/02 15:22:32 sthen Exp $
+# $OpenBSD: Makefile,v 1.273 2021/06/09 19:50:06 sthen Exp $
 
 COMMENT-main=	PostgreSQL RDBMS (client)
 COMMENT-server=	PostgreSQL RDBMS (server)
@@ -7,9 +7,9 @@ COMMENT-contrib=PostgreSQL RDBMS contributions
 COMMENT-plpython=Python procedural language for PostgreSQL
 COMMENT-pg_upgrade=Support for upgrading PostgreSQL data from previous version
 
-VERSION=	13.2
+VERSION=	13.3
 PREV_MAJOR=	12
-REVISION=	1
+REVISION=	0
 DISTNAME=	postgresql-${VERSION}
 PKGNAME-main=	postgresql-client-${VERSION}
 PKGNAME-server=	postgresql-server-${VERSION}
@@ -98,8 +98,7 @@ MODGNU_CONFIG_GUESS_DIRS=	${WRKSRC}/config
 ALL_TARGET=	world
 INSTALL_TARGET=	install-world
 
-LIB_DEPENDS-main=	devel/libexecinfo \
-			textproc/libxml
+LIB_DEPENDS-main=	textproc/libxml
 WANTLIB-main=		${WANTLIB} execinfo xml2
 
 LIB_DEPENDS-server=	databases/postgresql=${VERSION} \
