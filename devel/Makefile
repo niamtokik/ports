@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.2106 2021/06/09 19:50:07 sthen Exp $
+# $OpenBSD: Makefile,v 1.2109 2021/06/14 18:00:23 pvk Exp $
 
      SUBDIR =
      SUBDIR += 64tass
@@ -575,6 +575,7 @@
      SUBDIR += p5-Config-Tiny
      SUBDIR += p5-Context-Preserve
      SUBDIR += p5-Coro
+     SUBDIR += p5-CPAN-Perl-Releases
      SUBDIR += p5-Curses
      SUBDIR += p5-Curses-UI
      SUBDIR += p5-Curses-Widgets
@@ -661,6 +662,7 @@
      SUBDIR += p5-Devel-NYTProf
      SUBDIR += p5-Devel-OverloadInfo
      SUBDIR += p5-Devel-PartialDump
+     SUBDIR += p5-Devel-PatchPerl
      SUBDIR += p5-Devel-REPL
      SUBDIR += p5-Devel-Refcount
      SUBDIR += p5-Devel-SawAmpersand
@@ -1578,6 +1580,7 @@
      SUBDIR += py-regex,python3 
      SUBDIR += py-rencode
      SUBDIR += py-rencode,python3
+     SUBDIR += py-resolvelib,python3
      SUBDIR += py-rfc6555
      SUBDIR += py-rfc6555,python3
      SUBDIR += py-rich,python3

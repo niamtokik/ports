@@ -1,4 +1,4 @@
-# $OpenBSD: Makefile,v 1.138 2021/05/24 16:27:37 sthen Exp $
+# $OpenBSD: Makefile,v 1.140 2021/06/18 18:12:10 sthen Exp $
 
 COMMENT=	Berkeley Internet Name Daemon: DNS server and tools
 
@@ -8,7 +8,7 @@ V=		9.16.16
 SUBST_VARS+=	V
 PORTROACH=	limitw:1,even
 EXTRACT_SUFX=	.tar.xz
-EPOCH=		2
+EPOCH=		3
 
 DISTNAME=	bind-$V
 PKGNAME=	isc-bind-${V:S/-P/pl/}
@@ -22,7 +22,8 @@ MAINTAINER=	Stuart Henderson <stu.ports@spacehopper.org>
 # MPL 2.0
 PERMIT_PACKAGE=	Yes
 
-WANTLIB += c crypto iconv idn2 json-c lzma m pthread ssl unistring uv xml2 z
+WANTLIB += c crypto execinfo iconv idn2 json-c lzma m pthread ssl
+WANTLIB += unistring uv xml2 z
 
 MASTER_SITES=	${MASTER_SITE_ISC:=bind9/$V/}
 

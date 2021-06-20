@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 # ex:ts=8 sw=4:
-# $OpenBSD: Quirks.pm,v 1.1283 2021/06/12 05:40:15 daniel Exp $
+# $OpenBSD: Quirks.pm,v 1.1285 2021/06/16 18:22:44 rsadowski Exp $
 #
 # Copyright (c) 2009 Marc Espie <espie@openbsd.org>
 #
@@ -468,6 +468,7 @@ my $stem_extensions = {
 	'py-pyRFC3339' => 'py3-pyRFC3339',
 	'py-libarchive-c' => 'py3-libarchive-c',
 	'py-minimalmodbus' => 'py3-minimalmodbus',
+	'baresip-gtk2' => 'baresip-gtk',
 };
 
 my $obsolete_reason = {};
@@ -1213,6 +1214,7 @@ setup_obsolete_reason(
 	7 => 'p5-Geo-GDAL',
 	3 => 'gnome-latex',
 	3 => 'p5-Puppet-Tidy',
+	6 => 'kf5-icons-baloo',
 );
 
 # though it's not yet used, these should be pkgnames, so that eventually
